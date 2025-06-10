@@ -41,8 +41,9 @@ class ScrollVideoManager {
     setupIntersectionObserver() {
         // Configurar el observador para las animaciones fade-in
         const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -15% 0px'
+            threshold: 0.15,
+            // Trigger a bit earlier so elements reveal properly on mobile
+            rootMargin: '0px 0px -10% 0px'
         };
 
         this.observer = new IntersectionObserver((entries) => {
@@ -207,9 +208,4 @@ class ScrollVideoManager {
 document.addEventListener('DOMContentLoaded', () => {
     window.scrollVideoManager = new ScrollVideoManager();
 });
-
-// También inicializar si el script se carga después del DOMContentLoaded
-if (document.readyState !== 'loading') {
-    window.scrollVideoManager = new ScrollVideoManager();
-}
 
