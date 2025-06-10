@@ -19,7 +19,7 @@
                 bookContainer.classList.remove('visible');
                 etherealIndicator.classList.remove('visible');
             }
-        });
+        }, { rootMargin: '0px 0px -30% 0px' });
         io.observe(bookSection);
 
         function updateBookSteps() {
