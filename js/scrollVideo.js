@@ -1,152 +1,211 @@
 // Scroll-synced video controller
 
-class ScrollVideoController {
-  constructor(opts = {}) {
-    this.videos = [];
-    this.isScrolling = false;
-    this.scrollTimeout = null;
-    this.lastScrollTime = 0;
+class ScrollVideoManager {
+    constructor() {
+        this.video = null;
+        this.videoContainer = null;
+        this.sections = [];
+        this.currentSectionIndex = 0;
+        this.isScrolling = false;
+        this.scrollTimeout = null;
+        this.observer = null;
 
-    // --- parámetros fáciles de tunear ---
-    this.slowRate     = opts.slowRate     ?? 0.3;  // velocidad cuando no se hace scroll
-    this.focusOffset  = opts.focusOffset  ?? 0.30;  // 30 % del viewport = enfocado
-    this.scrubEpsilon = opts.scrubEpsilon ?? 0.07;  // salto mínimo antes de mover currentTime
-    this.scrollRate   = opts.scrollRate   ?? 0.002; // segundos por pixel scrolleado
+        this.init();
+    }
 
-    // --- para control incremental ---
-    this.lastScrollY  = window.scrollY;
-    this.scrollDelta  = 0;
+    init() {
+        this.video = document.getElementById('background-video');
+        this.videoContainer = document.querySelector('.video-container');
 
-    this.init();
-  }
-
-  /* --------------- INIT --------------- */
-  init() {
-    this.setupVideos();
-    this.setupScrollListener();
-    this.setupIntersectionObserver();
-  }
-
-  /* -------- VIDEO SETUP -------- */
-  setupVideos() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.loaded) {
-          entry.target.preload = 'metadata';
-          entry.target.load();
-          entry.target.dataset.loaded = 'true';
+        if (!this.video || !this.videoContainer) {
+            console.warn('Video elements not found');
+            return;
         }
-      });
-    }, { rootMargin: '200px' });
 
-    document.querySelectorAll('.journey-video').forEach((video) => {
-      const data = {
-        element   : video,
-        step      : video.closest('.journey-step'),
-        loading   : video.parentElement.querySelector('.video-loading'),
-        duration  : 0,
-        isLoaded  : false,
-        isVisible : false
-      };
+        this.setupSections();
+        this.setupIntersectionObserver();
+        this.setupScrollHandler();
+        this.setupVideoEvents();
+    }
 
-      video.addEventListener('loadedmetadata', () => {
-        data.duration = video.duration;
-        data.isLoaded = true;
-        data.loading?.classList.add('hidden');
-      });
+    setupSections() {
+        // Definir las secciones con sus tiempos de video correspondientes
+        this.sections = [
+            { id: 'hero', startTime: 0, endTime: 10 },
+            { id: 'essence', startTime: 10, endTime: 25 },
+            { id: 'journey', startTime: 25, endTime: 40 },
+            { id: 'preorder', startTime: 40, endTime: 55 }
+        ];
+    }
 
-      video.muted   = true;
-      video.preload = 'none';
+    setupIntersectionObserver() {
+        // Configurar el observador para las animaciones fade-in
+        const observerOptions = {
+            threshold: 0.15,
+            // Trigger a bit earlier so elements reveal properly on mobile
+            rootMargin: '0px 0px -10% 0px'
+        };
 
-      this.videos.push(data);
-      io.observe(video);
-    });
-  }
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Añadir un pequeño delay para suavizar la animación
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 100);
+                }
+            });
+        }, observerOptions);
 
-  /* -------- SCROLL HANDLING -------- */
-  setupScrollListener() {
-    const onScroll = () => {
-      // Calcular diferencia de scroll
-      const newY = window.scrollY;
-      this.scrollDelta = newY - this.lastScrollY;
-      this.lastScrollY = newY;
+        // Observar todos los elementos con clase fade-in
+        this.observeElements();
+    }
 
-      this.isScrolling = true;
-      this.lastScrollTime = performance.now();
-      if (this.scrollTimeout) clearTimeout(this.scrollTimeout);
+    observeElements() {
+        // Esperar a que el DOM esté completamente cargado
+        const observer = () => {
+            const elementsToObserve = document.querySelectorAll(
+                '.fade-in, .journey-step, .feature-card, .option-card'
+            );
 
-      this.updateVideos(); // avanza vídeos según scroll
+            elementsToObserve.forEach(element => {
+                // Asegurar que el elemento no tenga ya la clase visible
+                element.classList.remove('visible');
+                this.observer.observe(element);
+            });
+        };
 
-      this.scrollTimeout = setTimeout(() => {
-        if (performance.now() - this.lastScrollTime >= 120) {
-          this.isScrolling = false;
-          this.updateVideos(); // cambio a slow-mo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', observer);
+        } else {
+            observer();
         }
-      }, 120);
-    };
+    }
 
-    ['scroll', 'wheel', 'touchmove'].forEach(evt =>
-      window.addEventListener(evt, onScroll, { passive: true })
-    );
-  }
+    setupScrollHandler() {
+        let ticking = false;
 
-  /* -------- CORE LOOP -------- */
-  updateVideos() {
-    const winH = window.innerHeight;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    this.handleVideoSync();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
 
-    this.videos.forEach(data => {
-      if (!data.isLoaded) return;
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    }
 
-      const rect       = data.step.getBoundingClientRect();
-      const inViewport = rect.top < winH && rect.bottom > 0;
-      data.isVisible   = inViewport;
+    handleVideoSync() {
+        if (!this.video) return;
 
-      if (!inViewport) {
-        data.element.pause();
-        return;
-      }
+        const scrollTop = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
 
-      const centerDist = Math.abs((rect.top + rect.height / 2) - winH / 2);
-      const isFocused  = centerDist < winH * this.focusOffset;
+        // Calcular el progreso del scroll (0 a 1)
+        const scrollProgress = Math.min(scrollTop / documentHeight, 1);
 
-      if (this.isScrolling) {
-        // -------- SCRUBBING INCREMENTAL --------
-        data.element.pause();
-        data.element.playbackRate = 1;
+        // Mapear el progreso del scroll al tiempo del video
+        const videoDuration = this.video.duration || 60; // fallback duration
+        const targetTime = scrollProgress * videoDuration;
 
-        // Sumar tiempo proporcional al desplazamiento del scroll
-        let newTime = data.element.currentTime + this.scrollDelta * this.scrollRate;
-        newTime = Math.max(0, Math.min(newTime, data.duration));
-        if (Math.abs(newTime - data.element.currentTime) > this.scrubEpsilon)
-          data.element.currentTime = newTime;
-      } else if (isFocused) {
-        // -------- SLOW-MOTION --------
-        if (data.element.paused) data.element.play().catch(() => {});
-        data.element.playbackRate = this.slowRate;
-      } else {
-        data.element.pause();
-      }
-    });
+        // Sincronizar el video solo si hay una diferencia significativa
+        if (Math.abs(this.video.currentTime - targetTime) > 0.5) {
+            this.video.currentTime = targetTime;
+        }
 
-    // Reset delta después de aplicar en todos los vídeos
-    this.scrollDelta = 0;
-  }
+        // Actualizar la sección actual
+        this.updateCurrentSection(scrollTop);
+    }
 
-  /* -------- HELPERS -------- */
-  easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t ** 3 : 1 - ((-2 * t + 2) ** 3) / 2;
-  }
+    updateCurrentSection(scrollTop) {
+        const sections = document.querySelectorAll('section');
+        let currentIndex = 0;
 
-  /* -------- FADE-IN ANIMATION -------- */
-  setupIntersectionObserver() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2) {
+                currentIndex = index;
+            }
+        });
 
-    document.querySelectorAll('.fade-in, .journey-step').forEach(el => io.observe(el));
-  }
+        if (currentIndex !== this.currentSectionIndex) {
+            this.currentSectionIndex = currentIndex;
+            this.triggerSectionAnimation(currentIndex);
+        }
+    }
+
+    triggerSectionAnimation(sectionIndex) {
+        // Animar elementos cuando cambien las secciones
+        const currentSection = document.querySelectorAll('section')[sectionIndex];
+        if (currentSection) {
+            const elementsToAnimate = currentSection.querySelectorAll('.fade-in:not(.visible)');
+            elementsToAnimate.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 150); // Escalonar las animaciones
+            });
+        }
+    }
+
+    setupVideoEvents() {
+        if (!this.video) return;
+
+        this.video.addEventListener('loadedmetadata', () => {
+            console.log('Video metadata loaded, duration:', this.video.duration);
+        });
+
+        this.video.addEventListener('canplay', () => {
+            // Inicializar la posición del video
+            this.handleVideoSync();
+        });
+
+        // Pausar el video para control manual
+        this.video.addEventListener('play', () => {
+            this.video.pause();
+        });
+    }
+
+    // Método público para reinicializar las animaciones
+    resetAnimations() {
+        const elements = document.querySelectorAll('.fade-in.visible');
+        elements.forEach(element => {
+            element.classList.remove('visible');
+        });
+
+        // Volver a observar los elementos
+        setTimeout(() => {
+            this.observeElements();
+        }, 100);
+    }
+
+    // Método público para forzar la animación de una sección específica
+    animateSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const elements = section.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 200);
+            });
+        }
+    }
+
+    // Cleanup method
+    destroy() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
+        window.removeEventListener('scroll', this.handleVideoSync);
+    }
 }
 
-/* ---------- INICIALIZAR ---------- */
-document.addEventListener('DOMContentLoaded', () => new ScrollVideoController());
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.scrollVideoManager = new ScrollVideoManager();
+});
 
