@@ -19,7 +19,7 @@
                 bookContainer.classList.remove('visible');
                 etherealIndicator.classList.remove('visible');
             }
-        }, { rootMargin: '0px 0px -30% 0px' });
+        }, { rootMargin: '0px 0px -50% 0px' });
         io.observe(bookSection);
 
         function updateBookSteps() {
@@ -34,7 +34,7 @@
             let progress;
             if (rect.top > windowHeight * 0) {
                 progress = 0;
-            } else if (rect.bottom < windowHeight * 1.5) {
+            } else if (rect.bottom < windowHeight * 1.8) {
                 progress = 1;
             } else {
                 const scrollableHeight = sectionHeight - windowHeight;
