@@ -10,11 +10,20 @@
         let currentStep = 0;
         let lastScrollY = 0;
 
+        const bookSection = document.querySelector('.book-section');
+        const bookContainer = document.querySelector('.book-container');
+        const etherealIndicator = document.getElementById('etherealIndicator');
+
+        const io = new IntersectionObserver(entries => {
+            if (!entries[0].isIntersecting) {
+                bookContainer.classList.remove('visible');
+                etherealIndicator.classList.remove('visible');
+            }
+        });
+        io.observe(bookSection);
+
         function updateBookSteps() {
-            const bookSection = document.querySelector('.book-section');
-            const bookContainer = document.querySelector('.book-container');
             const book = document.getElementById('book');
-            const etherealIndicator = document.getElementById('etherealIndicator');
             const etherealText = document.getElementById('etherealText');
             
             const rect = bookSection.getBoundingClientRect();
@@ -25,7 +34,7 @@
             let progress;
             if (rect.top > windowHeight * 0) {
                 progress = 0;
-            } else if (rect.bottom < windowHeight * 1.2) {
+            } else if (rect.bottom < windowHeight * 1.5) {
                 progress = 1;
             } else {
                 const scrollableHeight = sectionHeight - windowHeight;
