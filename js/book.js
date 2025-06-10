@@ -25,7 +25,7 @@
             let progress;
             if (rect.top > windowHeight * 0) {
                 progress = 0;
-            } else if (rect.bottom < windowHeight * 0.9) {
+            } else if (rect.bottom < windowHeight * 1.2) {
                 progress = 1;
             } else {
                 const scrollableHeight = sectionHeight - windowHeight;
@@ -85,6 +85,9 @@
         window.addEventListener('scroll', requestTick, { passive: true });
         window.addEventListener('load', updateBookSteps);
         window.addEventListener('resize', () => {
+            setTimeout(updateBookSteps, 100);
+        });
+        window.addEventListener('orientationchange', () => {
             setTimeout(updateBookSteps, 100);
         });
 
