@@ -386,8 +386,8 @@
             position: absolute;
             inset: 4px;
             background: 
-                url("ort4.png") no-repeat center,
-                url("title_en.png") no-repeat center;
+                url("../img/ort4.png") no-repeat center,
+                url("../img/title_en.png") no-repeat center;
             background-size: 100% 100%;
             pointer-events: none;
             opacity: 1;
@@ -617,7 +617,7 @@
             content: '';
             position: absolute;
             inset: 4px;
-            background: url("ort4.png") no-repeat center;
+            background: url("../img/ort4.png") no-repeat center;
             background-size: 100% 100%;
             pointer-events: none;
             opacity: 0.8;
@@ -1863,7 +1863,7 @@
                     rgba(102, 126, 234, 0.7), 
                     rgba(118, 75, 162, 0.7)
                 ),
-                url('mural.jpeg');
+                url('../img/mural.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
