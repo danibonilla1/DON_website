@@ -336,7 +336,7 @@
             top: 0;
             width: 40px;
             height: 600px;
-            background: url("libro.jpg") no-repeat;
+            background: url("../img/libro.jpg") no-repeat;
             background-size: 800px 600px;
             background-position: -380px 0;
             transform: rotateY(-90deg);
@@ -370,7 +370,7 @@
         .book-cover-outer {
             position: absolute;
             inset: 0;
-            background: url("libro.jpg") no-repeat;
+            background: url("../img/libro.jpg") no-repeat;
             background-size: 800px 590px;
             background-position: -415px 0;
             border: 8px solid #000;
@@ -603,7 +603,7 @@
         .book-back-outer {
             position: absolute;
             inset: 0;
-            background: url("libro.jpg") no-repeat;
+            background: url("../img/libro.jpg") no-repeat;
             background-size: 750px 590px;
             background-position: 0 0;
             border: 8px solid #000;
@@ -2254,9 +2254,9 @@
     width: 280px;
     height: 420px;
   }
-  .book-cover-outer {
-    background-size: 480px 360px;
-    background-position: -240px 0;
+    .book-cover-outer {
+    background-size: 480px 350px;
+    background-position: -250px 0;
   }
   .book-back-outer {
     background-size: 480px 360px;
