@@ -336,7 +336,7 @@
             top: 0;
             width: 40px;
             height: 600px;
-            background: url("IMG_1424.jpeg") no-repeat;
+            background: url("libro.jpg") no-repeat;
             background-size: 800px 600px;
             background-position: -380px 0;
             transform: rotateY(-90deg);
@@ -370,9 +370,9 @@
         .book-cover-outer {
             position: absolute;
             inset: 0;
-            background: url("IMG_1424.jpeg") no-repeat;
-            background-size: 800px 600px;
-            background-position: -400px 0;
+            background: url("libro.jpg") no-repeat;
+            background-size: 800px 590px;
+            background-position: -415px 0;
             border: 8px solid #000;
             border-radius: 5px 15px 15px 5px;
             z-index: 4;
@@ -385,10 +385,12 @@
             content: '';
             position: absolute;
             inset: 4px;
-            background: url("ornament1.png") no-repeat center;
+            background: 
+                url("ort4.png") no-repeat center,
+                url("title_en.png") no-repeat center;
             background-size: 100% 100%;
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 1;
         }
 
         .cover-outer-overlay {
@@ -601,8 +603,8 @@
         .book-back-outer {
             position: absolute;
             inset: 0;
-            background: url("IMG_1424.jpeg") no-repeat;
-            background-size: 800px 600px;
+            background: url("libro.jpg") no-repeat;
+            background-size: 750px 590px;
             background-position: 0 0;
             border: 8px solid #000;
             border-radius: 15px 5px 5px 15px;
@@ -615,7 +617,7 @@
             content: '';
             position: absolute;
             inset: 4px;
-            background: url("ornament1.png") no-repeat center;
+            background: url("ort4.png") no-repeat center;
             background-size: 100% 100%;
             pointer-events: none;
             opacity: 0.8;
