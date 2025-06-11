@@ -48,14 +48,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleCard(el) {
     el.classList.toggle('flipped');
-    const indicator = el.querySelector('.flip-indicator');
-    if (!indicator) return;
-    if (el.classList.contains('flipped')) {
-      indicator.style.transform = 'rotate(180deg)';
-      indicator.textContent = '↺';
-    } else {
-      indicator.style.transform = 'rotate(0deg)';
-      indicator.textContent = '↻';
-    }
   }
 });
