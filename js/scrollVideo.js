@@ -139,11 +139,31 @@ class ScrollVideoController {
 
   /* -------- FADE-IN ANIMATION -------- */
   setupIntersectionObserver() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-    }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
+    const cards = document.querySelectorAll('.feature-card, .fade-in, .journey-step');
 
-    document.querySelectorAll('.fade-in, .journey-step').forEach(el => io.observe(el));
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach(card => observer.observe(card));
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(card => {
+        card.classList.add('visible');
+      });
+    }
   }
 }
 
