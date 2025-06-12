@@ -68,6 +68,8 @@ if (authorCard) {
 document.addEventListener('DOMContentLoaded', function() {
     const authorCard = document.querySelector('.author-flip-card');
     
+    
+    
     if (authorCard) {
         let startX = 0;
         let startY = 0;
@@ -135,4 +137,5 @@ document.addEventListener('DOMContentLoaded', function() {
         authorCard.setAttribute('role', 'button');
         authorCard.setAttribute('aria-label', 'Click or tap to flip card and see more information about the author');
     }
+    
 });
