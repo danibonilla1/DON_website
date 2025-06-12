@@ -1,92 +1,92 @@
 // Book section scroll logic
+const etherealMessages = [
+  "The beginning of a great adventure...",
+  "",
+  "",
+  ""
+];
 
-        const etherealMessages = [
-            "The beginning of a great adventure...",
-            "",
-            "",
-            ""
-        ];
+let currentStep = 0;
+let ticking = false;
 
-        let currentStep = 0;
-        let lastScrollY = 0;
+function updateBookSteps() {
+  const bookSection = document.querySelector('.book-section');
+  const bookContainer = document.querySelector('.book-container');
+  const book = document.getElementById('book');
+  const etherealIndicator = document.getElementById('etherealIndicator');
+  const etherealText = document.getElementById('etherealText');
 
-        function updateBookSteps() {
-            const bookSection = document.querySelector('.book-section');
-            const bookContainer = document.querySelector('.book-container');
-            const book = document.getElementById('book');
-            const etherealIndicator = document.getElementById('etherealIndicator');
-            const etherealText = document.getElementById('etherealText');
-            
-            const rect = bookSection.getBoundingClientRect();
-            const sectionHeight = bookSection.offsetHeight;
-            const windowHeight = window.innerHeight;
+  if (!bookSection || !bookContainer || !book || !etherealIndicator || !etherealText) {
+    console.warn('Faltan elementos necesarios para el scroll effect');
+    return;
+  }
 
-            // Calcular progreso con entrada y salida suave
-            let progress;
-            if (rect.top > windowHeight * 0) {
-                progress = 0;
-            } else if (rect.bottom < windowHeight * 0.9) {
-                progress = 1;
-            } else {
-                const scrollableHeight = sectionHeight - windowHeight;
-                const scrolled = Math.abs(rect.top) - windowHeight * 0;
-                progress = Math.min(1, Math.max(0, scrolled / scrollableHeight));
-            }
+  const rect = bookSection.getBoundingClientRect();
+  const sectionHeight = bookSection.offsetHeight;
+  const windowHeight = window.innerHeight;
 
-            // Toggle visibilidad con transición suave
-            if (progress > 0.05 && progress < 0.95) {
-                bookContainer.classList.add('visible');
-                etherealIndicator.classList.add('visible');
-            } else {
-                bookContainer.classList.remove('visible');
-                etherealIndicator.classList.remove('visible');
-            }
+  // Calcular progreso con entrada/salida suave
+  let progress;
+  if (rect.top > 0) {
+    progress = 0;
+  } else if (rect.bottom < windowHeight * 0.9) {
+    progress = 1;
+  } else {
+    const scrollable = sectionHeight - windowHeight;
+    const scrolled = Math.abs(rect.top);
+    progress = Math.min(1, Math.max(0, scrolled / scrollable));
+  }
 
-            // Calcular paso con más tiempo en cada estado
-            let newStep;
-            if (progress <= 0.2) {
-                newStep = 0;
-            } else if (progress <= 0.45) {
-                newStep = 1;
-            } else if (progress <= 0.7) {
-                newStep = 2;
-            } else if (progress <= 0.85) {
-                newStep = 4;
-            } else {
-                newStep = 4;
-            }
+  // Toggle visibilidad
+  if (progress > 0.05 && progress < 0.95) {
+    bookContainer.classList.add('visible');
+    etherealIndicator.classList.add('visible');
+  } else {
+    bookContainer.classList.remove('visible');
+    etherealIndicator.classList.remove('visible');
+  }
 
-            // Actualizar paso si ha cambiado
-            if (newStep !== currentStep) {
-                currentStep = newStep;
-                book.className = `book step-${currentStep}`;
+  // Mapeo de pasos (0–4) con duraciones ajustadas
+  let newStep;
+  if (progress <= 0.2) {
+    newStep = 0;
+  } else if (progress <= 0.45) {
+    newStep = 1;
+  } else if (progress <= 0.7) {
+    newStep = 2;
+  } else if (progress <= 0.85) {
+    newStep = 3;
+  } else {
+    newStep = 4;
+  }
 
-                // Actualizar mensaje etéreo con transición
-                const messageIndex = Math.min(currentStep, etherealMessages.length - 1);
-                etherealText.style.opacity = '0';
-                setTimeout(() => {
-                    etherealText.textContent = etherealMessages[messageIndex];
-                    etherealText.style.opacity = '1';
-                }, 250);
-            }
-        }
+  if (newStep !== currentStep) {
+    currentStep = newStep;
+    book.className = `book step-${currentStep}`;
 
-        // Optimización de scroll para móviles
-        let ticking = false;
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateBookSteps);
-                ticking = true;
-                setTimeout(() => { ticking = false; }, 16);
-            }
-        }
+    // Actualizar mensaje etéreo con fade
+    const msgIdx = Math.min(currentStep, etherealMessages.length - 1);
+    etherealText.style.opacity = '0';
+    setTimeout(() => {
+      etherealText.textContent = etherealMessages[msgIdx];
+      etherealText.style.opacity = '1';
+    }, 250);
+  }
+}
 
-        // Event listeners
-        window.addEventListener('scroll', requestTick, { passive: true });
-        window.addEventListener('load', updateBookSteps);
-        window.addEventListener('resize', () => {
-            setTimeout(updateBookSteps, 100);
-        });
+// Scroll optimization
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateBookSteps();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}
 
-        // Inicialización
-        updateBookSteps();
+// Listeners
+window.addEventListener('scroll', requestTick, { passive: true });
+window.addEventListener('load', updateBookSteps);
+window.addEventListener('resize', () => setTimeout(updateBookSteps, 100));
+document.addEventListener('DOMContentLoaded', () => setTimeout(updateBookSteps, 100));
