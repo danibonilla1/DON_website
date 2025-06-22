@@ -1395,6 +1395,220 @@
     opacity: 0.9;
 }
 
+/* Estilos para el Lead Magnet del libro */
+.substack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.lead-magnet-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border: 2px solid rgba(255, 215, 0, 0.25);
+    border-radius: 25px;
+    padding: 50px 40px;
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.lead-magnet-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.01), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.lead-magnet-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.lead-magnet-wrapper h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ffd700, #fff8dc, #daa520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.lead-description {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lead-benefits {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 35px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.benefit-icon {
+    font-size: 1.2rem;
+    min-width: 24px;
+}
+
+.lead-form {
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email-input {
+    flex: 1;
+    padding: 18px 25px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.email-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.cta-btn {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #ffd700, #daa520);
+    color: #0a0a1a;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #fff8dc, #ffd700);
+}
+
+.trust-signal {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.trust-signal strong {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.no-spam {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+}
+
+.social-proof {
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+    padding-top: 25px;
+    margin-top: 25px;
+}
+
+.testimonial-mini {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.quote-mark {
+    color: #ffd700;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Contenedor del iframe integrado */
+.substack-iframe-container {
+    margin: 35px 0;
+    position: relative;
+}
+
+.iframe-overlay {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.iframe-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    margin: 0;
+}
+
+.substack-iframe-container iframe {
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.substack-iframe-container iframe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2);
+}
+
        
 
         .fade-in {
@@ -1486,6 +1700,8 @@
         gap: 50px;
     }
 }
+
+
 
 @media (min-width: 1024px) {
     .author-container {
@@ -2689,6 +2905,36 @@
   .soul-quote {
     margin: 35px 8px;
   }
+    
+        .lead-magnet-wrapper {
+        padding: 35px 25px;
+        margin: 0 15px;
+    }
+    
+    .lead-magnet-wrapper h3 {
+        font-size: 1.8rem;
+    }
+    
+    .lead-description {
+        font-size: 1rem;
+    }
+    
+    .form-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .email-input, .cta-btn {
+        width: 100%;
+    }
+    
+    .lead-benefits {
+        text-align: center;
+    }
+    
+    .benefit-item {
+        justify-content: center;
+    }
 }
 
 /* -- Para móviles en vertical -- */
