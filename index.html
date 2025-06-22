@@ -986,6 +986,8 @@
 
 </section>
 
+<!-- SECCIÓN PREORDER COMENTADA TEMPORALMENTE -->
+<!--
 <section id="preorder" class="preorder fade-in">
     <div class="container">
         <h2 data-i18n="preorder.title">Join the journey</h2>
@@ -1114,6 +1116,246 @@
         
     </div>
 </section>
+-->
+
+<!-- NUEVA SECCIÓN PREORDER CON IFRAME DE SUBSTACK -->
+<section id="preorder" class="preorder fade-in">
+    <div class="container">
+        <h2 data-i18n="preorder.title">Join the journey</h2>
+        <p class="preorder-subtitle" data-i18n="preorder.subtitle">Be part of the creation of this transformative story</p>
+
+        <!-- Iframe de Substack -->
+        <div class="substack-container">
+            <iframe src="https://dannysdiary.substack.com/embed" 
+                    width="480" 
+                    height="150" 
+                    style="border:1px solid #EEE; background:white; border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);" 
+                    frameborder="0" 
+                    scrolling="no">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Estilos para la nueva sección con iframe */
+.substack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+}
+
+.substack-container iframe {
+    max-width: 100%;
+    border-radius: 10px !important;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .substack-container iframe {
+        width: 100%;
+        max-width: 400px;
+        height: 150px;
+    }
+}
+
+/* COMENTAR TEMPORALMENTE LOS ESTILOS CSS DE PREORDER */
+/*
+.preorder {
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.9) 0%, rgba(26, 26, 46, 0.8) 100%);
+}
+
+.preorder .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.preorder h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ffd700, #fff8dc, #daa520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.preorder-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 50px;
+    margin: 80px 0;
+}
+
+.option-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 25px;
+    padding: 50px 40px;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.option-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 215, 0, 0.03), transparent);
+    transition: opacity 0.4s ease;
+}
+
+.option-card:hover {
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 25px 50px rgba(255, 215, 0, 0.1);
+}
+
+.option-card:hover::before {
+    opacity: 1;
+}
+
+.option-title {
+    font-size: 1.6rem;
+    color: #ffd700;
+    margin-bottom: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.option-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 35px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.benefits-section {
+    margin: 30px 0;
+}
+
+.benefits-title {
+    font-size: 0.85rem;
+    color: rgba(255, 215, 0, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.option-benefits {
+    list-style: none;
+    text-align: left;
+}
+
+.option-benefits li {
+    color: rgba(255, 255, 255, 0.75);
+    margin: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.option-benefits li::before {
+    position: absolute;
+    left: 0;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.early-access li:nth-child(1)::before { content: '📖'; }
+.early-access li:nth-child(2)::before { content: '🎨'; }
+.early-access li:nth-child(3)::before { content: '💭'; }
+.early-access li:nth-child(4)::before { content: '📖'; }
+
+.waitlist li:nth-child(1)::before { content: '⚡'; }
+.waitlist li:nth-child(2)::before { content: '💎'; }
+.waitlist li:nth-child(3)::before { content: '🔮'; }
+.waitlist li:nth-child(4)::before { content: '📖'; }
+
+/* Estilos de los botones DENTRO de la sección preorder */
+.preorder .cta-button {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(218, 165, 32, 0.9));
+    color: #0a0a1a;
+    padding: 16px 35px; /* Padding más pequeño */
+    font-size: 0.95rem; /* Fuente más pequeña */
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 25px;
+}
+
+.preorder .cta-button:hover {
+    transform: translateY(-2px); /* Hover más sutil */
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.25);
+    background: linear-gradient(135deg, #ffd700, #fff8dc);
+}
+
+.preorder .secondary-button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    color: #ffd700;
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+}
+
+.preorder .secondary-button:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(218, 165, 32, 0.9));
+    color: #0a0a1a;
+    border-color: transparent;
+}
+
+.mysterious-note {
+    margin-top: 80px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.4), rgba(22, 33, 62,0.3));
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.timeline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.promise {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.testimonials {
+    margin-top: 50px;
+    color: rgba(214, 204, 170, 0.8);
+    font-size: 0.9rem;
+}
+
+.testimonials p {
+    margin: 15px 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+*/
+</style>
     
 <!-- Modal de donación -->
    <div id="donateModal" class="modal">

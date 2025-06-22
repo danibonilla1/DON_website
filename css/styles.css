@@ -1197,8 +1197,9 @@
         
         
         
-/* --- SECCIÓN PREORDER (Versión Mejorada) --- */
 
+/* --- SECCIÓN PREORDER (Versión Mejorada) --- */
+/*
 .preorder {
     padding: 120px 20px;
     text-align: center;
@@ -1394,6 +1395,7 @@
     font-style: italic;
     opacity: 0.9;
 }
+*/
 
 /* Estilos para el Lead Magnet del libro */
 .substack-container {
@@ -2730,19 +2732,21 @@
     height: 50px;
     font-size: 18px;
   }
-  /* Sección Preorder */
-  .preorder {
-    padding: 80px 20px;
-  }
-  .preorder h2 {
-    font-size: 2.5rem;
-  }
-  .options-container {
-    gap: 40px;
-  }
-  .option-card {
-    padding: 40px 30px;
-  }
+    /* Sección Preorder */
+    /*
+    .preorder {
+      padding: 80px 20px;
+    }
+    .preorder h2 {
+      font-size: 2.5rem;
+    }
+    .options-container {
+      gap: 40px;
+    }
+    .option-card {
+      padding: 40px 30px;
+    }
+    */
   /* Sección del Libro 3D */
   .book {
     width: 280px;
