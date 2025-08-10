@@ -26,7 +26,7 @@
 
   <section id="home" class="hero">
     <div class="hero-video youtube-bg">
-      <iframe src="https://www.youtube.com/embed/Q4xYacSy2i4?autoplay=1&mute=1&loop=1&playlist=Q4xYacSy2i4&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
+      <iframe id="heroBgVideo" src="https://www.youtube.com/embed/Q4xYacSy2i4?autoplay=1&mute=1&loop=1&playlist=Q4xYacSy2i4&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&enablejsapi=1"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen
@@ -34,14 +34,16 @@
         style="width:100%; height:100%;"></iframe>
     </div>
     <div class="hero-overlay"></div>
+    <button class="hero-video-toggle" id="heroVideoToggle" aria-label="Toggle playback"></button>
     <div class="hero-content">
       <h1 data-i18n="hero.title">Black Sheep's Diary</h1>
       <p class="subtitle" data-i18n="hero.subtitle">A journey to the deepest core of human essence</p>
       <p class="author" data-i18n="hero.author">by Dani Bonilla</p>
-      <a href="#preorder" class="cta-button" data-i18n="hero.cta">Join the journey</a>
-      <div class="hero-hook" data-i18n="hero.hook">
-        For those who never really fit in.
+      <div class="hero-actions">
+        <button class="hero-play-btn" id="heroPlayBtn" aria-label="Play trailer" title="Play trailer">▶</button>
+        <a href="#preorder" class="cta-button" data-i18n="hero.cta">Join the journey</a>
       </div>
+      <div class="hero-hook" data-i18n="hero.hook">For those who never really fit in.</div>
     </div>
     
     <!-- Flecha indicadora de scroll -->
@@ -125,13 +127,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="ethereal-indicator" id="etherealIndicator">
-        <div class="ethereal-text" id="etherealText" data-i18n="book.ethereal">
-            The beginning of a great adventure
+        <div class="ethereal-indicator" id="etherealIndicator">
+            <div class="ethereal-text" id="etherealText" data-i18n="book.ethereal">
+                The beginning of a great adventure
+            </div>
         </div>
     </div>
-</section>
+  </section>
 
 <section id="story" class="story">
     <div class="story-content">
@@ -222,6 +224,8 @@
     </div>
 </section>
 
+<!-- Eliminado modal de video: ahora el hero entra en modo video a pantalla completa -->
+
 
 
 <section id="essence" class="features">
@@ -257,7 +261,7 @@
                 <div class="card-container">
                 <div class="card-side card-front" style="background-image: url('img/guardians.jpeg')">
                     <div class="flip-indicator">↻</div>
-                    <h3>Margarita</h3>
+                    <h3>Marga</h3>
                     <p>
                         Survival means learning to move unseen.
                     </p>
@@ -498,483 +502,312 @@
             Here's what people say about the impact of his stories
         </div>
     
-<div id="testimonialsContainer" class="testimonials-container fade-in">
-    <!-- 1 - Dani Bonilla -->
-    <div class="testimonial active">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Bro, I feel so identified with your story. You have no idea how much I relate to you."
+        <div id="testimonialsContainer" class="testimonials-container fade-in">
+            <div class="testimonial active">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Bro, I feel so identified with your story. You have no idea how much I relate to you."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="El_Mattew">El Mattew</span>
+                            <span class="comment-username">@El_Mattew</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="El_Mattew">El Mattew</span>
-                <span class="comment-username">@El_Mattew</span>
-                <span class="comment-likes">211 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Telling stories is your gift. Your voice brings a sense of calm and it’s a pleasure to listen to you. Never lose your curiosity to discover new worlds."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="coleccioninfinita1156">coleccioninfinita1156</span>
+                            <span class="comment-username">@coleccioninfinita1156</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "This dude has so much potential, the shots, the editing, the storytelling. This is one of those times I'm grateful YouTube recommended quality content."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="andrepadron1232">Andre Padron</span>
+                            <span class="comment-username">@andrepadron1232</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "I don’t understand how your videos don’t have way more likes. Your content has soul. I’m catching up on all your videos because you inspire me to go for it."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="ben_franco">ben_franco</span>
+                            <span class="comment-username">@ben_franco</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "It couldn’t be explained better, and you do it with so much respect and sincerity. Thank you for translating feelings into words."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="magnoliaarbol8060">magnoliaarbol8060</span>
+                            <span class="comment-username">@magnoliaarbol8060</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "First YouTube channel that has really made sense to me... How does such a good channel have so few views and subscribers? You're awesome, Dani!"
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="guillermotrejo437">Guillermo Trejo</span>
+                            <span class="comment-username">@guillermotrejo437</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "...and so HONEST in your communication." That transparency makes every video feel close and authentic.
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="manueljosegarciaperez9164">manueljosegarciaperez9164</span>
+                            <span class="comment-username">@manueljosegarciaperez9164</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "I watched the whole thing. Trial and error, Dani: you are a living example of how to tell a real story and keep us glued to the screen."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="Joker-po7ei">Joker-po7ei</span>
+                            <span class="comment-username">@Joker-po7ei</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "It’s so beautiful to listen to your story. You speak from honesty, not from ego, and that shows in every minute."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="mariajose_11">mariajose_11</span>
+                            <span class="comment-username">@mariajose_11</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "After 50 years in Switzerland and 30 years in TV, your maturity analyzing and narrating these differences really surprises me. You explain everything with admirable clarity."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="hugoorell">hugoorell</span>
+                            <span class="comment-username">@hugoorell</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Beautiful video: genuine and honest personal experiences. Thank you for sharing them with such a human touch."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="estebanmartinhusulak5037">estebanmartinhusulak5037</span>
+                            <span class="comment-username">@estebanmartinhusulak5037</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Talking for an hour straight to the camera and keeping us engaged shows your passion and a real gift for storytelling. Thank you for the inspiration."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="nazald">nazald</span>
+                            <span class="comment-username">@nazald</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "It's better to regret what you've done than what you didn't do... I love your catharsis."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="decimequeno9916">Decimequeno</span>
+                            <span class="comment-username">@decimequeno9916</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Thank you for your reflections; they motivate me to create my own content. The way you tell things makes me want to get started too."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</span>
+                            <span class="comment-username">@soyjesusgonzalez3720</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="leonhernando666">Leon Hernando</span>
+                            <span class="comment-username">@leonhernando666</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "Just as thrilling as the end of a movie saga."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="Drumerto">Drumerto</span>
+                            <span class="comment-username">@Drumerto</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "I see myself totally reflected in you... thank you for transforming my vision and the courage to face life."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="EconomiaDesdeCasa">Economía Desde Casa</span>
+                            <span class="comment-username">@EconomiaDesdeCasa</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "I'm blown away by your editing. Your strength is telling stories and making people feel them as their own. Take advantage of that quality."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="RubenLoan">Rubén Loan</span>
+                            <span class="comment-username">@RubenLoan</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-text">
+                        "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo yourself. You're awesome and you'll get there."
+                    </div>
+                    <div class="comment-footer">
+                        <div class="comment-author-line">
+                            <span class="comment-author" data-username="reborsitopaquistani9220">Reborsito Paquistani</span>
+                            <span class="comment-username">@reborsitopaquistani9220</span>
+                        </div>
+                        <div class="video-citation">
+                            On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- 2 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Telling stories is your gift. Your voice brings a sense of calm and it’s a pleasure to listen to you. Never lose your curiosity to discover new worlds."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="coleccioninfinita1156">coleccioninfinita1156</span>
-                <span class="comment-username">@coleccioninfinita1156</span>
-                <span class="comment-likes">1 like</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "This dude has so much potential, the shots, the editing, the storytelling. This is one of those times I'm grateful YouTube recommended quality content."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="andrepadron1232">Andre Padron</span>
-                <span class="comment-username">@andrepadron1232</span>
-                <span class="comment-likes">1 like</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "I don’t understand how your videos don’t have way more likes. Your content has soul. I’m catching up on all your videos because you inspire me to go for it."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="ben_franco">ben_franco</span>
-                <span class="comment-username">@ben_franco</span>
-                <span class="comment-likes">5 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Brave is not the one who has NO fear, but the one who, despite being afraid, takes a step forward and fights for their dreams. Epic, my namesake."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="danischepers">Dani Schepers</span>
-                <span class="comment-username">@danischepers</span>
-                <span class="comment-likes">61 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "It couldn’t be explained better, and you do it with so much respect and sincerity. Thank you for translating feelings into words."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="magnoliaarbol8060">magnoliaarbol8060</span>
-                <span class="comment-username">@magnoliaarbol8060</span>
-                <span class="comment-likes">11 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 7 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "First YouTube channel that has really made sense to me... How does such a good channel have so few views and subscribers? You're awesome, Dani!"
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="guillermotrejo437">Guillermo Trejo</span>
-                <span class="comment-username">@guillermotrejo437</span>
-                <span class="comment-likes">7 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 8 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "...and so HONEST in your communication." That transparency makes every video feel close and authentic.
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="manueljosegarciaperez9164">manueljosegarciaperez9164</span>
-                <span class="comment-username">@manueljosegarciaperez9164</span>
-                <span class="comment-likes">5 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 9 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "There is no set time to live your dreams... you have to live them for as long as your heart says so."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="Luiseduardocantalirico">Luis Eduardo Cantalirico</span>
-                <span class="comment-username">@Luiseduardocantalirico</span>
-                <span class="comment-likes">200 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 10 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "I watched the whole thing. Trial and error, Dani: you are a living example of how to tell a real story and keep us glued to the screen."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="Joker-po7ei">Joker-po7ei</span>
-                <span class="comment-username">@Joker-po7ei</span>
-                <span class="comment-likes">14 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 11 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Let's go Dani, you have so much ahead of you. You're a very smart guy and you're going to be very successful, but remember to be consistent."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="erickfloresmartinez6154">Erick Flores Martínez</span>
-                <span class="comment-username">@erickfloresmartinez6154</span>
-                <span class="comment-likes">391 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 12 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "It’s so beautiful to listen to your story. You speak from honesty, not from ego, and that shows in every minute."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="mariajose_11">mariajose_11</span>
-                <span class="comment-username">@mariajose_11</span>
-                <span class="comment-likes">12 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 13 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Just a few things: 1. I adore you... 3. Thank you for stopping just surviving and starting to live."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="FedeRocher32">Fede Rocher</span>
-                <span class="comment-username">@FedeRocher32</span>
-                <span class="comment-likes">41 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 14 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "After 50 years in Switzerland and 30 years in TV, your maturity analyzing and narrating these differences really surprises me. You explain everything with admirable clarity."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="hugoorell">hugoorell</span>
-                <span class="comment-username">@hugoorell</span>
-                <span class="comment-likes">32 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 15 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Cheer up Dani!!! You just need to be in the right place at the right time for things to start changing."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="marcocreativo">Marco Creativo</span>
-                <span class="comment-username">@marcocreativo</span>
-                <span class="comment-likes">69 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 16 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Beautiful video: genuine and honest personal experiences. Thank you for sharing them with such a human touch."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="estebanmartinhusulak5037">estebanmartinhusulak5037</span>
-                <span class="comment-username">@estebanmartinhusulak5037</span>
-                <span class="comment-likes">3 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 17 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Keep going brother; us entrepreneurs work for free for a while but then we enjoy the success."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="benjaminfloresmamani9214">Benjamin Flores Mamani</span>
-                <span class="comment-username">@benjaminfloresmamani9214</span>
-                <span class="comment-likes">36 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 18 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Talking for an hour straight to the camera and keeping us engaged shows your passion and a real gift for storytelling. Thank you for the inspiration."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="nazald">nazald</span>
-                <span class="comment-username">@nazald</span>
-                <span class="comment-likes">2 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 19 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "It's better to regret what you've done than what you didn't do... I love your catharsis."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="decimequeno9916">Decimequeno</span>
-                <span class="comment-username">@decimequeno9916</span>
-                <span class="comment-likes">109 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 20 - La Oveja Gris -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Thank you for your reflections; they motivate me to create my own content. The way you tell things makes me want to get started too."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</span>
-                <span class="comment-username">@soyjesusgonzalez3720</span>
-                <span class="comment-likes">4 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@laovejagris" target="_blank">La Oveja Gris</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 21 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="leonhernando666">Leon Hernando</span>
-                <span class="comment-username">@leonhernando666</span>
-                <span class="comment-likes">1 like</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 22 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "I love that way of thinking: we don't have to work for others all our lives; we have to take the risk to succeed."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="chuydani">Chuydani</span>
-                <span class="comment-username">@chuydani</span>
-                <span class="comment-likes">51 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 23 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "When you hit a million subscribers, you'll be a multimillionaire; you'll come back to this video and say: 'THANK YOU.'"
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="franquiparra1664">Franquiparra</span>
-                <span class="comment-username">@franquiparra1664</span>
-                <span class="comment-likes">12 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 24 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "Just as thrilling as the end of a movie saga."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="Drumerto">Drumerto</span>
-                <span class="comment-username">@Drumerto</span>
-                <span class="comment-likes">60 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 25 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "I see myself totally reflected in you... thank you for transforming my vision and the courage to face life."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="EconomiaDesdeCasa">Economía Desde Casa</span>
-                <span class="comment-username">@EconomiaDesdeCasa</span>
-                <span class="comment-likes">2 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 26 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "I'm blown away by your editing. Your strength is telling stories and making people feel them as their own. Take advantage of that quality."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="RubenLoan">Rubén Loan</span>
-                <span class="comment-username">@RubenLoan</span>
-                <span class="comment-likes">683 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 27 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo yourself. You're awesome and you'll get there."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="reborsitopaquistani9220">Reborsito Paquistani</span>
-                <span class="comment-username">@reborsitopaquistani9220</span>
-                <span class="comment-likes">115 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 28 - Dani Bonilla -->
-    <div class="testimonial">
-        <div class="youtube-comment">
-            <div class="comment-text">
-                "From time to time, I'm glad to see YouTube recommending competent videos from super interesting channels. Here I am."
-            </div>
-            <div class="comment-footer">
-                <span class="comment-author" data-username="pablo193821">Pablo</span>
-                <span class="comment-username">@pablo193821</span>
-                <span class="comment-likes">649 likes</span>
-                <div class="video-citation">
-                    On the Youtube Channel: <a href="https://www.youtube.com/@danibonilla1" target="_blank">Dani Bonilla</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </section>
@@ -984,50 +817,81 @@
         <h2 data-i18n="preorder.title">Join the journey</h2>
         <p class="preorder-subtitle" data-i18n="preorder.subtitle">Be part of the creation of this transformative story</p>
 
-               <!-- Lead Magnet para el libro -->
-      <!-- Lead Magnet con iframe integrado -->
-        <div class="substack-container">
-            <div class="lead-magnet-wrapper">
+               <!-- Tiers de suscripción para Black Sheep's Diary -->
+        <div class="subscription-tiers-container">
+            
+            
+            <div class="tiers-grid">
+                                 <!-- BACKER TIER -->
+                 <div class="tier-card backer-tier">
+                     <div class="tier-header">
+                         <h4>🖤 BACKER TIER</h4>
+                         <p class="tier-subtitle">For the foundational supporters who believe in raw storytelling</p>
+                     </div>
+                     
+                     <a href="https://gumroad.com/checkout?product=andfl&option=RYeEw-Mt1iONrv6axPmkWg%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F" 
+                        class="cta-button tier-button backer-button" target="_blank">
+                         Join as Backer - $50
+                     </a>
+                     
+                     <div class="tier-benefits">
+                         <h5>What you get:</h5>
+                         <ul>
+                             <li><strong>Immediate access</strong> to an exclusive 8-12 page sample (Chapters 1-2)</li>
+                             <li><strong>Multiple manuscript excerpts</strong> during the writing process—content no one else will see</li>
+                             <li><strong>Your feedback matters:</strong> Direct input channel to influence the story's direction</li>
+                             <li><strong>Your name immortalized</strong> in the "Backers" section of the final book</li>
+                             <li><strong>Final ebook</strong> (EPUB + PDF) upon completion (estimated March 2026)</li>
+                             <li><strong>Regular progress updates</strong> throughout the journey</li>
+                         </ul>
+                     </div>
+                     
+                     <p class="tier-message">
+                         You're not just supporting—you're co-creating. Your voice helps shape this story.
+                     </p>
+                 </div>
                 
-                <h3>Be the First</h3>
-                <p class="lead-description">
-                    The book is at the moment in the writing process. Join the exclusive list and get notified the moment it's available with some perks.
+                                 <!-- PRODUCER TIER -->
+                 <div class="tier-card producer-tier">
+                     <div class="tier-header">
+                         <h4>🔥 PRODUCER TIER</h4>
+                         <p class="tier-subtitle">For creators and serious supporters who want the full experience</p>
+                     </div>
+                     
+                     <a href="https://gumroad.com/checkout?product=andfl&option=CN2aPJp-2csQIuygcq-W0g%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F" 
+                        class="cta-button tier-button producer-button" target="_blank">
+                         Join as Producer - $250
+                     </a>
+                     
+                     <div class="tier-benefits">
+                         <h5>Everything in Backer, PLUS:</h5>
+                         <ul>
+                             <li><strong>Distinguished Producer credit</strong> prominently featured in the book's opening pages</li>
+                             <li><strong>The Producer Video Pack</strong> (delivered throughout the process):</li>
+                             <ul class="nested-benefits">
+                                 <li><strong>Book Structure Masterclass:</strong> Complete video breakdown of my storytelling framework and process</li>
+                                 <li><strong>AI Trailer Creation Tutorial:</strong> Step-by-step guide on designing compelling book trailers with cutting-edge AI tools</li>
+                                 <li><strong>Behind-the-Scenes Chronicles:</strong> Regular video updates showing the real creative process</li>
+                                 <li><strong>Exclusive Producer-Only Content:</strong> Early drafts, deleted scenes, creative decisions explained</li>
+                             </ul>
+                         </ul>
+                     </div>
+                     
+                     <p class="tier-message">
+                         This is your backstage pass to watch a book come alive. See every decision, every pivot, every breakthrough in real-time.
+                     </p>
+                 </div>
+            </div>
+            
+            <div class="tiers-footer">
+                <p class="tiers-promise">
+                    <strong>Estimated completion:</strong> March 2026 with regular progress updates throughout. 
+                   One story. One project. Done.
                 </p>
-                
-                <div class="benefits-section">
-                    <div class="benefits-title"></div>
-                    <ul class="option-benefits early-access">
-                        <li>First access when the book launches</li>
-                        <li>Exclusive pre-launch discount</li>
-                        <li>Sneak-peaks during writing</li>
-                    </ul>
-                </div>
-                
-                <!-- Iframe de Substack integrado en el diseño -->
-                <div class="substack-iframe-container">
-                    <div class="iframe-overlay">
-                    </div>
-                    <iframe src="https://dannysdiary.substack.com/embed" 
-                            width="100%" 
-                            height="150" 
-                            style="border: 2px solid rgba(255, 215, 0, 0.3); background: rgba(255, 255, 255, 0.95); border-radius: 15px; backdrop-filter: blur(10px);" 
-                            frameborder="0" 
-                            scrolling="no">
-                    </iframe>
-                </div>
-                
-                <p class="trust-signal">
-                    Join <strong>hundreds</strong> of readers waiting for this transformative story. 
-                    <span class="no-spam">No spam, just book updates.</span>
+                <p class="tiers-cta">
+                    This is for people who understand that authentic art requires authentic support. 
+                    If you've ever felt like the black sheep in your own life, this story is for you.
                 </p>
-                
-                <div class="social-proof">
-                    <div class="testimonial-mini">
-                        <span class="quote-mark">"</span>
-                        <span class="testimonial-text">This story gave me back hope: being different is beautiful.</span>
-                        <span class="quote-mark">"</span>
-                    </div>
-                </div>
             </div>
         </div>
         

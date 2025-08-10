@@ -106,11 +106,84 @@
   window.addEventListener('click', (e) => {
     if (e.target === document.getElementById('donateModal')) closeDonateModal();
     if (e.target === document.getElementById('phoneModal'))  closePhoneModal();
+    if (e.target === document.getElementById('heroVideoModal')) closeHeroVideoModal();
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeDonateModal();
       closePhoneModal();
+      closeHeroVideoModal();
     }
+  });
+
+  /* ---------- HERO VIDEO TOGGLE (pantalla completa en el hero) ---------- */
+  let heroVideoActivationScrollY = 0;
+  let lastScrollY = 0;
+  function toggleHeroVideo(on) {
+    const heroContent = document.querySelector('.hero-content');
+    const heroOverlay = document.querySelector('.hero-overlay');
+    const bgIframe = document.getElementById('heroBgVideo');
+    const hero = document.querySelector('.hero');
+    const heroActions = document.querySelector('.hero-actions');
+    const body = document.body;
+    if (on) {
+      if (hero) hero.classList.add('video-on');
+      if (body) body.classList.add('video-on');
+      // En modo video, el CSS oculta sólo el botón de play; no tocar display del contenedor
+      if (bgIframe) {
+        // Cambiar a reproducción con sonido y controles
+        const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
+        bgIframe.src = `${base}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&loop=0&enablejsapi=1`;
+      }
+      document.body.style.overflow = 'auto';
+      heroVideoActivationScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      lastScrollY = heroVideoActivationScrollY;
+    } else {
+      if (hero) hero.classList.remove('video-on');
+      if (body) body.classList.remove('video-on');
+      // Al salir de modo video, no forzamos display; dejamos que CSS gobierne grid
+      if (bgIframe) {
+        // Volver a modo de fondo (mute, loop, sin controles)
+        const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
+        bgIframe.src = `${base}?autoplay=1&mute=1&loop=1&playlist=Q4xYacSy2i4&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&enablejsapi=1`;
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('heroPlayBtn');
+    const tapArea = document.getElementById('heroVideoToggle');
+    if (btn) {
+      let isOn = false;
+      btn.addEventListener('click', () => {
+        isOn = !isOn;
+        toggleHeroVideo(isOn);
+      });
+    }
+    if (tapArea) {
+      tapArea.addEventListener('click', () => {
+        // Si estamos en modo video, desactivar. Si no, activar.
+        const isOn = document.body.classList.contains('video-on');
+        toggleHeroVideo(!isOn);
+      });
+    }
+
+    // Pausar al hacer scroll fuera del hero o al desplazarse hacia abajo
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrolledDown = currentY > lastScrollY + 2;
+      lastScrollY = currentY;
+      if (document.body.classList.contains('video-on')) {
+        if (!inView) {
+          toggleHeroVideo(false);
+        } else if (currentY > heroVideoActivationScrollY + 10 && scrolledDown) {
+          toggleHeroVideo(false);
+        }
+      }
+    }, { passive: true });
   });
