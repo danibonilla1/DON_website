@@ -127,22 +127,39 @@
     const hero = document.querySelector('.hero');
     const heroActions = document.querySelector('.hero-actions');
     const body = document.body;
+    const isMobile = window.innerWidth <= 768;
+    
     if (on) {
       if (hero) hero.classList.add('video-on');
       if (body) body.classList.add('video-on');
-      // En modo video, el CSS oculta sólo el botón de play; no tocar display del contenedor
+      
       if (bgIframe) {
-        // Cambiar a reproducción con sonido y controles
-        const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
-        bgIframe.src = `${base}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&loop=0&enablejsapi=1`;
+        if (isMobile) {
+          // En móvil, usar parámetros optimizados para reproducción vertical
+          const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
+          bgIframe.src = `${base}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&loop=0&enablejsapi=1&playsinline=1&iv_load_policy=3&origin=${window.location.origin}`;
+          
+          // No forzar pantalla completa en móvil, dejar que se adapte naturalmente
+          console.log('Modo móvil activado - video optimizado para pantalla vertical');
+        } else {
+          // En desktop, reproducción normal
+          const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
+          bgIframe.src = `${base}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&loop=0&enablejsapi=1`;
+        }
       }
+      
       document.body.style.overflow = 'auto';
       heroVideoActivationScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
       lastScrollY = heroVideoActivationScrollY;
     } else {
       if (hero) hero.classList.remove('video-on');
       if (body) body.classList.remove('video-on');
-      // Al salir de modo video, no forzamos display; dejamos que CSS gobierne grid
+      
+      // Salir de pantalla completa si está activa
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      
       if (bgIframe) {
         // Volver a modo de fondo (mute, loop, sin controles)
         const base = 'https://www.youtube.com/embed/Q4xYacSy2i4';
@@ -186,4 +203,12 @@
         }
       }
     }, { passive: true });
+    
+    // Detectar cuando el usuario sale de pantalla completa
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement && document.body.classList.contains('video-on')) {
+        // Si salió de pantalla completa, desactivar modo video
+        toggleHeroVideo(false);
+      }
+    });
   });

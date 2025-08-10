@@ -153,7 +153,133 @@
     .hero.video-on .hero-actions .hero-play-btn { display: none; }
 .hero.video-on .hero-actions .cta-button { display: none; }
 .hero.video-on .scroll-indicator { opacity: 0.08; pointer-events: auto; }
-.hero.video-on .hero-video-toggle { display: block; }
+.hero.video-on .hero-video-toggle { 
+  display: block; 
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estilos del botón hero-video-toggle */
+.hero-video-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 2px solid var(--primary-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-video-toggle::before {
+  content: '✕';
+  color: var(--primary-gold);
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-video-toggle:hover {
+  background: rgba(212, 175, 55, 0.4);
+  transform: scale(1.1);
+}
+
+/* Estilos específicos para móvil */
+@media (max-width: 768px) {
+  /* Ocultar el botón de reproducción de video en móviles */
+  .hero-play-btn {
+    display: none !important;
+  }
+  
+  .hero-video-toggle {
+    top: 15px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    /* En móvil, hacer el botón más visible */
+    background: rgba(212, 175, 55, 0.8);
+    border-width: 3px;
+  }
+  
+  .hero-video-toggle::before {
+    font-size: 18px;
+  }
+  
+  .hero-video-toggle:hover {
+    background: rgba(212, 175, 55, 1);
+    transform: scale(1.05);
+  }
+  
+  /* Mejorar experiencia de video en móvil */
+  .hero.video-on .hero-video.youtube-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero.video-on .hero-video.youtube-bg iframe {
+    /* En móvil, el video se adapta naturalmente sin cortarse */
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw;
+    max-height: 100vh;
+    /* Mantener aspect ratio del video */
+    object-fit: contain;
+    background: #000;
+  }
+  
+  /* Ocultar completamente el contenido del hero en móvil cuando está en modo video */
+  .hero.video-on .hero-content,
+  .hero.video-on .scroll-indicator {
+    display: none !important;
+  }
+  
+  /* Asegurar que el video se vea bien en orientación vertical */
+  @media (orientation: portrait) and (max-width: 768px) {
+    .hero.video-on .hero-video.youtube-bg iframe {
+      /* En portrait, el video se adapta mejor a la altura de la pantalla */
+      width: 100% !important;
+      height: auto !important;
+      max-height: 100vh;
+      max-width: 100vw;
+      /* Sobrescribir cualquier transformación problemática */
+      transform: none !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+    }
+  }
+  
+  /* Estilos adicionales para móvil en modo video */
+  @media (max-width: 768px) {
+    .hero.video-on .hero-video.youtube-bg iframe {
+      /* Forzar que el iframe se comporte correctamente en móvil */
+      position: relative !important;
+      transform: none !important;
+      top: auto !important;
+      left: auto !important;
+      min-width: auto !important;
+      min-height: auto !important;
+    }
+  }
+}
 
     /* Ocultar header mientras el video está en primer plano */
     body.video-on .header {
