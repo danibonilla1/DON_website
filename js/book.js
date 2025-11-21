@@ -1,84 +1,105 @@
-// Book section scroll logic
-const etherealMessages = [
-  "The beginning of a great adventure...",
-  "",
-  "",
-  ""
-];
+// Book section scroll logic - Direct Interpolation (No Lag)
 
-let currentStep = 0;
-let ticking = false;
+let lastProgress = -1;
+let animationFrameId;
 
-function updateBookSteps() {
+// Map range function
+const mapRange = (value, inMin, inMax, outMin, outMax) => {
+  const clamped = Math.min(Math.max(value, inMin), inMax);
+  return outMin + (outMax - outMin) * ((clamped - inMin) / (inMax - inMin));
+};
+
+function updateBookAnimation() {
   const bookSection = document.querySelector('.book-section');
   const bookContainer = document.querySelector('.book-container');
   const book = document.getElementById('book');
-  const etherealIndicator = document.getElementById('etherealIndicator');
-  const etherealText = document.getElementById('etherealText');
+  const coverOuter = document.querySelector('.book-cover-outer');
+  const coverInner = document.querySelector('.book-cover-inner');
 
-  if (!bookSection || !bookContainer || !book || !etherealIndicator || !etherealText) {
-    console.warn('Faltan elementos necesarios para el scroll effect');
+  if (!bookSection || !bookContainer || !book) {
+    requestAnimationFrame(updateBookAnimation);
     return;
   }
 
+  // Calculate Scroll Progress (0 to 1)
   const rect = bookSection.getBoundingClientRect();
   const sectionHeight = bookSection.offsetHeight;
   const windowHeight = window.innerHeight;
 
-  // Calcular progreso lineal dentro de la sección
-  const scrollable = Math.max(1, sectionHeight - windowHeight);
-  const scrolled = Math.max(0, -rect.top);
-  const progress = Math.min(1, Math.max(0, scrolled / scrollable));
+  // We want the animation to start AS SOON AS the section enters the viewport
+  // Start: rect.top < windowHeight (entering)
+  // End: rect.bottom < 0 (leaving)
 
-  // Mostrar el libro mientras la sección esté en el viewport (solapa con la ventana)
-  const inView = rect.top < windowHeight && rect.bottom > 0;
-  if (inView) {
+  // Total distance the element travels from entering to leaving
+  const totalDistance = sectionHeight + windowHeight;
+  // Current position in that journey (0 at entry, totalDistance at exit)
+  const currentPos = windowHeight - rect.top;
+
+  // Normalized progress 0 to 1
+  let progress = currentPos / totalDistance;
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  // Visibility Logic
+  const isVisible = progress > 0 && progress < 1;
+
+  if (isVisible) {
     bookContainer.classList.add('visible');
-    etherealIndicator.classList.add('visible');
   } else {
     bookContainer.classList.remove('visible');
-    etherealIndicator.classList.remove('visible');
   }
 
-  // Mapeo de pasos (0,1,2,4) saltando el penúltimo paso (3)
-  let newStep;
-  if (progress < 0.2) {
-    newStep = 0;
-  } else if (progress < 0.45) {
-    newStep = 1;
-  } else if (progress < 0.7) {
-    newStep = 2;
+  // Animation Phases (3 Discrete Scroll Moments)
+  // SCROLL 1 (0.0 - 0.5): Show book straight, tilt and open (EVEN SLOWER)
+  // SCROLL 2 (0.5 - 0.75): Flip the book
+  // SCROLL 3 (0.75 - 1.0): Continue rotating slowly in same direction
+
+  let translateY, translateX, rotateY, rotateX, scale, coverRotation;
+
+  if (progress < 0.5) {
+    // SCROLL 1: SHOW STRAIGHT + TILT + OPEN (even slower opening)
+    const p = mapRange(progress, 0, 0.5, 0, 1);
+
+    translateY = mapRange(p, 0, 1, 80, -10); // Appears and centers
+    translateX = 0;
+    rotateY = mapRange(p, 0, 1, 0, -20); // Tilts Y
+    rotateX = mapRange(p, 0, 1, 0, 10); // Tilts X
+    scale = mapRange(p, 0, 1, 0.6, 0.85); // Grows to size
+    coverRotation = mapRange(p, 0, 1, 0, -120); // Opens fully (slower)
+
+  } else if (progress < 0.75) {
+    // SCROLL 2: FLIP
+    const p = mapRange(progress, 0.5, 0.75, 0, 1);
+
+    translateY = -10; // Stay centered
+    translateX = mapRange(p, 0, 1, 0, -150); // Moves left
+    rotateY = mapRange(p, 0, 1, -20, -180); // Flips
+    rotateX = mapRange(p, 0, 1, 10, 0); // Flattens
+    scale = 0.85; // Maintain size
+    coverRotation = mapRange(p, 0, 1, -120, -180); // Closes
+
   } else {
-    newStep = 4; // giro completo
+    // SCROLL 3: CONTINUE ROTATING SLOWLY (same direction)
+    const p = mapRange(progress, 0.75, 1.0, 0, 1);
+
+    translateY = -10;
+    translateX = -150;
+    rotateY = mapRange(p, 0, 1, -180, -200); // Continue rotating slowly
+    rotateX = 0;
+    scale = 0.85;
+    coverRotation = -180;
   }
 
-  if (newStep !== currentStep) {
-    currentStep = newStep;
-    book.className = `book step-${currentStep}`;
+  // Apply Transforms
+  book.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
 
-    // Actualizar mensaje etéreo con fade
-    const msgIdx = Math.min(currentStep, etherealMessages.length - 1);
-    etherealText.style.opacity = '0';
-    setTimeout(() => {
-      etherealText.textContent = etherealMessages[msgIdx];
-      etherealText.style.opacity = '1';
-    }, 250);
-  }
+  if (coverOuter) coverOuter.style.transform = `rotateY(${coverRotation}deg)`;
+  if (coverInner) coverInner.style.transform = `rotateY(${coverRotation}deg)`;
+
+  requestAnimationFrame(updateBookAnimation);
 }
 
-// Scroll optimization
-function requestTick() {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      updateBookSteps();
-      ticking = false;
-    });
-    ticking = true;
-  }
-}
+// Start Animation Loop
+document.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(updateBookAnimation);
+});
 
-// Listeners
-window.addEventListener('scroll', requestTick, { passive: true });
-window.addEventListener('load', updateBookSteps);
-window.addEventListener('resize', () => setTimeout(updateBookSteps, 100));
-document.addEventListener('DOMContentLoaded', () => setTimeout(updateBookSteps, 100));

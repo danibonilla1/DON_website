@@ -212,3 +212,11 @@
       }
     });
   });
+
+/* ---------- HERO VIDEO LAZY LOAD ---------- */
+window.addEventListener('load', () => {
+  const heroIframe = document.getElementById('heroBgVideo');
+  if (heroIframe && heroIframe.dataset.src) {
+    heroIframe.src = heroIframe.dataset.src;
+  }
+});
