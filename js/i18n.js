@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const lang = new URLSearchParams(window.location.search).get('lang');
+  window.currentLanguage = lang || 'en';
 
   // Si el parámetro 'lang' es 'es', busca el JSON y traduce.
   if (lang === 'es') {
@@ -12,12 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(translations => {
+        window.translations = translations;
         document.querySelectorAll('[data-i18n]').forEach(element => {
           const key = element.getAttribute('data-i18n');
           if (translations[key]) {
             element.innerHTML = translations[key];
           }
         });
+        document.dispatchEvent(new CustomEvent('translationsLoaded'));
       })
       .catch(error => {
         console.error('Error al cargar las traducciones:', error);
