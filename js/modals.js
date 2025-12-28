@@ -224,21 +224,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Pausar al hacer scroll fuera del hero o al desplazarse hacia abajo
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-    const rect = hero.getBoundingClientRect();
-    const inView = rect.bottom > 0 && rect.top < window.innerHeight;
-    const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    const scrolledDown = currentY > lastScrollY + 2;
-    lastScrollY = currentY;
-    if (document.body.classList.contains('video-on')) {
-      if (!inView) {
-        toggleHeroVideo(false);
-      } else if (currentY > heroVideoActivationScrollY + 10 && scrolledDown) {
-        toggleHeroVideo(false);
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const scrolledDown = currentY > lastScrollY + 2;
+        lastScrollY = currentY;
+        if (document.body.classList.contains('video-on')) {
+          if (!inView) {
+            toggleHeroVideo(false);
+          } else if (currentY > heroVideoActivationScrollY + 10 && scrolledDown) {
+            toggleHeroVideo(false);
+          }
+        }
       }
-    }
+      ticking = false;
+    });
   }, { passive: true });
 
   // Detectar cuando el usuario sale de pantalla completa

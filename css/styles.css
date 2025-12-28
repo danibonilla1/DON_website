@@ -129,14 +129,19 @@
 
       /* HERO SECTION */
       .hero {
-        height: 100vh;
-        height: 100dvh;
+        /* Usar svh para evitar saltos cuando la barra de navegación se mueve */
+        min-height: 100vh;
+        min-height: 100svh;
+        height: auto;
+
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        overflow-x: clip;
+        overflow-x: hidden;
+        /* clip puede ser inestable en webkit antiguo */
+
         /* Fix Doble Scroll */
         padding: 20px;
       }
@@ -631,13 +636,19 @@
 
       @media (max-width: 768px) {
         .book-section {
-          /* En móvil: sección normal sin sticky para evitar jank */
-          height: 100vh;
-          margin-top: -850px;
+          /* En móvil: usar transform para mover visualmente sin reflow + margin-bottom compensatorio */
+          margin-top: 0;
+          transform: translateY(-90vh);
+          margin-bottom: -90vh;
+
+          height: auto;
+          min-height: 80vh;
           z-index: 20;
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 0;
+          pointer-events: none;
         }
 
         /* En móvil: quitar sticky, mostrar como sección normal */
@@ -648,6 +659,12 @@
           opacity: 1;
           visibility: visible;
           transition: none;
+
+          /* Reactivar clicks en el libro si es necesario */
+          pointer-events: auto;
+
+          /* Ajuste visual vertical */
+          margin-top: 20vh;
         }
 
         /* Estado semi-abierto estático del libro */
