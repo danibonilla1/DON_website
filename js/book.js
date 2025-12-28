@@ -7,6 +7,28 @@ const mapRange = (value, inMin, inMax, outMin, outMax) => {
   return outMin + (outMax - outMin) * ((clamped - inMin) / (inMax - inMin));
 };
 
+// Cache metrics to avoid layout thrashing
+let metrics = {
+  sectionTop: 0,
+  sectionHeight: 0,
+  windowHeight: 0,
+  totalDistance: 0
+};
+
+function cacheMetrics() {
+  const bookSection = document.querySelector('.book-section');
+  if (!bookSection) return;
+
+  // Calculate absolute position including scroll
+  const rect = bookSection.getBoundingClientRect();
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  metrics.sectionTop = rect.top + scrollTop;
+  metrics.sectionHeight = bookSection.offsetHeight;
+  metrics.windowHeight = window.innerHeight;
+  metrics.totalDistance = metrics.sectionHeight + metrics.windowHeight;
+}
+
 function updateBookAnimation() {
   const bookSection = document.querySelector('.book-section');
   const bookContainer = document.querySelector('.book-container');
@@ -19,18 +41,18 @@ function updateBookAnimation() {
     return;
   }
 
-  // Calculate Scroll Progress (0 to 1)
-  const rect = bookSection.getBoundingClientRect();
-  const sectionHeight = bookSection.offsetHeight;
-  const windowHeight = window.innerHeight;
+  // Use cached metrics + current scroll
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-  // Total distance the element travels from entering to leaving
-  const totalDistance = sectionHeight + windowHeight;
-  // Current position in that journey (0 at entry, totalDistance at exit)
-  const currentPos = windowHeight - rect.top;
+  // Calculate distance from the point where the section ENTRES the viewport
+  // Entry point: scrollY = sectionTop - windowHeight
+  const startScroll = metrics.sectionTop - metrics.windowHeight;
 
-  // Normalized progress 0 to 1 - RAW TARGET
-  let targetProgress = currentPos / totalDistance;
+  // Current position relative to the start of the effect
+  const currentPos = scrollY - startScroll;
+
+  // Normalized progress 0 to 1
+  let targetProgress = currentPos / metrics.totalDistance;
   targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
   // LERP: Smoothly interpolate current -> target
@@ -99,6 +121,13 @@ function updateBookAnimation() {
 
 // Start Animation Loop
 document.addEventListener('DOMContentLoaded', () => {
+  // Initial calculation
+  // Slight delay to ensure layout is stable
+  setTimeout(cacheMetrics, 100);
+
+  // Update on resize
+  window.addEventListener('resize', cacheMetrics);
+
   requestAnimationFrame(updateBookAnimation);
 });
 
