@@ -49,6 +49,13 @@
         pointer-events: none;
       }
 
+      /* Hide particles on mobile for better scroll performance */
+      @media (max-width: 768px) {
+        #particleCanvas {
+          display: none !important;
+        }
+      }
+
       .header {
         visibility: hidden;
         position: fixed;
