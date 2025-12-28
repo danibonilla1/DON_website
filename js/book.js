@@ -41,6 +41,11 @@ function updateBookAnimation() {
     return;
   }
 
+  // Ensure metrics are initialized
+  if (metrics.totalDistance === 0) {
+    cacheMetrics();
+  }
+
   // Use cached metrics + current scroll
   const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -52,7 +57,11 @@ function updateBookAnimation() {
   const currentPos = scrollY - startScroll;
 
   // Normalized progress 0 to 1
-  let targetProgress = currentPos / metrics.totalDistance;
+  let targetProgress = 0;
+  if (metrics.totalDistance > 0) {
+    targetProgress = currentPos / metrics.totalDistance;
+  }
+  // Clamp target
   targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
   // LERP: Smoothly interpolate current -> target
@@ -122,6 +131,7 @@ function updateBookAnimation() {
 // Start Animation Loop
 document.addEventListener('DOMContentLoaded', () => {
   // Initial calculation
+  cacheMetrics();
   // Slight delay to ensure layout is stable
   setTimeout(cacheMetrics, 100);
 
@@ -130,4 +140,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   requestAnimationFrame(updateBookAnimation);
 });
-
