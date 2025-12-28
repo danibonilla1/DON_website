@@ -432,7 +432,7 @@ class ComplexParticleSystem {
 
         window.addEventListener('scroll', () => {
             this.scrollY = window.pageYOffset;
-        });
+        }, { passive: true });
 
         this.canvas.addEventListener('mousemove', (e) => {
             this.mouse.x = e.clientX;
