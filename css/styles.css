@@ -128,6 +128,8 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        overflow-x: clip;
+        /* Fix Doble Scroll */
         padding: 20px;
       }
 
@@ -606,6 +608,20 @@
         /* Altura ajustada para un scroll más fluido y rápido */
         height: 300vh;
         position: relative;
+        overflow-x: clip;
+        /* Fix Doble Scroll */
+        margin-top: -450px;
+        /* Superposición agresiva */
+        z-index: 20;
+        /* IMPORTANTE: Para que monte ENCIMA del manifiesto */
+      }
+
+      @media (max-width: 768px) {
+        .book-section {
+          margin-top: -850px;
+          /* Superposición extrema para cerrar el hueco vertical */
+          z-index: 20;
+        }
       }
 
       .book-container {
@@ -2499,11 +2515,15 @@
       .testimonials-container {
         position: relative;
         height: 320px;
+        width: 100%;
+        /* OBLIGATORIO para evitar colapso */
         display: flex;
         align-items: center;
         justify-content: center;
         perspective: 1000px;
         overflow: hidden;
+        /* OBLIGATORIO para evitar doble scroll */
+
         /* Fix horizontal scroll */
       }
 
@@ -4013,38 +4033,40 @@
           /* Reduced gap from previous section even more */
         }
 
-        /* Book Container - Make slightly smaller and center on mobile */
+        /* Book Container - Scale appropriately for mobile */
         .book-container {
-          transform: scale(0.85) translate(30px, 0);
-          /* Moved right 30px, centered vertically */
+          transform: scale(0.9) translate(50px, 0);
+          /* Adjusted scale to match approx 310px width behavior */
         }
 
+        /* 
+           --- VISUALLY TUNED VALUES (DO NOT RECALCULATE) --- 
+           Estos valores están ajustados "a ojo" para la versión móvil.
+           No intentar recalcular matemáticamente basándose en el scale.
+        */
         /* Adjust book thickness elements - scale down proportionally */
         .book-pages-right {
-          left: 270px;
-          /* 374px * 0.85 ≈ 318px */
+          left: 230px;
+          /* 374px * 0.72 ≈ 270px */
           width: 27px;
-          /* Even thinner on mobile */
-          height: 400px;
-          /* 580px * 0.85 ≈ 493px */
+          height: 340px;
+          /* 580px * 0.7 ≈ 400px */
         }
 
         .book-pages-bottom {
-          top: 410px;
-          /* 586px * 0.85 ≈ 498px */
-          width: 262px;
-          /* 376px * 0.85 ≈ 320px */
+          top: 350px;
+          /* 586px * 0.7 ≈ 410px */
+          width: 225px;
+          /* 376px * 0.7 ≈ 262px */
           height: 27px;
-          /* Even thinner on mobile */
         }
 
         /* Book spine adjustment */
         .book-spine {
           width: 15px;
-          /* Match thickness */
         }
 
-        /* These old step classes are not used anymore but keeping for compatibility */
+        /* Legacy step classes (kept for JS animation compatibility) */
         .book.step-0 {
           transform: translateY(0) scale(0.6);
         }
@@ -4600,13 +4622,15 @@
 
       /* --- MANIFESTO SECTION --- */
       .manifesto-section {
-        min-height: 80vh;
+        min-height: auto;
+        /* Evita alturas forzadas */
         background-color: #000;
         /* Void black */
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 100px 20px;
+        padding: 60px 20px 0 20px;
+        /* Sin padding inferior */
         position: relative;
         z-index: 10;
         overflow: hidden;

@@ -183,7 +183,7 @@ var spanishTranslations = {
   "pricing.tier1.feature3.details": "Mi playlist curada de canciones que acompañaron la creación del libro, bocetos conceptuales, diseños originales y fondos de pantalla exclusivos. Todo lo visual que define el universo de la obra.",
   "pricing.tier1.feature4.details": "Descarga una vez, quédatelo para siempre. Tus archivos, tu biblioteca. Acceso desde cualquier dispositivo, en cualquier momento.",
   "pricing.badge.recommended": "RECOMENDADO",
-  "pricing.tier2.subtitle": "Para Makers de Contenido",
+  "pricing.tier2.subtitle": "Producción de Contenido",
   "pricing.tier2.title": "The Creator's Toolkit",
   "pricing.tier2.description": "Acceso completo a mi proceso creativo. Aprende cómo creo contenido de principio a fin, incluyendo herramientas, técnicas e IA.",
   "pricing.tier2.guarantee": "Aprende mi proceso completo",
