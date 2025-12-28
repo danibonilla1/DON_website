@@ -1,8 +1,6 @@
 // Book section scroll logic - Direct Interpolation (No Lag)
 
-let lastProgress = -1;
-let animationFrameId;
-
+let currentProgress = 0;
 // Map range function
 const mapRange = (value, inMin, inMax, outMin, outMax) => {
   const clamped = Math.min(Math.max(value, inMin), inMax);
@@ -26,18 +24,19 @@ function updateBookAnimation() {
   const sectionHeight = bookSection.offsetHeight;
   const windowHeight = window.innerHeight;
 
-  // We want the animation to start AS SOON AS the section enters the viewport
-  // Start: rect.top < windowHeight (entering)
-  // End: rect.bottom < 0 (leaving)
-
   // Total distance the element travels from entering to leaving
   const totalDistance = sectionHeight + windowHeight;
   // Current position in that journey (0 at entry, totalDistance at exit)
   const currentPos = windowHeight - rect.top;
 
-  // Normalized progress 0 to 1
-  let progress = currentPos / totalDistance;
-  progress = Math.min(Math.max(progress, 0), 1);
+  // Normalized progress 0 to 1 - RAW TARGET
+  let targetProgress = currentPos / totalDistance;
+  targetProgress = Math.min(Math.max(targetProgress, 0), 1);
+
+  // LERP: Smoothly interpolate current -> target
+  // Factor 0.1 = smooth catchup. Lower = smoother/slower, Higher = snappier.
+  currentProgress += (targetProgress - currentProgress) * 0.1;
+  const progress = currentProgress;
 
   // Visibility Logic
   const isVisible = progress > 0 && progress < 1;
