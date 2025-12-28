@@ -42,32 +42,39 @@ function updateBookAnimation() {
     return;
   }
 
-  // Detect Mobile
-  const isMobile = window.innerWidth < 768;
+  // Detect Mobile using matchMedia (more reliable in DevTools responsive mode)
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
 
   let targetProgress = 0;
 
   if (isMobile) {
     // ---------------- MOBILE LOGIC (No Sticky) ----------------
-    // Animación basada en cuánto hemos scrolleado desde el top (Hero)
-    // Como el libro está superpuesto al Hero (transform -90vh),
-    // queremos que se anime mientras el usuario scrollea el Hero.
+    // La animación empieza cuando el libro ENTRA al viewport
 
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const rect = bookSection.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    // El libro empieza visible. Queremos que progrese de 0 (cerrado) a 1 (abierto/rotado)
-    // mientras el usuario hace scroll hacia abajo para ver el resto de la página.
-    // Completamos la animación cuando hemos scrolleado el 80% de la pantalla (el libro ya casi sale)
-    // Ajustamos esto para que se sienta bien.
+    // Progress 0 = libro justo entrando (rect.top = windowHeight)
+    // Progress 1 = libro justo saliendo (rect.bottom = 0)
 
-    targetProgress = scrollY / (windowHeight * 0.7);
+    if (rect.top >= windowHeight) {
+      // Libro aún no visible
+      targetProgress = 0;
+    } else if (rect.bottom <= 0) {
+      // Libro ya salió
+      targetProgress = 1;
+    } else {
+      // Libro visible, animando
+      const totalDistance = windowHeight + rect.height;
+      const travelled = windowHeight - rect.top;
+      targetProgress = travelled / totalDistance;
+    }
 
     // Clamp to 0-1
     targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
-    // Curva de aceleración para móvil (más rápido al principio)
-    targetProgress = Math.pow(targetProgress, 0.9);
+    // DEBUG
+    // console.log('MOBILE:', { rectTop: rect.top, targetProgress });
 
   } else {
     // ---------------- DESKTOP LOGIC (Sticky) ----------------
@@ -114,62 +121,39 @@ function updateBookAnimation() {
   // ---------------- ANIMATION PHASES ----------------
   let translateY, translateX, rotateY, rotateX, scale, coverRotation;
 
-  if (isMobile) {
-    // --- MOBILE ANIMATION (Simplified) ---
-    // Solo abrir y rotar un poco, sin trasladarse demasiado (el scroll lo mueve)
+  // --- ANIMATION PHASES (Unified for Mobile and Desktop) ---
+  // Animación completa: entrar, abrir, flip, rotar
 
-    // Empieza: Ligeramente de lado + Cerrado
-    // Termina: Más de frente + Abierto
-
-    // RotateY: -25 (inicio) -> -5 (fin)
-    rotateY = -25 + (progress * 20);
-
-    // RotateX: 8 (inicio) -> 15 (fin)
-    rotateX = 8 + (progress * 7);
-
-    // Scale: 0.65 (inicio) -> 0.75 (fin)
-    scale = 0.65 + (progress * 0.1);
-
-    // Cover: 0 (cerrado) -> -160 (abierto)
-    // Empieza a abrirse pronto
-    const openP = Math.min(Math.max((progress - 0.1) * 1.4, 0), 1);
-    coverRotation = openP * -160;
-
-    // Translate: Mantener centrado
+  if (progress < 0.5) {
+    // SCROLL 1: SHOW STRAIGHT + TILT + OPEN
+    const p = mapRange(progress, 0, 0.5, 0, 1);
+    translateY = mapRange(p, 0, 1, 80, -10);
     translateX = 0;
-    translateY = 0;
-
+    rotateY = mapRange(p, 0, 1, 0, -20);
+    rotateX = mapRange(p, 0, 1, 0, 10);
+    scale = mapRange(p, 0, 1, 0.6, 0.85);
+    coverRotation = mapRange(p, 0, 1, 0, -120);
+  } else if (progress < 0.75) {
+    // SCROLL 2: FLIP
+    const p = mapRange(progress, 0.5, 0.75, 0, 1);
+    translateY = -10;
+    translateX = mapRange(p, 0, 1, 0, -150);
+    rotateY = mapRange(p, 0, 1, -20, -180);
+    rotateX = mapRange(p, 0, 1, 10, 0);
+    scale = 0.85;
+    coverRotation = mapRange(p, 0, 1, -120, -180);
   } else {
-    // --- DESKTOP ANIMATION (Original Complex) ---
-    if (progress < 0.5) {
-      // SCROLL 1: SHOW STRAIGHT + TILT + OPEN
-      const p = mapRange(progress, 0, 0.5, 0, 1);
-      translateY = mapRange(p, 0, 1, 80, -10);
-      translateX = 0;
-      rotateY = mapRange(p, 0, 1, 0, -20);
-      rotateX = mapRange(p, 0, 1, 0, 10);
-      scale = mapRange(p, 0, 1, 0.6, 0.85);
-      coverRotation = mapRange(p, 0, 1, 0, -120);
-    } else if (progress < 0.75) {
-      // SCROLL 2: FLIP
-      const p = mapRange(progress, 0.5, 0.75, 0, 1);
-      translateY = -10;
-      translateX = mapRange(p, 0, 1, 0, -150);
-      rotateY = mapRange(p, 0, 1, -20, -180);
-      rotateX = mapRange(p, 0, 1, 10, 0);
-      scale = 0.85;
-      coverRotation = mapRange(p, 0, 1, -120, -180);
-    } else {
-      // SCROLL 3: ROTATE
-      const p = mapRange(progress, 0.75, 1.0, 0, 1);
-      translateY = -10;
-      translateX = -150;
-      rotateY = mapRange(p, 0, 1, -180, -200);
-      rotateX = 0;
-      scale = 0.85;
-      coverRotation = -180;
-    }
+    // SCROLL 3: CONTINUE ROTATING
+    const p = mapRange(progress, 0.75, 1.0, 0, 1);
+    translateY = -10;
+    translateX = -150;
+    rotateY = mapRange(p, 0, 1, -180, -200);
+    rotateX = 0;
+    scale = 0.85;
+    coverRotation = -180;
   }
+
+  // Código desktop duplicado eliminado (ahora unificado arriba)
 
   // Apply Transforms
   // En móvil, aseguramos que el estilo inline tenga prioridad

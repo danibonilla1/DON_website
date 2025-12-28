@@ -621,6 +621,8 @@
 
       /* --- INICIO CSS LIBRO --- */
 
+      /* --- INICIO CSS LIBRO --- */
+
       .book-section {
         /* Más alto para que cada stage tenga espacio y no pase tan rápido */
         /* Altura ajustada para un scroll más fluido y rápido */
@@ -629,7 +631,8 @@
         overflow-x: clip;
         /* Fix Doble Scroll */
         /* Fix Doble Scroll */
-        margin-top: -300px;
+        margin-top: -150px;
+        /* BOOK POSITION: Bajado (antes -300px) */
         /* Superposición menos agresiva para bajar el libro */
         z-index: 20;
         /* IMPORTANTE: Para que monte ENCIMA del manifiesto */
@@ -683,35 +686,37 @@
 
       @media (max-width: 768px) {
         .book-section {
-          /* En móvil: usar transform para mover visualmente sin reflow + margin-bottom compensatorio */
+          /* Mobile: Sticky Layout Limpio */
           margin-top: 0;
-          transform: translateY(-90vh);
-          margin-bottom: -90vh;
+          margin-bottom: 0;
+          transform: none;
 
-          height: auto;
-          min-height: 80vh;
+          /* Área de scroll para la animación (250vh de recorrido) */
+          height: 250vh;
+          min-height: auto;
+
+          position: relative;
           z-index: 50;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          display: block;
           padding: 0;
           pointer-events: none;
         }
 
-        /* En móvil: quitar sticky, mostrar como sección normal */
         .book-container {
-          position: relative;
-          top: auto;
-          height: auto;
+          /* El contenedor se pega al viewport y centra el libro */
+          position: sticky;
+          top: 0;
+          height: 100vh;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
           opacity: 1 !important;
           visibility: visible !important;
           transition: none;
-
-          /* Reactivar clicks en el libro si es necesario */
           pointer-events: auto;
-
-          /* Ajuste visual vertical */
-          margin-top: 20vh;
+          margin-top: 0;
         }
 
         /* Estado semi-abierto estático del libro - Eliminado para permitir animación JS */
