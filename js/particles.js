@@ -453,5 +453,13 @@ class ComplexParticleSystem {
 }
 
 window.addEventListener('load', () => {
+    // Skip particle system on mobile to improve scroll performance
+    const isMobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+        // Hide the canvas on mobile
+        const canvas = document.getElementById('particleCanvas');
+        if (canvas) canvas.style.display = 'none';
+        return;
+    }
     new ComplexParticleSystem();
 });
