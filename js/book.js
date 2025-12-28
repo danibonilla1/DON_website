@@ -2,13 +2,6 @@
 
 let currentProgress = 0;
 
-// Detect mobile for optimized LERP factor
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-  || window.innerWidth < 768;
-
-// LERP factor: higher = more responsive (better for mobile momentum scroll)
-const LERP_FACTOR = isMobile ? 0.35 : 0.1;
-
 // Map range function
 const mapRange = (value, inMin, inMax, outMin, outMax) => {
   const clamped = Math.min(Math.max(value, inMin), inMax);
@@ -76,11 +69,15 @@ function updateBookAnimation() {
   // Mobile uses higher factor for better momentum scroll tracking
   const delta = targetProgress - currentProgress;
 
+  // Detect mobile dynamically (screen could be resized)
+  const isMobileDevice = window.innerWidth < 768;
+  const lerpFactor = isMobileDevice ? 0.4 : 0.1;
+
   // Skip LERP for tiny deltas to avoid micro-jitter, snap directly
   if (Math.abs(delta) < 0.001) {
     currentProgress = targetProgress;
   } else {
-    currentProgress += delta * LERP_FACTOR;
+    currentProgress += delta * lerpFactor;
   }
   const progress = currentProgress;
 
