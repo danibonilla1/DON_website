@@ -253,6 +253,11 @@
       /* Estilos específicos para móvil */
       @media (max-width: 768px) {
 
+        /* Ocultar video de YouTube de fondo en móvil - causa scroll jank */
+        .hero-video.youtube-bg {
+          display: none !important;
+        }
+
         /* Ocultar el botón de reproducción de video en móviles */
         .hero-play-btn {
           display: none !important;
