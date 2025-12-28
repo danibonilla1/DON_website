@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title data-i18n="meta.title">Black Sheep's Diary - The Complete Trilogy</title>
+    <meta name="description"
+        content="The complete trilogy: A journey to the deepest core of human essence. Three books that will transform how you see yourself.">
+    <meta property="og:title" content="Black Sheep's Diary - The Complete Trilogy">
+    <meta property="og:description"
+        content="The complete trilogy: A journey to the deepest core of human essence. Three books that will transform how you see yourself.">
+    <meta property="og:image" content="https://don-website.com/img/libro.jpg">
+    <meta property="og:url" content="https://don-website.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --dark-gold: #8b7355;
+            --void-black: #050505;
+            --abyss-black: #0a0a0c;
+            --ethereal-white: #f8f6f0;
+            /* Book color tints */
+            --book1-tint: rgba(212, 175, 55, 0.35);
+            /* Gold */
+            --book2-tint: rgba(16, 185, 129, 0.35);
+            /* Emerald */
+            --book3-tint: rgba(139, 92, 246, 0.35);
+            /* Violet */
+        }
+
+        .trilogy-pricing-section {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trilogy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trilogy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .trilogy-eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .trilogy-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.75rem, 5vw, 3rem);
+            color: white;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-gold) 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .trilogy-subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== MAIN PRODUCT SECTION - ENTRE LOBOS ===== */
+        .main-product-section {
+            margin-bottom: 3rem;
+        }
+
+        .main-product-card {
+            background: rgba(10, 10, 12, 0.9);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            position: relative;
+            overflow: visible;
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, 0.7),
+                0 0 80px rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .main-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold) 15%, #f4d03f 50%, var(--primary-gold) 85%, transparent);
+        }
+
+        .main-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 0.5rem 1.5rem;
+            z-index: 10;
+        }
+
+        .main-book-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1500px;
+        }
+
+        .main-book-3d {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: rotateY(-20deg) rotateX(5deg);
+            animation: main-book-float 5s ease-in-out infinite;
+        }
+
+        @keyframes main-book-float {
+
+            0%,
+            100% {
+                transform: rotateY(-20deg) rotateX(5deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(-15deg) rotateX(5deg) translateY(-15px);
+            }
+        }
+
+        .main-book-3d .book-3d-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('img/libro.jpg') no-repeat;
+            background-size: 450px auto;
+            background-position: right center;
+            border-radius: 2px 12px 12px 2px;
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(212, 175, 55, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transform: translateZ(20px);
+        }
+
+        .main-book-3d .book-3d-cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('img/ort4.png') no-repeat center center, url('img/title_en.png') no-repeat center center;
+            background-size: 100% 100%, 75% auto;
+        }
+
+        .main-book-3d .book-3d-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            background: linear-gradient(90deg, #0a0a0a, #1a1a1a, #2a2a2a, #1a1a1a, #0a0a0a);
+            transform: rotateY(-90deg) translateX(-20px);
+            transform-origin: right center;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .main-book-3d .book-3d-pages {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            width: 40px;
+            height: calc(100% - 8px);
+            background: repeating-linear-gradient(90deg, #f9f6eb 0px, #f4f0e3 1px, #ebe6d7 2px);
+            transform: rotateY(90deg) translateX(20px);
+            transform-origin: left center;
+        }
+
+        .main-book-3d .book-3d-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            border-radius: 12px 2px 2px 12px;
+            transform: translateZ(-20px);
+        }
+
+        .main-book-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .main-book-series {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .main-book-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: white;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-gold) 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .main-book-tagline {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .main-book-description {
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0;
+        }
+
+        .main-book-features {
+            display: flex;
+            gap: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .main-book-features .book-feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Format Options for Main Product */
+        .format-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 0.75rem 0;
+            max-width: 380px;
+        }
+
+        .format-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .format-option:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .format-option.featured {
+            border-color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        .format-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .format-icon {
+            font-size: 1.5rem;
+        }
+
+        .format-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .format-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .format-desc {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .format-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .format-price-old {
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+        }
+
+        .format-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .main-cta {
+            width: 100%;
+            max-width: 350px;
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
+        }
+
+        .main-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Deck book coming soon text */
+        .deck-book-coming {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        /* ===== UPSELL SECTION ===== */
+        .upsell-section {
+            margin-top: 1.5rem;
+        }
+
+        .upsell-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .upsell-divider::before,
+        .upsell-divider::after {
+            content: '';
+            flex: 1;
+            max-width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4));
+        }
+
+        .upsell-divider::after {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.4), transparent);
+        }
+
+        .upsell-question {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--primary-gold);
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .upsell-card {
+            opacity: 0.95;
+            transform: scale(0.98);
+            transition: all 0.3s ease;
+        }
+
+        .upsell-card:hover {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Bundle includes list */
+        .bundle-includes {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .bundle-include-item {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .bundle-include-item.bundle-upcoming {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .bundle-include-item small {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .bundle-desc {
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Deck book sizes - Main book larger */
+        .deck-book-main {
+            transform: translateX(-80px) translateZ(60px) scale(1.1);
+        }
+
+        .deck-book-secondary {
+            transform-origin: center;
+        }
+
+        .deck-book:nth-child(2).deck-book-secondary {
+            transform: translateX(50px) translateZ(-30px) scale(0.85);
+        }
+
+        .deck-book:nth-child(3).deck-book-secondary {
+            transform: translateX(110px) translateZ(-60px) scale(0.75);
+        }
+
+        /* Hover effect adjustments for upsell deck */
+        .upsell-card .book-deck:hover .deck-book-main,
+        .upsell-card .book-deck.activated .deck-book-main {
+            transform: translateX(-100px) translateZ(70px) scale(1.1) translateY(-8px);
+        }
+
+        .upsell-card .book-deck:hover .deck-book:nth-child(2).deck-book-secondary,
+        .upsell-card .book-deck.activated .deck-book:nth-child(2).deck-book-secondary {
+            transform: translateX(60px) translateZ(-10px) scale(0.88);
+        }
+
+        .upsell-card .book-deck:hover .deck-book:nth-child(3).deck-book-secondary,
+        .upsell-card .book-deck.activated .deck-book:nth-child(3).deck-book-secondary {
+            transform: translateX(130px) translateZ(-40px) scale(0.78);
+        }
+
+        /* ===== BUNDLE SECTION WITH CARD DECK ===== */
+        .bundle-section {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .bundle-card {
+            background: rgba(10, 10, 12, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: visible;
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.6),
+                0 0 60px rgba(212, 175, 55, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .bundle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold) 15%, #f4d03f 50%, var(--primary-gold) 85%, transparent);
+        }
+
+        .bundle-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-gold), #f4d03f);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            z-index: 10;
+        }
+
+        /* ===== CARD DECK - 3 STACKED BOOKS ===== */
+        .book-deck {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            perspective: 2000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes deck-float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotateY(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotateY(2deg);
+            }
+        }
+
+        .book-deck-inner {
+            position: relative;
+            width: 400px;
+            height: 340px;
+            transform-style: preserve-3d;
+            animation: deck-float 8s ease-in-out infinite;
+        }
+
+        .deck-book {
+            position: absolute;
+            width: 180px;
+            height: 270px;
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            left: 50%;
+            margin-left: -90px;
+        }
+
+        /* Book 1 (Entre Lobos) = LEFT, FRONT (largest, visible cover with gold tint) */
+        .deck-book:nth-child(1) {
+            transform: translateX(-110px) translateZ(60px);
+        }
+
+        /* Book 2 (Lana Densa) = CENTER, behind */
+        .deck-book:nth-child(2) {
+            transform: translateX(70px) translateZ(-20px);
+        }
+
+        /* Book 3 (Sin Rebaño) = RIGHT, further behind */
+        .deck-book:nth-child(3) {
+            transform: translateX(150px) translateZ(-50px);
+        }
+
+        /* ELEGANT hover - books spread wider */
+        .book-deck:hover .deck-book:nth-child(1),
+        .book-deck.activated .deck-book:nth-child(1) {
+            transform: translateX(-110px) translateZ(70px) translateY(-5px);
+        }
+
+        .book-deck:hover .deck-book:nth-child(2),
+        .book-deck.activated .deck-book:nth-child(2) {
+            transform: translateX(80px) translateZ(0px);
+        }
+
+        .book-deck:hover .deck-book:nth-child(3),
+        .book-deck.activated .deck-book:nth-child(3) {
+            transform: translateX(150px) translateZ(-30px);
+        }
+
+        /* Front cover */
+        .deck-book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('img/libro.jpg') no-repeat;
+            background-size: 400px 300px;
+            background-position: right center;
+            border-radius: 2px 10px 10px 2px;
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(212, 175, 55, 0.15),
+                0 0 0 2px rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+            transform: translateZ(22.5px);
+        }
+
+        .deck-book-cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url('img/ort4.png') no-repeat center center,
+                url('img/title_en.png') no-repeat center center;
+            background-size: 100% 100%, 80% auto;
+        }
+
+        /* Color tint overlays for each book */
+        .deck-book-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 2px 10px 10px 2px;
+            transition: opacity 0.3s ease;
+        }
+
+        .deck-book:nth-child(1) .deck-book-cover::after {
+            background: linear-gradient(135deg, var(--book1-tint), transparent 60%);
+        }
+
+        .deck-book:nth-child(2) .deck-book-cover::after {
+            background: linear-gradient(135deg, var(--book2-tint), transparent 60%);
+        }
+
+        .deck-book:nth-child(3) .deck-book-cover::after {
+            background: linear-gradient(135deg, var(--book3-tint), transparent 60%);
+        }
+
+        /* Back cover */
+        .deck-book-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+            border-radius: 10px 2px 2px 10px;
+            border: 1px solid #2a2a2a;
+            transform: translateZ(-22.5px) rotateY(180deg);
+        }
+
+        .deck-book:nth-child(1) .deck-book-back {
+            background: linear-gradient(135deg, #1a1510 0%, #0d0d0d 50%, #1a1510 100%);
+        }
+
+        .deck-book:nth-child(2) .deck-book-back {
+            background: linear-gradient(135deg, #0d1a15 0%, #0d0d0d 50%, #0d1a15 100%);
+        }
+
+        .deck-book:nth-child(3) .deck-book-back {
+            background: linear-gradient(135deg, #150d1a 0%, #0d0d0d 50%, #150d1a 100%);
+        }
+
+        /* Elegant mystery shimmer animation for unavailable books (Lana Densa and Sin Rebaño) */
+        @keyframes mystery-shimmer {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .deck-book:nth-child(2) .deck-book-cover::before,
+        .deck-book:nth-child(3) .deck-book-cover::before {
+            content: '';
+            display: block !important;
+            background:
+                repeating-linear-gradient(45deg,
+                    transparent 0px,
+                    transparent 8px,
+                    rgba(255, 255, 255, 0.03) 8px,
+                    rgba(255, 255, 255, 0.03) 16px),
+                linear-gradient(135deg,
+                    rgba(30, 30, 35, 0.95) 0%,
+                    rgba(20, 20, 25, 0.98) 50%,
+                    rgba(30, 30, 35, 0.95) 100%) !important;
+            background-size: 400% 400%, 100% 100%;
+            animation: mystery-shimmer 8s linear infinite;
+        }
+
+        .deck-book:nth-child(2) .deck-book-cover::after,
+        .deck-book:nth-child(3) .deck-book-cover::after {
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.1) 50%,
+                    rgba(0, 0, 0, 0.3) 100%) !important;
+        }
+
+        .deck-book:nth-child(2),
+        .deck-book:nth-child(3) {
+            opacity: 0.9;
+        }
+
+        /* Book number badge */
+        .deck-book-number {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+            z-index: 5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .deck-book:nth-child(1) .deck-book-number {
+            background: linear-gradient(135deg, #d4af37, #b8963b);
+        }
+
+        .deck-book:nth-child(2) .deck-book-number {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .deck-book:nth-child(3) .deck-book-number {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        /* Book spine - THICK 45px for realistic book look */
+        .deck-book-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 45px;
+            height: 100%;
+            background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 15%, #2a2a2a 50%, #1a1a1a 85%, #0a0a0a 100%);
+            transform: rotateY(-90deg) translateX(-22.5px);
+            transform-origin: right center;
+            border-radius: 3px 0 0 3px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .deck-book-spine::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.5) 0%, transparent 12%, transparent 88%, rgba(212, 175, 55, 0.5) 100%);
+        }
+
+        .deck-book:nth-child(2) .deck-book-spine::after {
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.5) 0%, transparent 12%, transparent 88%, rgba(16, 185, 129, 0.5) 100%);
+        }
+
+        .deck-book:nth-child(3) .deck-book-spine::after {
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.5) 0%, transparent 12%, transparent 88%, rgba(139, 92, 246, 0.5) 100%);
+        }
+
+        /* Book pages - visible from the side */
+        .deck-book-pages {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            width: 45px;
+            height: calc(100% - 8px);
+            background: repeating-linear-gradient(90deg, #f9f6eb 0px, #f4f0e3 1px, #ebe6d7 2px, #e5e0d0 3px);
+            transform: rotateY(90deg) translateX(22.5px);
+            transform-origin: left center;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.15);
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Top edge of pages */
+        .deck-book-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 2px);
+            height: 45px;
+            background: linear-gradient(180deg, #ebe6d7 0%, #ddd8c8 100%);
+            transform: rotateX(90deg) translateY(-22.5px);
+            transform-origin: bottom center;
+            margin-left: 1px;
+        }
+
+        /* Bottom edge of pages */
+        .deck-book-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: calc(100% - 2px);
+            height: 45px;
+            background: linear-gradient(180deg, #ddd8c8 0%, #ebe6d7 100%);
+            transform: rotateX(-90deg) translateY(22.5px);
+            transform-origin: top center;
+            margin-left: 1px;
+        }
+
+        /* Book labels - titles beneath each book */
+        .deck-book-label {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%) translateZ(20px);
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            white-space: nowrap;
+            text-align: center;
+            line-height: 1.2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .deck-book-label small {
+            font-size: 0.5rem;
+            opacity: 0.8;
+            color: #D2691E;
+        }
+
+        .book1-label {
+            color: var(--primary-gold);
+        }
+
+        .book2-label {
+            color: #10b981;
+        }
+
+        .book3-label {
+            color: #8b5cf6;
+        }
+
+        .book-deck:hover .deck-book-label,
+        .book-deck.activated .deck-book-label {
+            opacity: 1;
+        }
+
+        /* Bundle features */
+        .bundle-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-icon {
+            font-size: 1.2rem;
+        }
+
+        .feature-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Collector's Edition option */
+        .price-option.collector {
+            border-color: rgba(139, 69, 19, 0.5);
+            background: rgba(139, 69, 19, 0.1);
+        }
+
+        .price-option.collector:hover {
+            border-color: #D2691E;
+            background: rgba(139, 69, 19, 0.2);
+        }
+
+        .collector-price {
+            color: #D2691E !important;
+        }
+
+        .see-more {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.75rem;
+            color: #D2691E;
+            opacity: 0.8;
+        }
+
+        /* Bundle Info */
+        .bundle-info {
+            text-align: left;
+            padding-left: 1rem;
+        }
+
+        .bundle-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.75rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .bundle-info>p {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .bundle-books-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bundle-book-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Crimson Text', serif;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .bundle-book-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .bundle-book-item:nth-child(1) .bundle-book-dot {
+            background: var(--primary-gold);
+        }
+
+        .bundle-book-item:nth-child(2) .bundle-book-dot {
+            background: #10b981;
+        }
+
+        .bundle-book-item:nth-child(3) .bundle-book-dot {
+            background: #8b5cf6;
+        }
+
+        .bundle-price-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-option {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .price-option:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .price-option.featured {
+            border-color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .price-option-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .price-option-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .price-option-desc {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .price-option-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .price-original {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+        }
+
+        .price-current {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+        }
+
+        .presale-tag {
+            font-size: 0.55rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .bundle-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.35);
+        }
+
+        .bundle-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ===== INDIVIDUAL BOOKS SECTION ===== */
+        .individual-section {
+            margin-top: 3rem;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+        }
+
+        .section-divider h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .book-card {
+            background: rgba(10, 10, 12, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: visible;
+            margin-top: 15px;
+        }
+
+        .book-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .book-card.in-view {
+            transform: translateY(-5px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Book card color accent top bar */
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .book-card:nth-child(1)::before {
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .book-card:nth-child(1):hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .book-card:nth-child(2)::before {
+            background: linear-gradient(90deg, transparent, #10b981, transparent);
+        }
+
+        .book-card:nth-child(2):hover {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .book-card:nth-child(3)::before {
+            background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+        }
+
+        .book-card:nth-child(3):hover {
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .book-card-cover {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            padding-top: 50px;
+            padding-bottom: 20px;
+            overflow: visible;
+        }
+
+        @keyframes book-float {
+
+            0%,
+            100% {
+                transform: rotateY(-15deg) rotateX(5deg) translateY(0px);
+            }
+
+            50% {
+                transform: rotateY(-15deg) rotateX(5deg) translateY(-8px);
+            }
+        }
+
+        .book-3d {
+            position: relative;
+            width: 120px;
+            height: 180px;
+            transform-style: preserve-3d;
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+            animation: book-float 4s ease-in-out infinite;
+        }
+
+        .book-card:hover .book-3d {
+            transform: rotateY(-5deg) rotateX(3deg) translateY(-10px);
+            animation-play-state: paused;
+        }
+
+        .book-3d-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('img/libro.jpg') no-repeat;
+            background-size: 280px auto;
+            background-position: right center;
+            border-radius: 2px 8px 8px 2px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2a2a2a;
+            transform: translateZ(15px);
+        }
+
+        .book-3d-cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('img/ort4.png') no-repeat center center, url('img/title_en.png') no-repeat center center;
+            background-size: 100% 100%, 70% auto;
+        }
+
+        .book-3d-spine {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(90deg, #0a0a0a, #1a1a1a, #2a2a2a, #1a1a1a, #0a0a0a);
+            transform: rotateY(-90deg) translateX(-15px);
+            transform-origin: right center;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .book-3d-pages {
+            position: absolute;
+            right: 0;
+            top: 3px;
+            width: 30px;
+            height: calc(100% - 6px);
+            background: repeating-linear-gradient(90deg, #f9f6eb 0px, #f4f0e3 1px, #ebe6d7 2px);
+            transform: rotateY(90deg) translateX(15px);
+            transform-origin: left center;
+        }
+
+        .book-3d-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            border-radius: 8px 2px 2px 8px;
+            transform: translateZ(-15px);
+        }
+
+        /* Color tints for each book */
+        .book-card:nth-child(1) .book-3d-cover::after,
+        .book-card:nth-child(1) .book-3d-spine::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--book1-tint), transparent 60%);
+            border-radius: inherit;
+        }
+
+        .book-card:nth-child(2) .book-3d-cover::after,
+        .book-card:nth-child(2) .book-3d-spine::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--book2-tint), transparent 60%);
+            border-radius: inherit;
+        }
+
+        .book-card:nth-child(3) .book-3d-cover::after,
+        .book-card:nth-child(3) .book-3d-spine::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--book3-tint), transparent 60%);
+            border-radius: inherit;
+        }
+
+        /* Unavailable book - greyed out cover */
+        .book-unavailable .book-3d-cover::before {
+            filter: grayscale(70%);
+        }
+
+        .book-card-number {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            z-index: 5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .book-card:nth-child(1) .book-card-number {
+            background: linear-gradient(135deg, #d4af37, #b8963b);
+        }
+
+        .book-card:nth-child(2) .book-card-number {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .book-card:nth-child(3) .book-card-number {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .book-card-content {
+            padding: 1.25rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .book-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-card:nth-child(1) h3 {
+            color: var(--primary-gold);
+        }
+
+        .book-card:nth-child(2) h3 {
+            color: #10b981;
+        }
+
+        .book-card:nth-child(3) h3 {
+            color: #8b5cf6;
+        }
+
+        .book-card>.book-card-content>p {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .book-formats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .format-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .format-name {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .format-name svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        .format-price-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .format-price-original {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+        }
+
+        .format-price {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .book-card:nth-child(1) .format-price {
+            color: var(--primary-gold);
+        }
+
+        .book-card:nth-child(2) .format-price {
+            color: #10b981;
+        }
+
+        .book-card:nth-child(3) .format-price {
+            color: #8b5cf6;
+        }
+
+        .book-cta {
+            background: transparent;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            width: 100%;
+        }
+
+        .book-card:nth-child(1) .book-cta {
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: var(--primary-gold);
+        }
+
+        .book-card:nth-child(1) .book-cta:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .book-card:nth-child(2) .book-cta {
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #10b981;
+        }
+
+        .book-card:nth-child(2) .book-cta:hover {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .book-card:nth-child(3) .book-cta {
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: #8b5cf6;
+        }
+
+        .book-card:nth-child(3) .book-cta:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Book features */
+        .book-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            justify-content: center;
+        }
+
+        .book-feature {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Simple price display */
+        .book-price-simple {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-price-simple .price-original {
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+        }
+
+        .book-price-simple .price-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        /* Selected format option */
+        .format-option.selected {
+            border: 1px solid #10b981;
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        /* Disabled link style for Bundle Only buttons */
+        .book-cta.disabled-link {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            opacity: 0.6;
+        }
+
+        .book-cta.disabled-link:hover {
+            opacity: 1;
+        }
+
+        /* Unavailable book cards */
+        .book-card.book-unavailable {
+            opacity: 0.7;
+        }
+
+        .book-card.book-unavailable:hover {
+            transform: none;
+        }
+
+        .coming-soon-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 20;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .coming-soon-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .bundle-only-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Available book badge */
+        .book-card.book-available {
+            position: relative;
+        }
+
+        .available-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        /* Disabled button */
+        .book-cta.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
+
+        .book-cta.disabled:hover {
+            background: transparent !important;
+        }
+
+        /* ===== PREMIUM INNER CIRCLE ===== */
+        .premium-section {
+            margin-top: 4rem;
+            padding-top: 1rem;
+        }
+
+        .premium-card {
+            background: rgba(10, 10, 12, 0.85);
+            border: 1px solid rgba(139, 69, 19, 0.4);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            padding-top: 3rem;
+            position: relative;
+            overflow: visible;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8B4513 15%, #D2691E 50%, #8B4513 85%, transparent);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .premium-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .premium-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #D2691E;
+            margin-bottom: 0.75rem;
+        }
+
+        .premium-info>p {
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .premium-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .premium-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .sf-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #D2691E;
+            min-width: 24px;
+        }
+
+        .sf-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .sf-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .sf-text strong {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .sf-text span {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.3;
+        }
+
+        .premium-pricing-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .premium-price-wrap {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .premium-price {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D2691E;
+        }
+
+        .premium-price-original {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: line-through;
+        }
+
+        .premium-savings {
+            background: rgba(210, 105, 30, 0.2);
+            color: #D2691E;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .premium-cta {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            width: 100%;
+        }
+
+        .premium-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+        }
+
+        /* ===== TRUST BADGES ===== */
+        .trilogy-trust {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .trust-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon svg {
+            width: 18px;
+            height: 18px;
+            color: #10b981;
+        }
+
+        .trust-text strong {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: white;
+        }
+
+        .trust-text span {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .delivery-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== RESPONSIVE - TABLET ===== */
+        @media (max-width: 1000px) {
+            .main-product-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .main-book-display {
+                order: -1;
+            }
+
+            .main-book-3d {
+                width: 180px;
+                height: 270px;
+            }
+
+            .main-book-info {
+                align-items: center;
+            }
+
+            .main-book-description {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .main-book-features {
+                justify-content: center;
+            }
+
+            .format-options {
+                max-width: 350px;
+                width: 100%;
+                margin: 0.5rem auto;
+            }
+
+            .main-cta {
+                margin: 0 auto;
+            }
+
+            .upsell-question {
+                font-size: 0.85rem;
+            }
+
+            .bundle-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .book-deck {
+                height: 220px;
+                margin-bottom: 0.5rem;
+            }
+
+            .book-deck-inner {
+                width: 200px;
+                height: 160px;
+            }
+
+            .deck-book {
+                width: 100px;
+                height: 150px;
+                margin-left: -50px;
+            }
+
+            /* Tighter for tablet - no rotation */
+            .deck-book:nth-child(1) {
+                transform: translateX(-100px) translateZ(60px);
+            }
+
+            .deck-book:nth-child(2) {
+                transform: translateX(80px) translateZ(-20px);
+            }
+
+            .deck-book:nth-child(3) {
+                transform: translateX(140px) translateZ(-50px);
+            }
+
+            .book-deck:hover .deck-book:nth-child(1),
+            .book-deck.activated .deck-book:nth-child(1) {
+                transform: translateX(-110px) translateZ(0px);
+            }
+
+            .book-deck:hover .deck-book:nth-child(2),
+            .book-deck.activated .deck-book:nth-child(2) {
+                transform: translateZ(40px) translateY(-5px);
+            }
+
+            .book-deck:hover .deck-book:nth-child(3),
+            .book-deck.activated .deck-book:nth-child(3) {
+                transform: translateX(110px) translateZ(0px);
+            }
+
+            /* Smaller spine/pages for mobile */
+            .deck-book-spine {
+                width: 25px;
+                transform: rotateY(-90deg) translateX(-12.5px);
+            }
+
+            .deck-book-pages {
+                width: 25px;
+                transform: rotateY(90deg) translateX(12.5px);
+            }
+
+            .deck-book-cover {
+                transform: translateZ(12.5px);
+            }
+
+            .deck-book-top,
+            .deck-book-bottom {
+                height: 25px;
+            }
+
+            .deck-book-top {
+                transform: rotateX(90deg) translateY(-12.5px);
+            }
+
+            .deck-book-bottom {
+                transform: rotateX(-90deg) translateY(12.5px);
+            }
+
+            .bundle-info {
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .bundle-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .bundle-info>p {
+                display: none;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Orden en móvil: Entre Lobos (1), Lana Densa (2), Sin Rebaño (3) */
+            .books-grid .book-card:nth-child(1) {
+                order: 1;
+            }
+
+            .books-grid .book-card:nth-child(2) {
+                order: 2;
+            }
+
+            .books-grid .book-card:nth-child(3) {
+                order: 3;
+            }
+
+            .book-card-cover {
+                height: 200px;
+            }
+
+            .premium-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .premium-features-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+                max-width: 320px;
+                margin: 2rem auto 2rem;
+            }
+
+            .premium-info>p {
+                display: none;
+            }
+        }
+
+        /* ===== RESPONSIVE - MOBILE ===== */
+        /* ===== RESPONSIVE - MOBILE ===== */
+        @media (max-width: 520px) {
+            .trilogy-pricing-section {
+                padding: 1rem 0.5rem;
+                min-height: auto;
+            }
+
+            .main-product-card {
+                padding: 1.5rem 1rem 1.5rem;
+                gap: 1rem;
+                border-radius: 16px;
+                margin-top: 3rem;
+                /* Espacio para el libro sobresaliendo */
+            }
+
+            .main-book-display {
+                margin-top: -5rem;
+                /* Efecto sobresalir */
+                margin-bottom: 0.5rem;
+            }
+
+            .main-book-3d {
+                width: 150px;
+                /* Más grande y prominente */
+                height: 225px;
+            }
+
+            .main-book-title {
+                font-size: 1.75rem;
+                line-height: 1.1;
+                margin-bottom: 0.25rem;
+            }
+
+            .main-book-tagline {
+                font-size: 1rem;
+            }
+
+            .main-book-description {
+                font-size: 0.9rem;
+                display: none;
+                /* Ocultar para simplificar pantalla */
+            }
+
+            .main-book-features {
+                gap: 0.5rem;
+                margin: 0.5rem 0;
+            }
+
+            .main-book-features .book-feature {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .format-options {
+                gap: 0.5rem;
+                margin: 0.5rem 0;
+            }
+
+            .format-option {
+                padding: 0.75rem 0.9rem;
+            }
+
+            .format-icon {
+                font-size: 1.1rem;
+            }
+
+            .format-name {
+                font-size: 0.85rem;
+            }
+
+            .format-desc {
+                font-size: 0.75rem;
+            }
+
+            .format-price {
+                font-size: 1.1rem;
+            }
+
+            .main-cta {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .upsell-question {
+                font-size: 0.8rem;
+                padding: 0 0.5rem;
+            }
+
+            .bundle-includes {
+                flex-direction: column;
+                gap: 0.25rem;
+                text-align: left;
+            }
+
+            .trilogy-pricing-section {
+                padding: 2rem 0.75rem;
+            }
+
+            .trilogy-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .trilogy-title {
+                font-size: 1.5rem;
+            }
+
+            .trilogy-subtitle {
+                display: none;
+            }
+
+            /* Main badge z-index fix */
+            .main-product-card {
+                position: relative;
+                z-index: 5;
+            }
+
+            .main-badge {
+                z-index: 1 !important;
+                /* Detrás del libro si este sobresale mucho y tiene z-index alto */
+            }
+
+            .main-book-display {
+                position: relative;
+                z-index: 10;
+                /* Libro por encima del badge */
+            }
+
+            .bundle-card {
+                padding: 1.5rem 1rem 1rem;
+                border-radius: 16px;
+            }
+
+            .bundle-badge {
+                font-size: 0.55rem;
+                padding: 0.3rem 0.8rem;
+                max-width: 90%;
+                white-space: nowrap;
+            }
+
+            .book-deck {
+                height: 220px;
+            }
+
+            .book-deck-inner {
+                width: 220px;
+                height: 170px;
+            }
+
+            .deck-book {
+                width: 100px;
+                height: 150px;
+                margin-left: -50px;
+            }
+
+            /* Mobile spread - centered and tighter */
+            .deck-book:nth-child(1) {
+                transform: translateX(-35px) translateZ(30px);
+                /* Menos a la izq */
+                z-index: 10;
+            }
+
+            .deck-book:nth-child(2) {
+                transform: translateX(-30px) translateZ(0px) scale(0.95);
+                z-index: 5;
+            }
+
+            .deck-book:nth-child(3) {
+                transform: translateX(-10px) translateZ(-30px) scale(0.9);
+                z-index: 1;
+            }
+
+            .book-deck:hover .deck-book:nth-child(1),
+            .book-deck.activated .deck-book:nth-child(1) {
+                transform: translateX(-45px) translateZ(30px);
+            }
+
+            .book-deck:hover .deck-book:nth-child(2),
+            .book-deck.activated .deck-book:nth-child(2) {
+                transform: translateX(-20px) translateZ(10px) translateY(-5px) scale(0.95);
+            }
+
+            .book-deck:hover .deck-book:nth-child(3),
+            .book-deck.activated .deck-book:nth-child(3) {
+                transform: translateX(5px) translateZ(-10px) scale(0.9);
+            }
+
+            /* Spine/pages for mobile books */
+            .deck-book-spine {
+                width: 20px;
+                transform: rotateY(-90deg) translateX(-10px);
+            }
+
+            .deck-book-pages {
+                width: 20px;
+                transform: rotateY(90deg) translateX(10px);
+            }
+
+            .deck-book-cover {
+                transform: translateZ(10px);
+                background-size: 240px auto;
+            }
+
+            .deck-book-top,
+            .deck-book-bottom {
+                height: 20px;
+            }
+
+            .deck-book-top {
+                transform: rotateX(90deg) translateY(-10px);
+            }
+
+            .deck-book-bottom {
+                transform: rotateX(-90deg) translateY(10px);
+            }
+
+            .deck-book-number {
+                width: 20px;
+                height: 20px;
+                font-size: 0.5rem;
+                top: 5px;
+                left: 5px;
+            }
+
+            .deck-book-label {
+                font-size: 0.8rem;
+                bottom: -35px;
+                /* Más espacio para dos líneas */
+                width: 120%;
+                /* Asegurar que quepa el texto */
+            }
+
+            .bundle-info h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .bundle-price-options {
+                gap: 0.5rem;
+            }
+
+            .price-option {
+                padding: 0.6rem 0.8rem;
+                flex-direction: row;
+                gap: 0.25rem;
+            }
+
+            .price-option-title {
+                font-size: 0.7rem;
+            }
+
+            .price-option-desc {
+                display: none;
+            }
+
+            .current-price {
+                font-size: 1rem;
+            }
+
+            .bundle-cta {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.7rem;
+            }
+
+            .section-divider {
+                margin: 1.5rem 0;
+            }
+
+            .book-card-cover {
+                height: 180px;
+            }
+
+            .book-3d {
+                width: 90px;
+                height: 135px;
+            }
+
+            .available-badge {
+                font-size: 0.5rem;
+                padding: 0.3rem 0.7rem;
+                top: -8px;
+            }
+
+            .premium-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .premium-badge {
+                font-size: 0.55rem;
+                max-width: 90%;
+                white-space: nowrap;
+            }
+
+            .premium-price {
+                font-size: 1.8rem;
+            }
+
+            .premium-cta {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (hover: none) {
+
+            .bundle-cta:active,
+            .book-cta:active,
+            .premium-cta:active {
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo" data-i18n="logo">Black Sheep's Diary</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#pricing" data-i18n="nav.preorder">Get the Books</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-video youtube-bg">
+            <iframe id="heroBgVideo"
+                data-src="https://www.youtube.com/embed/Q4xYacSy2i4?autoplay=1&mute=1&loop=1&playlist=Q4xYacSy2i4&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&enablejsapi=1"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Black Sheep's Diary Video"
+                class="hero-video-iframe"></iframe>
+        </div>
+        <div class="hero-overlay"></div>
+        <button class="hero-video-toggle" id="heroVideoToggle" aria-label="Toggle playback"></button>
+        <div class="hero-content">
+            <h1 data-i18n="hero.title">Black Sheep's Diary</h1>
+            <p class="subtitle">The Complete Trilogy</p>
+            <p class="author" data-i18n="hero.author">by Dani Bonilla</p>
+            <div class="hero-actions">
+                <button class="hero-play-btn" id="heroPlayBtn" aria-label="Play trailer" title="Play trailer">▶</button>
+                <a href="#pricing" class="cta-button">Explore the Trilogy</a>
+            </div>
+            <div class="hero-hook">Three books. One transformative journey.</div>
+        </div>
+
+        <div class="scroll-indicator" role="button" aria-label="Scroll down">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- MANIFESTO SECTION -->
+    <section id="manifesto" class="manifesto-section">
+        <div class="manifesto-content fade-in">
+            <div class="manifesto-decoration">"</div>
+            <p class="manifesto-text" data-i18n="manifesto.text1">
+                This is for all those who never quite fit in.
+            </p>
+            <p class="manifesto-text" data-i18n="manifesto.text2">
+                For those who always felt different. Those who saw the world with different eyes and wondered why
+                no one else seemed to see it the same way.
+            </p>
+            <p class="manifesto-text" data-i18n="manifesto.text3">
+                For those who learned to hide parts of themselves. Those who carried the feeling of being a
+                stranger, even among their own.
+            </p>
+            <p class="manifesto-text" data-i18n="manifesto.text4">
+                If you have ever felt like the black sheep, looking for where to fit in, you are not alone.
+            </p>
+            <p class="manifesto-final" data-i18n="manifesto.final">
+                This trilogy is for you.
+            </p>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION - SIMPLIFIED CUSTOMER JOURNEY -->
+    <section id="pricing" class="trilogy-pricing-section">
+        <div class="trilogy-container">
+
+            <!-- ===== MAIN PRODUCT: ENTRE LOBOS ===== -->
+            <div class="main-product-section">
+                <div class="main-product-card">
+
+                    <!-- Book Display -->
+                    <div class="main-book-display">
+                        <div class="main-book-3d">
+                            <div class="book-3d-back"></div>
+                            <div class="book-3d-spine"></div>
+                            <div class="book-3d-pages"></div>
+                            <div class="book-3d-cover"></div>
+                        </div>
+                    </div>
+
+                    <div class="main-book-info">
+                        <p class="main-book-series">Diario de una Oveja Negra</p>
+                        <h1 class="main-book-title">Entre Lobos</h1>
+                        <p class="main-book-tagline"><em>Algunos refugios tienen dientes.</em></p>
+                        <p class="main-book-description">
+                            Londres, estafas y la búsqueda de una verdad que duele.
+                            La primera parte de una trilogía que cambiará cómo te ves a ti mismo.
+                        </p>
+
+                        <div class="main-book-features">
+                            <span class="book-feature">🎧 4h de audio</span>
+                            <span class="book-feature">📖 200 páginas</span>
+                        </div>
+                        <div
+                            style="background: rgba(212, 175, 55, 0.1); color: var(--primary-gold); font-family: 'Cinzel', serif; font-size: 0.65rem; padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 0.5rem; letter-spacing: 0.1em; border: 1px solid rgba(212, 175, 55, 0.25); display: inline-block; width: fit-content;">
+                            ✦ PREVENTA: ENTREGA FINALES MARZO 2026 ✦
+                        </div>
+
+                        <!-- Format Options -->
+                        <div class="format-options">
+                            <div class="format-option" onclick="selectFormat(this, 'ebook')">
+                                <div class="format-left">
+                                    <span class="format-icon">📚</span>
+                                    <div class="format-details">
+                                        <span class="format-name">Ebook</span>
+                                        <span class="format-desc">PDF, ePub & Mobi</span>
+                                    </div>
+                                </div>
+                                <div class="format-right">
+                                    <span class="format-price-old">14.97€</span>
+                                    <span class="format-price">9.97€</span>
+                                </div>
+                            </div>
+
+                            <div class="format-option featured" onclick="selectFormat(this, 'audio')">
+                                <div class="format-left">
+                                    <span class="format-icon">🎧</span>
+                                    <div class="format-details">
+                                        <span class="format-name">Audio + Ebook</span>
+                                        <span class="format-desc">Narrado por el autor</span>
+                                    </div>
+                                </div>
+                                <div class="format-right">
+                                    <span class="format-price-old">29.97€</span>
+                                    <span class="format-price">19.97€</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="main-cta">Conseguir Entre Lobos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== UPSELL: TRILOGY BUNDLE ===== -->
+            <div class="upsell-section">
+                <div class="upsell-divider">
+                    <span class="upsell-question">¿Quieres la saga completa? Ahorra un 30%</span>
+                </div>
+
+                <div class="bundle-card upsell-card">
+                    <div class="bundle-badge">✦ Mejor Precio ✦</div>
+
+                    <!-- Card Deck - 3 Stacked Books -->
+                    <div class="book-deck">
+                        <div class="book-deck-inner">
+                            <!-- Book 1 - Entre Lobos = LEFT, FRONT, LARGER -->
+                            <div class="deck-book deck-book-main">
+                                <div class="deck-book-back"></div>
+                                <div class="deck-book-spine"></div>
+                                <div class="deck-book-pages"></div>
+                                <div class="deck-book-top"></div>
+                                <div class="deck-book-bottom"></div>
+                                <div class="deck-book-cover">
+                                    <!-- Full Cover Visible -->
+                                </div>
+                                <div class="deck-book-label book1-label">Entre Lobos <br><small>(Marzo
+                                        2026)</small></div>
+                            </div>
+                            <!-- Book 2 - Lana Densa = CENTER, smaller, behind -->
+                            <div class="deck-book deck-book-secondary">
+                                <div class="deck-book-back"></div>
+                                <div class="deck-book-spine"></div>
+                                <div class="deck-book-pages"></div>
+                                <div class="deck-book-top"></div>
+                                <div class="deck-book-bottom"></div>
+                                <div class="deck-book-cover">
+                                </div>
+                                <div class="deck-book-label book2-label">Lana Densa <br><small>(En desarrollo)</small>
+                                </div>
+                            </div>
+                            <!-- Book 3 - Sin Rebaño = RIGHT, smallest, further behind -->
+                            <div class="deck-book deck-book-secondary">
+                                <div class="deck-book-back"></div>
+                                <div class="deck-book-spine"></div>
+                                <div class="deck-book-pages"></div>
+                                <div class="deck-book-top"></div>
+                                <div class="deck-book-bottom"></div>
+                                <div class="deck-book-cover">
+                                </div>
+                                <div class="deck-book-label book3-label">Sin Rebaño <br><small>(En desarrollo)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bundle-info">
+                        <h3>Trilogía Completa</h3>
+                        <p class="bundle-desc"
+                            style="font-family: 'Cinzel', serif; font-size: 1.1rem; color: #D2691E; font-weight: 600;">
+                            Full Trilogy: Audiobook + Ebook
+                        </p>
+                        <p class="bundle-desc"
+                            style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+                            *Recibe el primer libro a Finales de Marzo 2026. Los siguientes se enviarán automáticamente
+                            en
+                            cuanto se terminen de escribir. Sin fechas límite, solo la mejor historia posible.
+                        </p>
+
+                        <div class="bundle-price-options">
+                            <div class="price-option" onclick="selectOption(this, 'digital')">
+                                <div class="price-option-left">
+                                    <div class="price-option-title">📚 Digital</div>
+                                    <div class="price-option-desc">Los 3 ebooks</div>
+                                </div>
+                                <div class="price-option-right">
+                                    <span class="price-original">44.97€</span>
+                                    <span class="price-current">29.97€</span>
+                                </div>
+                            </div>
+
+                            <div class="price-option featured" onclick="selectOption(this, 'audio')">
+                                <div class="price-option-left">
+                                    <div class="price-option-title">🎧 Audio + Ebook</div>
+                                    <div class="price-option-desc">10+ horas de audio + ebooks</div>
+                                </div>
+                                <div class="price-option-right">
+                                    <span class="price-original">97.00€</span>
+                                    <span class="price-current">49.97€</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="bundle-cta">Conseguir la Trilogía</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Premium Inner Circle Section -->
+            <div class="premium-section">
+                <div class="premium-card">
+                    <div class="premium-badge">✦ The Inner Circle ✦</div>
+
+                    <div class="premium-content">
+                        <div class="premium-info">
+                            <h3>Collector's Edition & Community</h3>
+                            <p>
+                                The ultimate experience. All three books in digital and audio, exclusive masterclasses,
+                                and your name immortalized.
+                            </p>
+
+                            <div class="premium-features-grid">
+                                <div class="premium-feature-item">
+                                    <div class="sf-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="sf-text">
+                                        <strong>Full Trilogy</strong>
+                                        <span>Digital + Audio formats</span>
+                                    </div>
+                                </div>
+                                <div class="premium-feature-item">
+                                    <div class="sf-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                                            <path d="M2 2l7.586 7.586"></path>
+                                            <circle cx="11" cy="11" r="2"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="sf-text">
+                                        <strong>Legacy</strong>
+                                        <span>Your name in every book</span>
+                                    </div>
+                                </div>
+                                <div class="premium-feature-item">
+                                    <div class="sf-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M2 12h10"></path>
+                                            <path d="M9 4v16"></path>
+                                            <path d="M3 9l3 3-3 3"></path>
+                                            <path
+                                                d="M14 8V6c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2v-2">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="sf-text">
+                                        <strong>Process & Drafts</strong>
+                                        <span>Behind the Scenes Access</span>
+                                    </div>
+                                </div>
+                                <div class="premium-feature-item">
+                                    <div class="sf-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 18V5l12-2v13"></path>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <circle cx="18" cy="16" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="sf-text">
+                                        <strong>Soundtrack</strong>
+                                        <span>Curated playlists per book</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-pricing-box">
+                            <div class="premium-price-wrap">
+                                <span class="premium-price-original">497€</span>
+                                <span class="premium-price">397€</span>
+                            </div>
+                            <div class="premium-savings">✦ Presale - Save 100€</div>
+                            <button class="premium-cta">Join Inner Circle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trilogy-trust">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong>Secure Payment</strong>
+                        <span>256-bit SSL</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong>Lifetime Access</strong>
+                        <span>Download forever</span>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong>No Fine Print</strong>
+                        <span>What you see is what you get</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="delivery-note">Entrega 'Entre Lobos': Finales de Marzo 2026 • Resto de la saga: Al completarse •
+                Precios de preventa</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p data-i18n="footer.copyright">&copy; Dani Bonilla. All rights reserved.</p>
+        <p data-i18n="footer.disclaimer">Autobiographical fiction. Names, characters, places, and incidents are products
+            of the author's artistic expression.</p>
+    </footer>
+
+    <script src="js/modals.js"></script>
+    <script src="js/floatingButton.js"></script>
+    <script src="js/flipCards.js"></script>
+    <script src="js/scrollVideo.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/book.js"></script>
+    <script src="js/i18n.js"></script>
+
+    <script>
+        function selectOption(element) {
+            document.querySelectorAll('.price-option').forEach(opt => opt.classList.remove('featured'));
+            element.classList.add('featured');
+        }
+
+        function selectFormat(element) {
+            const parent = element.closest('.format-options');
+            parent.querySelectorAll('.format-option').forEach(opt => opt.classList.remove('featured'));
+            element.classList.add('featured');
+        }
+
+        // Book deck animation on scroll into view
+        document.addEventListener('DOMContentLoaded', function () {
+            const bookDeck = document.querySelector('.book-deck');
+            const bookDeckInner = document.querySelector('.book-deck-inner');
+            if (bookDeck && bookDeckInner) {
+                // Toggle on click on the books themselves
+                bookDeckInner.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    bookDeck.classList.toggle('activated');
+                });
+
+                // On touch without scrolling, toggle
+                let touchMoved = false;
+                bookDeckInner.addEventListener('touchstart', function () {
+                    touchMoved = false;
+                });
+                bookDeckInner.addEventListener('touchmove', function () {
+                    touchMoved = true;
+                });
+                bookDeckInner.addEventListener('touchend', function (e) {
+                    if (!touchMoved) {
+                        e.stopPropagation();
+                        bookDeck.classList.toggle('activated');
+                    }
+                });
+
+                // Activate when scrolled into view, deactivate when out
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            bookDeck.classList.add('activated');
+                        } else {
+                            bookDeck.classList.remove('activated');
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(bookDeck);
+            }
+
+            // Individual book cards - highlight on scroll (responsive)
+            const bookCards = document.querySelectorAll('.book-card');
+            if (bookCards.length > 0) {
+                const cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                            // Remove from all others first
+                            bookCards.forEach(c => c.classList.remove('in-view'));
+                            entry.target.classList.add('in-view');
+                        }
+                    });
+                }, {
+                    threshold: [0.5],
+                    rootMargin: '-20% 0px -20% 0px'
+                });
+
+                bookCards.forEach(card => cardObserver.observe(card));
+            }
+        });
+    </script>
+
+</body>
+
+</html>

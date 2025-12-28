@@ -68,6 +68,11 @@
         ↓
     </button>
 
+    <!-- Botón sutil de idioma -->
+    <button id="langToggleBtn" class="lang-toggle-btn" aria-label="Switch Language"
+        onclick="toggleLanguage()">ES</button>
+
+
     <!-- MANIFESTO SECTION -->
     <section id="manifesto" class="manifesto-section">
         <div class="manifesto-content fade-in">
@@ -226,366 +231,1588 @@
         <div id="testimonialsContainer" class="testimonials-container fade-in">
             <div class="testimonial active">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.1.text">
-                        "Bro, I feel so identified with your story. You have no idea how much I relate to you."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@El_Mattew" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/El_Mattew" alt="El Mattew"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@El_Mattew" target="_blank" class="comment-author-name"
+                                data-username="ElMattew">El Mattew</a>
+                            <span class="comment-author-handle">@El_Mattew</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="El_Mattew">El Mattew</span>
-                            <span class="comment-username">@El_Mattew</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.1.text">
+                            "Bro, I feel so identified with your story. You have no idea how much I relate to you."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.2.text">
-                        "Telling stories is your gift. Your voice brings a sense of calm and it’s a pleasure to listen
-                        to you. Never lose your curiosity to discover new worlds."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author"
-                                data-username="coleccioninfinita1156">coleccioninfinita1156</span>
-                            <span class="comment-username">@coleccioninfinita1156</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.3.text">
-                        "This dude has so much potential, the shots, the editing, the storytelling. This is one of those
-                        times I'm grateful YouTube recommended quality content."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@coleccioninfinita1156" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/coleccioninfinita1156" alt="coleccioninfinita1156"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">C</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@coleccioninfinita1156" target="_blank"
+                                class="comment-author-name"
+                                data-username="coleccioninfinita1156">coleccioninfinita1156</a>
+                            <span class="comment-author-handle">@coleccioninfinita1156</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="andrepadron1232">Andre Padron</span>
-                            <span class="comment-username">@andrepadron1232</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.2.text">
+                            "Telling stories is your gift. Your voice brings a sense of calm and it’s a pleasure to
+                            listen to you. Never lose your curiosity to discover new worlds."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.4.text">
-                        "I don’t understand how your videos don’t have way more likes. Your content has soul. I’m
-                        catching up on all your videos because you inspire me to go for it."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="ben_franco">ben_franco</span>
-                            <span class="comment-username">@ben_franco</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.5.text">
-                        "It couldn’t be explained better, and you do it with so much respect and sincerity. Thank you
-                        for translating feelings into words."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@andrepadron1232" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/andrepadron1232" alt="Andre Padron"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">A</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@andrepadron1232" target="_blank" class="comment-author-name"
+                                data-username="AndrePadron">Andre Padron</a>
+                            <span class="comment-author-handle">@andrepadron1232</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="magnoliaarbol8060">magnoliaarbol8060</span>
-                            <span class="comment-username">@magnoliaarbol8060</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.3.text">
+                            "This dude has so much potential, the shots, the editing, the storytelling. This is one of
+                            those times I'm grateful YouTube recommended quality content."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.6.text">
-                        "First YouTube channel that has really made sense to me... How does such a good channel have so
-                        few views and subscribers? You're awesome, Dani!"
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="guillermotrejo437">Guillermo Trejo</span>
-                            <span class="comment-username">@guillermotrejo437</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.7.text">
-                        "...and so HONEST in your communication." That transparency makes every video feel close and
-                        authentic.
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/ben_franco" alt="ben_franco"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">B</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-author-name"
+                                data-username="ben_franco">ben_franco</a>
+                            <span class="comment-author-handle">@ben_franco</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author"
-                                data-username="manueljosegarciaperez9164">manueljosegarciaperez9164</span>
-                            <span class="comment-username">@manueljosegarciaperez9164</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.4.text">
+                            "I don’t understand how your videos don’t have way more likes. Your content has soul. I’m
+                            catching up on all your videos because you inspire me to go for it."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.8.text">
-                        "I watched the whole thing. Trial and error, Dani: you are a living example of how to tell a
-                        real story and keep us glued to the screen."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="Joker-po7ei">Joker-po7ei</span>
-                            <span class="comment-username">@Joker-po7ei</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.9.text">
-                        "It’s so beautiful to listen to your story. You speak from honesty, not from ego, and that shows
-                        in every minute."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@magnoliaarbol8060" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/magnoliaarbol8060" alt="magnoliaarbol8060"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">M</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@magnoliaarbol8060" target="_blank" class="comment-author-name"
+                                data-username="magnoliaarbol8060">magnoliaarbol8060</a>
+                            <span class="comment-author-handle">@magnoliaarbol8060</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="mariajose_11">mariajose_11</span>
-                            <span class="comment-username">@mariajose_11</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.5.text">
+                            "It couldn’t be explained better, and you do it with so much respect and sincerity. Thank
+                            you for translating feelings into words."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.10.text">
-                        "After 50 years in Switzerland and 30 years in TV, your maturity analyzing and narrating these
-                        differences really surprises me. You explain everything with admirable clarity."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="hugoorell">hugoorell</span>
-                            <span class="comment-username">@hugoorell</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.11.text">
-                        "Beautiful video: genuine and honest personal experiences. Thank you for sharing them with such
-                        a human touch."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@guillermotrejo437" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/guillermotrejo437" alt="Guillermo Trejo"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">G</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@guillermotrejo437" target="_blank" class="comment-author-name"
+                                data-username="GuillermoTrejo">Guillermo Trejo</a>
+                            <span class="comment-author-handle">@guillermotrejo437</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author"
-                                data-username="estebanmartinhusulak5037">estebanmartinhusulak5037</span>
-                            <span class="comment-username">@estebanmartinhusulak5037</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.6.text">
+                            "First YouTube channel that has really made sense to me... How does such a good channel have
+                            so few views and subscribers? You're awesome, Dani!"
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.12.text">
-                        "Talking for an hour straight to the camera and keeping us engaged shows your passion and a real
-                        gift for storytelling. Thank you for the inspiration."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="nazald">nazald</span>
-                            <span class="comment-username">@nazald</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.13.text">
-                        "It's better to regret what you've done than what you didn't do... I love your catharsis."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="decimequeno9916">Decimequeno</span>
-                            <span class="comment-username">@decimequeno9916</span>
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@manueljosegarciaperez9164" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/manueljosegarciaperez9164"
+                                    alt="manueljosegarciaperez9164"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">M</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@manueljosegarciaperez9164" target="_blank"
+                                class="comment-author-name"
+                                data-username="manueljosegarciaperez9164">manueljosegarciaperez9164</a>
+                            <span class="comment-author-handle">@manueljosegarciaperez9164</span>
                         </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.14.text">
-                        "Thank you for your reflections; they motivate me to create my own content. The way you tell
-                        things makes me want to get started too."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author"
-                                data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</span>
-                            <span class="comment-username">@soyjesusgonzalez3720</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@laovejagris" target="_blank">La
-                                Oveja Gris</a>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.15.text">
-                        "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.7.text">
+                            "...and so HONEST in your communication." That transparency makes every video feel close and
+                            authentic.
+                        </p>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="leonhernando666">Leon Hernando</span>
-                            <span class="comment-username">@leonhernando666</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.16.text">
-                        "Just as thrilling as the end of a movie saga."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Joker-po7ei" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Joker-po7ei" alt="Joker-po7ei"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">J</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Joker-po7ei" target="_blank" class="comment-author-name"
+                                data-username="Joker-po7ei">Joker-po7ei</a>
+                            <span class="comment-author-handle">@Joker-po7ei</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="Drumerto">Drumerto</span>
-                            <span class="comment-username">@Drumerto</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.8.text">
+                            "I watched the whole thing. Trial and error, Dani: you are a living example of how to tell a
+                            real story and keep us glued to the screen."
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.17.text">
-                        "I see myself totally reflected in you... thank you for transforming my vision and the courage
-                        to face life."
-                    </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="EconomiaDesdeCasa">Economía Desde Casa</span>
-                            <span class="comment-username">@EconomiaDesdeCasa</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.18.text">
-                        "I'm blown away by your editing. Your strength is telling stories and making people feel them as
-                        their own. Take advantage of that quality."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/mariajose_11" alt="mariajose_11"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">M</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-author-name"
+                                data-username="mariajose_11">mariajose_11</a>
+                            <span class="comment-author-handle">@mariajose_11</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="RubenLoan">Rubén Loan</span>
-                            <span class="comment-username">@RubenLoan</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.9.text">
+                            "It’s so beautiful to listen to your story. You speak from honesty, not from ego, and that
+                            shows in every minute."
+                        </p>
+                    </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial">
                 <div class="youtube-comment">
-                    <div class="comment-text" data-i18n="testimonial.19.text">
-                        "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
-                        yourself. You're awesome and you'll get there."
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@hugoorell" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/hugoorell" alt="hugoorell"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">H</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@hugoorell" target="_blank" class="comment-author-name"
+                                data-username="hugoorell">hugoorell</a>
+                            <span class="comment-author-handle">@hugoorell</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="comment-footer">
-                        <div class="comment-author-line">
-                            <span class="comment-author" data-username="reborsitopaquistani9220">Reborsito
-                                Paquistani</span>
-                            <span class="comment-username">@reborsitopaquistani9220</span>
-                        </div>
-                        <div class="video-citation">
-                            <span data-i18n="testimonial.citation">On the Youtube Channel:</span> <a
-                                href="https://www.youtube.com/@danibonilla1" target="_blank">Dani
-                                Bonilla</a>
-                        </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.10.text">
+                            "After 50 years in Switzerland and 30 years in TV, your maturity analyzing and narrating
+                            these differences really surprises me. You explain everything with admirable clarity."
+                        </p>
+                    </div>
                     </div>
                 </div>
             </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@estebanmartinhusulak5037" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/estebanmartinhusulak5037"
+                                    alt="estebanmartinhusulak5037"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@estebanmartinhusulak5037" target="_blank"
+                                class="comment-author-name"
+                                data-username="estebanmartinhusulak5037">estebanmartinhusulak5037</a>
+                            <span class="comment-author-handle">@estebanmartinhusulak5037</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.11.text">
+                            "Beautiful video: genuine and honest personal experiences. Thank you for sharing them with
+                            such a human touch."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@nazald" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/nazald" alt="nazald"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">N</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@nazald" target="_blank" class="comment-author-name"
+                                data-username="nazald">nazald</a>
+                            <span class="comment-author-handle">@nazald</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.12.text">
+                            "Talking for an hour straight to the camera and keeping us engaged shows your passion and a
+                            real gift for storytelling. Thank you for the inspiration."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@decimequeno9916" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/decimequeno9916" alt="Decimequeno"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@decimequeno9916" target="_blank" class="comment-author-name"
+                                data-username="Decimequeno">Decimequeno</a>
+                            <span class="comment-author-handle">@decimequeno9916</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.13.text">
+                            "It's better to regret what you've done than what you didn't do... I love your catharsis."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/soyjesusgonzalez3720" alt="soyjesusgonzalez3720"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">S</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank"
+                                class="comment-author-name"
+                                data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</a>
+                            <span class="comment-author-handle">@soyjesusgonzalez3720</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.14.text">
+                            "Thank you for your reflections; they motivate me to create my own content. The way you tell
+                            things makes me want to get started too."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/leonhernando666" alt="Leon Hernando"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">L</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-author-name"
+                                data-username="LeonHernando">Leon Hernando</a>
+                            <span class="comment-author-handle">@leonhernando666</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.15.text">
+                            "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Drumerto" alt="Drumerto"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-author-name"
+                                data-username="Drumerto">Drumerto</a>
+                            <span class="comment-author-handle">@Drumerto</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.16.text">
+                            "Just as thrilling as the end of a movie saga."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name"
+                                data-username="EconomíaDesdeCasa">Economía Desde Casa</a>
+                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.17.text">
+                            "I see myself totally reflected in you... thank you for transforming my vision and the
+                            courage to face life."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/RubenLoan" alt="Rubén Loan"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-author-name"
+                                data-username="RubénLoan">Rubén Loan</a>
+                            <span class="comment-author-handle">@RubenLoan</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.18.text">
+                            "I'm blown away by your editing. Your strength is telling stories and making people feel
+                            them as their own. Take advantage of that quality."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/reborsitopaquistani9220"
+                                    alt="Reborsito Paquistani"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                                class="comment-author-name" data-username="ReborsitoPaquistani">Reborsito Paquistani</a>
+                            <span class="comment-author-handle">@reborsitopaquistani9220</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.19.text">
+                            "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
+                            yourself. You're awesome and you'll get there."
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/soyjesusgonzalez3720" alt="soyjesusgonzalez3720"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">S</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank"
+                                class="comment-author-name"
+                                data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</a>
+                            <span class="comment-author-handle">@soyjesusgonzalez3720</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.14.text">
+                            "Thank you for your reflections; they motivate me to create my own content. The way you tell
+                            things makes me want to get started too."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/leonhernando666" alt="Leon Hernando"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">L</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-author-name"
+                                data-username="LeonHernando">Leon Hernando</a>
+                            <span class="comment-author-handle">@leonhernando666</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.15.text">
+                            "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Drumerto" alt="Drumerto"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-author-name"
+                                data-username="Drumerto">Drumerto</a>
+                            <span class="comment-author-handle">@Drumerto</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.16.text">
+                            "Just as thrilling as the end of a movie saga."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name"
+                                data-username="EconomíaDesdeCasa">Economía Desde Casa</a>
+                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.17.text">
+                            "I see myself totally reflected in you... thank you for transforming my vision and the
+                            courage
+                            to face life."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/RubenLoan" alt="Rubén Loan"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-author-name"
+                                data-username="RubénLoan">Rubén Loan</a>
+                            <span class="comment-author-handle">@RubenLoan</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.18.text">
+                            "I'm blown away by your editing. Your strength is telling stories and making people feel
+                            them as
+                            their own. Take advantage of that quality."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/reborsitopaquistani9220"
+                                    alt="Reborsito Paquistani"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                                class="comment-author-name" data-username="ReborsitoPaquistani">Reborsito Paquistani</a>
+                            <span class="comment-author-handle">@reborsitopaquistani9220</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.19.text">
+                            "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
+                            yourself. You're awesome and you'll get there."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@nazald" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/nazald" alt="nazald"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">N</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@nazald" target="_blank" class="comment-author-name"
+                                    data-username="nazald">nazald</a>
+                                <span class="comment-date">11 weeks ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@laovejagris" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">La Oveja Gris</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.12.text">
+                            "Talking for an hour straight to the camera and keeping us engaged shows your passion and a
+                            real
+                            gift for storytelling. Thank you for the inspiration."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@decimequeno9916" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/decimequeno9916" alt="Decimequeno"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@decimequeno9916" target="_blank"
+                                    class="comment-author-name" data-username="Decimequeno">Decimequeno</a>
+                                <span class="comment-date">9 weeks ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.13.text">
+                            "It's better to regret what you've done than what you didn't do... I love your catharsis."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/soyjesusgonzalez3720" alt="soyjesusgonzalez3720"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">S</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank"
+                                    class="comment-author-name"
+                                    data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</a>
+                                <span class="comment-date">10 months ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@laovejagris" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">La Oveja Gris</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.14.text">
+                            "Thank you for your reflections; they motivate me to create my own content. The way you tell
+                            things makes me want to get started too."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/leonhernando666" alt="Leon Hernando"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">L</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@leonhernando666" target="_blank"
+                                    class="comment-author-name" data-username="LeonHernando">Leon Hernando</a>
+                                <span class="comment-date">8 weeks ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.15.text">
+                            "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Drumerto" alt="Drumerto"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-author-name"
+                                    data-username="Drumerto">Drumerto</a>
+                                <span class="comment-date">6 weeks ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.16.text">
+                            "Just as thrilling as the end of a movie saga."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank"
+                                    class="comment-author-name" data-username="EconomíaDesdeCasa">Economía Desde
+                                    Casa</a>
+                                <span class="comment-date">11 days ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.17.text">
+                            "I see myself totally reflected in you... thank you for transforming my vision and the
+                            courage
+                            to face life."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/RubenLoan" alt="Rubén Loan"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-author-name"
+                                    data-username="RubénLoan">Rubén Loan</a>
+                                <span class="comment-date">10 weeks ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.18.text">
+                            "I'm blown away by your editing. Your strength is telling stories and making people feel
+                            them as
+                            their own. Take advantage of that quality."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/reborsitopaquistani9220"
+                                    alt="Reborsito Paquistani"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <div class="meta-top">
+                                <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                                    class="comment-author-name" data-username="ReborsitoPaquistani">Reborsito
+                                    Paquistani</a>
+                                <span class="comment-date">2 months ago</span>
+                            </div>
+                            <div class="meta-bottom">
+                                <a href="https://www.youtube.com/@danibonilla1" target="_blank"
+                                    class="channel-link-small">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path
+                                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                    </svg>
+                                    <span class="channel-name">Dani Bonilla</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.19.text">
+                            "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
+                            yourself. You're awesome and you'll get there."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@nazald" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/nazald" alt="nazald"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">N</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@nazald" target="_blank" class="comment-author-name"
+                                data-username="nazald">nazald</a>
+                            <span class="comment-author-handle">@nazald</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.12.text">
+                            "Talking for an hour straight to the camera and keeping us engaged shows your passion and a
+                            real
+                            gift for storytelling. Thank you for the inspiration."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@decimequeno9916" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/decimequeno9916" alt="Decimequeno"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@decimequeno9916" target="_blank" class="comment-author-name"
+                                data-username="Decimequeno">Decimequeno</a>
+                            <span class="comment-author-handle">@decimequeno9916</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.13.text">
+                            "It's better to regret what you've done than what you didn't do... I love your catharsis."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/soyjesusgonzalez3720" alt="soyjesusgonzalez3720"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">S</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@soyjesusgonzalez3720" target="_blank"
+                                class="comment-author-name"
+                                data-username="soyjesusgonzalez3720">soyjesusgonzalez3720</a>
+                            <span class="comment-author-handle">@soyjesusgonzalez3720</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">La Oveja Gris</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.14.text">
+                            "Thank you for your reflections; they motivate me to create my own content. The way you tell
+                            things makes me want to get started too."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/leonhernando666" alt="Leon Hernando"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">L</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-author-name"
+                                data-username="LeonHernando">Leon Hernando</a>
+                            <span class="comment-author-handle">@leonhernando666</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.15.text">
+                            "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Drumerto" alt="Drumerto"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-author-name"
+                                data-username="Drumerto">Drumerto</a>
+                            <span class="comment-author-handle">@Drumerto</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.16.text">
+                            "Just as thrilling as the end of a movie saga."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name"
+                                data-username="EconomíaDesdeCasa">Economía Desde Casa</a>
+                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.17.text">
+                            "I see myself totally reflected in you... thank you for transforming my vision and the
+                            courage
+                            to face life."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/RubenLoan" alt="Rubén Loan"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-author-name"
+                                data-username="RubénLoan">Rubén Loan</a>
+                            <span class="comment-author-handle">@RubenLoan</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.18.text">
+                            "I'm blown away by your editing. Your strength is telling stories and making people feel
+                            them as
+                            their own. Take advantage of that quality."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/reborsitopaquistani9220"
+                                    alt="Reborsito Paquistani"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                                class="comment-author-name" data-username="ReborsitoPaquistani">Reborsito Paquistani</a>
+                            <span class="comment-author-handle">@reborsitopaquistani9220</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.19.text">
+                            "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
+                            yourself. You're awesome and you'll get there."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/leonhernando666" alt="Leon Hernando"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">L</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@leonhernando666" target="_blank" class="comment-author-name"
+                                data-username="LeonHernando">Leon Hernando</a>
+                            <span class="comment-author-handle">@leonhernando666</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.15.text">
+                            "This video is so powerful; I'm on the same path as you, Dani. It really touched me."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Drumerto" alt="Drumerto"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Drumerto" target="_blank" class="comment-author-name"
+                                data-username="Drumerto">Drumerto</a>
+                            <span class="comment-author-handle">@Drumerto</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.16.text">
+                            "Just as thrilling as the end of a movie saga."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name"
+                                data-username="EconomíaDesdeCasa">Economía Desde Casa</a>
+                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.17.text">
+                            "I see myself totally reflected in you... thank you for transforming my vision and the
+                            courage
+                            to face life."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/RubenLoan" alt="Rubén Loan"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@RubenLoan" target="_blank" class="comment-author-name"
+                                data-username="RubénLoan">Rubén Loan</a>
+                            <span class="comment-author-handle">@RubenLoan</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.18.text">
+                            "I'm blown away by your editing. Your strength is telling stories and making people feel
+                            them as
+                            their own. Take advantage of that quality."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                            class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/reborsitopaquistani9220"
+                                    alt="Reborsito Paquistani"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">R</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@reborsitopaquistani9220" target="_blank"
+                                class="comment-author-name" data-username="ReborsitoPaquistani">Reborsito Paquistani</a>
+                            <span class="comment-author-handle">@reborsitopaquistani9220</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text" data-i18n="testimonial.19.text">
+                            "What an amazing edit, dude! The voiceover, the music, everything! Every video you outdo
+                            yourself. You're awesome and you'll get there."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
@@ -605,233 +1832,340 @@
             <!-- Grid de Precios -->
             <div class="pricing-grid">
 
-                <!-- Tier 1: Lector Digital -->
+                <!-- Tier 1: Lector Digital -> The Immersive Journey -->
                 <div class="pricing-card">
                     <div class="card-header">
-                        <div class="tier-subtitle" data-i18n="pricing.tier1.subtitle">Pure Reading</div>
-                        <h3 class="tier-name" data-i18n="pricing.tier1.title">Digital Reader</h3>
+                        <div class="tier-subtitle" data-i18n="pricing.tier1.subtitle">Complete Story</div>
+                        <h3 class="tier-name" data-i18n="pricing.tier1.title">The Immersive Journey</h3>
                         <div class="tier-price-container">
-                            <span class="tier-price">14.97€</span>
-                            <span class="tier-price-original">19.97€</span>
+                            <span class="tier-price">24€</span>
+                            <span class="tier-price-original">29€</span>
                             <span class="tier-period"></span>
                             <div class="presale-tag" data-i18n="pricing.presale">(PRESALE)</div>
                         </div>
                         <p class="tier-description" data-i18n="pricing.tier1.description">
-                            The uncensored story in high-quality format.
+                            Access the complete work. Immersive audio experience by the author. Yours for life.
                         </p>
                     </div>
 
                     <div class="card-footer">
-                        <button class="tier-cta tier-cta-outline" data-i18n="pricing.tier1.cta">Buy Ebook</button>
-                        <p class="tier-guarantee" data-i18n="pricing.tier1.guarantee">Sent to your email</p>
+                        <button class="tier-cta tier-cta-outline" data-i18n="pricing.tier1.cta">Join the
+                            Journey</button>
+                        <p class="tier-guarantee" data-i18n="pricing.tier1.guarantee">Files yours forever</p>
                     </div>
 
                     <div class="card-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                </svg>
-                            </div>
-                            <span class="feature-text text-white" data-i18n="pricing.tier1.feature1">Editorial Design
-                                Ebook (PDF)</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier1.feature2">ePub & Mobi Formats</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier1.feature3">Direct support to the
-                                author</span>
-                        </div>
+                        <!-- Feature 1: Immersive Audio (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                                        <path
+                                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier1.feature1">10+
+                                    Hours of Audio Experience</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier1.feature1.details">Not a standard
+                                audiobook. Cinematic narration with original music, sound design, and emotional depth.
+                                An experience for your ears.</p>
+                        </details>
+
+                        <!-- Feature 2: Ebook (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier1.feature2">The
+                                    Story in Ebook (PDF/EPUB)</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier1.feature2.details">500+ pages of deep
+                                storytelling. Beautifully formatted digital book that you own forever. No subscriptions,
+                                no expiration.</p>
+                        </details>
+
+                        <!-- Feature 3: Art & Atmosphere Pack (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                        </path>
+                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                    </svg>
+                                </div>
+                                <span class="feature-text" data-i18n="pricing.tier1.feature3">Art & Atmosphere
+                                    Pack</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier1.feature3.details">My curated playlist of
+                                songs that accompanied the book's creation, concept sketches, original designs, and
+                                exclusive wallpapers. All the visuals that define the universe of the work.</p>
+                        </details>
+
+                        <!-- Feature 4: Lifetime Access (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <span class="feature-text" data-i18n="pricing.tier1.feature4">Lifetime Access</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier1.feature4.details">Download once, keep
+                                forever. Your files, your library. Access from any device, anytime.</p>
+                        </details>
                     </div>
-                    <div class="delivery-estimate" data-i18n="pricing.delivery">Estimated delivery: End of March 2026
-                    </div>
+                    <div class="delivery-estimate" data-i18n="pricing.delivery">Est. Delivery: April 1, 2026</div>
                 </div>
 
-                <!-- Tier 2: Experiencia Inmersiva -->
+                <!-- Tier 2: The Creator's Toolkit -->
                 <div class="pricing-card highlight">
                     <div class="pricing-badge" data-i18n="pricing.badge.recommended">RECOMMENDED</div>
 
                     <div class="card-header">
-                        <div class="tier-subtitle" data-i18n="pricing.tier2.subtitle">Audio + Reading</div>
-                        <h3 class="tier-name text-white" data-i18n="pricing.tier2.title">Immersive Experience</h3>
+                        <div class="tier-subtitle" data-i18n="pricing.tier2.subtitle">For Content Makers</div>
+                        <h3 class="tier-name text-white" data-i18n="pricing.tier2.title">The Creator's Toolkit</h3>
                         <div class="tier-price-container">
-                            <span class="tier-price">47€</span>
-                            <span class="tier-price-original">57€</span>
+                            <span class="tier-price">67€</span>
+                            <span class="tier-price-original">97€</span>
                             <div class="presale-tag" data-i18n="pricing.presale">(PRESALE)</div>
                         </div>
                         <p class="tier-description" data-i18n="pricing.tier2.description">
-                            Don't just read. Let me whisper the story in your ear.
+                            Full access to my creative process. Learn how I create content from start to finish,
+                            special techniques, and AI.
                         </p>
                     </div>
 
                     <div class="card-footer">
-                        <button class="tier-cta tier-cta-solid" data-i18n="pricing.tier2.cta">Start Immersion</button>
-                        <p class="tier-guarantee" data-i18n="pricing.tier2.guarantee">Lifetime access</p>
+                        <button class="tier-cta tier-cta-solid" data-i18n="pricing.tier2.cta">Get the Toolkit</button>
+                        <p class="tier-guarantee" data-i18n="pricing.tier2.guarantee">Learn my complete process</p>
                     </div>
 
                     <div class="card-features">
-                        <div class="feature-item">
+                        <!-- Feature 1: Full Creative Process (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M23 7l-7 5 7 5V7z"></path>
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier2.feature1">Full
+                                    Creative Process Breakdown</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier2.feature1.details">Complete video
+                                breakdown: how I create content from start to finish, creative decisions, tools I use,
+                                AI integration, and my personal storytelling process. My real workflow documented.</p>
+                        </details>
+
+                        <!-- Feature 2: Access to Drafts (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white"
+                                    data-i18n="pricing.tier2.feature2">Access to Drafts & Deleted Scenes</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier2.feature2.details">Original drafts,
+                                deleted scenes, and the evolution of the story from the first version. See how the story
+                                transformed over time.</p>
+                        </details>
+
+                        <!-- Feature 3: Music License (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M9 18V5l12-2v13"></path>
+                                        <circle cx="6" cy="18" r="3"></circle>
+                                        <circle cx="18" cy="16" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <span class="feature-text" data-i18n="pricing.tier2.feature3">Music License
+                                    (CC-BY-NC)</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier2.feature3.details">Access to my original
+                                compositions with a license for personal use and small non-commercial projects. Mention
+                                the author and use them in your own creations. For massive commercial use, negotiate
+                                separately.</p>
+                        </details>
+
+                        <div class="feature-item feature-includes-previous">
                             <div class="feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                                    <path
-                                        d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
-                                    </path>
+                                    <polyline points="15 18 9 12 15 6"></polyline>
                                 </svg>
                             </div>
-                            <span class="feature-text font-bold text-white" data-i18n="pricing.tier2.feature1">Immersive
-                                Audiobook</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M9 18V5l12-2v13"></path>
-                                    <circle cx="6" cy="18" r="3"></circle>
-                                    <circle cx="18" cy="16" r="3"></circle>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier2.feature2">Curated Playlist</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier2.feature3">Everything in Digital
-                                Reader</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                                    </path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier2.feature4">Digital Art Pack</span>
+                            <span class="feature-text" data-i18n="pricing.tier2.feature4">Everything in The Immersive
+                                Journey included</span>
                         </div>
                     </div>
-                    <div class="delivery-estimate" data-i18n="pricing.delivery">Estimated delivery: End of March 2026
-                    </div>
+                    <div class="delivery-estimate" data-i18n="pricing.delivery">Est. Delivery: April 1, 2026</div>
                 </div>
 
-                <!-- Tier 3: Pack Legado -->
+                <!-- Tier 3: The Inner Circle -->
                 <div class="pricing-card">
                     <div class="card-header">
-                        <div class="tier-subtitle" data-i18n="pricing.tier3.subtitle">Signed Physical + Method</div>
-                        <h3 class="tier-name text-amber-light" data-i18n="pricing.tier3.title">Legacy Pack</h3>
-                        <div class="tier-price-container">
-                            <span class="tier-price">247€</span>
-                            <span class="tier-price-original">297€</span>
-                            <div class="presale-tag" data-i18n="pricing.presale">(PRESALE)</div>
+                        <div class="tier-subtitle" data-i18n="pricing.tier3.subtitle">Exclusive Personal Access</div>
+                        <h3 class="tier-name text-amber-light" data-i18n="pricing.tier3.title">The Inner Circle</h3>
+                        <div class="tier-price-container tier-price-editable">
+                            <div class="price-main-row">
+                                <div class="price-input-wrapper">
+                                    <span class="currency-symbol">€</span>
+                                    <input type="number" id="tier3PriceInput" class="tier-price-input" value="197"
+                                        min="197" step="1">
+                                    <span class="top-supporter-star" id="topSupporterStar">✦</span>
+                                </div>
+                                <div class="price-spinner">
+                                    <button type="button" class="spinner-btn spinner-up" id="priceUp"
+                                        aria-label="Increase">+</button>
+                                    <button type="button" class="spinner-btn spinner-down" id="priceDown"
+                                        aria-label="Decrease">−</button>
+                                </div>
+                                <div class="price-status-tag">
+                                    <span class="presale-tag" id="presaleTag"
+                                        data-i18n="pricing.presale">(PRESALE)</span>
+                                    <span class="top-supporter-tag" id="topSupporterTag"
+                                        data-i18n="pricing.tier3.topLabel">★ Top Supporter</span>
+                                </div>
+                            </div>
                         </div>
                         <p class="tier-description" data-i18n="pricing.tier3.description">
-                            The 'Your Own Story' system and the signed physical book.
+                            Direct access to my mind. An exclusive deep personal video where I answer your question in
+                            depth. Plus direct support to the author.
                         </p>
                     </div>
 
                     <div class="limit-badge-container">
-                        <span class="limit-badge" data-i18n="pricing.tier3.limit">Limited Units</span>
+                        <span class="limit-badge" data-i18n="pricing.tier3.limit">Limited</span>
                     </div>
 
                     <div class="card-footer">
-                        <button class="tier-cta tier-cta-glass" data-i18n="pricing.tier3.cta">Join the Circle</button>
-                        <p class="tier-guarantee" data-i18n="pricing.tier3.guarantee">Worldwide shipping included</p>
+                        <button class="tier-cta tier-cta-glass" id="tier3CtaBtn" data-i18n="pricing.tier3.cta">Join the
+                            Inner Circle</button>
+                        <p class="tier-guarantee" data-i18n="pricing.tier3.guarantee">Pure patronage & connection</p>
                     </div>
 
                     <div class="card-features">
-                        <div class="feature-item">
+                        <!-- Feature 1: Exclusive Personal Reflection (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M23 7l-7 5 7 5V7z"></path>
+                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white"
+                                    data-i18n="pricing.tier3.feature1">Exclusive Deep Personal Video + Your Question
+                                    Answered</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier3.feature1.details">A ~60 min exclusive
+                                video where I speak directly to camera about the story, and my deepest
+                                reflection on the work. You can submit one question that I will develop in depth in the
+                                video.
+                            </p>
+                        </details>
+
+                        <!-- Feature 2: Name or Alias in Credits (Accordion) -->
+                        <details class="feature-accordion">
+                            <summary class="feature-item feature-expandable">
+                                <div class="feature-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier3.feature2">Your
+                                    Name in the Work (Optional)</span>
+                                <span class="feature-expand-icon"></span>
+                            </summary>
+                            <p class="feature-details" data-i18n="pricing.tier3.feature2.details">Your name or alias
+                                will appear in the book if you want. You choose: real name, alias, or anonymous. Credit
+                                order by contribution. It's your choice.</p>
+                        </details>
+
+
+
+                        <div class="feature-item feature-includes-previous">
                             <div class="feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <path
-                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                                    <polyline points="15 18 9 12 15 6"></polyline>
                                 </svg>
                             </div>
-                            <span class="feature-text font-bold text-white" data-i18n="pricing.tier3.feature1">Hardcover
-                                Physical Book (Signed)</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="m12 19 7-7 3 3-7 7-3-3z" />
-                                    <path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                                    <path d="m2 2 7.586 7.586" />
-                                    <circle cx="11" cy="11" r="2" />
-                                </svg>
-                            </div>
-                            <span class="feature-text font-bold text-white" data-i18n="pricing.tier3.feature2">'Story
-                                Architect' Masterclass</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier3.feature3">Limited Edition to 100
-                                units</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="m9 12 2 2 4-4" />
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier3.feature4">All Digital Content +
-                                Audio</span>
+                            <span class="feature-text" data-i18n="pricing.tier3.feature3">Everything in Creator's
+                                Toolkit included</span>
                         </div>
                     </div>
-                    <div class="delivery-estimate" data-i18n="pricing.delivery">Estimated delivery: End of March 2026
-                    </div>
+                    <div class="delivery-estimate" data-i18n="pricing.delivery">Est. Delivery: April 1, 2026</div>
                 </div>
 
             </div>
 
+            <!-- Secret Door (Tier 0) -->
+            <div class="secret-door-container"
+                style="text-align: center; margin-top: 40px; opacity: 0.7; font-size: 0.9rem;">
+                <p>
+                    <a href="#" id="secretDoorTrigger" class="secret-link" data-i18n="pricing.secret_door.text"
+                        style="color: inherit; text-decoration: none; border-bottom: 1px dashed currentColor; transition: opacity 0.3s; cursor: pointer;">
+                        Is your budget limited or do you just want to read the story?
+                    </a>
+                </p>
+                <style>
+                    .secret-link:hover {
+                        opacity: 0.6;
+                    }
+                </style>
+            </div>
             <!-- Sección de Confianza -->
             <div class="trust-badges">
                 <div class="trust-item">
@@ -868,6 +2202,77 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Secret Door Modal (Fullscreen) -->
+    <div id="secretDoorModal" class="secret-door-modal">
+        <div class="secret-door-overlay" onclick="closeSecretDoorModal()"></div>
+        <div class="secret-door-content">
+            <button class="secret-door-close" onclick="closeSecretDoorModal()">&times;</button>
+
+            <!-- Unified Panel Container -->
+            <div class="secret-door-panel">
+                <!-- Ebook Option (Main Section) -->
+                <div class="secret-section secret-main">
+                    <!-- 3D Book Preview -->
+                    <div class="book-preview-secret">
+                        <div class="book-3d-secret">
+                            <div class="book-back-secret"></div>
+                            <div class="book-pages-side-secret"></div>
+                            <div class="book-pages-bottom-secret"></div>
+                            <div class="book-spine-secret">
+                                <span class="book-spine-text-secret">DIARY OF A BLACK SHEEP</span>
+                            </div>
+                            <div class="book-cover-secret">
+                                <div class="book-overlay-secret"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-wrapper">
+                        <div class="header-group">
+                            <div class="tier-subtitle" data-i18n="secret.ebook.subtitle">Digital Reading</div>
+                            <h3 class="tier-name" data-i18n="secret.ebook.title">Ebook Edition</h3>
+                        </div>
+
+                        <p class="tier-description" data-i18n="secret.ebook.description">
+                            Access 500 pages (PDF version). 100% yours, the book forever. Direct contribution to the
+                            author.
+                        </p>
+
+                        <div class="action-group secret-action-centered">
+                            <div class="tier-price-container secret-price-row">
+                                <span class="tier-price">9.97€</span>
+                                <span class="tier-price-strikethrough">11.97€</span>
+                            </div>
+                            <a class="tier-cta tier-cta-solid secret-cta-centered"
+                                href="https://gumroad.com/checkout?wanted=true&product=BSD&quantity=1&price=997"
+                                target="_blank" data-i18n="secret.ebook.cta">Get for 9.97€</a>
+                            <p class="tier-guarantee secret-delivery-centered" data-i18n="secret.ebook.delivery">Est.
+                                Delivery: April 1, 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donate Option (Side Section) -->
+                <div class="secret-section secret-sidebar">
+                    <div class="sidebar-content">
+                        <h3 class="tier-name" style="font-size: 1.2rem;" data-i18n="secret.donate.title">Just Donate
+                        </h3>
+
+                        <p class="tier-description" data-i18n="secret.donate.description">
+                            Pure support. No product included. Just contribute what you feel.
+                        </p>
+
+                        <div class="sidebar-action">
+                            <button class="tier-cta tier-cta-glass" onclick="closeSecretDoorModal(); openDonateModal();"
+                                data-i18n="secret.donate.cta">Choose Amount</button>
+                            <p class="tier-guarantee" data-i18n="secret.donate.note">No product included</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de donación -->
     <div id="donateModal" class="modal">
@@ -950,14 +2355,6 @@
                     </div>
                 </div>
 
-                <div class="mural-info">
-                    <p class="mural-text" data-i18n="modal.donate.mural">
-                        💜 <strong>Want to appear in our supporters mural?</strong><br>
-                        Send a screenshot of your donation with your name to:
-                        <strong>hola.danibonilla@gmail.com</strong>
-                    </p>
-                </div>
-
                 <div class="modal-footer">
                     <p class="gratitude-message" data-i18n="modal.donate.gratitude">
                         Thank you for believing in the power of storytelling and being different.
@@ -979,11 +2376,11 @@
 
             <div id="phoneForm">
                 <p>
-                    We understand the importance of data privacy. To access the phone number, please provide your phone:
+                    To protect privacy, please provide your phone number to unlock the payment details:
                 </p>
                 <input type="tel" id="phoneInput" class="phone-input" placeholder="+34 600 123 456" required>
                 <small id="phoneError" class="error-message">
-                    Introduce a valid number.
+                    Please enter a valid number.
                 </small>
                 <div class="phone-buttons">
                     <button class="phone-btn confirm" onclick="confirmPhone()">Confirm</button>
@@ -999,6 +2396,63 @@
             </div>
         </div>
     </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
+
+            <div class="faq-grid">
+                <!-- FAQ 1: Risk/Presale -->
+                <details class="faq-item">
+                    <summary class="faq-question" data-i18n="faq.new.q1.question">What if I pay and you never finish the
+                        book?</summary>
+                    <p class="faq-answer" data-i18n="faq.new.q1.answer">This is a <strong>presale</strong>. If I fail to
+                        deliver the product, you have the right to a full refund. I'll keep you informed of any changes
+                        to the plan.</p>
+                </details>
+
+                <!-- FAQ 2: YouTube Difference -->
+                <details class="faq-item">
+                    <summary class="faq-question" data-i18n="faq.new.q2.question">What's the difference between this and
+                        your YouTube videos?</summary>
+                    <p class="faq-answer" data-i18n="faq.new.q2.answer">On YouTube you get 20-30 minute fragments. This
+                        is the <strong>complete experience</strong>: hours of deep connection, the same emotional
+                        quality you feel in my videos, but without the algorithm limiting what I can share. It's the
+                        difference between a glimpse and the full journey.</p>
+                </details>
+
+                <!-- FAQ 3: Is this for me? (Merged) -->
+                <details class="faq-item">
+                    <summary class="faq-question" data-i18n="faq.new.q3.question">How do I know if this is for me?
+                    </summary>
+                    <p class="faq-answer" data-i18n="faq.new.q3.answer">If you've resonated with the stories I tell on
+                        YouTube, this is for you. If you enjoy <strong>deep connection</strong>, feeling understood, and
+                        stories that stay with you long after they end. All tiers include the complete PDF if you prefer
+                        reading.</p>
+                </details>
+
+                <!-- FAQ 4: Waiting -->
+                <details class="faq-item">
+                    <summary class="faq-question" data-i18n="faq.new.q4.question">The delivery date is far away. Do I
+                        get anything now?</summary>
+                    <p class="faq-answer" data-i18n="faq.new.q4.answer">My main focus is finishing and delivering the
+                        book. That's why you get a <strong>discount now</strong> for trusting me early. I'll share
+                        occasional updates about the process, so you won't be left in the dark. Thanks for your support.
+                    </p>
+                </details>
+
+                <!-- FAQ 5: Refund Policy -->
+                <details class="faq-item">
+                    <summary class="faq-question" data-i18n="faq.new.q5.question">Is there a refund policy?</summary>
+                    <p class="faq-answer" data-i18n="faq.new.q5.answer">No refunds once purchased. I want to focus on
+                        finishing this work in the <strong>best way possible</strong>. My videos on YouTube show exactly
+                        the style of story, connection, and depth you can expect. I commit to delivering the highest
+                        quality experience.</p>
+                </details>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <p data-i18n="footer.copyright">&copy; Dani Bonilla. All rights reserved.</p>

@@ -17,6 +17,30 @@ function closeDonateModal() {
   document.body.style.overflow = 'auto';
 }
 
+/* ---------- SECRET DOOR MODAL ---------- */
+function openSecretDoorModal() {
+  const modal = document.getElementById('secretDoorModal');
+  if (modal) modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSecretDoorModal() {
+  const modal = document.getElementById('secretDoorModal');
+  if (modal) modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Event listener for secret door trigger
+document.addEventListener('DOMContentLoaded', function () {
+  const secretDoorTrigger = document.getElementById('secretDoorTrigger');
+  if (secretDoorTrigger) {
+    secretDoorTrigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      openSecretDoorModal();
+    });
+  }
+});
+
 /* ---------- PHONE MODAL ---------- */
 function openPhoneModal() {
   const modal = document.getElementById('phoneModal');
@@ -232,4 +256,91 @@ window.addEventListener('load', () => {
   if (heroIframe && heroIframe.dataset.src) {
     heroIframe.src = heroIframe.dataset.src;
   }
+});
+
+/* ---------- TIER 3 PAY MORE FEATURE ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const priceInput = document.getElementById('tier3PriceInput');
+  const topSupporterStar = document.getElementById('topSupporterStar');
+  const priceStatusTag = document.querySelector('.price-status-tag');
+  const ctaBtn = document.getElementById('tier3CtaBtn');
+  const priceUp = document.getElementById('priceUp');
+  const priceDown = document.getElementById('priceDown');
+
+  const MIN_PRICE = 197;
+  const TOP_SUPPORTER_THRESHOLD = 249;
+  const STEP = 10;
+
+  if (!priceInput) return;
+
+  function updateTopSupporterStatus() {
+    const currentValue = parseInt(priceInput.value) || 0;
+    const isTopSupporter = currentValue >= TOP_SUPPORTER_THRESHOLD;
+
+    if (topSupporterStar) {
+      topSupporterStar.classList.toggle('visible', isTopSupporter);
+    }
+
+    if (priceStatusTag) {
+      priceStatusTag.classList.toggle('top-supporter', isTopSupporter);
+    }
+
+    if (ctaBtn) {
+      ctaBtn.classList.toggle('top-supporter-active', isTopSupporter);
+    }
+  }
+
+  function validateMinPrice() {
+    const currentValue = parseInt(priceInput.value) || 0;
+    if (currentValue < MIN_PRICE) {
+      priceInput.value = MIN_PRICE;
+    }
+  }
+
+  function resizeInput() {
+    const val = priceInput.value.toString();
+    const length = val.length;
+    // 0.7em por caracter + base mínima
+    priceInput.style.width = `${Math.max(1.5, length * 0.7)}em`;
+  }
+
+  // Spinner button handlers (+/-)
+  if (priceUp) {
+    priceUp.addEventListener('click', () => {
+      const currentValue = parseInt(priceInput.value) || MIN_PRICE;
+      priceInput.value = currentValue + STEP;
+      updateTopSupporterStatus();
+      resizeInput();
+    });
+  }
+
+  if (priceDown) {
+    priceDown.addEventListener('click', () => {
+      const currentValue = parseInt(priceInput.value) || MIN_PRICE;
+      const newValue = currentValue - STEP;
+      priceInput.value = Math.max(MIN_PRICE, newValue);
+      updateTopSupporterStatus();
+      resizeInput();
+    });
+  }
+
+  priceInput.addEventListener('input', () => {
+    updateTopSupporterStatus();
+    resizeInput();
+  });
+
+  priceInput.addEventListener('blur', () => {
+    validateMinPrice();
+    updateTopSupporterStatus();
+    resizeInput();
+  });
+
+  priceInput.addEventListener('keydown', (e) => {
+    if (e.key === '-' || e.key === 'e') {
+      e.preventDefault();
+    }
+  });
+
+  updateTopSupporterStatus();
+  resizeInput();
 });
