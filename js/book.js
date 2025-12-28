@@ -31,6 +31,12 @@ function cacheMetrics() {
 }
 
 function updateBookAnimation() {
+  // On mobile, CSS handles the static book display - skip JS animation
+  if (window.innerWidth < 768) {
+    requestAnimationFrame(updateBookAnimation);
+    return;
+  }
+
   const bookSection = document.querySelector('.book-section');
   const bookContainer = document.querySelector('.book-container');
   const book = document.getElementById('book');
