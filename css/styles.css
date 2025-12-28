@@ -640,7 +640,7 @@
         visibility: hidden;
         pointer-events: none;
         /* evita bloquear secciones encima */
-        transition: opacity 1s ease, visibility 1s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
         z-index: -1;
         /* por detrás de secciones anteriores y siguientes */
       }
@@ -697,7 +697,6 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       }
 
-      /* Portada exterior */
       .book-cover-outer {
         position: absolute;
         inset: 0;
@@ -710,7 +709,7 @@
         box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 5px 25px rgba(212, 175, 55, 0.3);
         transform-origin: left center;
         will-change: transform;
-        transition: transform 1.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        /* NO transition - JS controls transforms directly for smooth mobile scroll */
       }
 
       .book-cover-outer::after {
@@ -774,7 +773,7 @@
         box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 8px rgba(0, 0, 0, 0.2);
         transform-origin: left center;
         will-change: transform;
-        transition: transform 1.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        /* NO transition - JS controls transforms directly for smooth mobile scroll */
       }
 
       .cover-inner-overlay {

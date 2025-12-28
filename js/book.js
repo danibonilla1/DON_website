@@ -65,19 +65,21 @@ function updateBookAnimation() {
   // Clamp target
   targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
-  // LERP: Smoothly interpolate current -> target
-  // Mobile uses higher factor for better momentum scroll tracking
-  const delta = targetProgress - currentProgress;
-
   // Detect mobile dynamically (screen could be resized)
   const isMobileDevice = window.innerWidth < 768;
-  const lerpFactor = isMobileDevice ? 0.4 : 0.1;
 
-  // Skip LERP for tiny deltas to avoid micro-jitter, snap directly
-  if (Math.abs(delta) < 0.001) {
+  // On mobile: NO LERP - follow scroll directly to avoid jank with momentum scroll
+  // On desktop: smooth LERP for elegant animation
+  if (isMobileDevice) {
     currentProgress = targetProgress;
   } else {
-    currentProgress += delta * lerpFactor;
+    const delta = targetProgress - currentProgress;
+    // Skip LERP for tiny deltas to avoid micro-jitter
+    if (Math.abs(delta) < 0.001) {
+      currentProgress = targetProgress;
+    } else {
+      currentProgress += delta * 0.1;
+    }
   }
   const progress = currentProgress;
 
