@@ -626,9 +626,36 @@
 
       @media (max-width: 768px) {
         .book-section {
+          /* En móvil: sección normal sin sticky para evitar jank */
+          height: 100vh;
           margin-top: -850px;
-          /* Superposición extrema para cerrar el hueco vertical */
           z-index: 20;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* En móvil: quitar sticky, mostrar como sección normal */
+        .book-container {
+          position: relative;
+          top: auto;
+          height: auto;
+          opacity: 1;
+          visibility: visible;
+          transition: none;
+        }
+
+        /* Estado semi-abierto estático del libro */
+        .book {
+          transform: rotateX(8deg) rotateY(-25deg) scale(0.65) !important;
+        }
+
+        .book-cover-outer {
+          transform: rotateY(-100deg) !important;
+        }
+
+        .book-cover-inner {
+          transform: rotateY(-100deg) !important;
         }
       }
 
