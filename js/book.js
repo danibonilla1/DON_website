@@ -44,60 +44,38 @@ function updateBookAnimation() {
 
   // Detect Mobile using matchMedia (more reliable in DevTools responsive mode)
   const isMobile = window.matchMedia('(max-width: 767px)').matches;
-
   let targetProgress = 0;
 
-  if (isMobile) {
-    // ---------------- MOBILE LOGIC (No Sticky) ----------------
-    // La animación empieza cuando el libro ENTRA al viewport
+  // ---------------- UNIFIED STICKY LOGIC ----------------
+  // Ahora tanto en móvil como en desktop usamos layout sticky real.
+  // Calculamos el progreso basándonos en cuánto se ha recorrido de la sección sticky.
 
-    const rect = bookSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Progress 0 = libro justo entrando (rect.top = windowHeight)
-    // Progress 1 = libro justo saliendo (rect.bottom = 0)
-
-    if (rect.top >= windowHeight) {
-      // Libro aún no visible
-      targetProgress = 0;
-    } else if (rect.bottom <= 0) {
-      // Libro ya salió
-      targetProgress = 1;
-    } else {
-      // Libro visible, animando
-      const totalDistance = windowHeight + rect.height;
-      const travelled = windowHeight - rect.top;
-      targetProgress = travelled / totalDistance;
-    }
-
-    // Clamp to 0-1
-    targetProgress = Math.min(Math.max(targetProgress, 0), 1);
-
-    // DEBUG
-    // console.log('MOBILE:', { rectTop: rect.top, targetProgress });
-
-  } else {
-    // ---------------- DESKTOP LOGIC (Sticky) ----------------
-    // Ensure metrics are initialized
-    if (metrics.totalDistance === 0) {
-      cacheMetrics();
-    }
-
-    // Use cached metrics + current scroll
-    const sectionTop = bookSection.offsetTop;
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-    const startScroll = metrics.sectionTop - metrics.windowHeight;
-    const currentPos = scrollY - startScroll;
-
-    if (metrics.totalDistance > 0) {
-      targetProgress = currentPos / metrics.totalDistance;
-    }
-    targetProgress = Math.min(Math.max(targetProgress, 0), 1);
+  // Ensure metrics are initialized
+  if (metrics.totalDistance === 0) {
+    cacheMetrics();
   }
 
+  // Use cached metrics + current scroll
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Sticky logic calculation
+  // startScroll = Cuando la sección llega a top=0 (o su offset sticky)
+  // Usamos la lógica relativa al offset inicial de la sección
+  const startScroll = metrics.sectionTop - metrics.windowHeight;
+  const currentPos = scrollY - startScroll;
+
+  if (metrics.totalDistance > 0) {
+    targetProgress = currentPos / metrics.totalDistance;
+  }
+
+  // Clamp target
+  targetProgress = Math.min(Math.max(targetProgress, 0), 1);
+
+  // DEBUG
+  // if(isMobile && Math.random() < 0.05) console.log('Unified Sticky:', { scrollY, currentPos, totalDistance: metrics.totalDistance, targetProgress });
+
   // ---------------- SMOOTHING (LERP) ----------------
-  // En móvil queremos respuesta casi inmediata pero suavizada para evitar "tembleque"
+  // En móvil queremos respuesta casi inmediata pero suavizada
   const lerpFactor = isMobile ? 0.3 : 0.1;
 
   if (Math.abs(targetProgress - currentProgress) < 0.0005) {
@@ -109,8 +87,7 @@ function updateBookAnimation() {
   const progress = currentProgress;
 
   // ---------------- VISIBILITY ----------------
-  // En móvil siempre visible por CSS !important, pero mantenemos lógica class
-  const isVisible = isMobile ? true : (progress > -0.1 && progress < 1.1);
+  const isVisible = progress > -0.1 && progress < 1.1;
 
   if (isVisible) {
     bookContainer.classList.add('visible');
@@ -153,10 +130,7 @@ function updateBookAnimation() {
     coverRotation = -180;
   }
 
-  // Código desktop duplicado eliminado (ahora unificado arriba)
-
   // Apply Transforms
-  // En móvil, aseguramos que el estilo inline tenga prioridad
   book.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
 
   if (coverOuter) coverOuter.style.transform = `rotateY(${coverRotation}deg)`;
