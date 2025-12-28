@@ -21,7 +21,7 @@
       html,
       body {
         width: 100%;
-        overscroll-behavior-y: none;
+        /* overscroll-behavior-y: none; REMOVED to fix iOS scroll */
       }
 
       body {
@@ -46,6 +46,7 @@
         display: block;
         z-index: -10;
         opacity: 0.5;
+        pointer-events: none;
       }
 
       .header {
