@@ -628,10 +628,57 @@
         position: relative;
         overflow-x: clip;
         /* Fix Doble Scroll */
-        margin-top: -450px;
-        /* Superposición agresiva */
+        /* Fix Doble Scroll */
+        margin-top: -300px;
+        /* Superposición menos agresiva para bajar el libro */
         z-index: 20;
         /* IMPORTANTE: Para que monte ENCIMA del manifiesto */
+      }
+
+      /* Landscape Warning Overlay */
+      #landscape-warning {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 99999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #d4af37;
+        text-align: center;
+        padding: 20px;
+      }
+
+      #landscape-warning i {
+        font-size: 40px;
+        margin-bottom: 20px;
+        animation: rotate-phone 2s infinite ease-in-out;
+      }
+
+      @keyframes rotate-phone {
+
+        0%,
+        100% {
+          transform: rotate(-90deg);
+        }
+
+        50% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @media (max-width: 900px) and (orientation: landscape) {
+        #landscape-warning {
+          display: flex;
+        }
+
+        body {
+          overflow: hidden;
+        }
       }
 
       @media (max-width: 768px) {
@@ -667,18 +714,18 @@
           margin-top: 20vh;
         }
 
-        /* Estado semi-abierto estático del libro */
+        /* Estado semi-abierto estático del libro - Eliminado para permitir animación JS */
+        /*
         .book {
           transform: rotateX(8deg) rotateY(-25deg) scale(0.65) !important;
         }
-
         .book-cover-outer {
           transform: rotateY(-100deg) !important;
         }
-
         .book-cover-inner {
           transform: rotateY(-100deg) !important;
         }
+        */
       }
 
       .book-container {

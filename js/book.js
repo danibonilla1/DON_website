@@ -31,12 +31,6 @@ function cacheMetrics() {
 }
 
 function updateBookAnimation() {
-  // On mobile: skip animation, CSS shows static book to avoid sticky jank
-  if (window.innerWidth < 768) {
-    requestAnimationFrame(updateBookAnimation);
-    return;
-  }
-
   const bookSection = document.querySelector('.book-section');
   const bookContainer = document.querySelector('.book-container');
   const book = document.getElementById('book');
@@ -48,49 +42,68 @@ function updateBookAnimation() {
     return;
   }
 
-  // Ensure metrics are initialized
-  if (metrics.totalDistance === 0) {
-    cacheMetrics();
-  }
+  // Detect Mobile
+  const isMobile = window.innerWidth < 768;
 
-  // Use cached metrics + current scroll
-  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-  // Calculate distance from the point where the section ENTRES the viewport
-  // Entry point: scrollY = sectionTop - windowHeight
-  const startScroll = metrics.sectionTop - metrics.windowHeight;
-
-  // Current position relative to the start of the effect
-  const currentPos = scrollY - startScroll;
-
-  // Normalized progress 0 to 1
   let targetProgress = 0;
-  if (metrics.totalDistance > 0) {
-    targetProgress = currentPos / metrics.totalDistance;
+
+  if (isMobile) {
+    // ---------------- MOBILE LOGIC (No Sticky) ----------------
+    // Animación basada en cuánto hemos scrolleado desde el top (Hero)
+    // Como el libro está superpuesto al Hero (transform -90vh),
+    // queremos que se anime mientras el usuario scrollea el Hero.
+
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+
+    // El libro empieza visible. Queremos que progrese de 0 (cerrado) a 1 (abierto/rotado)
+    // mientras el usuario hace scroll hacia abajo para ver el resto de la página.
+    // Completamos la animación cuando hemos scrolleado el 80% de la pantalla (el libro ya casi sale)
+    // Ajustamos esto para que se sienta bien.
+
+    targetProgress = scrollY / (windowHeight * 0.7);
+
+    // Clamp to 0-1
+    targetProgress = Math.min(Math.max(targetProgress, 0), 1);
+
+    // Curva de aceleración para móvil (más rápido al principio)
+    targetProgress = Math.pow(targetProgress, 0.9);
+
+  } else {
+    // ---------------- DESKTOP LOGIC (Sticky) ----------------
+    // Ensure metrics are initialized
+    if (metrics.totalDistance === 0) {
+      cacheMetrics();
+    }
+
+    // Use cached metrics + current scroll
+    const sectionTop = bookSection.offsetTop;
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    const startScroll = metrics.sectionTop - metrics.windowHeight;
+    const currentPos = scrollY - startScroll;
+
+    if (metrics.totalDistance > 0) {
+      targetProgress = currentPos / metrics.totalDistance;
+    }
+    targetProgress = Math.min(Math.max(targetProgress, 0), 1);
   }
-  // Clamp target
-  targetProgress = Math.min(Math.max(targetProgress, 0), 1);
 
-  // Detect mobile dynamically (screen could be resized)
-  const isMobileDevice = window.innerWidth < 768;
+  // ---------------- SMOOTHING (LERP) ----------------
+  // En móvil queremos respuesta casi inmediata pero suavizada para evitar "tembleque"
+  const lerpFactor = isMobile ? 0.3 : 0.1;
 
-  // On mobile: NO LERP - follow scroll directly to avoid jank with momentum scroll
-  // On desktop: smooth LERP for elegant animation
-  if (isMobileDevice) {
+  if (Math.abs(targetProgress - currentProgress) < 0.0005) {
     currentProgress = targetProgress;
   } else {
-    const delta = targetProgress - currentProgress;
-    // Skip LERP for tiny deltas to avoid micro-jitter
-    if (Math.abs(delta) < 0.001) {
-      currentProgress = targetProgress;
-    } else {
-      currentProgress += delta * 0.1;
-    }
+    currentProgress += (targetProgress - currentProgress) * lerpFactor;
   }
+
   const progress = currentProgress;
 
-  // Visibility Logic
-  const isVisible = progress > 0 && progress < 1;
+  // ---------------- VISIBILITY ----------------
+  // En móvil siempre visible por CSS !important, pero mantenemos lógica class
+  const isVisible = isMobile ? true : (progress > -0.1 && progress < 1.1);
 
   if (isVisible) {
     bookContainer.classList.add('visible');
@@ -98,48 +111,68 @@ function updateBookAnimation() {
     bookContainer.classList.remove('visible');
   }
 
-  // Animation Phases (3 Discrete Scroll Moments)
-  // SCROLL 1 (0.0 - 0.5): Show book straight, tilt and open (EVEN SLOWER)
-  // SCROLL 2 (0.5 - 0.75): Flip the book
-  // SCROLL 3 (0.75 - 1.0): Continue rotating slowly in same direction
-
+  // ---------------- ANIMATION PHASES ----------------
   let translateY, translateX, rotateY, rotateX, scale, coverRotation;
 
-  if (progress < 0.5) {
-    // SCROLL 1: SHOW STRAIGHT + TILT + OPEN (even slower opening)
-    const p = mapRange(progress, 0, 0.5, 0, 1);
+  if (isMobile) {
+    // --- MOBILE ANIMATION (Simplified) ---
+    // Solo abrir y rotar un poco, sin trasladarse demasiado (el scroll lo mueve)
 
-    translateY = mapRange(p, 0, 1, 80, -10); // Appears and centers
+    // Empieza: Ligeramente de lado + Cerrado
+    // Termina: Más de frente + Abierto
+
+    // RotateY: -25 (inicio) -> -5 (fin)
+    rotateY = -25 + (progress * 20);
+
+    // RotateX: 8 (inicio) -> 15 (fin)
+    rotateX = 8 + (progress * 7);
+
+    // Scale: 0.65 (inicio) -> 0.75 (fin)
+    scale = 0.65 + (progress * 0.1);
+
+    // Cover: 0 (cerrado) -> -160 (abierto)
+    // Empieza a abrirse pronto
+    const openP = Math.min(Math.max((progress - 0.1) * 1.4, 0), 1);
+    coverRotation = openP * -160;
+
+    // Translate: Mantener centrado
     translateX = 0;
-    rotateY = mapRange(p, 0, 1, 0, -20); // Tilts Y
-    rotateX = mapRange(p, 0, 1, 0, 10); // Tilts X
-    scale = mapRange(p, 0, 1, 0.6, 0.85); // Grows to size
-    coverRotation = mapRange(p, 0, 1, 0, -120); // Opens fully (slower)
-
-  } else if (progress < 0.75) {
-    // SCROLL 2: FLIP
-    const p = mapRange(progress, 0.5, 0.75, 0, 1);
-
-    translateY = -10; // Stay centered
-    translateX = mapRange(p, 0, 1, 0, -150); // Moves left
-    rotateY = mapRange(p, 0, 1, -20, -180); // Flips
-    rotateX = mapRange(p, 0, 1, 10, 0); // Flattens
-    scale = 0.85; // Maintain size
-    coverRotation = mapRange(p, 0, 1, -120, -180); // Closes
+    translateY = 0;
 
   } else {
-    // SCROLL 3: CONTINUE ROTATING SLOWLY (same direction)
-    const p = mapRange(progress, 0.75, 1.0, 0, 1);
-
-    translateY = -10;
-    translateX = -150;
-    rotateY = mapRange(p, 0, 1, -180, -200); // Continue rotating slowly
-    rotateX = 0;
-    scale = 0.85;
-    coverRotation = -180;
+    // --- DESKTOP ANIMATION (Original Complex) ---
+    if (progress < 0.5) {
+      // SCROLL 1: SHOW STRAIGHT + TILT + OPEN
+      const p = mapRange(progress, 0, 0.5, 0, 1);
+      translateY = mapRange(p, 0, 1, 80, -10);
+      translateX = 0;
+      rotateY = mapRange(p, 0, 1, 0, -20);
+      rotateX = mapRange(p, 0, 1, 0, 10);
+      scale = mapRange(p, 0, 1, 0.6, 0.85);
+      coverRotation = mapRange(p, 0, 1, 0, -120);
+    } else if (progress < 0.75) {
+      // SCROLL 2: FLIP
+      const p = mapRange(progress, 0.5, 0.75, 0, 1);
+      translateY = -10;
+      translateX = mapRange(p, 0, 1, 0, -150);
+      rotateY = mapRange(p, 0, 1, -20, -180);
+      rotateX = mapRange(p, 0, 1, 10, 0);
+      scale = 0.85;
+      coverRotation = mapRange(p, 0, 1, -120, -180);
+    } else {
+      // SCROLL 3: ROTATE
+      const p = mapRange(progress, 0.75, 1.0, 0, 1);
+      translateY = -10;
+      translateX = -150;
+      rotateY = mapRange(p, 0, 1, -180, -200);
+      rotateX = 0;
+      scale = 0.85;
+      coverRotation = -180;
+    }
   }
 
   // Apply Transforms
+  // En móvil, aseguramos que el estilo inline tenga prioridad
   book.style.transform = `translate3d(${translateX}px, ${translateY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
 
   if (coverOuter) coverOuter.style.transform = `rotateY(${coverRotation}deg)`;
