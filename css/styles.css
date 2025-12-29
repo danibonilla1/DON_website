@@ -617,7 +617,21 @@
         box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
       }
 
+      /* Language toggle hidden when scrolled past hero */
+      .lang-toggle-btn.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
 
+      /* Floating button flipped state (arrow pointing up) */
+      .floating-preorder-btn.flipped {
+        transform: rotate(180deg);
+      }
+
+      .floating-preorder-btn.flipped:hover {
+        transform: rotate(180deg) translateY(5px) scale(1.05);
+      }
 
       /* --- INICIO CSS LIBRO --- */
 
@@ -6148,5 +6162,198 @@
 
         .tier-price-strikethrough {
           font-size: 1rem;
+        }
+      }
+
+      /* --- MOBILE: SECTION CONNECTOR ARROWS & REDUCED SPACING --- */
+      @media (max-width: 768px) {
+
+        /* Reduced spacing between sections for mobile */
+        .manifesto-section {
+          padding: 40px 20px 50px 20px;
+          margin-bottom: 0;
+          flex-direction: column;
+        }
+
+        /* Fix testimonials/author section background - ensure full coverage */
+        .testimonials-section {
+          padding: 60px 15px 50px 15px;
+          /* More top padding for arrow spacing */
+          margin-top: 0;
+          margin-bottom: 0;
+          border-radius: 24px 24px 0 0;
+          /* Rounded top corners */
+          /* Gradient background - original colors */
+          background: linear-gradient(180deg, rgba(10, 10, 12, 0.6) 0%, rgba(5, 5, 5, 0.95) 100%) !important;
+          background-attachment: scroll;
+          background-size: cover;
+          max-width: 100%;
+          min-height: 100%;
+          /* Force minimum height */
+          box-shadow: none;
+          /* Remove shadow on mobile */
+          overflow: visible;
+          /* Prevent clipping */
+        }
+
+        /* Subtle golden glow - like original desktop but visible on mobile */
+        .testimonials-section::before {
+          display: block !important;
+          position: absolute !important;
+          top: -15% !important;
+          left: -15% !important;
+          /* Left side */
+          right: auto !important;
+          width: 70% !important;
+          height: 70% !important;
+          opacity: 1 !important;
+          background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 65%) !important;
+          /* Subtle gold glow - reduced intensity */
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        /* Reduce margin for author intro text in mobile */
+        .author-intro {
+          margin-bottom: 20px !important;
+        }
+
+        .author-intro::after {
+          margin-top: 15px !important;
+        }
+
+
+        .pricing-section {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+
+        .faq-section {
+          padding-top: 50px;
+          padding-bottom: 40px;
+        }
+
+        /* Fluid section connector arrows - SVG-style flowing arrow */
+        .manifesto-section::after,
+        .testimonials-section::after {
+          content: '';
+          display: block;
+          position: relative;
+          width: 2px;
+          height: 40px;
+          /* Ensure it is centered and has spacing */
+          margin: 40px auto 20px auto;
+          background: linear-gradient(180deg,
+              transparent 0%,
+              rgba(212, 175, 55, 0.3) 20%,
+              rgba(212, 175, 55, 0.6) 50%,
+              rgba(212, 175, 55, 0.3) 80%,
+              transparent 100%);
+          animation: flowDown 2s ease-in-out infinite;
+          /* Ensure it doesn't float to side */
+          clear: both;
+        }
+
+        /* Arrow head using box-shadow trick */
+        .manifesto-section::after,
+        .testimonials-section::after {
+          background: none;
+          width: 60px;
+          height: 50px;
+          border: none;
+          /* Create flowing arrow pointing DOWN with multiple gradients */
+          background-image:
+            /* Vertical line */
+            linear-gradient(180deg,
+              transparent 0%,
+              rgba(212, 175, 55, 0.2) 10%,
+              rgba(212, 175, 55, 0.5) 50%,
+              rgba(212, 175, 55, 0.2) 90%,
+              transparent 100%),
+            /* Arrow head left - pointing down */
+            linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.5) 50%, transparent 52%),
+            /* Arrow head right - pointing down */
+            linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.5) 50%, transparent 52%);
+          background-size:
+            2px 100%,
+            14px 14px,
+            14px 14px;
+          background-position:
+            center center,
+            calc(50% - 6px) bottom,
+            calc(50% + 6px) bottom;
+          background-repeat: no-repeat;
+          opacity: 0.7;
+          animation: connectorPulse 2.5s ease-in-out infinite;
+        }
+
+
+
+
+        /* Arrow after book section - Absolutely positioned to ensure it is behind */
+        .book-section::after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 50px;
+          /* Move arrow higher */
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 50px;
+          margin: 0;
+          /* Managed by position */
+          background: none;
+          border: none;
+          background-image:
+            linear-gradient(180deg,
+              transparent 0%,
+              rgba(212, 175, 55, 0.2) 10%,
+              rgba(212, 175, 55, 0.5) 50%,
+              rgba(212, 175, 55, 0.2) 90%,
+              transparent 100%),
+            linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.5) 50%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.5) 50%, transparent 52%);
+          background-size:
+            2px 100%,
+            14px 14px,
+            14px 14px;
+          background-position:
+            center center,
+            calc(50% - 6px) bottom,
+            calc(50% + 6px) bottom;
+          background-repeat: no-repeat;
+          opacity: 0.6;
+          z-index: -1;
+          animation: connectorPulse 2.5s ease-in-out infinite;
+        }
+
+
+
+        /* Subtle pulse animation for connectors */
+        @keyframes connectorPulse {
+
+          0%,
+          100% {
+            opacity: 0.5;
+            transform: translateY(0);
+          }
+
+          50% {
+            opacity: 0.9;
+            transform: translateY(3px);
+          }
+        }
+
+        /* Smaller arrow after manifesto (before book section) */
+        .manifesto-section::after {
+          height: 35px;
+          width: 50px;
+          opacity: 0.4;
+        }
+
+        /* No arrow after FAQ (last section before footer) */
+        .faq-section::after {
+          display: none;
         }
       }
