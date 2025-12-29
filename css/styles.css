@@ -6357,3 +6357,158 @@
           display: none;
         }
       }
+
+      /* --- SECRET DOOR TRIPLE COLUMN LAYOUT --- */
+      .secret-door-triple {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .secret-door-triple .secret-sidebar {
+        flex: 0.6;
+        min-width: 160px;
+      }
+
+      .secret-door-triple .secret-main {
+        flex: 1.3;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .secret-door-triple .secret-free {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Free Badge Mini */
+      .free-badge-mini {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--primary-gold) 0%, #8b7355 100%);
+        color: #050505;
+        font-family: 'Cinzel', serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border-radius: 50px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+      }
+
+      /* Secret Benefits List */
+      .secret-benefits {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 20px 0;
+        text-align: left;
+        font-size: 0.8rem;
+        color: rgba(248, 246, 240, 0.8);
+        line-height: 1.8;
+      }
+
+      .secret-benefits li {
+        margin-bottom: 6px;
+      }
+
+      /* Fix sidebar-action spacing and button styling */
+      .secret-sidebar .sidebar-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .secret-sidebar .tier-cta-outline {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 2px solid var(--primary-gold);
+        color: var(--primary-gold);
+        background: transparent;
+        border-radius: 30px;
+        font-family: 'Cinzel', serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .secret-sidebar .tier-cta-outline:hover {
+        background: var(--primary-gold);
+        color: #050505;
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .secret-sidebar .tier-guarantee {
+        margin-top: 4px;
+        font-size: 0.75rem;
+        opacity: 0.7;
+      }
+
+      /* Responsive Triple Column */
+      @media (max-width: 1000px) {
+        .secret-door-triple {
+          flex-wrap: wrap;
+        }
+
+        .secret-door-triple .secret-main {
+          order: -1;
+          flex: 1 1 100%;
+          border-left: none;
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .secret-door-triple .secret-sidebar {
+          flex: 1 1 50%;
+          min-width: 150px;
+          padding: 24px 20px;
+        }
+
+        .secret-door-triple .secret-free {
+          border-right: 1px solid rgba(255, 255, 255, 0.05);
+          order: 0;
+        }
+
+        .secret-door-triple .secret-sidebar:not(.secret-free) {
+          order: 1;
+        }
+
+        /* Enable scroll on modal content */
+        .secret-door-content {
+          max-height: 95vh;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .secret-door-panel {
+          max-height: none;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .secret-door-triple .secret-sidebar {
+          flex: 1 1 100%;
+          padding: 20px 16px;
+        }
+
+        .secret-door-triple .secret-free {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .secret-door-triple .secret-main {
+          padding: 24px 16px;
+        }
+
+        .secret-benefits {
+          text-align: center;
+        }
+
+        /* Mobile scroll improvements */
+        .secret-door-content {
+          max-height: 90vh;
+          padding: 60px 10px 20px 10px;
+        }
+      }

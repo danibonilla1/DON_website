@@ -1103,7 +1103,7 @@
                             </summary>
                             <p class="feature-details" data-i18n="pricing.tier2.feature3.details">Use my original
                                 compositions in your YouTube, TikTok, or social media content. Just mention me as the
-                                author in the description. No remixes or redistribution allowed.</p>
+                                author in the description. No remixes, ads or redistribution allowed.</p>
                         </details>
 
                         <div class="feature-item feature-includes-previous">
@@ -1232,7 +1232,7 @@
                 <p>
                     <a href="#" id="secretDoorTrigger" class="secret-link" data-i18n="pricing.secret_door.text"
                         style="color: inherit; text-decoration: none; border-bottom: 1px dashed currentColor; transition: opacity 0.3s; cursor: pointer;">
-                        Read-only option available
+                        Read-only option available — or download a sample
                     </a>
                 </p>
                 <style>
@@ -1285,9 +1285,10 @@
         <div class="secret-door-content">
             <button class="secret-door-close" onclick="closeSecretDoorModal()">&times;</button>
 
-            <!-- Unified Panel Container -->
-            <div class="secret-door-panel">
-                <!-- Ebook Option (Main Section) -->
+            <!-- Unified Panel Container - 3 columns -->
+            <div class="secret-door-panel secret-door-triple">
+
+                <!-- Ebook Option (Left - Main) -->
                 <div class="secret-section secret-main">
                     <!-- 3D Book Preview -->
                     <div class="book-preview-secret">
@@ -1321,14 +1322,33 @@
                             </div>
                             <a class="tier-cta tier-cta-solid secret-cta-centered"
                                 href="https://gumroad.com/checkout?wanted=true&product=BSD&quantity=1&price=997"
-                                target="_blank" data-i18n="secret.ebook.cta">Get for 9.97€</a>
+                                target="_blank" data-i18n="secret.ebook.cta">Access Now</a>
                             <p class="tier-guarantee secret-delivery-centered" data-i18n="secret.ebook.delivery">Est.
                                 Delivery: April 1, 2026</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Donate Option (Side Section) -->
+                <!-- Sample Chapter Option (Center) -->
+                <div class="secret-section secret-sidebar secret-free">
+                    <div class="sidebar-content">
+                        <h3 class="tier-name" style="font-size: 1.1rem;" data-i18n="secret.free.title">Sample Chapter
+                        </h3>
+
+                        <p class="tier-description" data-i18n="secret.free.description">
+                            Try before you buy. Get a complete chapter instantly.
+                        </p>
+
+                        <div class="sidebar-action">
+                            <a class="tier-cta tier-cta-outline"
+                                href="https://gumroad.com/checkout?wanted=true&product=BSD&quantity=1&price=0"
+                                target="_blank" data-i18n="secret.free.cta">Free</a>
+                            <p class="tier-guarantee" data-i18n="secret.free.note">Just your email</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donate Option (Right) -->
                 <div class="secret-section secret-sidebar">
                     <div class="sidebar-content">
                         <h3 class="tier-name" style="font-size: 1.2rem;" data-i18n="secret.donate.title">Just Donate
