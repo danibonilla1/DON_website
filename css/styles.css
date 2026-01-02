@@ -4715,10 +4715,13 @@
         margin-top: 96px;
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 24px;
         align-items: center;
+        justify-content: center;
         opacity: 0.5;
         transition: opacity 0.5s;
+        padding: 0 20px;
+        text-align: center;
       }
 
       .trust-badges:hover {
@@ -4729,13 +4732,24 @@
         .trust-badges {
           flex-direction: row;
           gap: 64px;
+          padding: 0;
         }
       }
 
       .trust-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .trust-item {
+          flex-direction: row;
+          gap: 12px;
+          text-align: left;
+        }
       }
 
       .trust-icon-bg {
@@ -4745,6 +4759,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
       }
 
       .text-emerald {
@@ -4764,6 +4779,7 @@
 
       .trust-text strong {
         color: #e2e8f0;
+        display: block;
       }
 
       .trust-divider {
