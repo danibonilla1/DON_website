@@ -275,8 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceUp = document.getElementById('priceUp');
   const priceDown = document.getElementById('priceDown');
 
-  const MIN_PRICE = 197;
-  const TOP_SUPPORTER_THRESHOLD = 249;
+  const MIN_PRICE = 497;
+  const TOP_SUPPORTER_THRESHOLD = 750;
   const STEP = 10;
 
   if (!priceInput) return;
