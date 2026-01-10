@@ -275,8 +275,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceUp = document.getElementById('priceUp');
   const priceDown = document.getElementById('priceDown');
 
-  const MIN_PRICE = 497;
-  const TOP_SUPPORTER_THRESHOLD = 750;
+  const MIN_PRICE = 197;
+  const TOP_SUPPORTER_THRESHOLD = 500;
   const STEP = 10;
 
   if (!priceInput) return;
@@ -295,6 +295,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (ctaBtn) {
       ctaBtn.classList.toggle('top-supporter-active', isTopSupporter);
+      
+      // Update Gumroad URL with custom price
+      // Base URL without params to avoid appending multiple times
+      // We assume correct base is set in HTML or we clean it
+      let baseUrl = "https://gumroad.com/checkout?wanted=true&product=TIER3";
+      
+      // Gumroad expects price in cents often, OR just price.
+      // Usually query param 'price' works for pwyw. 
+      // Safest is to just append &price=X if it's supported.
+      // If the product is set to 197+ it should work.
+      ctaBtn.dataset.gumroadUrl = `${baseUrl}&price=${currentValue}`;
     }
   }
 
