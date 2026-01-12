@@ -158,4 +158,43 @@
     // Watch for translations loading which might affect links
     document.addEventListener('translationsLoaded', updateGumroadLinks);
 
+    /**
+     * Highlight story card based on URL parameter
+     * Example: ?historia=paris will highlight the Paris story card
+     */
+    function highlightStoryFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const historiaParam = urlParams.get('historia');
+        
+        if (!historiaParam) return;
+
+        // Find the story card with matching data-story attribute
+        const storyCard = document.querySelector(`.story-card[data-story="${historiaParam.toLowerCase()}"]`);
+        
+        if (storyCard) {
+            // Add highlighted class
+            storyCard.classList.add('highlighted');
+            
+            // Scroll to the archive section smoothly after a short delay
+            setTimeout(() => {
+                const archiveSection = document.getElementById('archivo');
+                if (archiveSection) {
+                    archiveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 500);
+            
+            console.log('Story Highlight: Highlighted story card for:', historiaParam);
+        } else {
+            console.log('Story Highlight: No matching story card found for:', historiaParam);
+        }
+    }
+
+    // Initialize story highlighting when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', highlightStoryFromURL);
+    } else {
+        highlightStoryFromURL();
+    }
+
 })();
+
