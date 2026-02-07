@@ -363,3 +363,180 @@ document.addEventListener('DOMContentLoaded', () => {
   updateTopSupporterStatus();
   resizeInput();
 });
+
+/* ---------- TIER 1 PAY WHAT YOU WANT FEATURE (ENHANCED) ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const priceInput = document.getElementById('tier1PriceInput');
+  const priceMobile = document.getElementById('tier1PriceMobile');
+  const ctaBtn = document.getElementById('tier1CtaBtn');
+  const priceUp = document.getElementById('price1Up');
+  const priceDown = document.getElementById('price1Down');
+  const creditsEl = document.getElementById('creditsIncentive');
+
+  const MIN_PRICE = 9;
+  const STEP = 1;
+  const CREDITS_THRESHOLD = 50;
+
+  let currentPrice = 15; // Default
+
+  if (!priceInput && !priceMobile) return;
+
+  function updatePrice(price) {
+    currentPrice = Math.max(MIN_PRICE, price);
+    
+    // Update credits incentive (only at 50€+)
+    if (creditsEl) {
+      const creditsText = creditsEl.querySelector('.credits-text');
+      if (price >= CREDITS_THRESHOLD) {
+        creditsEl.style.display = 'block';
+        if (creditsText) creditsText.textContent = '¡Tu nombre aparecerá en los créditos del libro!';
+      } else {
+        creditsEl.style.display = 'none';
+      }
+    }
+
+    // Update Gumroad URL
+    if (ctaBtn) {
+      let baseUrl = "https://gumroad.com/checkout?wanted=true&product=TIER1";
+      ctaBtn.dataset.gumroadUrl = `${baseUrl}&price=${price * 100}`;
+    }
+    
+    // Sync desktop input if it exists
+    if (priceInput && parseInt(priceInput.value) !== price) {
+      priceInput.value = price;
+      resizeInput();
+    }
+  }
+
+  function validateMinPrice() {
+    const currentValue = parseInt(priceInput?.value) || 0;
+    if (currentValue < MIN_PRICE) {
+      if (priceInput) priceInput.value = MIN_PRICE;
+    }
+  }
+
+  function resizeInput() {
+    if (!priceInput) return;
+    const val = priceInput.value.toString();
+    const length = val.length;
+    priceInput.style.width = `${Math.max(2, length * 0.7 + 0.5)}em`;
+  }
+
+  // Desktop spinner button handlers (+/-)
+  if (priceUp) {
+    priceUp.addEventListener('click', () => {
+      const currentValue = parseInt(priceInput?.value) || MIN_PRICE;
+      const newPrice = currentValue + STEP;
+      if (priceInput) priceInput.value = newPrice;
+      updatePrice(newPrice);
+    });
+  }
+
+  if (priceDown) {
+    priceDown.addEventListener('click', () => {
+      const currentValue = parseInt(priceInput?.value) || MIN_PRICE;
+      const newPrice = Math.max(MIN_PRICE, currentValue - STEP);
+      if (priceInput) priceInput.value = newPrice;
+      updatePrice(newPrice);
+    });
+  }
+
+  if (priceInput) {
+    priceInput.addEventListener('input', () => {
+      updatePrice(parseInt(priceInput.value) || MIN_PRICE);
+    });
+
+    priceInput.addEventListener('blur', () => {
+      validateMinPrice();
+      updatePrice(parseInt(priceInput.value) || MIN_PRICE);
+    });
+
+    priceInput.addEventListener('keydown', (e) => {
+      if (e.key === '-' || e.key === 'e') {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // === MOBILE PRICE BUTTONS ===
+  document.querySelectorAll('.price-option').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const price = this.dataset.price;
+      const customInput = document.getElementById('tier1PriceMobile');
+      
+      // Remove active from all
+      document.querySelectorAll('.price-option').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      if (price === 'custom') {
+        if (customInput) {
+          customInput.style.display = 'block';
+          customInput.focus();
+        }
+      } else {
+        if (customInput) customInput.style.display = 'none';
+        updatePrice(parseInt(price));
+      }
+    });
+  });
+
+  // Mobile custom input handler
+  if (priceMobile) {
+    priceMobile.addEventListener('input', function() {
+      updatePrice(parseInt(this.value) || MIN_PRICE);
+    });
+    
+    priceMobile.addEventListener('blur', function() {
+      const val = parseInt(this.value) || 0;
+      if (val < MIN_PRICE) this.value = MIN_PRICE;
+      updatePrice(parseInt(this.value) || MIN_PRICE);
+    });
+  }
+
+  // Initialize with default price
+  updatePrice(15);
+  resizeInput();
+});
+
+/* ---------- CAME-FROM-HERO DETECTION ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  let cameFromHero = false;
+  
+  const heroObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !cameFromHero) {
+      cameFromHero = true;
+      document.body.classList.add('came-from-hero');
+    }
+  }, { threshold: 0.5 });
+
+  const heroEl = document.getElementById('home');
+  if (heroEl) heroObserver.observe(heroEl);
+});
+
+/* ---------- DELAYED EMAIL CAPTURE ---------- */
+(function() {
+  document.addEventListener('DOMContentLoaded', () => {
+    let hasClicked = false;
+    const ctaBtn = document.getElementById('tier1CtaBtn');
+    const captureEl = document.getElementById('delayedCapture');
+    
+    if (!ctaBtn || !captureEl) return;
+    
+    // If they click the CTA, never show email capture
+    ctaBtn.addEventListener('click', () => { hasClicked = true; });
+    
+    // Observer to detect when pricing is visible
+    const pricingObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasClicked) {
+        setTimeout(() => {
+          if (!hasClicked) {
+            captureEl.style.display = 'block';
+          }
+        }, 45000); // 45 seconds
+      }
+    }, { threshold: 0.3 });
+    
+    const pricingSection = document.getElementById('preorder');
+    if (pricingSection) pricingObserver.observe(pricingSection);
+  });
+})();

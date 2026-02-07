@@ -23,11 +23,6 @@
 </head>
 
 <body>
-    <div id="landscape-warning">
-        <i class="fas fa-mobile-alt"></i>
-        <p>Por favor gira tu dispositivo para una mejor experiencia</p>
-    </div>
-
     <canvas id="particleCanvas"></canvas>
 
     <header class="header">
@@ -43,23 +38,15 @@
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-video youtube-bg">
-            <iframe id="heroBgVideo"
-                data-src="https://www.youtube.com/embed/Q4xYacSy2i4?autoplay=1&mute=1&loop=1&playlist=Q4xYacSy2i4&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0&enablejsapi=1"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Diary of a Black Sheep Video"
-                class="hero-video-iframe"></iframe>
-        </div>
         <div class="hero-overlay"></div>
-        <button class="hero-video-toggle" id="heroVideoToggle" aria-label="Toggle playback"></button>
         <div class="hero-content">
             <h1 data-i18n="hero.title">Diario de una Oveja Negra</h1>
             <p class="subtitle" data-i18n="hero.subtitle">El viaje que viviste en mis vídeos... ahora completo</p>
             <p class="author" data-i18n="hero.author">por Dani Bonilla</p>
             <div class="hero-actions">
-                <button class="hero-play-btn" id="heroPlayBtn" aria-label="Play trailer" title="Play trailer">▶</button>
                 <a href="#preorder" class="cta-button" data-i18n="hero.cta">Continúa el viaje</a>
             </div>
-            <div class="hero-hook" data-i18n="hero.hook">Si alguna vez te has sentido diferente, esta historia es para ti.</div>
+            <div class="hero-hook" data-i18n="hero.hook">Si alguna vez te has sentido diferente, <br> esta historia es para ti.</div>
         </div>
 
         <!-- Flecha indicadora de scroll -->
@@ -83,7 +70,7 @@
         <div class="manifesto-content fade-in">
             <div class="manifesto-decoration">“</div>
             <p class="manifesto-text manifesto-youtube" data-i18n="manifesto.youtube">
-                Probablemente has llegado aquí desde uno de mis vídeos. Lo has hecho porque has sentido algo diferente: la profundidad, el mensaje... Este viaje es todo lo que no cabía en un solo vídeo de YouTube. Sin algoritmos. Sin pausas publicitarias.
+                Probablemente has llegado desde uno de mis vídeos. Probablemente porque has sentido algo diferente... Este viaje es todo lo que no cabía en un solo vídeo de YouTube. Sin algoritmos. Sin pausas publicitarias.
             </p>
             <div class="manifesto-divider"></div>
             <p class="manifesto-text" data-i18n="manifesto.text2">
@@ -195,10 +182,10 @@
             <div class="author-content">
                 <div class="journey-narrative">
                     <p class="author-bio" data-i18n="author.bio1">
-                        Dani es un creador de contenido apasionado por la narración. Ha pasado más de una década creando historias profundas e introspectivas. Su viaje comenzó desde su cuarto, solo un joven con una cámara y la necesidad de entender quién es él y cómo funciona el mundo. Lo que comenzó como una búsqueda personal de significado se convirtió en una misión para ayudar a otros con su propia experiencia.
+                        Dani es un creador de contenido apasionado por la narración. Ha pasado más de una década creando historias profundas e introspectivas. Su viaje comenzó desde su cuarto, un jóven con una cámara y una necesidad profunda de entender quién es él y cómo funciona el mundo. Lo que comenzó como una búsqueda personal de significado se convirtió en una misión para ayudar a otros con su propia experiencia.
                     </p>
                     <div class="soul-quote" data-i18n="author.quote">
-                        Mi propósito es conectar profundamente a través de historias: ser un espejo, una chispa, y un momento de transformación interior. Este libro es la culminación de todo lo que he aprendido.
+                        Mi propósito es conectar profundamente a través de historias. Esta obra es la culminación de todo lo que he aprendido.
                     </div>
                     <p class="author-bio" data-i18n="author.bio2">
                         Brillantemente, su trabajo ha llegado a millones, no por tendencias, sino por el poder de la narración honesta. Revela lo extraordinario oculto en nuestras vidas ordinarias, convirtiendo la experiencia personal en algo universal. Para muchos, es una voz de confianza cuando necesitan ver la vida con nuevos ojos.
@@ -868,133 +855,172 @@
         <div class="container">
             <!-- Header -->
             <div class="pricing-header">
-                <h2 class="pricing-eyebrow" data-i18n="pricing.eyebrow">Tu forma de vivir la historia</h2>
-                <h1 class="pricing-title" data-i18n="pricing.title">Diario de una Oveja Negra</h1>
-                <p class="pricing-subtitle" data-i18n="pricing.subtitle">
-                    Esta es la historia que siempre quisiste escuchar completa. Elige cómo vivirla.
+                <p class="pricing-emotional-hook">
+                    Si lo que acabas de ver te removió por dentro...<br>
+                    la historia completa va mucho más allá.
                 </p>
+                <h1 class="pricing-title" data-i18n="pricing.title">Diario de una Oveja Negra</h1>
+                <p class="pricing-subtitle">por Dani Bonilla</p>
             </div>
 
             <!-- Grid de Precios -->
             <div class="pricing-grid">
 
                 <!-- Tier 1: Lector Digital -> The Immersive Journey -->
-                <div class="pricing-card">
+                <div class="pricing-card highlight pricing-card-with-book">
+                    <div class="pricing-badge" data-i18n="pricing.badge.unique">Acceso Anticipado</div>
+                    
+                    <!-- Layout horizontal: Libro + Contenido -->
+                    <div class="pricing-card-layout">
+                        
+                        <!-- Libro 3D a la izquierda -->
+                        <div class="pricing-book-display">
+                            <div class="mini-book-3d">
+                                <div class="mini-book-back"></div>
+                                <div class="mini-book-spine"></div>
+                                <div class="mini-book-pages"></div>
+                                <div class="mini-book-cover"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido a la derecha -->
+                        <div class="pricing-card-content">
                     <div class="card-header">
                         <div class="tier-subtitle" data-i18n="pricing.tier1.subtitle">Edición del Autor</div>
                         <h3 class="tier-name" data-i18n="pricing.tier1.title">La saga completa</h3>
-                        <div class="tier-price-container">
-                            <span class="tier-price">19€</span>
-                            <span class="tier-price-original">24€</span>
-                            <span class="tier-period"></span>
-                            <div class="presale-tag" data-i18n="pricing.presale">(PREVENTA)</div>
+                        <div class="tier-price-container tier-price-editable">
+                            <!-- Desktop: Spinner price selector -->
+                            <div class="price-desktop">
+                                <div class="price-main-row">
+                                    <div class="price-input-wrapper">
+                                        <input type="number" id="tier1PriceInput" class="tier-price-input" value="15" min="9" step="1">
+                                        <span class="currency-symbol">€</span>
+                                    </div>
+                                    <div class="price-spinner">
+                                        <button type="button" class="spinner-btn spinner-up" id="price1Up" aria-label="Increase">+</button>
+                                        <button type="button" class="spinner-btn spinner-down" id="price1Down" aria-label="Decrease">−</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile: Preset price buttons -->
+                            <div class="price-mobile">
+                                <div class="price-options">
+                                    <button class="price-option" data-price="9">9€</button>
+                                    <button class="price-option active" data-price="15" data-default="true">15€</button>
+                                    <button class="price-option" data-price="25">25€</button>
+                                    <button class="price-option price-option-custom" data-price="custom">Otro</button>
+                                </div>
+                                <input type="number" id="tier1PriceMobile" class="price-custom-input" min="9" step="1" placeholder="Tu precio" style="display:none;">
+                                <div class="price-label">Tú pones el precio (mín. 9€)</div>
+                            </div>
                         </div>
+
+                        
                         <p class="tier-description" data-i18n="pricing.tier1.description">
-                            Las historias profundas más allá de mis vídeos. Contado de una forma que solo la literatura puede. Capítulos entregados en tiempo real mientras los creo.
+                            Las historias profundas más allá de mis vídeos. Narrado de una forma que solo la literatura puede. Capítulos entregados en tiempo real mientras los creo.
                         </p>
                     </div>
 
                     <div class="card-footer">
-                        <button class="tier-cta tier-cta-outline" data-i18n="pricing.tier1.cta" data-gumroad-url="https://gumroad.com/checkout?wanted=true&product=TIER1">Empezar ahora</button>
+                        <button class="tier-cta tier-cta-solid" id="tier1CtaBtn" data-i18n="pricing.tier1.cta" data-gumroad-url="https://gumroad.com/checkout?wanted=true&product=TIER1">Seguir el viaje</button>
                         <p class="tier-guarantee" data-i18n="pricing.tier1.guarantee">Archivos tuyos para siempre</p>
+                        
+                        <!-- Credits Incentive (hidden by default, shown when price >= 50) -->
+                        <div class="credits-incentive" id="creditsIncentive" style="display:none;">
+                            <span class="credits-icon">★</span>
+                            <span class="credits-text">+50€ = Tu nombre en los créditos del libro</span>
+                        </div>
+                        
+                        <!-- Author's Personal Note -->
+                        <div class="author-note">
+                            <p class="author-note-text">
+                                "Cada persona que apoya me permite seguir contando historias. 
+                                Si lo que escuchaste te hizo sentir algo, esto es tu forma de decirlo. 
+                                Gracias."
+                            </p>
+                            <span class="author-note-signature">— Dani</span>
+                        </div>
+                        
+                        <!-- Progress Indicator -->
+                        <div class="progress-indicator">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%;"></div>
+                            </div>
+                            <span class="progress-text">3 capítulos disponibles · Los siguientes llegan mientras los creo</span>
+                        </div>
                     </div>
 
                     <div class="card-features">
 
-                        <!-- Feature 1: Complete Manuscript (Ebook) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier1.feature2">El Manuscrito Completo (Ebook)</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier1.feature2.details">Cada capítulo en alta calidad (PDF/EPUB) bellamente maquetado para leer a tu ritmo y guardar para siempre. Sin suscripciones ni caducidad.</p>
-                        </details>
+                        <div class="feature-item-visible">
+                            <span class="feature-check">✓</span>
+                            <div class="feature-content">
+                                <span class="feature-main">Audiolibro narrado por Dani</span>
+                                <span class="feature-meta">MP3 descargable, tuyo para siempre</span>
+                                <details class="feature-more">
+                                    <summary>Más detalles</summary>
+                                    <p>Solo la voz del autor, leyendo cada capítulo. Escúchalo a tu ritmo, en cualquier lugar. Sin suscripciones ni caducidad.</p>
+                                </details>
+                            </div>
+                        </div>
 
-                        <!-- Feature 2: Author Notes + Voice Notes -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier1.feature1">Notas de voz del autor</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier1.feature1.details">Notas breves acompañando cada capítulo. Reflexiones personales, contexto adicional y notas de voz exclusivas. <strong>Nota:</strong> El audiolibro completo narrado vendrá en el futuro como producto aparte. Esta edición incluye notas de voz exclusivas, no la narración del texto.</p>
-                        </details>
+                        <div class="feature-item-visible">
+                            <span class="feature-check">✓</span>
+                            <div class="feature-content">
+                                <span class="feature-main">Manuscrito completo</span>
+                                <span class="feature-meta">PDF y EPUB, bellamente maquetado</span>
+                                <details class="feature-more">
+                                    <summary>Más detalles</summary>
+                                    <p>Cada capítulo en alta calidad para leer a tu ritmo. Descárgalo y guárdalo donde quieras.</p>
+                                </details>
+                            </div>
+                        </div>
 
-                        <!-- Feature 3: Art & Atmosphere Pack (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path
-                                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                                        </path>
-                                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                    </svg>
-                                </div>
-                                <span class="feature-text" data-i18n="pricing.tier1.feature3">Pack de Atmósfera</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier1.feature3.details">La banda sonora que inspiró la obra, bocetos visuales y fondos exclusivos. El universo visual de la Oveja Negra.</p>
-                        </details>
+                        <div class="feature-item-visible">
+                            <span class="feature-check">✓</span>
+                            <div class="feature-content">
+                                <span class="feature-main">Banda sonora + arte visual exclusivo</span>
+                                <span class="feature-meta">La música que inspiró la obra, bocetos y fondos</span>
+                                <details class="feature-more">
+                                    <summary>Más detalles</summary>
+                                    <p>Además, los mismos vídeos que viste en YouTube pero sin anuncios. Descárgalos y quédatelos para siempre.</p>
+                                </details>
+                            </div>
+                        </div>
 
-                        <!-- Feature 4: Lifetime Access (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                    </svg>
-                                </div>
-                                <span class="feature-text" data-i18n="pricing.tier1.feature4">Propiedad Total</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier1.feature4.details">Descárgalo y guárdalo donde quieras. Es tuyo de por vida.</p>
-                        </details>
+                        <div class="feature-item-visible">
+                            <span class="feature-check">✓</span>
+                            <div class="feature-content">
+                                <span class="feature-main">Capítulos nuevos cuando estén listos</span>
+                                <span class="feature-meta">Entrega episódica directo a tu email</span>
+                            </div>
+                        </div>
 
-                        <!-- Feature 5: Story Notice (hidden by default, shown via UTM) -->
-                        <details id="storyNoticeFeature" class="feature-accordion feature-story-notice" style="display: none;">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon feature-icon-story">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                    </svg>
-                                </div>
-                                <span class="feature-text feature-text-story" id="storyNoticeTitle">Tu historia</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details feature-details-story" id="storyNoticeDetails">
-                                Los capítulos se entregan de manera episódica conforme se van terminando. Recibirás esta historia cuando esté lista.
-                            </p>
-                        </details>
+                        <div class="feature-item-visible">
+                            <span class="feature-check">✓</span>
+                            <div class="feature-content">
+                                <span class="feature-main">Tuyo de por vida</span>
+                                <span class="feature-meta">Sin suscripciones, sin caducidad</span>
+                            </div>
+                        </div>
+
+                        <!-- Story Notice (UTM-driven, shown dynamically) -->
+                        <div class="feature-item-visible feature-story-notice" id="storyNoticeFeature" style="display:none;">
+                            <span class="feature-check" style="color: #d4a574;">★</span>
+                            <div class="feature-content">
+                                <span class="feature-main" id="storyNoticeTitle"></span>
+                                <span class="feature-meta" id="storyNoticeDetails"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="delivery-estimate" data-i18n="pricing.tier1.delivery">Capítulos entregados de manera episódica</div>
+                    <!-- <div class="delivery-estimate" data-i18n="pricing.tier1.delivery">Capítulos entregados de manera episódica</div> -->
+                        </div><!-- fin pricing-card-content -->
+                    </div><!-- fin pricing-card-layout -->
                 </div>
 
-                <!-- Tier 2: The Creator's Toolkit -->
+                <!-- TIER 2 Y TIER 3 TEMPORALMENTE OCULTOS -->
+                <!--
                 <div class="pricing-card highlight">
                     <div class="pricing-badge" data-i18n="pricing.badge.recommended">RECOMENDADO</div>
 
@@ -1017,186 +1043,20 @@
                     </div>
 
                     <div class="card-features">
-                        <!-- Feature 1: Full Creative Process (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M23 7l-7 5 7 5V7z"></path>
-                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier2.feature1">Desglose Completo del Proceso Creativo</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier2.feature1.details">Un análisis técnico y profundamente detallado de cómo pasé de una idea abstracta al producto final. Herramientas, procesos creativos, uso de IA y decisiones narrativas. Mi flujo de trabajo real documentado para producción audiovisual y narrativa.</p>
-                        </details>
-
-                        <!-- Feature 2: Access to Drafts (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                        <polyline points="14 2 14 8 20 8"></polyline>
-                                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                                        <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white"
-                                    data-i18n="pricing.tier2.feature2">Mi Sistema de Producción</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier2.feature2.details">Acceso a mi sistema de producción, que te permitirá replicar mis procesos creativos y técnicos. Accede a elementos que utilizo en mi contenido, sistemas de producción para ser un creador de contenido de impacto.</p>
-                        </details>
-
-                        <!-- Feature 3: Music License (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M9 18V5l12-2v13"></path>
-                                        <circle cx="6" cy="18" r="3"></circle>
-                                        <circle cx="18" cy="16" r="3"></circle>
-                                    </svg>
-                                </div>
-                                <span class="feature-text" data-i18n="pricing.tier2.feature3">Licencia de mis Canciones</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier2.feature3.details">Permiso para usar mis composiciones originales en tus propios vídeos de YouTube, TikTok o redes sociales. Solo mencioname como autor en la descripción. Sin remixes, publicidad, ni redistribución.</p>
-                        </details>
-
-                        <div class="feature-item feature-includes-previous">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier2.feature4">Todo lo de La Saga Completa incluido</span>
-                        </div>
+                        (... features tier 2 ...)
                     </div>
                     <div class="delivery-estimate" data-i18n="pricing.tier2.delivery">Est. entrega 1 de Abril</div>
                 </div>
 
-                <!-- Tier 3: The Inner Circle -->
                 <div class="pricing-card">
                     <div class="card-header">
                         <div class="tier-subtitle" data-i18n="pricing.tier3.subtitle">Acceso Profundidad Exclusiva</div>
                         <h3 class="tier-name text-amber-light" data-i18n="pricing.tier3.title">El Círculo Interno</h3>
-                        <div class="tier-price-container tier-price-editable">
-                            <div class="price-main-row">
-                                <div class="price-input-wrapper">
-                                    <span class="currency-symbol">€</span>
-                                    <input type="number" id="tier3PriceInput" class="tier-price-input" value="197"
-                                        min="197" step="1">
-                                    <span class="top-supporter-star" id="topSupporterStar">✦</span>
-                                </div>
-                                <div class="price-spinner">
-                                    <button type="button" class="spinner-btn spinner-up" id="priceUp"
-                                        aria-label="Increase">+</button>
-                                    <button type="button" class="spinner-btn spinner-down" id="priceDown"
-                                        aria-label="Decrease">−</button>
-                                </div>
-                                <div class="price-status-tag">
-                                    <span class="presale-tag" id="presaleTag"
-                                        data-i18n="pricing.presale">(PREVENTA)</span>
-                                    <span class="top-supporter-tag" id="topSupporterTag"
-                                        data-i18n="pricing.tier3.topLabel">★ Top Supporter</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="tier-description" data-i18n="pricing.tier3.description">
-                            Conviértete en parte permanente de la historia. Deja tu huella en la Obra y accede al análisis psicológico y creativo que no publicaré en ningún otro lugar.
-                        </p>
-                    </div>
-
-                    <div class="limit-badge-container">
-                        <span class="limit-badge" data-i18n="pricing.tier3.limit">Limitado</span>
-                    </div>
-
-                    <div class="card-footer">
-                        <button class="tier-cta tier-cta-glass" id="tier3CtaBtn" data-i18n="pricing.tier3.cta" data-gumroad-url="https://gumroad.com/checkout?wanted=true&product=TIER3">Unirme al Círculo</button>
-                        <p class="tier-guarantee" data-i18n="pricing.tier3.guarantee">Mecenazgo puro y conexión</p>
-                    </div>
-
-                    <div class="card-features">
-
-                        <!-- Feature 1: Exclusive Personal Reflection (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M23 7l-7 5 7 5V7z"></path>
-                                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white"
-                                    data-i18n="pricing.tier3.feature1">Sesión Privada para El Círculo</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier3.feature1.details">Grabado exclusivamente para el Círculo Interno. Nunca se publicará. Hablo de las heridas reales, las decisiones que me costaron años, y el análisis psicológico demasiado vulnerable para el público general.</p>
-                        </details>
-
-                        <!-- Feature 2: Name or Alias in Credits (Accordion) -->
-                        <details class="feature-accordion">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold text-white" data-i18n="pricing.tier3.feature2">Tu Nombre en la Obra</span>
-                                <span class="feature-expand-icon"></span>
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier3.feature2.details">No eres solo un espectador, eres un mecenas. Tu nombre (o alias) quedará inmortalizado en las páginas finales y como "Productor/Supporter". Serás parte de la Obra para siempre.</p>
-                        </details>
-
-
-                        <!-- LIMITED BONUS Feature (Accordion) -->
-                        <details class="feature-accordion feature-bonus-accordion" id="limitedBonusFeature" style="border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 8px; background: rgba(212, 175, 55, 0.03);">
-                            <summary class="feature-item feature-expandable">
-                                <div class="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                        fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                    </svg>
-                                </div>
-                                <span class="feature-text font-bold" style="color: #D4AF37;" data-i18n="pricing.tier3.limitedBonus">Tu Pregunta Respondida (Limitado)</span>
-                                <span class="feature-expand-icon"></span>
-                                <!-- When sold out, replace the above span with:
-                                <span class="feature-text" style="color: #888; text-decoration: line-through;" data-i18n="pricing.tier3.limitedBonus.soldout"><s>Tu Pregunta Respondida (Sólo primeros 10)</s> Agotado</span>
-                                -->
-                            </summary>
-                            <p class="feature-details" data-i18n="pricing.tier3.limitedBonus.details">Envíame una pregunta personal (sobre creatividad, vida, la Obra, tu situación o cualquier otro tema) y dedicaré parte del video exclusivo a responderte en profundidad. Es lo más cercano a tomarse un café conmigo en persona. Limitado a preventa.</p>
-                        </details>
-
-                        <div class="feature-item feature-includes-previous">
-                            <div class="feature-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </div>
-                            <span class="feature-text" data-i18n="pricing.tier3.feature3">Acceso Total: La Saga + El Kit del Creador</span>
-                        </div>
+                        (... tier 3 content ...)
                     </div>
                     <div class="delivery-estimate" data-i18n="pricing.tier3.delivery">Est. entrega 1 de Abril</div>
                 </div>
+                -->
 
             </div>
 
@@ -1207,7 +1067,7 @@
                 <p>
                     <a href="https://gumroad.com/checkout?wanted=true&product=BSD&quantity=1&price=0" target="_blank" class="notify-link" data-i18n="pricing.notify_me.text"
                         style="color: inherit; text-decoration: none; border-bottom: 1px dashed currentColor; transition: opacity 0.3s; cursor: pointer;">
-                        ¿No estás preparado? Notifícame de actualizaciones o cuando la obra esté completa
+                        ¿No estás preparado? Avisame de actualizaciones o cuando esté completo.
                     </a>
                 </p>
                 <style>
@@ -1276,11 +1136,23 @@
                         </svg>
                     </div>
                     <div class="trust-text">
-                        <strong class="block text-white" data-i18n="pricing.trust.direct.title">100% Apoyo</strong>
+                        <strong class="block text-white" data-i18n="pricing.trust.direct.title">100% al Creador</strong>
                         <span data-i18n="pricing.trust.direct.desc">Cada euro va al creador</span>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Delayed Email Capture (appears after 45s if user hasn't clicked CTA) -->
+        <div class="delayed-email-capture" id="delayedCapture" style="display: none;">
+            <p class="capture-text">
+                ¿Aún no te decides? Sin problema. Déjame tu email y te aviso cuando haya novedades.
+            </p>
+            <a href="https://gumroad.com/checkout?wanted=true&product=BSD&quantity=1&price=0" 
+               target="_blank" 
+               class="capture-link">
+                Avísame cuando haya capítulos nuevos →
+            </a>
         </div>
     </section>
 
@@ -1565,14 +1437,14 @@
 
                 <!-- FAQ 1: Risk/Presale -->
                 <details class="faq-item">
-                    <summary class="faq-question" data-i18n="faq.new.q1.question">¿Qué pasa si pago y nunca terminas la obra?</summary>
-                    <p class="faq-answer" data-i18n="faq.new.q1.answer">Esto es una <strong>preventa</strong>. Si no cumplo con la entrega del producto, tienes derecho a un reembolso completo. Te mantendré informado de cualquier cambio en el plan.</p>
+                    <summary class="faq-question" data-i18n="faq.new.q1.question">¿Qué pasa si la entrega se retrasa?</summary>
+                    <p class="faq-answer" data-i18n="faq.new.q1.answer">Este es un proyecto con <strong>entrega episódica</strong>. Los capítulos llegan conforme los voy terminando. A veces la creatividad necesita su tiempo. La paciencia es parte del viaje. Te mantendré informado si hay cambios importantes.</p>
                 </details>
 
                 <!-- FAQ 2: YouTube Difference -->
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q2.question">¿Cuál es la diferencia entre esto y tus vídeos de YouTube?</summary>
-                    <p class="faq-answer" data-i18n="faq.new.q2.answer">En YouTube tienes fragmentos diseñados para el algoritmo. Esto es la <strong>experiencia completa</strong>: horas de conexión sin interrupciones, la misma calidad emocional pero más profundidad. Es la diferencia entre un vistazo y el viaje completo.</p>
+                    <p class="faq-answer" data-i18n="faq.new.q2.answer">En YouTube tienes fragmentos diseñados para el algoritmo. Hay mucho contenido y partes de la obra gratuita. Esto es la <strong>experiencia completa</strong>: horas de conexión sin interrupciones, la misma calidad emocional pero más profundidad. Contenido exclusivo, etc... Es la diferencia entre un vistazo y el viaje completo.</p>
                 </details>
 
                 <!-- FAQ 3: Is this for me? (Merged) -->
@@ -1584,7 +1456,7 @@
                 <!-- FAQ 4: Refund Policy -->
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q5.question">¿Hay garantía de devolución?</summary>
-                    <p class="faq-answer" data-i18n="faq.new.q5.answer"><strong>Garantía de Preventa:</strong> Reembolso total si decides bajarte del barco antes de que envíe la primera entrega (1 de abril). Una vez entregada la primera fase, no hay devoluciones.</p>
+                    <p class="faq-answer" data-i18n="faq.new.q5.answer"><strong>No hay devoluciones</strong> salvo causa mayor. Este proyecto nace de la confianza mutua. Si estás aquí, es porque crees en esta historia tanto como yo. Confía en tu creador. 🖤</p>
                 </details>
 
                 <!-- FAQ 5: Periodic Delivery -->
@@ -1604,8 +1476,8 @@
 
                 <!-- FAQ T1: Delivery and Delays -->
                 <details class="faq-item">
-                    <summary class="faq-question" data-i18n="faq.tech.q1.question">¿Qué pasa si la fecha de entrega se retrasa?</summary>
-                    <p class="faq-answer" data-i18n="faq.tech.q1.answer">Entrega estimada: <strong>1 de abril de 2026</strong>. Si hay algún retraso por producción, te avisaré por email y actualizaré la fecha. Estás comprando una preventa con descuento por confiar temprano.</p>
+                    <summary class="faq-question" data-i18n="faq.tech.q1.question">¿Cuándo recibiré los capítulos?</summary>
+                    <p class="faq-answer" data-i18n="faq.tech.q1.answer">Los capítulos se entregan de forma <strong>episódica</strong>, según los voy terminando. No hay una fecha exacta fijada. Sé paciente y disfruta el viaje. Te notificaré por email cada vez que haya contenido nuevo disponible.</p>
                 </details>
 
                 <!-- FAQ T2: How do I receive it -->
@@ -1631,7 +1503,7 @@
 
 
     <footer class="footer">
-        <p data-i18n="footer.copyright">&copy; Dani Bonilla. Todos son productos de la expresión artística del autor.</p>
+        <p data-i18n="footer.copyright">&copy; Dani Bonilla. Esta obra es un productos de la expresión artística del autor.</p>
 
     </footer>
 

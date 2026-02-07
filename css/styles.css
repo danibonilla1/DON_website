@@ -4355,6 +4355,13 @@
         .pricing-grid {
           grid-template-columns: repeat(3, 1fr);
           align-items: start;
+          justify-content: center;
+        }
+
+        /* Cuando hay una sola tarjeta, centrarla */
+        .pricing-grid:has(> .pricing-card:only-child) {
+          display: flex;
+          justify-content: center;
         }
       }
 
@@ -4408,6 +4415,134 @@
         letter-spacing: 0.1em;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         font-family: sans-serif;
+      }
+
+      /* ===== PRICING CARD CON LIBRO ===== */
+      .pricing-card-with-book {
+        max-width: 700px !important;
+        margin: 0 auto !important;
+        padding: 2rem 2.5rem !important;
+      }
+
+      .pricing-card-layout {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .pricing-book-display {
+        flex-shrink: 0;
+        width: 150px;
+        height: 225px;
+        perspective: 1200px;
+      }
+
+      .pricing-card-content {
+        flex: 1;
+      }
+
+      .mini-book-3d {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(-18deg) rotateX(5deg);
+        animation: miniBookFloat 5s ease-in-out infinite;
+      }
+
+      @keyframes miniBookFloat {
+        0%, 100% {
+          transform: rotateY(-18deg) rotateX(5deg) translateY(0);
+        }
+        50% {
+          transform: rotateY(-12deg) rotateX(5deg) translateY(-10px);
+        }
+      }
+
+      .mini-book-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('../img/libro.jpg') no-repeat;
+        background-size: 340px auto;
+        background-position: right center;
+        border-radius: 2px 10px 10px 2px;
+        transform: translateZ(15px);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(212, 175, 55, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Adorno + Título overlay */
+      .mini-book-cover::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          url('../img/ort4.png') no-repeat center center,
+          url('../img/title_en.png') no-repeat center center;
+        background-size: 100% 100%, 90% auto;
+        border-radius: 2px 10px 10px 2px;
+      }
+
+      .mini-book-spine {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        background: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 15%, #2a2a2a 50%, #1a1a1a 85%, #0a0a0a 100%);
+        transform: rotateY(-90deg) translateX(-15px);
+        transform-origin: right center;
+        border-radius: 3px 0 0 3px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+      }
+
+      .mini-book-spine::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(212, 175, 55, 0.5) 0%, transparent 12%, transparent 88%, rgba(212, 175, 55, 0.5) 100%);
+      }
+
+      .mini-book-pages {
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 30px;
+        height: calc(100% - 10px);
+        background: repeating-linear-gradient(90deg, #f9f6eb 0px, #f4f0e3 1px, #ebe6d7 2px);
+        transform: rotateY(90deg) translateX(15px);
+        transform-origin: left center;
+        border-radius: 0 3px 3px 0;
+        box-shadow: inset -4px 0 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .mini-book-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        transform: translateZ(-15px);
+        border-radius: 10px 2px 2px 10px;
+        border: 1px solid #0a0a0a;
+      }
+
+      @media (max-width: 768px) {
+        .pricing-card-with-book {
+          padding: 1.5rem !important;
+        }
+        
+        .pricing-card-layout {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        
+        .pricing-book-display {
+          width: 120px;
+          height: 180px;
+        }
       }
 
       /* Card Header */
@@ -4714,13 +4849,14 @@
       .trust-badges {
         margin-top: 96px;
         display: flex;
-        flex-direction: column;
-        gap: 24px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 12px;
         align-items: center;
         justify-content: center;
         opacity: 0.5;
         transition: opacity 0.5s;
-        padding: 0 20px;
+        padding: 0 10px;
         text-align: center;
       }
 
@@ -4730,7 +4866,6 @@
 
       @media (min-width: 768px) {
         .trust-badges {
-          flex-direction: row;
           gap: 64px;
           padding: 0;
         }
@@ -4738,28 +4873,35 @@
 
       .trust-item {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         text-align: center;
+        font-size: 0.75rem;
       }
 
       @media (min-width: 768px) {
         .trust-item {
-          flex-direction: row;
           gap: 12px;
           text-align: left;
+          font-size: inherit;
         }
       }
 
       .trust-icon-bg {
-        padding: 8px;
+        padding: 6px;
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+      }
+
+      @media (min-width: 768px) {
+        .trust-icon-bg {
+          padding: 8px;
+        }
       }
 
       .text-emerald {
@@ -4771,15 +4913,35 @@
       }
 
       .trust-text {
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         color: #94a3b8;
         font-family: sans-serif;
-        line-height: 1.4;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      .trust-text span {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        .trust-text {
+          font-size: 0.75rem;
+          line-height: 1.4;
+        }
+        
+        .trust-text span {
+          display: inline;
+        }
       }
 
       .trust-text strong {
         color: #e2e8f0;
         display: block;
+      }
+      
+      .trust-divider {
+        display: none;
       }
 
       .trust-divider {
@@ -5358,7 +5520,7 @@
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-left: none;
         border-radius: 0 8px 8px 0;
-        overflow: hidden;
+        overflow: visible;
       }
 
       .spinner-btn {
@@ -5369,10 +5531,11 @@
         background: rgba(255, 255, 255, 0.05);
         border: none;
         color: rgba(255, 255, 255, 0.6);
-        font-size: 0.9rem;
-        font-weight: 400;
-        width: 28px;
-        min-height: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 40px;
+        min-height: 24px;
+        padding: 6px 12px;
         cursor: pointer;
         transition: all 0.15s ease;
         user-select: none;
@@ -5380,6 +5543,11 @@
 
       .spinner-up {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0 8px 0 0;
+      }
+
+      .spinner-down {
+        border-radius: 0 0 8px 0;
       }
 
       .spinner-btn:hover {
@@ -5619,8 +5787,10 @@
         }
 
         .spinner-btn {
-          padding: 3px 6px;
-          font-size: 0.45rem;
+          padding: 4px 10px;
+          font-size: 0.9rem;
+          width: 32px;
+          min-height: 20px;
         }
       }
 
@@ -7036,4 +7206,335 @@
       .story-book-active .chapter {
         background: rgba(16, 185, 129, 0.1);
         color: rgba(248, 246, 240, 0.85);
+      }
+
+      /* === WEBSITE CONVERSION - NEW STYLES === */
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Pricing Section - scroll margin for direct #preorder links */
+      #preorder {
+        scroll-margin-top: 0;
+      }
+
+      /* Pricing Emotional Hook */
+      .pricing-emotional-hook {
+        font-family: 'Crimson Text', serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      /* Hide hook when user scrolled from hero */
+      .came-from-hero .pricing-emotional-hook {
+        display: none;
+      }
+
+      /* Pricing Subtitle */
+      .pricing-header .pricing-subtitle {
+        font-family: 'Crimson Text', serif;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 0.25rem;
+        text-align: center;
+      }
+
+      /* Progress Indicator */
+      .progress-indicator {
+        margin: 1rem 0;
+        text-align: left;
+      }
+
+      .progress-bar {
+        height: 3px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #d4a574, #c9956b);
+        border-radius: 2px;
+        transition: width 0.6s ease;
+      }
+
+      .progress-text {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
+      }
+
+      /* Author Note */
+      .author-note {
+        margin-top: 1.25rem;
+        padding: 1rem 1.25rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-left: 2px solid rgba(212, 165, 116, 0.3);
+        border-radius: 0 4px 4px 0;
+      }
+
+      .author-note-text {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .author-note-signature {
+        display: block;
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: rgba(212, 165, 116, 0.7);
+        margin-top: 0.5rem;
+        text-align: right;
+      }
+
+      /* Credits Incentive */
+      .credits-incentive {
+        margin-top: 0.75rem;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
+        border: 1px solid rgba(212, 165, 116, 0.2);
+        border-radius: 6px;
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: #d4a574;
+        animation: fadeInUp 0.3s ease;
+        text-align: center;
+      }
+
+      .credits-icon {
+        margin-right: 0.25rem;
+      }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(5px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Mobile Price Buttons */
+      .price-desktop { display: flex; align-items: center; gap: 0.5rem; }
+      .price-mobile { display: none; }
+
+      @media (max-width: 768px) {
+        .price-desktop { display: none; }
+        .price-mobile { display: block; }
+      }
+
+      .price-options {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .price-option {
+        padding: 0.75rem 1.25rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.8);
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 60px;
+      }
+
+      .price-option:hover,
+      .price-option.active {
+        background: rgba(212, 165, 116, 0.15);
+        border-color: #d4a574;
+        color: #d4a574;
+      }
+
+      .price-option[data-default="true"] {
+        border-color: rgba(212, 165, 116, 0.4);
+        color: #d4a574;
+      }
+
+      .price-option-custom {
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      .price-custom-input {
+        width: 100%;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+
+      .price-label {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 0.5rem;
+        font-style: italic;
+        text-align: center;
+      }
+
+      /* Feature Visible Items (new style) */
+      .feature-item-visible {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .feature-item-visible:last-child {
+        border-bottom: none;
+      }
+
+      .feature-check {
+        color: #d4a574;
+        font-size: 0.9rem;
+        margin-top: 0.15rem;
+        flex-shrink: 0;
+      }
+
+      .feature-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .feature-main {
+        font-family: 'Crimson Text', serif;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+      }
+
+      .feature-meta {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-style: italic;
+      }
+
+      .feature-more summary {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.8rem;
+        color: rgba(212, 165, 116, 0.6);
+        cursor: pointer;
+        margin-top: 0.25rem;
+        list-style: none;
+      }
+
+      .feature-more summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .feature-more summary::before {
+        content: '+ ';
+      }
+
+      .feature-more[open] summary::before {
+        content: '− ';
+      }
+
+      .feature-more p {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 0.25rem;
+        padding-left: 0.5rem;
+        border-left: 1px solid rgba(212, 165, 116, 0.2);
+      }
+
+      /* Compact Testimonials Section (after pricing) */
+      .social-proof-compact {
+        padding: 3rem 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .proof-intro {
+        text-align: center;
+        font-family: 'Crimson Text', serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.35);
+        font-style: italic;
+        margin-bottom: 2rem;
+      }
+
+      .testimonials-compact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .testimonials-compact {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Delayed Email Capture */
+      .delayed-email-capture {
+        text-align: center;
+        margin-top: 2.5rem;
+        padding: 1.5rem;
+        animation: fadeInUp 0.5s ease;
+      }
+
+      .capture-text {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 0.5rem;
+      }
+
+      .capture-link {
+        font-family: 'Crimson Text', serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        transition: opacity 0.3s;
+      }
+
+      .capture-link:hover {
+        opacity: 0.7;
+      }
+
+      /* Hero Background Image (fallback when video removed) */
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-bg-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.3);
+      }
+
+      /* Landscape fallback for book */
+      @media (orientation: landscape) and (max-height: 500px) {
+        .book { 
+          transform: none !important;
+          animation: none !important;
+        }
       }
