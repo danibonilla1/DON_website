@@ -8066,3 +8066,99 @@ blockquote.soul-quote::before {
   text-transform: uppercase;
   width: 100%;
 }
+/* --- MOVIL OPTIMIZED SPACING (IPHONE 11) --- */
+@media (max-width: 768px) {
+  /* Reducir padding de la sección principal */
+  .pricing-section {
+    padding-top: 15px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  /* Reducir márgenes del header */
+  .pricing-header {
+    margin-bottom: 15px !important;
+  }
+  
+  /* Reducir tamaño y margen del título principal */
+  .pricing-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 5px !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Subtítulos más pegados */
+  .pricing-pretitle, .pricing-subtitle {
+     margin-bottom: 5px !important;
+  }
+  
+  /* Título del libro dentro de la tarjeta */
+  .pricing-card .tier-name {
+    font-size: 1.5rem !important;
+    margin-bottom: 5px !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Descripción más pequeña y compacta */
+  .pricing-card .tier-description {
+    font-size: 0.85rem !important;
+    margin: 5px 0 10px 0 !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Reducir padding de la tarjeta */
+  .pricing-card {
+    padding: 15px 15px 20px 15px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Compactar visualización del libro */
+  .pricing-book-display {
+    height: 180px !important;
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mini-book-3d {
+      transform: scale(0.65) rotateY(-18deg) rotateX(5deg) !important;
+      margin-top: -10px; /* Subir un poco el libro visualmente */
+  }
+
+  /* Formulario más pegado */
+  .waitlist-form {
+    margin-top: 10px !important;
+    gap: 8px !important;
+  }
+  
+  /* Botón más compacto pero visible */
+  .tier-cta {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Hint texto */
+  .waitlist-hint {
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+    font-size: 0.75rem !important;
+  }
+  
+  /* Badge más discreto/pequeño */
+  .tier-badge {
+    top: -8px !important;
+    right: 8px !important;
+    padding: 3px 8px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Ajustar features para que no ocupen tanto (aunque estén debajo) */
+  .card-features {
+    margin-top: 10px !important;
+    gap: 8px !important;
+  }
+  
+  .feature-item-visible {
+    padding: 4px 0 !important;
+  }
+}
