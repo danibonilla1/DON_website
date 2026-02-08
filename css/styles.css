@@ -7356,9 +7356,9 @@
 
       .author-note-text {
         font-family: 'Crimson Text', serif;
-        font-size: 0.95rem;
+        font-size: 1.15rem;
         font-style: italic;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.75);
         line-height: 1.6;
         margin: 0;
         flex: 1;
@@ -7808,4 +7808,189 @@
   .social-proof-section {
     padding: 2rem 1rem;
   }
+}
+
+/* ==========================================================================
+   WAITLIST FORM STYLES
+   ========================================================================== */
+
+.waitlist-form {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.waitlist-input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  font-family: 'Crimson Text', serif;
+  background: rgba(20, 20, 25, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  color: var(--ethereal-white);
+  transition: all 0.3s ease;
+}
+
+.waitlist-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+.waitlist-input:focus {
+  outline: none;
+  border-color: var(--primary-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  background: rgba(30, 30, 35, 0.9);
+}
+
+.waitlist-form .tier-cta {
+  flex-shrink: 0;
+  padding: 0.875rem 2rem;
+}
+
+/* Tier subtitle text for waitlist */
+.tier-subtitle-text {
+  font-size: 0.9rem;
+  color: rgba(212, 165, 116, 0.9);
+  margin: 0.25rem 0 0 0;
+  font-style: italic;
+}
+
+/* Waitlist success state */
+.waitlist-form.success .waitlist-input {
+  border-color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.waitlist-form.success .tier-cta {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  pointer-events: none;
+}
+
+/* Mobile adjustments for waitlist */
+@media (max-width: 480px) {
+  .waitlist-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .waitlist-input {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .waitlist-form .tier-cta {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   PRICING CARD WITH BOOK DISPLAY
+   ========================================================================== */
+
+/* Card with horizontal layout */
+.pricing-card-with-book .pricing-card-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Secondary Scroll Indicator - matches hero scroll indicator */
+.scroll-indicator-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  cursor: pointer;
+  animation: bounceSecondary 2s infinite;
+}
+
+.scroll-indicator-secondary .scroll-arrow {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--primary-gold);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator-secondary:hover .scroll-arrow {
+  border-color: var(--ethereal-white);
+  transform: rotate(45deg) scale(1.2);
+}
+
+@keyframes bounceSecondary {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Full width email form */
+.pricing-card-with-book .waitlist-form {
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-card-with-book .waitlist-input {
+  width: 100%;
+  max-width: none;
+  min-width: auto;
+}
+
+.pricing-card-with-book .waitlist-form .tier-cta {
+  width: 100%;
+}
+
+/* Mobile: Stack book above content */
+@media (max-width: 768px) {
+  .pricing-card-with-book .pricing-card-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Use original dimensions on mobile too, or slightly smaller but proportional */
+  /* Remove explicit sizing to let original CSS handle it */
+}
+
+/* Waitlist hint - smaller text under button */
+.waitlist-hint {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+}
+
+/* Add margin after card features */
+.pricing-card-with-book .card-features {
+  margin-bottom: 1.5rem;
+}
+
+/* Author blockquote styling - fix overlap */
+blockquote.soul-quote {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  border-left: 3px solid rgba(212, 175, 55, 0.5);
+  padding-left: 1.5rem;
+  margin: 0;
+  position: relative;
+}
+
+blockquote.soul-quote::before {
+  content: none;
 }

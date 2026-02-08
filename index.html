@@ -10,7 +10,7 @@
     <meta property="og:title" content="Diary of a Black Sheep - Journey to the Depths of Human Essence">
     <meta property="og:description"
         content="A journey to the deepest core of human essence. Join Lane in this introspective story about fitting in, self-discovery, and the courage to be different.">
-    <meta property="og:image" content="https://don-website.com/img/libro.jpg"> <!-- Assuming URL -->
+    <meta property="og:image" content="https://don-website.com/img/libro.jpg">
     <meta property="og:url" content="https://don-website.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,34 +31,35 @@
             <div class="logo" data-i18n="logo">Diario de una Oveja Negra</div>
             <ul class="nav-links">
                 <li><a href="#home" data-i18n="nav.home">Inicio</a></li>
-                <li><a href="#manifesto" data-i18n="nav.story">Historia</a></li>
                 <li><a href="#preorder" data-i18n="nav.preorder">La Obra</a></li>
                 <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- =====================================================
+         1. HERO SECTION (mínimo)
+         ===================================================== -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 data-i18n="hero.title">Diario de una Oveja Negra</h1>
-            <p class="subtitle" data-i18n="hero.subtitle">¿Quieres saber qué pasa después?<br>La historia ya está escrita.</p>
+            <p class="subtitle" data-i18n="hero.subtitle">El viaje que viviste en mis vídeos, ahora completo.</p>
             <p class="author" data-i18n="hero.author">por Dani Bonilla</p>
             <div class="hero-actions">
-                <a href="#preorder" class="cta-button" data-i18n="hero.cta">Continúa el viaje</a>
+                <a href="#preorder" class="cta-button" data-i18n="hero.cta">Accede antes que nadie</a>
             </div>
-
         </div>
 
-        <!-- Flecha indicadora de scroll -->
+        <!-- Flecha indicadora de scroll 
         <div class="scroll-indicator" role="button" aria-label="Scroll down">
             <div class="scroll-arrow"></div>
-        </div>
+        </div>-->
     </section>
 
     <!-- Botón flotante para ir al preorder -->
     <button class="floating-preorder-btn" id="preorderBtn" aria-label="Go to Preorder">
-        ↓
+        ↑
     </button>
 
     <!-- Botón sutil de idioma -->
@@ -66,27 +67,99 @@
         onclick="toggleLanguage()">EN</button>
 
 
-    <!-- MANIFESTO SECTION -->
-    <section id="manifesto" class="manifesto-section">
-        <div class="manifesto-content fade-in">
-            <div class="manifesto-decoration">"</div>
-            <p class="manifesto-text manifesto-youtube" data-i18n="manifesto.youtube">
-                Esta historia existe completa en un solo lugar.<br>
-                No fragmentada por el algoritmo. Entera. De principio a fin.
-            </p>
-            <div class="manifesto-divider"></div>
-            <p class="manifesto-text" data-i18n="manifesto.text2">
-                Para los que siempre se sintieron diferentes, que veían el mundo con otros ojos y se preguntaban por qué nadie más parecía verlo igual. Para los que aprendieron a esconder partes de sí mismos, que cargaron con la sensación de ser un extraño, incluso entre los suyos.
-            </p>
-            <p class="manifesto-text" data-i18n="manifesto.text4">
-                Si alguna vez te has sentido como la oveja negra, buscando dónde encajar, no estás solo.
-            </p>
-            <p class="manifesto-final" data-i18n="manifesto.final">
-                Esta historia es para ti.
-            </p>
+    <!-- =====================================================
+         2. PREORDER SECTION (Lo primero después del hero)
+         ===================================================== -->
+    <section id="preorder" class="pricing-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="pricing-header">
+                <h1 class="pricing-title" data-i18n="pricing.title">Lista de Espera</h1>
+                <p class="pricing-subtitle">Accede antes que nadie a la historia completa</p>
+            </div>
+
+            <!-- Waitlist Card -->
+            <div class="pricing-grid">
+                <div class="pricing-card highlight pricing-card-with-book">
+                    
+                    <!-- Badge -->
+                    <div class="tier-badge">Próximamente</div>
+                    
+                    <!-- Layout horizontal: Libro + Contenido -->
+                    <div class="pricing-card-layout">
+                        
+                        <!-- Libro 3D a la izquierda -->
+                        <div class="pricing-book-display">
+                            <div class="mini-book-3d">
+                                <div class="mini-book-back"></div>
+                                <div class="mini-book-spine"></div>
+                                <div class="mini-book-pages"></div>
+                                <div class="mini-book-cover"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido a la derecha -->
+                        <div class="pricing-card-content">
+                            <!-- HEADER -->
+                            <div class="card-header">
+                                <h3 class="tier-name">La historia completa</h3> 
+                               <!-- <p class="tier-subtitle-text">La historia completa</p>-->
+                            </div>
+
+                            <!-- Description -->
+                            <div class="tier-description">
+                                <p>Sé de los primeros en acceder a la obra completa. Déjame tu email y te aviso en cuanto esté lista.</p>
+                            </div>
+
+                            <!-- Email Form -->
+                            <div class="waitlist-form">
+                                <input type="email" id="waitlistEmail" class="waitlist-input" placeholder="tu@email.com" required>
+                                <button class="tier-cta tier-cta-solid" id="waitlistBtn" onclick="submitWaitlist()">Avísame</button>
+                            </div>
+                            <p class="waitlist-hint">Solo escribiré cuando haya novedades.</p>
+
+                            <!-- What you'll get -->
+                            <div class="card-features">
+                                <div class="feature-item-visible">
+                                    <span class="feature-check" style="color: #d4a574;">★</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">Acceso prioritario</span>
+                                        <span class="feature-sub">Antes de que se publique en ningún otro sitio</span>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item-visible">
+                                    <span class="feature-check">✓</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">La historia completa</span>
+                                        <span class="feature-sub">De principio a fin</span>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item-visible">
+                                    <span class="feature-check">✓</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">Notas del autor</span>
+                                        <span class="feature-sub">Lo que no se dice en cámara</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- fin pricing-card-content -->
+                    </div><!-- fin pricing-card-layout -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flecha hacia historia completa -->
+        <div class="scroll-indicator-secondary" role="button" aria-label="Scroll down" onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
+
+    <!-- =====================================================
+         3. LIBRO 3D (como objeto visual/emocional)
+         ===================================================== -->
     <section class="book-section">
         <div class="book-container">
             <div class="book step-0" id="book">
@@ -134,19 +207,7 @@
                     <div class="back-inner-overlay">
                         <div class="back-inner-text">
                             <p data-i18n="book.backinner.quote1">
-                                "Un viaje introspectivo que desafía las convenciones sociales y celebra la belleza de ser diferente. Bonilla nos regala una obra honesta y conmovedora que resonará con cualquiera que alguna vez se haya sentido fuera de lugar."
-                            </p>
-                            <br>
-                            <p class="critic-signature" data-i18n="book.backinner.critic">
-                                — Crítico literario
-                            </p>
-                            <p class="reader-testimonial" data-i18n="book.backinner.reader1">
-                                "Por primera vez, me sentí visto."<br>
-                                — Lector
-                            </p>
-                            <p class="reader-testimonial-secondary" data-i18n="book.backinner.reader2">
-                                "Este libro transformó mi dolor en esperanza."<br>
-                                — Anónimo
+                                Para los que siempre se sintieron diferentes. Para los que cargaron con la sensación de ser un extraño, incluso entre los suyos.
                             </p>
                         </div>
                     </div>
@@ -154,7 +215,7 @@
                 <div class="book-back-outer">
                     <div class="back-outer-overlay">
                         <p class="back-outer-text" data-i18n="book.backouter.text">
-                            "Una exploración cruda y honesta de la identidad humana."
+                            Una exploración cruda y honesta de la identidad humana.
                         </p>
                     </div>
                 </div>
@@ -163,210 +224,29 @@
     </section>
 
 
-
-
-    <section class="author-section fade-in">
-        <h2 class="section-title" data-i18n="author.title">Sobre el Autor</h2>
-        <div class="author-container">
-            <div class="author-image-container">
-                <div class="author-flip-card hint-animation">
-                    <div class="author-card-side author-card-front">
-                        <img src="img/dani08.jpeg" alt="Dani Bonilla - Storyteller" class="author-image" loading="lazy">
-                    </div>
-                    <div class="author-card-side author-card-back">
-                        <img src="img/dani04.jpeg" alt="Dani Bonilla" class="author-image" loading="lazy">
-                    </div>
-                </div>
-                <div class="author-stats" data-i18n="author.stats">Dani Bonilla • Narrador • Creador Internacional
-                </div>
-            </div>
-            <div class="author-content">
-                <div class="journey-narrative">
-                    <p class="author-bio" data-i18n="author.bio1">
-                        Dani es un creador de contenido apasionado por la narración. Ha pasado más de una década creando historias profundas e introspectivas. Su viaje comenzó desde su cuarto, un jóven con una cámara y una necesidad profunda de entender quién es él y cómo funciona el mundo. Lo que comenzó como una búsqueda personal de significado se convirtió en una misión para ayudar a otros con su propia experiencia.
-                    </p>
-                    <div class="soul-quote" data-i18n="author.quote">
-                        Mi propósito es conectar profundamente a través de historias. Esta obra es la culminación de todo lo que he aprendido.
-                    </div>
-                    <p class="author-bio" data-i18n="author.bio2">
-                        Brillantemente, su trabajo ha llegado a millones, no por tendencias, sino por el poder de la narración honesta. Revela lo extraordinario oculto en nuestras vidas ordinarias, convirtiendo la experiencia personal en algo universal. Para muchos, es una voz de confianza cuando necesitan ver la vida con nuevos ojos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="preorder" class="pricing-section">
-        <div class="container">
-            <!-- Header -->
-            <div class="pricing-header">
-                <p class="pricing-hook">  <!-- Esto no me gusta parece como morbo... estaría mejor otra cosa... más sutil, la gente ya sabe a que viene.  -->
-                    ¿Quieres saber qué pasa después?<br>
-                    La historia ya está escrita.
-                </p>
-                <h1 class="pricing-title" data-i18n="pricing.title">Diario de una Oveja Negra</h1>
-                <p class="pricing-subtitle">por Dani Bonilla</p>
-            </div>
-
-            <!-- Grid de Precios -->
-            <div class="pricing-grid">
-
-                <!-- Tier 1: El Manuscrito -->
-                <div class="pricing-card highlight pricing-card-with-book">
-                    
-                    <!-- Badge -->
-                    <div class="tier-badge">El Manuscrito</div>
-                    
-                    <!-- Layout horizontal: Libro + Contenido -->
-                    <div class="pricing-card-layout">
-                        
-                        <!-- Libro 3D a la izquierda -->
-                        <div class="pricing-book-display">
-                            <div class="mini-book-3d">
-                                <div class="mini-book-back"></div>
-                                <div class="mini-book-spine"></div>
-                                <div class="mini-book-pages"></div>
-                                <div class="mini-book-cover"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Contenido a la derecha -->
-                        <div class="pricing-card-content">
-                    <!-- HEADER: Título + Subtítulo + Precio -->
-                    <div class="card-header">
-                        <div class="tier-subtitle" data-i18n="pricing.tier1.subtitle">Antes de pasar por cámara</div> <!-- Esto no me gusta -->
-                        <h3 class="tier-name" data-i18n="pricing.tier1.title">La historia completa</h3>
-
-                        <!-- Precio fijo 19€ -->
-                        <div class="tier-price-container">
-                            <span class="tier-price-fixed">19€</span>
-                        </div>
-                    </div>
-
-                    <!-- Tier description -->
-                    <div class="tier-description">
-                        <p>La historia que empezó en vídeo no termina ahí. El manuscrito tiene la obra completa, directa del cuaderno del autor.</p>
-                    </div>
-
-                    <!-- AUTHOR NOTE (Antes del CTA) -->
-                    <div class="author-note">
-                        <p class="author-note-text">
-                            "Hay una parte de cada historia que solo existe en silencio."
-                        </p>
-                        <span class="author-note-signature">— Dani</span>
-                    </div>
-
-                    <!-- CTA -->
-                    <div class="card-footer">
-                        <button class="tier-cta tier-cta-solid" id="tier1CtaBtn" data-i18n="pricing.tier1.cta" data-gumroad-url="https://gumroad.com/checkout?wanted=true&product=TIER1&price=1900">Continuar la historia</button>
-                        <p class="guarantee-line">Descarga inmediata · Tuyo para siempre</p>
-                    </div>
-
-                    <!-- FEATURES (3 ítems) -->
-                    <div class="card-features">
-                        <div class="feature-item-visible">
-                            <span class="feature-check" style="color: #d4a574;">★</span>
-                            <div class="feature-content">
-                                <span class="feature-main">El manuscrito completo</span>
-                                <span class="feature-sub">Desde el principio hasta el final.</span>
-                            </div>
-                        </div>
-
-                        <div class="feature-item-visible">
-                            <span class="feature-check">✓</span>
-                            <div class="feature-content">
-                                <span class="feature-main">Descarga inmediata</span>
-                                <span class="feature-sub">Empieza a leer esta noche</span>
-                            </div>
-                        </div>
-
-                        <div class="feature-item-visible">
-                            <span class="feature-check">✓</span>
-                            <div class="feature-content">
-                                <span class="feature-main">Tuyo para siempre</span>
-                                <span class="feature-sub">No caduca. No es suscripción.</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                        </div><!-- fin pricing-card-content -->
-                    </div><!-- fin pricing-card-layout -->
-                </div>
-
-            </div>
-
-            <!-- Sección de Confianza (simplificada) -->
-            <div class="trust-badges">
-                <div class="trust-item">
-                    <div class="trust-icon-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-emerald">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="m9 12 2 2 4-4" />
-                        </svg>
-                    </div>
-                    <div class="trust-text">
-                        <strong class="block text-white" data-i18n="pricing.trust.secure.title">Pago seguro</strong>
-                    </div>
-                </div>
-                <div class="trust-divider"></div>
-                <div class="trust-item">
-                    <div class="trust-icon-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-slate">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                            <path d="M12 17h.01" />
-                        </svg>
-                    </div>
-                    <div class="trust-text">
-                        <strong class="block text-white" data-i18n="pricing.trust.transparency.title">Sin suscripciones</strong>
-                    </div>
-                </div>
-                <div class="trust-divider"></div>
-                <div class="trust-item">
-                    <div class="trust-icon-bg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-purple">
-                            <path
-                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                        </svg>
-                    </div>
-                    <div class="trust-text">
-                        <strong class="block text-white" data-i18n="pricing.trust.direct.title">Directo a Dani</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Social Proof: Testimonials Slider -->
+    <!-- =====================================================
+         4. TESTIMONIOS
+         ===================================================== -->
     <section class="social-proof-section fade-in">
-        <p class="author-intro">Lo que dice la gente sobre las historias de Dani</p>
+        <p class="author-intro">Lo que dicen quienes ya conocen mi historia</p>
         
         <div id="testimonialsContainer" class="testimonials-container fade-in">
 
-            <!-- Testimonio 1: Identificación -->
+            <!-- Testimonio 1: Dissolution Solution -->
             <div class="testimonial active">
                 <div class="youtube-comment">
                     <div class="comment-header">
-                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                        <a href="https://youtube.com/@DissolutionSolution" target="_blank" class="comment-avatar-link">
                             <div class="comment-avatar">
-                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                <img src="https://unavatar.io/youtube/DissolutionSolution" alt="Dissolution Solution"
                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="avatar-initials" style="display:none">E</div>
+                                <div class="avatar-initials" style="display:none">D</div>
                             </div>
                         </a>
                         <div class="comment-meta">
-                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name"
-                                data-username="EconomíaDesdeCasa">Economía Desde Casa</a>
-                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                            <a href="https://youtube.com/@DissolutionSolution" target="_blank" class="comment-author-name"
+                                data-username="DissolutionSolution">Dissolution Solution</a>
+                            <span class="comment-author-handle">@DissolutionSolution</span>
                         </div>
                         <div class="comment-source">
                             <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
@@ -378,107 +258,140 @@
                         </div>
                     </div>
                     <div class="comment-body">
-                        <p class="comment-text" data-i18n="testimonial.17.text">
-                            "Me veo totalmente reflejado en ti... gracias por transformar mi visión y el coraje para enfrentar la vida."
+                        <p class="comment-text">
+                            "Brutal como cuentas la historia. Muy innovador y profundo!"
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Testimonio 2: Autenticidad -->
+            <!-- Testimonio 2: Daniel Naharro -->
             <div class="testimonial">
                 <div class="youtube-comment">
                     <div class="comment-header">
-                        <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-avatar-link">
+                        <a href="https://youtube.com/@danielnaharro6087" target="_blank" class="comment-avatar-link">
                             <div class="comment-avatar">
-                                <img src="https://unavatar.io/youtube/mariajose_11" alt="mariajose_11"
+                                <img src="https://unavatar.io/youtube/danielnaharro6087" alt="Daniel Naharro"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">D</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@danielnaharro6087" target="_blank" class="comment-author-name"
+                                data-username="danielnaharro6087">Daniel Naharro</a>
+                            <span class="comment-author-handle">@danielnaharro6087</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text">
+                            "Tu manera de contar y de transmitir es como si estuviera oyendo un libro leído por ti. Me ha gustado mucho y me ha dejado con ganas de saber más."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 3: Katjana Lamb -->
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@Katjana_Lamb" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/Katjana_Lamb" alt="Katjana Lamb"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">K</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@Katjana_Lamb" target="_blank" class="comment-author-name"
+                                data-username="Katjana_Lamb">Katjana Lamb</a>
+                            <span class="comment-author-handle">@Katjana_Lamb</span>
+                        </div>
+                        <div class="comment-source">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                                <span class="channel-name">Dani Bonilla</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text">
+                            "Tu capacidad de contar historias es cautivadora. Disfruté mucho viendo este vídeo y estoy deseando ver el proyecto final."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 4: Muelle Blog -->
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@muelleblog" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/muelleblog" alt="Muelle Blog"
                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                                 <div class="avatar-initials" style="display:none">M</div>
                             </div>
                         </a>
                         <div class="comment-meta">
-                            <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-author-name"
-                                data-username="mariajose_11">mariajose_11</a>
-                            <span class="comment-author-handle">@mariajose_11</span>
+                            <a href="https://youtube.com/@muelleblog" target="_blank" class="comment-author-name"
+                                data-username="muelleblog">Muelle Blog</a>
+                            <span class="comment-author-handle">@muelleblog</span>
                         </div>
                         <div class="comment-source">
-                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
                                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
-                                <span class="channel-name">La Oveja Gris</span>
+                                <span class="channel-name">Dani Bonilla</span>
                             </a>
                         </div>
                     </div>
                     <div class="comment-body">
-                        <p class="comment-text" data-i18n="testimonial.9.text">
-                            "Es tan hermoso escuchar tu historia. Hablas desde la honestidad, no desde el ego, y eso se nota en cada minuto."
+                        <p class="comment-text">
+                            "Tu historia tiene toda la fuerza de algo muy sentido y real. Me ha interesado mucho... Ánimo, Dani."
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Testimonio 3: Valor emocional -->
+            <!-- Testimonio 5: Lilesihe -->
             <div class="testimonial">
                 <div class="youtube-comment">
                     <div class="comment-header">
-                        <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-avatar-link">
+                        <a href="https://youtube.com/@Lilesihe" target="_blank" class="comment-avatar-link">
                             <div class="comment-avatar">
-                                <img src="https://unavatar.io/youtube/ben_franco" alt="ben_franco"
+                                <img src="https://unavatar.io/youtube/Lilesihe" alt="Lilesihe"
                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="avatar-initials" style="display:none">B</div>
+                                <div class="avatar-initials" style="display:none">L</div>
                             </div>
                         </a>
                         <div class="comment-meta">
-                            <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-author-name"
-                                data-username="ben_franco">ben_franco</a>
-                            <span class="comment-author-handle">@ben_franco</span>
+                            <a href="https://youtube.com/@Lilesihe" target="_blank" class="comment-author-name"
+                                data-username="Lilesihe">Lilesihe</a>
+                            <span class="comment-author-handle">@Lilesihe</span>
                         </div>
                         <div class="comment-source">
-                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
+                            <a href="https://www.youtube.com/@danibonilla1" target="_blank" class="channel-link">
                                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
-                                <span class="channel-name">La Oveja Gris</span>
+                                <span class="channel-name">Dani Bonilla</span>
                             </a>
                         </div>
                     </div>
                     <div class="comment-body">
-                        <p class="comment-text" data-i18n="testimonial.4.text">
-                            "No entiendo cómo tus videos no tienen muchos más likes. Tu contenido tiene alma. Me estoy poniendo al día con todos tus videos porque me inspiras a ir a por ello."
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonio 4: Don narrativo -->
-            <div class="testimonial">
-                <div class="youtube-comment">
-                    <div class="comment-header">
-                        <a href="https://youtube.com/@nazald" target="_blank" class="comment-avatar-link">
-                            <div class="comment-avatar">
-                                <img src="https://unavatar.io/youtube/nazald" alt="nazald"
-                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="avatar-initials" style="display:none">N</div>
-                            </div>
-                        </a>
-                        <div class="comment-meta">
-                            <a href="https://youtube.com/@nazald" target="_blank" class="comment-author-name"
-                                data-username="nazald">nazald</a>
-                            <span class="comment-author-handle">@nazald</span>
-                        </div>
-                        <div class="comment-source">
-                            <a href="https://www.youtube.com/@laovejagris" target="_blank" class="channel-link">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
-                                <span class="channel-name">La Oveja Gris</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="comment-body">
-                        <p class="comment-text" data-i18n="testimonial.12.text">
-                            "Hablar durante una hora seguida a la cámara y mantenernos comprometidos muestra tu pasión y un verdadero don para contar historias. Gracias por la inspiración."
+                        <p class="comment-text">
+                            "Me encantó... Quiero ver el resto de la historia."
                         </p>
                     </div>
                 </div>
@@ -488,128 +401,33 @@
     </section>
 
 
-    <!-- Modal de donación -->
-    <div id="donateModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 data-i18n="modal.donate.title">Apoya el Proyecto</h3>
-                <span class="close" onclick="closeDonateModal()">×</span>
+    <!-- =====================================================
+         5. SOBRE EL AUTOR (3 líneas, primera persona)
+         ===================================================== -->
+    <section class="author-section fade-in">
+        <h2 class="section-title" data-i18n="author.title">Sobre Dani</h2>
+        <div class="author-container">
+            <div class="author-image-container">
+                <img src="img/dani08.jpeg" alt="Dani Bonilla" class="author-image" loading="lazy">
             </div>
-            <div class="modal-body">
-                <p class="modal-description" data-i18n="modal.donate.description">
-                    Elige tu forma preferida de apoyar esta historia transformadora. Cada contribución, sin importar el tamaño, ayuda a dar vida a este proyecto.
-                </p>
-
-                <div class="donation-options">
-                    <a href="https://ko-fi.com/danibonilla" target="_blank" class="donation-option">
-                        <div class="donation-icon">☕</div>
-                        <div class="donation-info">
-                            <h4 data-i18n="modal.donate.ko-fi.title">Ko-fi</h4>
-                            <p data-i18n="modal.donate.ko-fi.desc">Cómprame un café para alimentar el proceso de escritura</p>
-                        </div>
-                    </a>
-
-                    <a href="https://www.paypal.com/paypalme/danibonilla1" target="_blank" class="donation-option">
-                        <div class="donation-icon">💳</div>
-                        <div class="donation-info">
-                            <h4 data-i18n="modal.donate.paypal.title">PayPal</h4>
-                            <p data-i18n="modal.donate.paypal.desc">Donación directa vía PayPal</p>
-                        </div>
-                    </a>
-
-                    <a href="https://revolut.me/danielbonilla" target="_blank" class="donation-option">
-                        <div class="donation-icon">💰</div>
-                        <div class="donation-info">
-                            <h4 data-i18n="modal.donate.revolut.title">Revolut</h4>
-                            <p data-i18n="modal.donate.revolut.desc">Apoyo a través de Revolut</p>
-                        </div>
-                    </a>
-
-                    <div class="donation-option special-option" onclick="requestPhoneNumber('twint', '+41 772770797')">
-                        <div class="donation-icon">🇨🇭</div>
-                        <div class="donation-info">
-                            <h4 data-i18n="modal.donate.twint.title">Twint (Suiza)</h4>
-                            <p data-i18n="modal.donate.twint.desc">Pago móvil suizo - Haz clic para obtener el número</p>
-                        </div>
+            <div class="author-content">
+                <div class="journey-narrative">
+                    <div class="author-note">
+                        <p class="author-note-text">Me encanta profundizar en todo tipo de temas, pero lo que más me apasiona es contar historias que te hagan parar, sentir y mirar hacia dentro. El contenido es la forma más fácil de expresarlo.</p>
+                        <span class="author-note-signature">— Dani</span>
                     </div>
-
-                    <div class="donation-option special-option" onclick="requestPhoneNumber('bizum', '+34 633440464')">
-                        <div class="donation-icon">📱</div>
-                        <div class="donation-info">
-                            <h4 data-i18n="modal.donate.bizum.title">Bizum (España)</h4>
-                            <p data-i18n="modal.donate.bizum.desc">Pago móvil español - Haz clic para obtener el número</p>
-                        </div>
-                    </div>
-
-                    <div class="crypto-section">
-                        <details class="crypto-spoiler">
-                            <summary class="crypto-summary">
-                                <div class="donation-icon">₿</div>
-                                <div class="donation-info">
-                                    <h4 data-i18n="modal.donate.crypto.title">Criptomonedas</h4>
-                                    <p data-i18n="modal.donate.crypto.desc">Haz clic para ver direcciones de cripto</p>
-                                </div>
-                            </summary>
-                            <div class="crypto-addresses">
-                                <div class="crypto-item">
-                                    <strong data-i18n="modal.donate.crypto.btc.label">Bitcoin (BTC):</strong>
-                                    <code>bc1q99p7vhv5m9hp78ycdry3pd0e69q0e0g33h4lcf</code>
-                                </div>
-                                <div class="crypto-item">
-                                    <strong data-i18n="modal.donate.crypto.eth.label">Ethereum (ETH):</strong>
-                                    <code>0x4372CEf711D9C352131a48c60F22A4dB89c1e992</code>
-                                </div>
-                                <div class="crypto-item">
-                                    <strong data-i18n="modal.donate.crypto.sol.label">Solana (SOL):</strong>
-                                    <code>CPe6WEkCPJgSPH13A1JbyTgVUcFNQYN2t4SjyaTn1W6J</code>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <p class="gratitude-message" data-i18n="modal.donate.gratitude">
-                        Gracias por creer en el poder de la narración y ser diferente. ¡Tu apoyo significa el mundo! 💜
-                    </p>
+                   <!-- <div class="soul-quote" data-i18n="author.quote">
+                        Escribí esta historia en un cuaderno antes de atreverme a contarla en cámara. Lo que tienes aquí es esa versión: la primera, la más cruda, la más honesta. Algunos capítulos dolieron escribirlos más que vivirlos.
+                    </div>-->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 
-    <!-- Phone Modal -->
-    <div id="phoneModal" class="phone-modal">
-        <div class="phone-modal-content">
-            <div class="phone-modal-header">
-                <h3 id="phoneModalTitle">Privacy Protection</h3>
-                <span class="close" onclick="closePhoneModal()">×</span>
-            </div>
-
-            <div id="phoneForm">
-                <p>
-                    To protect privacy, please provide your phone number to unlock the payment details:
-                </p>
-                <input type="tel" id="phoneInput" class="phone-input" placeholder="+34 600 123 456" required>
-                <small id="phoneError" class="error-message">
-                    Please enter a valid number.
-                </small>
-                <div class="phone-buttons">
-                    <button class="phone-btn confirm" onclick="confirmPhone()">Confirm</button>
-                    <button class="phone-btn cancel" onclick="closePhoneModal()">Cancel</button>
-                </div>
-            </div>
-
-            <div id="phoneDisplay" class="phone-display">
-                <div class="phone-number" id="phoneNumber"></div>
-                <button class="phone-btn confirm phone-confirm-btn" onclick="closePhoneModal()">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- FAQ Section -->
+    <!-- =====================================================
+         6. FAQ
+         ===================================================== -->
     <section id="faq" class="faq-section">
         <div class="container">
             <h2 class="section-title" data-i18n="faq.title">Preguntas Frecuentes</h2>
@@ -618,65 +436,57 @@
                 <!-- FAQ 1: YouTube Difference -->
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q2.question">¿Cuál es la diferencia entre esto y tus vídeos de YouTube?</summary>
-                    <p class="faq-answer" data-i18n="faq.new.q2.answer">En YouTube voy publicando la historia poco a poco. El manuscrito tiene la historia completa, ordenada, y es tuyo para siempre. Además, incluye notas del autor que no salen en los vídeos.</p>
+                    <p class="faq-answer" data-i18n="faq.new.q2.answer">En YouTube cuento historias sueltas, fragmentos que el algoritmo decide cuándo mostrarte. Esto es una obra completa: la historia entera, ordenada, tuya para siempre. Además incluye notas del autor que no salen en cámara.</p>
                 </details>
 
                 <!-- FAQ 2: Is it finished? -->
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q3.question">¿Está terminado?</summary>
-                    <p class="faq-answer" data-i18n="faq.new.q3.answer">La historia está completa. Es una edición manuscrita: directa del cuaderno del autor.</p>
+                    <p class="faq-answer" data-i18n="faq.new.q3.answer">La obra estará completa una vez sea publicada.</p>
                 </details>
 
-                <!-- FAQ 3: Is this for me? (Restored) -->
+                <!-- FAQ 3: Is this for me? -->
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q4.question">¿Cómo sé si esto es para mí?</summary>
                     <p class="faq-answer" data-i18n="faq.new.q4.answer">Si has resonado con las historias que cuento en YouTube, esto es para ti. Si disfrutas de la conexión profunda y de las historias que se quedan contigo mucho después de terminar.</p>
                 </details>
 
-                <!-- FAQ 4: Refund Policy (Restored) -->
+                <!-- FAQ 4: Refund Policy 
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.new.q5.question">¿Hay garantía de devolución?</summary>
                     <p class="faq-answer" data-i18n="faq.new.q5.answer">No hay devoluciones salvo causa mayor. Este proyecto nace de la confianza mutua. Si estás aquí, es porque crees en esta historia tanto como yo. Confía en tu creador.</p>
-                </details>
+                </details>-->
 
-                <!-- FAQ 5: Delivery -->
+                <!-- FAQ 5: Delivery 
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.tech.q2.question">¿Cómo recibiré el producto?</summary>
                     <p class="faq-answer" data-i18n="faq.tech.q2.answer">Descarga inmediata. Recibes un email con el link en el momento de la compra. Es un PDF que puedes leer en cualquier dispositivo.</p>
-                </details>
+                </details> -->
 
-                <!-- FAQ 6: What's not included -->
+                <!-- FAQ 6: What's not included 
                 <details class="faq-item">
                     <summary class="faq-question" data-i18n="faq.tech.q4.question">¿Qué NO incluye la compra?</summary>
                     <p class="faq-answer" data-i18n="faq.tech.q4.answer">Esto es una obra digital, no un programa ni mentoría. No incluye: soporte técnico 1:1, sesiones personalizadas, envío físico, ni comunidad.</p>
-                </details>
+                </details>-->
             </div>
         </div>
     </section>
 
 
+    <!-- =====================================================
+         7. FOOTER
+         ===================================================== -->
     <footer class="footer">
         <p data-i18n="footer.copyright">&copy; Dani Bonilla. Esta obra es un producto de la expresión artística del autor.</p>
-
     </footer>
 
     <script src="js/modals.js"></script>
-
-
-
+    <script src="js/waitlist.js"></script>
     <script src="js/floatingButton.js"></script>
-
     <script src="js/testimonials.js"></script>
-
     <script src="js/flipCards.js"></script>
-
-
-
-
     <script src="js/particles.js"></script>
-
     <script src="js/book.js"></script>
-
     <script src="js/utm-tracking.js"></script>
     <script src="js/i18n.js"></script>
 
