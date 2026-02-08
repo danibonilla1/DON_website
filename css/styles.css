@@ -4426,7 +4426,7 @@
 
       .pricing-card-layout {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 2.5rem;
       }
 
@@ -4536,6 +4536,7 @@
         
         .pricing-card-layout {
           flex-direction: column;
+          align-items: center;
           gap: 1.5rem;
         }
         
@@ -4625,6 +4626,54 @@
         line-height: 1.6;
         min-height: 40px;
         font-family: 'Crimson Text', serif;
+      }
+
+      /* Tier Badge - "El Manuscrito" */
+      .tier-badge {
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+        color: #0a0a0a;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 6px 18px;
+        border-radius: 20px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-family: 'Cinzel', serif;
+        box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        white-space: nowrap;
+      }
+
+      /* Fixed Price Style */
+      .tier-price-fixed {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        font-family: sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      /* Feature Subtitle */
+      .feature-sub {
+        display: block;
+        font-size: 0.8rem;
+        color: rgba(148, 163, 184, 0.7);
+        font-family: 'Crimson Text', serif;
+        margin-top: 2px;
+        line-height: 1.4;
+      }
+
+      /* Guarantee Line */
+      .guarantee-line {
+        text-align: center;
+        font-size: 0.75rem;
+        color: rgba(148, 163, 184, 0.6);
+        font-family: sans-serif;
+        margin-top: 10px;
+        letter-spacing: 0.02em;
       }
 
       /* Features */
@@ -7220,19 +7269,36 @@
         scroll-margin-top: 0;
       }
 
-      /* Pricing Emotional Hook */
-      .pricing-emotional-hook {
-        font-family: 'Crimson Text', serif;
-        font-style: italic;
-        font-size: 1.2rem;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 0.5rem;
-        letter-spacing: 0.02em;
+      /* Pricing Quote - elegant blockquote style */
+      .pricing-quote {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.25rem;
+        margin: 0 0 1rem 0;
+        padding: 0;
+        border: none;
         text-align: center;
       }
+      
+      .pricing-quote .quote-mark {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5rem;
+        color: rgba(212, 165, 116, 0.4);
+        line-height: 1;
+      }
+      
+      .pricing-quote .quote-text {
+        font-family: 'Crimson Text', serif;
+        font-style: italic;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+        max-width: 400px;
+      }
 
-      /* Hide hook when user scrolled from hero */
-      .came-from-hero .pricing-emotional-hook {
+      /* Hide quote when user scrolled from hero */
+      .came-from-hero .pricing-quote {
         display: none;
       }
 
@@ -7276,10 +7342,16 @@
       /* Author Note */
       .author-note {
         margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
         padding: 1rem 1.25rem;
         background: rgba(255, 255, 255, 0.02);
         border-left: 2px solid rgba(212, 165, 116, 0.3);
         border-radius: 0 4px 4px 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 0.5rem;
       }
 
       .author-note-text {
@@ -7289,15 +7361,14 @@
         color: rgba(255, 255, 255, 0.6);
         line-height: 1.6;
         margin: 0;
+        flex: 1;
       }
 
       .author-note-signature {
-        display: block;
         font-family: 'Crimson Text', serif;
         font-size: 0.85rem;
         color: rgba(212, 165, 116, 0.7);
-        margin-top: 0.5rem;
-        text-align: right;
+        white-space: nowrap;
       }
 
       /* Credits Incentive */
@@ -7402,6 +7473,13 @@
 
       .feature-item-visible:last-child {
         border-bottom: none;
+      }
+
+      /* Ensure story notice matches other features */
+      .feature-story-notice {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
       }
 
       .feature-check {
@@ -7538,3 +7616,196 @@
           animation: none !important;
         }
       }
+
+      /* === COMPACT PRICING SECTION === */
+      /* Make elements smaller so CTA button is visible without scrolling */
+      
+      .pricing-section .pricing-header {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+      }
+      
+      .pricing-section .pricing-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.25rem;
+      }
+      
+      .pricing-card .tier-description {
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+      }
+      
+      .pricing-card .card-header {
+        padding-bottom: 0.5rem;
+      }
+      
+      .pricing-card .card-footer {
+        padding-top: 0.75rem;
+      }
+      
+      .author-note {
+        margin-top: 0.75rem;
+        padding: 0.75rem 1rem;
+      }
+      
+      .author-note-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      
+      .progress-indicator {
+        margin: 0.5rem 0;
+      }
+      
+      /* Mobile: Even more compact */
+      @media (max-width: 768px) {
+        .pricing-section .pricing-header {
+          padding-top: 1.5rem;
+          padding-bottom: 0.75rem;
+        }
+        
+        .pricing-section .pricing-header h2 {
+          font-size: 1.5rem;
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+        
+        .pricing-section .pricing-title {
+          margin-bottom: 0.15rem !important;
+        }
+        
+        .pricing-section .pricing-subtitle {
+          margin-top: 0 !important;
+        }
+        
+        .pricing-card .tier-description {
+          font-size: 0.85rem;
+          margin: 0.25rem 0;
+        }
+        
+        .author-note {
+          margin-top: 0.5rem;
+          padding: 0.5rem 0.75rem;
+        }
+        
+        .progress-indicator {
+          margin: 0.25rem 0;
+        }
+        
+        /* Tighter card header spacing */
+        .pricing-card .card-header {
+          padding-bottom: 0.25rem;
+        }
+        
+        .pricing-card .tier-subtitle {
+          margin-bottom: 0.15rem;
+        }
+        
+        .pricing-card .tier-name {
+          margin-bottom: 0.5rem;
+        }
+        
+        .tier-price-container {
+          margin-top: 0.25rem;
+        }
+      }
+
+/* ==========================================================================
+   V3 PLAN STYLES - New elements added
+   ========================================================================== */
+
+/* Pricing Hook - direct text instead of blockquote */
+.pricing-hook {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hide hook when user arrived from hero */
+.came-from-hero .pricing-hook {
+  display: none;
+}
+
+/* Social Proof Counter in pricing card */
+.social-proof-counter {
+  font-size: 0.75rem;
+  color: rgba(212, 165, 116, 0.9);
+  text-align: center;
+  margin: 0.75rem 0 0 0;
+  font-style: italic;
+}
+
+.social-proof-counter .proof-number {
+  font-weight: 600;
+  color: #d4a574;
+}
+
+/* Author Section (renamed from testimonials-section) */
+.author-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, transparent, rgba(10, 10, 12, 0.5), transparent);
+}
+
+/* Social Proof Section - Compact testimonials */
+.social-proof-section {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.3), transparent);
+}
+
+.proof-intro {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.testimonials-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: left;
+}
+
+.testimonial-text {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-size: 0.8rem;
+  color: rgba(212, 165, 116, 0.8);
+}
+
+/* Mobile adjustments for social proof */
+@media (max-width: 600px) {
+  .testimonials-compact {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-proof-section {
+    padding: 2rem 1rem;
+  }
+}

@@ -471,8 +471,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (price === 'custom') {
         if (customInput) {
           customInput.style.display = 'block';
+          customInput.value = 50; // Default to 50€ to trigger credits
           customInput.focus();
+          customInput.select();
         }
+        updatePrice(50); // Set 50€ to activate credits incentive
       } else {
         if (customInput) customInput.style.display = 'none';
         updatePrice(parseInt(price));
@@ -540,3 +543,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pricingSection) pricingObserver.observe(pricingSection);
   });
 })();
+
+/* ---------- PREORDER SCROLL OFFSET ---------- */
+// When navigating to #preorder, scroll to show the emotional hook (text above title)
+function scrollToPreorder() {
+  // Target the quote first, or fallback to pricing header
+  const target = document.querySelector('.pricing-quote') || 
+                 document.querySelector('.pricing-header') || 
+                 document.getElementById('preorder');
+  if (target) {
+    const rect = target.getBoundingClientRect();
+    const offset = window.pageYOffset + rect.top - 40; // 40px from top
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Handle all clicks on links to #preorder
+  document.querySelectorAll('a[href="#preorder"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToPreorder();
+    });
+  });
+  
+  // Handle direct navigation via URL hash on page load
+  if (window.location.hash === '#preorder') {
+    // Prevent default browser scroll, then do our custom scroll
+    setTimeout(() => {
+      scrollToPreorder();
+    }, 50);
+  }
+});
+
+// Also handle hashchange (when navigating via back/forward)
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#preorder') {
+    setTimeout(() => scrollToPreorder(), 50);
+  }
+});

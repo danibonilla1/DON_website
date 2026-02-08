@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario de una Oveja Negra</title>
+    <meta name="description"
+        content="Un viaje al núcleo más profundo de la esencia humana. Acompaña a Dani en esta historia introspectiva sobre encajar, el autodescubrimiento, y el coraje de ser diferente.">
+    <meta property="og:title" content="Diario de una Oveja Negra — Dani Bonilla">
+    <meta property="og:description"
+        content="Un viaje al núcleo más profundo de la esencia humana. Si esto te removió, no lo dejes ir.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Diario de una Oveja Negra</div>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#preorder">La Obra</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================================================================
+         HERO: CTA visible desde el principio
+         ================================================================ -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Diario de una Oveja Negra</h1>
+            <p class="subtitle">Si esto te removió por dentro, no lo dejes ir.</p>
+            <p class="author">por Dani Bonilla</p>
+            <div class="hero-actions">
+                <a href="#preorder" class="cta-button">Continúa el viaje</a>
+            </div>
+        </div>
+        <div class="scroll-indicator" role="button" aria-label="Scroll down">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         PRICING SECTION: Simplificada (precio fijo, sin PWYW, sin barra 15%)
+         ================================================================ -->
+    <section id="preorder" class="pricing-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="pricing-header">
+                <p class="pricing-hook">
+                    Si esto te removió por dentro, no lo dejes ir.
+                </p>
+                <h1 class="pricing-title">Diario de una Oveja Negra</h1>
+                <p class="pricing-subtitle">por Dani Bonilla</p>
+            </div>
+
+            <!-- Grid de Precios -->
+            <div class="pricing-grid">
+                <div class="pricing-card highlight pricing-card-with-book">
+                    <div class="pricing-badge">Edición del Autor</div>
+                    
+                    <div class="pricing-card-layout">
+                        <!-- Libro 3D a la izquierda -->
+                        <div class="pricing-book-display">
+                            <div class="mini-book-3d">
+                                <div class="mini-book-back"></div>
+                                <div class="mini-book-spine"></div>
+                                <div class="mini-book-pages"></div>
+                                <div class="mini-book-cover"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenido -->
+                        <div class="pricing-card-content">
+                            <div class="card-header">
+                                <div class="tier-subtitle">Serie en progreso</div>
+                                <h3 class="tier-name">La colección viva</h3>
+
+                                <!-- PRECIO FIJO (sin PWYW) -->
+                                <div class="tier-price-container">
+                                    <span class="tier-price" style="font-size: 2.5rem; font-weight: 600;">9€</span>
+                                </div>
+
+                                <p class="tier-description">
+                                    Todo lo publicado hoy y lo que venga después.<br>
+                                    Cada capítulo en texto, en audio, y "Desde el Autor", lo que Dani no cuenta delante de cámara.
+                                </p>
+                            </div>
+
+                            <!-- AUTHOR NOTE -->
+                            <div class="author-note">
+                                <p class="author-note-text">
+                                    "Hay una parte de cada historia que solo existe en silencio."
+                                </p>
+                                <span class="author-note-signature">-Dani</span>
+                            </div>
+
+                            <!-- CTA -->
+                            <div class="card-footer">
+                                <a href="https://danibonilla.gumroad.com/l/don?price=9" class="tier-cta tier-cta-solid" target="_blank" rel="noopener">
+                                    Continuar el viaje
+                                </a>
+                            </div>
+
+                            <!-- FEATURES (simplificadas) -->
+                            <div class="card-features">
+                                <div class="feature-item-visible">
+                                    <span class="feature-check" style="color: #d4a574;">★</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">Desde el Autor: La voz detrás de la historia</span>
+                                        <span class="feature-meta">Dani sin guion, una reflexión personal detrás de cada capítulo</span>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item-visible">
+                                    <span class="feature-check">✓</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">La obra en texto y audio</span>
+                                        <span class="feature-meta">Para leer, escuchar, guardar — tuyo para siempre</span>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item-visible">
+                                    <span class="feature-check">✓</span>
+                                    <div class="feature-content">
+                                        <span class="feature-main">Cada nuevo capítulo incluido</span>
+                                        <span class="feature-meta">Sin coste extra cuando salgan los próximos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- fin pricing-card-content -->
+                    </div><!-- fin pricing-card-layout -->
+                </div>
+            </div>
+
+            <!-- Sección de Confianza -->
+            <div class="trust-badges">
+                <div class="trust-item">
+                    <div class="trust-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-emerald">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong class="block text-white">Pago Seguro</strong>
+                        <span>Procesado por Gumroad</span>
+                    </div>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <div class="trust-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong class="block text-white">Descarga Instantánea</strong>
+                        <span>Tuyo para siempre</span>
+                    </div>
+                </div>
+                <div class="trust-divider"></div>
+                <div class="trust-item">
+                    <div class="trust-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-purple">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </div>
+                    <div class="trust-text">
+                        <strong class="block text-white">Directo a Dani</strong>
+                        <span>Sin intermediarios</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         TESTIMONIOS (simplificados, sin slider automático)
+         ================================================================ -->
+    <section class="social-proof-section fade-in">
+        <p class="author-intro">Lo que dice la gente sobre las historias de Dani</p>
+        
+        <div id="testimonialsContainer" class="testimonials-container fade-in">
+            <!-- Testimonio 1 -->
+            <div class="testimonial active">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/EconomiaDesdeCasa" alt="Economía Desde Casa"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">E</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@EconomiaDesdeCasa" target="_blank" class="comment-author-name">Economía Desde Casa</a>
+                            <span class="comment-author-handle">@EconomiaDesdeCasa</span>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text">
+                            "Me veo totalmente reflejado en ti... gracias por transformar mi visión y el coraje para enfrentar la vida."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 2 -->
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/mariajose_11" alt="mariajose_11"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">M</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@mariajose_11" target="_blank" class="comment-author-name">mariajose_11</a>
+                            <span class="comment-author-handle">@mariajose_11</span>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text">
+                            "Es tan hermoso escuchar tu historia. Hablas desde la honestidad, no desde el ego, y eso se nota en cada minuto."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonio 3 -->
+            <div class="testimonial">
+                <div class="youtube-comment">
+                    <div class="comment-header">
+                        <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-avatar-link">
+                            <div class="comment-avatar">
+                                <img src="https://unavatar.io/youtube/ben_franco" alt="ben_franco"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="avatar-initials" style="display:none">B</div>
+                            </div>
+                        </a>
+                        <div class="comment-meta">
+                            <a href="https://youtube.com/@ben_franco" target="_blank" class="comment-author-name">ben_franco</a>
+                            <span class="comment-author-handle">@ben_franco</span>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p class="comment-text">
+                            "No entiendo cómo tus videos no tienen muchos más likes. Tu contenido tiene alma. Me inspiras a ir a por ello."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FAQ (simplificado)
+         ================================================================ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+
+            <div class="faq-grid">
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuál es la diferencia entre esto y tus vídeos de YouTube?</summary>
+                    <p class="faq-answer">La historia es la misma. En YouTube la ves en vídeo con ilustraciones y música. Aquí la tienes en texto y audio para guardar, leer y escuchar cuando quieras, sin anuncios ni algoritmo. Además, cada capítulo incluye 'Desde el Autor': mis reflexiones personales sobre lo que escribí, fuera de personaje. Eso solo está aquí.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuándo recibiré los capítulos?</summary>
+                    <p class="faq-answer">Los capítulos se entregan de forma <strong>episódica</strong>, según los voy terminando. Te notificaré por email cada vez que haya contenido nuevo disponible.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo recibiré el producto?</summary>
+                    <p class="faq-answer">Recibirás un <strong>email con links de descarga</strong>. También puedes acceder a todo desde tu librería de Gumroad en cualquier momento.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo sé si esto es para mí?</summary>
+                    <p class="faq-answer">Si has resonado con las historias que cuento en YouTube, esto es para ti. Si disfrutas de la <strong>conexión profunda</strong>, sentirte comprendido, y las historias que se quedan contigo mucho después de terminar.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; Dani Bonilla. Esta obra es un producto de la expresión artística del autor.</p>
+    </footer>
+
+    <!-- Scripts mínimos necesarios -->
+    <script src="js/particles.js"></script>
+    <script src="js/testimonials.js"></script>
+
+</body>
+
+</html>

@@ -50,7 +50,7 @@ let restartTimeout;
 
 function startAutoRotate() {
     stopAutoRotate(); // Ensure no duplicate intervals
-    autoRotateInterval = setInterval(nextTestimonial, 4000);
+    autoRotateInterval = setInterval(nextTestimonial, 7000);
 }
 
 function stopAutoRotate() {
