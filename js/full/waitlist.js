@@ -46,7 +46,17 @@ function submitWaitlist(e) {
     
     // Redirect to Gumroad checkout with email pre-filled
     const encodedEmail = encodeURIComponent(email);
-    const checkoutUrl = `${GUMROAD_CHECKOUT_URL}&email=${encodedEmail}`;
+    
+    // Add UTM params if available (using utm-tracking.js helper)
+    let checkoutUrl = GUMROAD_CHECKOUT_URL;
+    if (window.buildGumroadUrl) {
+        checkoutUrl = window.buildGumroadUrl(GUMROAD_CHECKOUT_URL);
+    }
+    
+    // Append email
+    // Check if url already has params (it usually does for Gumroad)
+    const separator = checkoutUrl.includes('?') ? '&' : '?';
+    checkoutUrl = `${checkoutUrl}${separator}email=${encodedEmail}`;
     
     // Small delay for visual feedback, then redirect
     setTimeout(() => {
