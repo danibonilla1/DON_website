@@ -6,7 +6,10 @@
 // Gumroad checkout URL base
 const GUMROAD_CHECKOUT_URL = 'https://gumroad.com/checkout?product=fywme&option=ArbuNBmxLE4TtR90oTUedg%3D%3D&quantity=1';
 
-function submitWaitlist() {
+function submitWaitlist(e) {
+    // Prevent default form submission
+    if (e) e.preventDefault();
+    
     const emailInput = document.getElementById('waitlistEmail');
     const form = document.querySelector('.waitlist-form');
     const btn = document.getElementById('waitlistBtn');

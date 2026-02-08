@@ -7994,3 +7994,65 @@ blockquote.soul-quote {
 blockquote.soul-quote::before {
   content: none;
 }
+
+/* =====================================================
+   INLINE TESTIMONIALS - For waitlist page
+   ===================================================== */
+.social-proof-inline {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.inline-testimonial {
+  background: rgba(10, 10, 12, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  max-width: 280px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.inline-testimonial p {
+  font-family: 'Crimson Text', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.inline-testimonial span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  color: var(--primary-gold);
+  letter-spacing: 1px;
+}
+
+/* Mobile: Stack testimonials */
+@media (max-width: 768px) {
+  .social-proof-inline {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .inline-testimonial {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+/* Social proof label */
+.social-proof-label {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: 100%;
+}
