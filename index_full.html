@@ -10,17 +10,17 @@
     <meta property="og:title" content="Diario de una Oveja Negra — La historia completa">
     <meta property="og:description"
         content="En los vídeos cuento fragmentos. Aquí va la historia entera, con las partes que me costó más contar.">
+    <!-- TODO: Cambiar a tu dominio real -->
     <meta property="og:image" content="https://danibonilla.com/img/libro.jpg">
     <meta property="og:url" content="https://danibonilla.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/styles.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" as="style">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -39,13 +39,13 @@
             
             <div class="pricing-header">
                 <p class="pricing-pretitle">Lo que viste era solo un fragmento.</p>
-                <h1 class="pricing-title">La historia completa, solo aquí.</h1>
+                <h1 class="pricing-title">La historia completa, solo por aquí.</h1>
             </div>
 
             <div class="pricing-grid">
                 <div class="pricing-card highlight pricing-card-with-book">
                     
-                    <div class="tier-badge">En camino</div>
+                    <div class="tier-badge">Solo por email</div>
                     
                     <div class="pricing-card-layout">
                         
@@ -61,14 +61,13 @@
                         <div class="pricing-card-content">
                             
                             <div class="card-header">
-                                <h3 class="tier-name">Diario de una <br>Oveja Negra</h3>
+                                <h3 class="tier-name">Diario de una Oveja Negra</h3>
                             </div>
 
                             <div class="tier-description">
                                 <p>En los vídeos cuento fragmentos. Aquí va la historia 
                                 entera, con las partes que me costó más contar 
-                                y las notas que escribí antes de grabar nada. 
-                                Te aviso cuando esté lista.</p>
+                                y las notas que escribí antes de grabar nada.</p>
                             </div>
 
                             <form class="waitlist-form" onsubmit="submitWaitlist(event)">
@@ -86,7 +85,7 @@
                             </form>
                             
                             <p class="waitlist-hint">
-                                Ya hay <strong>21</strong> personas esperando. 
+                                Ya hay <strong>21</strong> personas dentro. 
                                 Solo escribo cuando merece la pena.
                             </p>
 
@@ -163,10 +162,7 @@
         <h2 class="section-title">Sobre Dani</h2>
         <div class="author-container">
             <div class="author-image-container">
-                <picture>
-                    <source srcset="img/dani08.webp" type="image/webp">
-                    <img src="img/dani08_optimized.jpeg" alt="Dani Bonilla" class="author-image" loading="lazy" width="200" height="200">
-                </picture>
+                <img src="img/dani08.jpeg" alt="Dani Bonilla" class="author-image" loading="lazy">
             </div>
             <div class="author-content">
                 <div class="journey-narrative">
@@ -187,7 +183,9 @@
         <p>&copy; Dani Bonilla</p>
     </footer>
 
-    <script src="js/bundle.min.js"></script>
+    <script src="js/waitlist.js"></script>
+    <script src="js/floatingButton.js"></script>
+    <script src="js/utm-tracking.js"></script>
 
 </body>
 

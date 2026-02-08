@@ -5184,11 +5184,7 @@
 
       .pricing-title {
         font-family: 'Cinzel', serif;
-        background: linear-gradient(135deg, var(--primary-gold) 0%, var(--ethereal-white) 50%, var(--primary-gold) 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
       }
 
       .pricing-subtitle {
@@ -5199,11 +5195,7 @@
 
       .tier-name {
         font-family: 'Cinzel', serif;
-        background: linear-gradient(135deg, var(--primary-gold) 0%, var(--ethereal-white) 50%, var(--primary-gold) 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        color: var(--primary-gold);
       }
 
       .tier-price {
@@ -5235,14 +5227,13 @@
       .tier-cta-solid {
         background: linear-gradient(135deg, var(--primary-gold) 0%, #8b7355 100%);
         color: var(--shadow-black);
-        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        border: 1px solid rgba(212, 175, 55, 0.5);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
       }
 
       .tier-cta-solid:hover {
         background: linear-gradient(135deg, var(--ethereal-white) 0%, var(--primary-gold) 100%);
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
       }
 
       .tier-cta-outline {
@@ -6539,7 +6530,7 @@
 
 
         .pricing-section {
-          padding-top: 0;
+          padding-top: 50px;
           padding-bottom: 50px;
         }
 
@@ -7670,8 +7661,8 @@
       /* Mobile: Even more compact */
       @media (max-width: 768px) {
         .pricing-section .pricing-header {
-          padding-top: 0;
-          padding-bottom: 0.5rem;
+          padding-top: 1.5rem;
+          padding-bottom: 0.75rem;
         }
         
         .pricing-section .pricing-header h2 {
@@ -7681,7 +7672,6 @@
         }
         
         .pricing-section .pricing-title {
-          font-size: 1.8rem !important;
           margin-bottom: 0.15rem !important;
         }
         
