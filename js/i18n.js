@@ -167,6 +167,26 @@ var englishTranslations = {
   "meta.title": "Diary of a Black Sheep",
   "footer.copyright": "© Dani Bonilla. All are products of the author's artistic expression.",
 
+  // Waitlist page translations
+  "waitlist.pretitle": "What you saw was just a fragment.",
+  "waitlist.title": "The complete story, only here.",
+  "waitlist.badge": "Coming soon",
+  "waitlist.tierName": "Diary of a<br>Black Sheep",
+  "waitlist.description": "In my videos I share fragments. Here is the full story, including the parts that were hardest to tell and the notes I wrote before ever pressing record. I'm still working on finishing it. I'll let you know when it's ready.",
+  "waitlist.cta": "Notify me when it's ready",
+  "waitlist.hint": "Already <strong>21+</strong> people waiting. I'll only reach out when it matters.",
+  "waitlist.feature1.main": "First to know",
+  "waitlist.feature1.sub": "You'll hear from me first",
+  "waitlist.feature2.main": "The story from start to finish",
+  "waitlist.feature2.sub": "No algorithm dependency",
+  "waitlist.feature3.main": "What doesn't make it on camera",
+  "waitlist.feature3.sub": "Notes, reflections, the untold parts",
+  "waitlist.socialLabel": "YouTube comments",
+  "waitlist.testimonial1": "\"Left me wanting to know more\"",
+  "waitlist.testimonial2": "\"I want to see the rest of the story\"",
+  "waitlist.testimonial3": "\"Your storytelling is captivating\"",
+  "waitlist.footer": "&copy; Dani Bonilla",
+
   "pricing.eyebrow": "Your way to experience the story",
   "pricing.title": "Diary of a Black Sheep",
   "pricing.subtitle": "This is the story you've always wanted to hear in full. Choose how to experience it.",
@@ -369,8 +389,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var langParam = urlParams.get('lang');
   var savedLang = localStorage.getItem('userLanguage');
 
-  // Priority: URL param > LocalStorage > Default 'es'
-  var targetLang = langParam || savedLang || 'es';
+  // Auto-detect browser language (check if starts with 'en')
+  var browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+  var browserIsEnglish = browserLang.startsWith('en');
+
+  // Priority: URL param > LocalStorage > Browser language > Default 'es'
+  var targetLang = langParam || savedLang || (browserIsEnglish ? 'en' : 'es');
 
   // Set initial language
   if (targetLang === 'en') {
@@ -379,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateButton('EN');
     window.currentLanguage = 'es';
     document.documentElement.lang = 'es';
+    updateToggleVisibility('es');
   }
 });
 
@@ -395,6 +420,11 @@ function loadEnglish() {
   localStorage.setItem('userLanguage', 'en');
   updateButton('ES');
   document.documentElement.lang = 'en';
+  updateToggleVisibility('en');
+
+  // Update email placeholder for English
+  var emailInput = document.getElementById('waitlistEmail');
+  if (emailInput) emailInput.placeholder = 'your@email.com';
 
   // Update URL
   var url = new URL(window.location);
@@ -417,6 +447,11 @@ function loadSpanish() {
   localStorage.setItem('userLanguage', 'es');
   updateButton('EN');
   document.documentElement.lang = 'es';
+  updateToggleVisibility('es');
+
+  // Restore email placeholder for Spanish
+  var emailInput = document.getElementById('waitlistEmail');
+  if (emailInput) emailInput.placeholder = 'tu@email.com';
 
   // Update URL
   var url = new URL(window.location);
@@ -430,5 +465,15 @@ function updateButton(label) {
   var btn = document.getElementById('langToggleBtn');
   if (btn) {
     btn.textContent = label;
+  }
+}
+
+// Show/hide toggle button based on language
+// - Always visible when English is active (so user can switch back to Spanish)
+// - Hidden when Spanish is active (default experience, no clutter)
+function updateToggleVisibility(lang) {
+  var btn = document.getElementById('langToggleBtn');
+  if (btn) {
+    btn.style.display = (lang === 'en') ? 'block' : 'none';
   }
 }

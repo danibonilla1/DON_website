@@ -3,8 +3,15 @@
  * Simple email capture for the upcoming book release
  */
 
-// Gumroad checkout URL base
-const GUMROAD_CHECKOUT_URL = 'https://gumroad.com/checkout?product=fywme&option=ArbuNBmxLE4TtR90oTUedg%3D%3D&quantity=1';
+// Gumroad checkout URLs per language
+const GUMROAD_URLS = {
+    es: 'https://gumroad.com/checkout?product=fywme&option=ArbuNBmxLE4TtR90oTUedg%3D%3D&quantity=1',
+    en: 'https://gumroad.com/checkout?product=fywme&option=m0ZZLOhsPLpu7_QvT24TCQ%3D%3D&quantity=1&price=0'
+};
+
+function getActiveLanguage() {
+    return window.currentLanguage || localStorage.getItem('userLanguage') || 'es';
+}
 
 function submitWaitlist(e) {
     // Prevent default form submission
@@ -13,6 +20,7 @@ function submitWaitlist(e) {
     const emailInput = document.getElementById('waitlistEmail');
     const form = document.querySelector('.waitlist-form');
     const btn = document.getElementById('waitlistBtn');
+    const lang = getActiveLanguage();
     
     if (!emailInput || !form) return;
     
@@ -22,18 +30,20 @@ function submitWaitlist(e) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
         emailInput.style.borderColor = '#ef4444';
-        emailInput.placeholder = 'Por favor, introduce un email válido';
+        emailInput.placeholder = lang === 'en' 
+            ? 'Please enter a valid email' 
+            : 'Por favor, introduce un email válido';
         emailInput.value = '';
         setTimeout(() => {
             emailInput.style.borderColor = 'rgba(212, 175, 55, 0.3)';
-            emailInput.placeholder = 'tu@email.com';
+            emailInput.placeholder = lang === 'en' ? 'your@email.com' : 'tu@email.com';
         }, 2000);
         return;
     }
     
     // Show loading state
     const originalText = btn.textContent;
-    btn.textContent = 'Redirigiendo...';
+    btn.textContent = lang === 'en' ? 'Redirecting...' : 'Redirigiendo...';
     btn.disabled = true;
     
     // Log for analytics (if available)
@@ -46,7 +56,8 @@ function submitWaitlist(e) {
     
     // Redirect to Gumroad checkout with email pre-filled
     const encodedEmail = encodeURIComponent(email);
-    let checkoutUrl = `${GUMROAD_CHECKOUT_URL}&email=${encodedEmail}`;
+    const checkoutBase = GUMROAD_URLS[lang] || GUMROAD_URLS.es;
+    let checkoutUrl = `${checkoutBase}&email=${encodedEmail}`;
     
     // Add UTM parameters
     try {

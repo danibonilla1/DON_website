@@ -25,6 +25,9 @@
 
 <body>
 
+    <!-- Botón de idioma - visible solo en modo inglés -->
+    <button class="lang-toggle-btn" id="langToggleBtn" onclick="toggleLanguage()" style="display:none;">ES</button>
+
     <!-- Botón flotante para volver al formulario -->
     <button class="floating-preorder-btn" id="preorderBtn" aria-label="Volver al formulario">
         ↑
@@ -38,14 +41,14 @@
         <div class="container">
             
             <div class="pricing-header">
-                <p class="pricing-pretitle">Lo que viste era solo un fragmento.</p>
-                <h1 class="pricing-title">La historia completa, solo aquí.</h1>
+                <p class="pricing-pretitle" data-i18n="waitlist.pretitle">Lo que viste era solo un fragmento.</p>
+                <h1 class="pricing-title" data-i18n="waitlist.title">La historia completa, solo aquí.</h1>
             </div>
 
             <div class="pricing-grid">
                 <div class="pricing-card highlight pricing-card-with-book">
                     
-                    <div class="tier-badge">En camino</div>
+                    <div class="tier-badge" data-i18n="waitlist.badge">En camino</div>
                     
                     <div class="pricing-card-layout">
                         
@@ -61,11 +64,11 @@
                         <div class="pricing-card-content">
                             
                             <div class="card-header">
-                                <h3 class="tier-name">Diario de una <br>Oveja Negra</h3>
+                                <h3 class="tier-name" data-i18n="waitlist.tierName">Diario de una <br>Oveja Negra</h3>
                             </div>
 
                             <div class="tier-description">
-                                <p>En los vídeos cuento fragmentos. Aquí va la historia 
+                                <p data-i18n="waitlist.description">En los vídeos cuento fragmentos. Aquí va la historia 
                                 entera, con las partes que me costó más contar 
                                 y las notas que escribí antes de grabar nada. 
                                 Estoy todavía en proceso de terminarla. Te aviso cuando esté terminado.</p>
@@ -81,11 +84,11 @@
                                 <button type="submit" 
                                         class="tier-cta tier-cta-solid" 
                                         id="waitlistBtn">
-                                    Avísame cuando esté listo
+                                    <span data-i18n="waitlist.cta">Avísame cuando esté listo</span>
                                 </button>
                             </form>
                             
-                            <p class="waitlist-hint">
+                            <p class="waitlist-hint" data-i18n="waitlist.hint">
                                 Ya hay <strong>21+</strong> personas esperando. 
                                 Solo te avisaré cuando sea importante.
                             </p>
@@ -96,10 +99,10 @@
                                           style="color: #d4a574;">★</span>
                                     <div class="feature-content">
                                         <span class="feature-main">
-                                            Antes que nadie
+                                            <span data-i18n="waitlist.feature1.main">Antes que nadie</span>
                                         </span>
                                         <span class="feature-sub">
-                                            Te escribo a ti primero
+                                            <span data-i18n="waitlist.feature1.sub">Te escribo a ti primero</span>
                                         </span>
                                     </div>
                                 </div>
@@ -108,10 +111,10 @@
                                     <span class="feature-check">✓</span>
                                     <div class="feature-content">
                                         <span class="feature-main">
-                                            La historia de principio a fin
+                                            <span data-i18n="waitlist.feature2.main">La historia de principio a fin</span>
                                         </span>
                                         <span class="feature-sub">
-                                            Sin depender de ningún algoritmo
+                                            <span data-i18n="waitlist.feature2.sub">Sin depender de ningún algoritmo</span>
                                         </span>
                                     </div>
                                 </div>
@@ -120,10 +123,10 @@
                                     <span class="feature-check">✓</span>
                                     <div class="feature-content">
                                         <span class="feature-main">
-                                            Lo que no sale en cámara
+                                            <span data-i18n="waitlist.feature3.main">Lo que no sale en cámara</span>
                                         </span>
                                         <span class="feature-sub">
-                                            Notas, reflexiones, lo que no conté
+                                            <span data-i18n="waitlist.feature3.sub">Notas, reflexiones, lo que no conté</span>
                                         </span>
                                     </div>
                                 </div>
@@ -136,18 +139,18 @@
 
             <!-- Testimonios inline -->
             <div class="social-proof-inline">
-                <p class="social-proof-label">Comentarios en YouTube</p>
+                <p class="social-proof-label" data-i18n="waitlist.socialLabel">Comentarios en YouTube</p>
                 
                 <div class="inline-testimonial">
-                    <p>"Me dejó con ganas de saber más"</p>
+                    <p data-i18n="waitlist.testimonial1">"Me dejó con ganas de saber más"</p>
                     <span>— @danielnaharro6087</span>
                 </div>
                 <div class="inline-testimonial">
-                    <p>"Quiero ver el resto de la historia"</p>
+                    <p data-i18n="waitlist.testimonial2">"Quiero ver el resto de la historia"</p>
                     <span>— @Lilesihe</span>
                 </div>
                 <div class="inline-testimonial">
-                    <p>"Tu manera de contar es cautivadora"</p>
+                    <p data-i18n="waitlist.testimonial3">"Tu manera de contar es cautivadora"</p>
                     <span>— @Katjana_Lamb</span>
                 </div>
             </div>
@@ -184,7 +187,7 @@
          FOOTER
          ===================================================== -->
     <footer class="footer">
-        <p>&copy; Dani Bonilla</p>
+        <p data-i18n="waitlist.footer">&copy; Dani Bonilla</p>
     </footer>
 
     <script src="js/bundle.min.js"></script>
