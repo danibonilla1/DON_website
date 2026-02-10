@@ -81,7 +81,7 @@
             letter-spacing: 1.5px;
             color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, opacity 0.3s ease;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
@@ -891,6 +891,8 @@
             // Sticky CTA: show after hero, hide at pricing
             var sticky = document.getElementById('stickyCta');
             var pricingSection = document.getElementById('pricing');
+            var langToggle = document.getElementById('langToggleBtn');
+
             if (sticky && pricingSection) {
                 var heroEnd = document.querySelector('.hero').offsetHeight;
                 var pastHero = false;
@@ -908,7 +910,20 @@
                 window.addEventListener('scroll', function () {
                     if (!ticking) {
                         requestAnimationFrame(function () {
-                            pastHero = window.scrollY > heroEnd * 0.7;
+                            var scrollY = window.scrollY;
+                            pastHero = scrollY > heroEnd * 0.7;
+                            
+                            // Hide lang toggle on scroll (> 100px)
+                            if (langToggle) {
+                                if (scrollY > 100) {
+                                    langToggle.style.opacity = '0';
+                                    langToggle.style.pointerEvents = 'none';
+                                } else {
+                                    langToggle.style.opacity = '1';
+                                    langToggle.style.pointerEvents = 'auto';
+                                }
+                            }
+
                             updateSticky();
                             ticking = false;
                         });
