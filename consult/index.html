@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-attr="title" data-i18n="meta.title">Diagnóstico de Canal YouTube — Dani Bonilla</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Diagnóstico completo de tu canal de YouTube. Análisis forense de tu contenido basado en más de 10 años de experiencia.">
+    <meta property="og:title" content="Diagnóstico de Canal YouTube — Dani Bonilla">
+    <meta property="og:description" content="Un análisis forense de tu contenido. Encuentro lo que no funciona y te digo cómo arreglarlo.">
+    <meta property="og:url" content="https://danibonilla.com/consult/">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fafafa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --accent-subtle: rgba(26, 26, 26, 0.04);
+            --border: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(0, 0, 0, 0.18);
+            --cta-bg: #1a1a1a;
+            --cta-text: #fff;
+            --cta-hover: #333;
+            --highlight: #b8943f;
+            --gap: clamp(48px, 7vh, 80px);
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--cta-bg);
+            color: #fff;
+        }
+
+        /* ---- LAYOUT ---- */
+        .wrapper {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- LANG TOGGLE ---- */
+        .lang-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 200;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+        }
+
+        .hero-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 2px solid var(--border);
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 0.1s forwards;
+        }
+
+        .hero-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 0.2s forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 5.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.25;
+            max-width: 560px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out 0.35s forwards;
+        }
+
+        .hero-sub {
+            margin-top: 20px;
+            font-size: clamp(0.95rem, 2.3vw, 1.05rem);
+            color: var(--text-secondary);
+            max-width: 440px;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 0.7s ease-out 0.55s forwards;
+        }
+
+        .hero-cta {
+            margin-top: 32px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease-out 0.7s forwards;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out 0.9s forwards;
+        }
+
+        .hero-scroll span {
+            display: block;
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, var(--text-muted), transparent);
+            animation: pulse-line 2s infinite;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 38px;
+            background: var(--cta-bg);
+            color: var(--cta-text);
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary.btn-large {
+            padding: 17px 44px;
+            font-size: 0.92rem;
+        }
+
+        /* ---- DIVIDER ---- */
+        .divider {
+            width: 36px;
+            height: 1px;
+            background: var(--border);
+            margin: var(--gap) auto 0;
+        }
+
+        /* ---- SECTIONS ---- */
+        .s {
+            padding-top: var(--gap);
+        }
+
+        .s-label {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .s-text {
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .s-text + .s-text {
+            margin-top: 14px;
+        }
+
+        .s-text strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ---- ANALYZE LIST ---- */
+        .a-grid { margin-top: 24px; }
+
+        .a-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .a-item:first-child { padding-top: 0; }
+        .a-item:last-child { border-bottom: none; }
+
+        .a-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .a-item h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 3px; }
+        .a-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .a-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--highlight);
+            margin-top: 3px;
+        }
+
+        /* ---- DELIVERABLES ---- */
+        .d-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 500px) { .d-grid { grid-template-columns: 1fr; } }
+
+        .d-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            background: var(--bg-card);
+            transition: border-color 0.3s ease;
+        }
+
+        .d-card:hover { border-color: var(--border-hover); }
+        .d-card .icon { font-size: 1.3rem; margin-bottom: 12px; display: block; }
+        .d-card h3 { font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+        .d-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; }
+
+        .d-card .d-detail {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .d-card .d-detail::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--highlight);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ---- VALUE SUMMARY ---- */
+        .value-summary {
+            margin-top: 24px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+        }
+
+        .value-summary h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .value-row:last-child { border-bottom: none; }
+        .value-row .v-label { color: var(--text-secondary); }
+        .value-row .v-data { font-weight: 500; color: var(--text-primary); text-align: right; }
+
+        /* ---- PROOF / ABOUT ---- */
+        .proof-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+
+        .proof-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+        }
+
+        .proof-name { font-weight: 600; font-size: 0.92rem; }
+        .proof-bio { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 380px) { .proof-stats { grid-template-columns: 1fr; gap: 8px; } }
+
+        .stat {
+            text-align: center;
+            padding: 14px 8px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+        }
+
+        .stat-n { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+        .stat-l { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+        .case-card {
+            padding: 24px;
+            border-left: 3px solid var(--text-primary);
+            background: var(--accent-subtle);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 16px;
+        }
+
+        .case-card p { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; line-height: 1.55; }
+        .case-card .cap { font-family: 'Inter', sans-serif; font-style: normal; font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; }
+
+        .niches { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px; }
+        .proof-close { font-size: 0.95rem; color: var(--text-secondary); }
+        .proof-close strong { color: var(--text-primary); }
+
+        /* ---- PRICING ---- */
+        .pricing-zone { padding-top: var(--gap); padding-bottom: 16px; text-align: center; }
+
+        .price-card {
+            border: 2px solid var(--text-primary);
+            border-radius: 16px;
+            padding: 44px 32px 40px;
+            background: var(--bg-card);
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .price-card::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg);
+            padding: 0 14px;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .price-amount { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 9vw, 3.6rem); font-weight: 700; line-height: 1; }
+        .price-split { margin-top: 10px; font-size: 0.85rem; color: var(--text-muted); }
+        .price-split strong { color: var(--text-secondary); }
+        .price-cta { margin-top: 28px; }
+        .price-inc { margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* ---- CONDITIONS ---- */
+        .conds { margin-top: 32px; text-align: center; }
+        .conds ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .conds li { font-size: 0.82rem; color: var(--text-muted); }
+
+        .guarantee {
+            margin-top: 16px;
+            padding: 16px 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---- REQUIREMENTS ---- */
+        .req-list { list-style: none; counter-reset: req; margin-top: 24px; }
+
+        .req-list > li {
+            counter-increment: req;
+            padding: 12px 0 12px 42px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .req-list > li:last-child { border-bottom: none; }
+
+        .req-list > li::before {
+            content: counter(req);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            width: 26px;
+            height: 26px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .req-sub { list-style: none; margin-top: 8px; }
+
+        .req-sub li {
+            padding: 2px 0 2px 16px;
+            position: relative;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .req-sub li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            color: var(--border-hover);
+            font-weight: 700;
+        }
+
+        /* ---- FOOTER ---- */
+        .footer { text-align: center; padding: 48px 24px 36px; font-size: 0.78rem; color: var(--text-muted); }
+        .footer a { color: var(--text-secondary); text-decoration: none; }
+        .footer a:hover { color: var(--text-primary); }
+
+        /* ---- STICKY CTA (mobile) ---- */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            transform: translateY(100%);
+            transition: transform 0.35s ease;
+        }
+
+        .sticky-cta.show { transform: translateY(0); }
+
+        .sticky-cta .btn-primary {
+            width: 100%;
+            max-width: 360px;
+            padding: 14px 24px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) { .sticky-cta { display: block; } }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .stagger > * {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        .stagger.visible > * { opacity: 1; transform: translateY(0); }
+        .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+        .stagger.visible > *:nth-child(2) { transition-delay: 0.06s; }
+        .stagger.visible > *:nth-child(3) { transition-delay: 0.12s; }
+        .stagger.visible > *:nth-child(4) { transition-delay: 0.18s; }
+        .stagger.visible > *:nth-child(5) { transition-delay: 0.24s; }
+
+        @media (max-width: 480px) {
+            .wrapper { padding: 0 18px; }
+            .hero { padding: 48px 18px; }
+            .price-card { padding: 36px 22px 32px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LANGUAGE TOGGLE -->
+    <button class="lang-toggle" id="langToggleBtn" onclick="toggleLanguage()">EN</button>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="hero">
+        <picture>
+            <source srcset="../img/dani08.webp" type="image/webp">
+            <img src="../img/dani08_optimized.jpeg" alt="Dani Bonilla" class="hero-avatar" width="72" height="72">
+        </picture>
+        <p class="hero-tag">Dani Bonilla</p>
+        <h1 data-i18n="hero.title">No tienes un problema de contenido. Tienes un problema de diagnóstico.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Publicas con constancia, estudias el algoritmo, persigues tendencias... y nada despega. No porque tu contenido sea malo, sino porque nadie te ha señalado dónde se pierde la audiencia.</p>
+        <div class="hero-cta">
+            <a href="#pricing" class="btn-primary" data-i18n="hero.cta" id="heroCta">Reservar diagnóstico · 250 €</a>
+        </div>
+        <div class="hero-scroll"><span></span></div>
+    </section>
+
+    <div class="wrapper">
+
+        <!-- QUÉ ES ESTO -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="what.label">Qué es esto</p>
+            <p class="s-text" data-i18n="what.text1">Un <strong>diagnóstico completo</strong> de tu canal y de un vídeo a tu elección. Analizo la cadena entera (clic, visualización, acción) y te muestro dónde se rompe.</p>
+            <p class="s-text" data-i18n="what.text2">No es una charla motivacional ni una lista de "buenas prácticas" genéricas. Es un <strong>análisis forense</strong> de tu contenido, con recomendaciones concretas basadas en más de 10 años estudiando YouTube.</p>
+        </section>
+
+        <!-- QUÉ ANALIZO -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="analyze.label">Qué analizo</p>
+            <div class="a-grid stagger">
+                <div class="a-item">
+                    <span class="a-num">01</span>
+                    <div>
+                        <h3 data-i18n="analyze.1.title">Posicionamiento del canal</h3>
+                        <p data-i18n="analyze.1.desc">Quién eres, para quién creas, y si tu canal comunica eso con claridad.</p>
+                    </div>
+                </div>
+                <div class="a-item">
+                    <span class="a-num">02</span>
+                    <div>
+                        <h3 data-i18n="analyze.2.title">Estrategia de contenido</h3>
+                        <p data-i18n="analyze.2.desc">Qué estás publicando, qué falta, y qué te está desviando.</p>
+                    </div>
+                </div>
+                <div class="a-item">
+                    <span class="a-num">03</span>
+                    <div>
+                        <h3 data-i18n="analyze.3.title">Packaging</h3>
+                        <p data-i18n="analyze.3.desc">Si tus títulos y miniaturas están a la altura del contenido que hay detrás.</p>
+                    </div>
+                </div>
+                <div class="a-item">
+                    <span class="a-num">04</span>
+                    <div>
+                        <h3 data-i18n="analyze.4.title">Storytelling y retención</h3>
+                        <p data-i18n="analyze.4.desc">Dónde abandonan los espectadores tu vídeo, y qué lo causa.</p>
+                        <span class="a-tag" data-i18n="analyze.4.tag">Mi especialidad</span>
+                    </div>
+                </div>
+                <div class="a-item">
+                    <span class="a-num">05</span>
+                    <div>
+                        <h3 data-i18n="analyze.5.title">Conversión</h3>
+                        <p data-i18n="analyze.5.desc">Si tu contenido realmente mueve a la gente hacia tu objetivo: ventas, leads, suscriptores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ RECIBES -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="deliver.label">Qué recibes</p>
+            <div class="d-grid stagger">
+                <div class="d-card">
+                    <span class="icon">📄</span>
+                    <h3 data-i18n="deliver.1.title">Informe escrito</h3>
+                    <p data-i18n="deliver.1.desc">Qué corregir primero, qué puede esperar, y qué dejar de hacer. Todo priorizado.</p>
+                    <div class="d-detail" data-i18n="deliver.1.detail">Documento con plan de acción</div>
+                </div>
+                <div class="d-card">
+                    <span class="icon">🎬</span>
+                    <h3 data-i18n="deliver.2.title">Vídeo walkthrough</h3>
+                    <p data-i18n="deliver.2.desc">Te grabo un vídeo donde recorro el informe punto por punto y explico el porqué de cada recomendación.</p>
+                    <div class="d-detail" data-i18n="deliver.2.detail">15 a 30 min de vídeo personal</div>
+                </div>
+            </div>
+
+            <div class="value-summary reveal">
+                <h3 data-i18n="value.title">Lo que incluye</h3>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.1.label">Análisis del canal</span>
+                    <span class="v-data" data-i18n="value.1.data">Posicionamiento + estrategia</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.2.label">Análisis de vídeo</span>
+                    <span class="v-data" data-i18n="value.2.data">1 vídeo a tu elección</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.3.label">Informe escrito</span>
+                    <span class="v-data" data-i18n="value.3.data">Con acciones priorizadas</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.4.label">Vídeo personal</span>
+                    <span class="v-data" data-i18n="value.4.data">15 a 30 min</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.5.label">Plazo de entrega</span>
+                    <span class="v-data" data-i18n="value.5.data">Máx. 21 días laborables</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ / SOCIAL PROOF -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="about.label">Sobre mí</p>
+            <div class="proof-row">
+                <picture>
+                    <source srcset="../img/dani08.webp" type="image/webp">
+                    <img src="../img/dani08_optimized.jpeg" alt="Dani Bonilla" class="proof-avatar" width="52" height="52">
+                </picture>
+                <div>
+                    <div class="proof-name">Dani Bonilla</div>
+                    <div class="proof-bio" data-i18n="about.bio">YouTube · Storytelling · Alta producción</div>
+                </div>
+            </div>
+            <div class="proof-stats stagger">
+                <div class="stat"><div class="stat-n">130K</div><div class="stat-l" data-i18n="about.stat1">Suscriptores</div></div>
+                <div class="stat"><div class="stat-n">6M+</div><div class="stat-l" data-i18n="about.stat2">Visualizaciones</div></div>
+                <div class="stat"><div class="stat-n">50+</div><div class="stat-l" data-i18n="about.stat3">Auditorías</div></div>
+            </div>
+            <div class="case-card reveal">
+                <p data-i18n="about.case">Un cliente aplicó mis recomendaciones y su siguiente vídeo pasó de 1.000 a 500.000 visualizaciones.</p>
+                <div class="cap" data-i18n="about.case.cap">Resultado real de una auditoría</div>
+            </div>
+            <p class="niches reveal" data-i18n="about.niches">He auditado canales de viajes, finanzas, idiomas, fitness, storytelling, coaching y tecnología.</p>
+            <p class="proof-close reveal" data-i18n="about.close"><strong>No vendo trucos de crecimiento.</strong> Encuentro lo que falla y te explico cómo solucionarlo.</p>
+        </section>
+
+        <!-- PRICING -->
+        <div class="divider"></div>
+        <section class="pricing-zone reveal" id="pricing">
+            <div class="price-card" id="priceCard" data-label="DIAGNÓSTICO COMPLETO">
+                <div class="price-amount" data-i18n="price.amount">250 €</div>
+                <p class="price-split" data-i18n="price.split"><strong>50 % al reservar</strong> · 50 % antes de la entrega</p>
+                <div class="price-cta">
+                    <a href="https://gumroad.com/checkout?product=esfxuu&option=yj7u_nwcslwQFIacyUxUWg%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*rbjh6q*_ga*MTU5ODUzNTA4Ni4xNzY5MjgwMjUy*_ga_6LJN6D94N6*czE3NzA3NDI2MTgkbzQxJGcxJHQxNzcwNzQzNTE5JGo2MCRsMCRoMA.."
+                       class="btn-primary btn-large"
+                       target="_blank"
+                       rel="noopener"
+                       id="mainCta"
+                       data-i18n="price.cta">Reservar diagnóstico</a>
+                </div>
+                <p class="price-inc" data-i18n="price.includes">Informe escrito + vídeo walkthrough personalizado<br>Entrega en máx. 21 días laborables</p>
+            </div>
+
+            <div class="conds">
+                <ul>
+                    <li data-i18n="conds.1">El proceso es 100 % asíncrono. No incluye llamadas.</li>
+                    <li data-i18n="conds.2">Recibes una entrega final: informe + vídeo. No incluye rondas de revisión.</li>
+                </ul>
+                <div class="guarantee" data-i18n="guarantee">Si al revisar tu material determino que no puedo aportarte valor real (mal encaje, datos insuficientes o fuera de mi experiencia), cancelo el pedido y te devuelvo el importe íntegro.</div>
+            </div>
+        </section>
+
+        <!-- QUÉ NECESITO DE TI -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="req.label">Qué necesito de ti</p>
+            <p class="s-text" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 4px;" data-i18n="req.intro">Después de la compra te pediré que rellenes un breve formulario con:</p>
+            <ol class="req-list stagger">
+                <li data-i18n="req.1">Enlace a tu canal</li>
+                <li data-i18n="req.2">Enlace al vídeo que quieres que analice</li>
+                <li data-i18n="req.3">Un brief (máx. 1.500 palabras) que incluya:
+                    <ul class="req-sub">
+                        <li data-i18n="req.3a">Tu modelo de negocio (qué vendes o cómo monetizas)</li>
+                        <li data-i18n="req.3b">Tu audiencia objetivo y meta principal</li>
+                        <li data-i18n="req.3c">Datos de retención y CTR de YouTube Studio</li>
+                        <li data-i18n="req.3d">Hasta 3 competidores (opcional)</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; Dani Bonilla · <a href="/">danibonilla.com</a></p>
+    </footer>
+
+    <!-- STICKY CTA (mobile only) -->
+    <div class="sticky-cta" id="stickyCta">
+        <a href="https://gumroad.com/checkout?product=esfxuu&option=yj7u_nwcslwQFIacyUxUWg%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*rbjh6q*_ga*MTU5ODUzNTA4Ni4xNzY5MjgwMjUy*_ga_6LJN6D94N6*czE3NzA3NDI2MTgkbzQxJGcxJHQxNzcwNzQzNTE5JGo2MCRsMCRoMA.."
+           class="btn-primary"
+           target="_blank"
+           rel="noopener"
+           id="stickyCta-link"
+           data-i18n="sticky.cta">Reservar diagnóstico · 250 €</a>
+    </div>
+
+    <script>
+    (function () {
+        // =============================================
+        // GUMROAD URLS
+        // =============================================
+        var GUMROAD = {
+            es: 'https://gumroad.com/checkout?product=esfxuu&option=yj7u_nwcslwQFIacyUxUWg%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*rbjh6q*_ga*MTU5ODUzNTA4Ni4xNzY5MjgwMjUy*_ga_6LJN6D94N6*czE3NzA3NDI2MTgkbzQxJGcxJHQxNzcwNzQzNTE5JGo2MCRsMCRoMA..',
+            en: 'https://gumroad.com/checkout?product=esfxuu&option=USxyLh_ExSlpeJ7Xxm2aLg%3D%3D&quantity=1&referrer=https%3A%2F%2Fgumroad.com%2F&_gl=1*xn9k5t*_ga*MTU5ODUzNTA4Ni4xNzY5MjgwMjUy*_ga_6LJN6D94N6*czE3NzA3NDI2MTgkbzQxJGcxJHQxNzcwNzQ0NDIxJGo0OSRsMCRoMA..'
+        };
+
+        // =============================================
+        // ENGLISH TRANSLATIONS
+        // =============================================
+        var en = {
+            "meta.title": "YouTube Channel Diagnostic — Dani Bonilla",
+            "meta.description": "Complete diagnostic of your YouTube channel. A forensic analysis of your content based on 10+ years of experience.",
+            "hero.title": "You don't have a content problem. You have a diagnostic problem.",
+            "hero.sub": "You publish consistently, study the algorithm, chase trends... and nothing takes off. Not because your content is bad, but because no one has shown you where you're losing your audience.",
+            "hero.cta": "Book diagnostic · $300",
+            "what.label": "What is this",
+            "what.text1": 'A <strong>complete diagnostic</strong> of your channel and one video of your choice. I analyze the full chain (click, view, action) and show you where it breaks.',
+            "what.text2": 'Not a motivational talk or a list of generic "best practices." It\'s a <strong>forensic analysis</strong> of your content, with specific recommendations based on 10+ years studying YouTube.',
+            "analyze.label": "What I analyze",
+            "analyze.1.title": "Channel positioning",
+            "analyze.1.desc": "Who you are, who you create for, and whether your channel communicates that clearly.",
+            "analyze.2.title": "Content strategy",
+            "analyze.2.desc": "What you're publishing, what's missing, and what's pulling you off track.",
+            "analyze.3.title": "Packaging",
+            "analyze.3.desc": "Whether your titles and thumbnails live up to the content behind them.",
+            "analyze.4.title": "Storytelling & retention",
+            "analyze.4.desc": "Where viewers drop off your video, and what causes it.",
+            "analyze.4.tag": "My specialty",
+            "analyze.5.title": "Conversion",
+            "analyze.5.desc": "Whether your content actually moves people toward your goal: sales, leads, subscribers.",
+            "deliver.label": "What you get",
+            "deliver.1.title": "Written report",
+            "deliver.1.desc": "What to fix first, what can wait, and what to stop doing. All prioritized.",
+            "deliver.1.detail": "Document with action plan",
+            "deliver.2.title": "Video walkthrough",
+            "deliver.2.desc": "I record a video walking through the report point by point, explaining the reasoning behind each recommendation.",
+            "deliver.2.detail": "15 to 30 min personal video",
+            "value.title": "What's included",
+            "value.1.label": "Channel analysis",
+            "value.1.data": "Positioning + strategy",
+            "value.2.label": "Video analysis",
+            "value.2.data": "1 video of your choice",
+            "value.3.label": "Written report",
+            "value.3.data": "With prioritized actions",
+            "value.4.label": "Personal video",
+            "value.4.data": "15 to 30 min",
+            "value.5.label": "Delivery time",
+            "value.5.data": "Max. 21 business days",
+            "about.label": "About me",
+            "about.bio": "YouTube · Storytelling · High production",
+            "about.stat1": "Subscribers",
+            "about.stat2": "Views",
+            "about.stat3": "Audits",
+            "about.case": "One client applied my recommendations and their next video went from 1,000 to 500,000 views.",
+            "about.case.cap": "Real result from an audit",
+            "about.niches": "I've audited channels in travel, finance, languages, fitness, storytelling, coaching, and tech.",
+            "about.close": "<strong>I don't sell growth hacks.</strong> I find what's broken and show you how to fix it.",
+            "price.amount": "$300",
+            "price.split": "<strong>50% upfront</strong> · 50% before delivery",
+            "price.cta": "Book diagnostic",
+            "price.includes": "Written report + personalized video walkthrough<br>Delivery in max. 21 business days",
+            "conds.1": "The process is 100% async. No calls included.",
+            "conds.2": "You receive one final delivery: report + video. No revision rounds included.",
+            "guarantee": "If after reviewing your material I determine I can't deliver real value (bad fit, insufficient data, or outside my expertise), I cancel the order and refund you in full.",
+            "req.label": "What I need from you",
+            "req.intro": "After purchase, I'll ask you to fill out a short form with:",
+            "req.1": "Link to your channel",
+            "req.2": "Link to the video you want me to analyze",
+            "req.3": 'A brief (max. 1,500 words) that includes:<ul class="req-sub"><li>Your business model (what you sell or how you monetize)</li><li>Your target audience and main goal</li><li>Retention and CTR data from YouTube Studio</li><li>Up to 3 competitors (optional)</li></ul>',
+            "sticky.cta": "Book diagnostic · $300"
+        };
+
+        // =============================================
+        // STATE
+        // =============================================
+        var originalTexts = {};
+        var currentLang = 'es';
+
+        // =============================================
+        // INIT
+        // =============================================
+        document.addEventListener('DOMContentLoaded', function () {
+            // Save original Spanish texts
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                originalTexts[el.getAttribute('data-i18n')] = el.innerHTML;
+            });
+
+            // Detection priority: URL param > localStorage > browser language
+            var urlParams = new URLSearchParams(window.location.search);
+            var langParam = urlParams.get('lang');
+            var savedLang = localStorage.getItem('consultLanguage');
+            var browserLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+            var browserIsEnglish = browserLang.startsWith('en');
+
+            var targetLang = langParam || savedLang || (browserIsEnglish ? 'en' : 'es');
+
+            if (targetLang === 'en') {
+                loadEnglish();
+            } else {
+                currentLang = 'es';
+                updateButton('EN');
+                document.documentElement.lang = 'es';
+            }
+
+            // Scroll reveal
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+
+            document.querySelectorAll('.reveal, .stagger').forEach(function (el) { obs.observe(el); });
+
+            // Sticky CTA: show after hero, hide at pricing
+            var sticky = document.getElementById('stickyCta');
+            var pricingSection = document.getElementById('pricing');
+            if (sticky && pricingSection) {
+                var heroEnd = document.querySelector('.hero').offsetHeight;
+                var pastHero = false;
+                var pricingVisible = false;
+
+                var pricingObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        pricingVisible = e.isIntersecting;
+                        updateSticky();
+                    });
+                }, { threshold: 0.15 });
+                pricingObs.observe(pricingSection);
+
+                var ticking = false;
+                window.addEventListener('scroll', function () {
+                    if (!ticking) {
+                        requestAnimationFrame(function () {
+                            pastHero = window.scrollY > heroEnd * 0.7;
+                            updateSticky();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+
+                function updateSticky() {
+                    sticky.classList.toggle('show', pastHero && !pricingVisible);
+                }
+            }
+        });
+
+        // =============================================
+        // LANGUAGE FUNCTIONS
+        // =============================================
+        function loadEnglish() {
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                var key = el.getAttribute('data-i18n');
+                if (en[key]) el.innerHTML = en[key];
+            });
+
+            // Update price card label
+            var priceCard = document.getElementById('priceCard');
+            if (priceCard) priceCard.setAttribute('data-label', 'COMPLETE DIAGNOSTIC');
+
+            // Update Gumroad links
+            updateLinks(GUMROAD.en);
+
+            currentLang = 'en';
+            localStorage.setItem('consultLanguage', 'en');
+            updateButton('ES');
+            document.documentElement.lang = 'en';
+
+            var url = new URL(window.location);
+            url.searchParams.set('lang', 'en');
+            window.history.replaceState({}, '', url);
+        }
+
+        function loadSpanish() {
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                var key = el.getAttribute('data-i18n');
+                if (originalTexts[key]) el.innerHTML = originalTexts[key];
+            });
+
+            var priceCard = document.getElementById('priceCard');
+            if (priceCard) priceCard.setAttribute('data-label', 'DIAGNÓSTICO COMPLETO');
+
+            updateLinks(GUMROAD.es);
+
+            currentLang = 'es';
+            localStorage.setItem('consultLanguage', 'es');
+            updateButton('EN');
+            document.documentElement.lang = 'es';
+
+            var url = new URL(window.location);
+            url.searchParams.delete('lang');
+            window.history.replaceState({}, '', url);
+        }
+
+        function updateLinks(url) {
+            var mainCta = document.getElementById('mainCta');
+            var stickyLink = document.getElementById('stickyCta-link');
+            if (mainCta) mainCta.href = url;
+            if (stickyLink) stickyLink.href = url;
+        }
+
+        function updateButton(label) {
+            var btn = document.getElementById('langToggleBtn');
+            if (btn) btn.textContent = label;
+        }
+
+        // Expose toggle globally
+        window.toggleLanguage = function () {
+            if (currentLang === 'es') {
+                loadEnglish();
+            } else {
+                loadSpanish();
+            }
+        };
+    })();
+    </script>
+
+</body>
+</html>
