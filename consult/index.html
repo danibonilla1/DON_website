@@ -450,6 +450,23 @@
             margin-right: auto;
         }
 
+        .price-scarcity {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--highlight);
+            font-weight: 500;
+        }
+
+        .price-roi {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* ---- REQUIREMENTS ---- */
         .req-list { list-style: none; counter-reset: req; margin-top: 24px; }
 
@@ -495,6 +512,25 @@
             left: 4px;
             color: var(--border-hover);
             font-weight: 700;
+        }
+
+        /* ---- FAQ ---- */
+        .faq-list { margin-top: 24px; }
+
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; }
+        .faq-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .req-note {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         /* ---- FOOTER ---- */
@@ -635,46 +671,6 @@
             </div>
         </section>
 
-        <!-- QUÉ RECIBES -->
-        <div class="divider"></div>
-        <section class="s reveal">
-            <p class="s-label" data-i18n="deliver.label">Qué recibes</p>
-            <div class="d-grid stagger">
-                <div class="d-card">
-                    <span class="icon">📄</span>
-                    <h3 data-i18n="deliver.1.title">Informe escrito</h3>
-                    <p data-i18n="deliver.1.desc">Qué corregir primero, qué puede esperar, y qué dejar de hacer. Todo priorizado.</p>
-                    <div class="d-detail" data-i18n="deliver.1.detail">Documento con plan de acción</div>
-                </div>
-                <div class="d-card">
-                    <span class="icon">🎬</span>
-                    <h3 data-i18n="deliver.2.title">Vídeo walkthrough</h3>
-                    <p data-i18n="deliver.2.desc">Te grabo un vídeo donde recorro el informe punto por punto y explico el porqué de cada recomendación.</p>
-                    <div class="d-detail" data-i18n="deliver.2.detail">15 a 30 min de vídeo personal</div>
-                </div>
-            </div>
-
-            <div class="value-summary reveal">
-                <h3 data-i18n="value.title">Lo que incluye</h3>
-                <div class="value-row">
-                    <span class="v-label" data-i18n="value.1.label">Análisis de vídeo</span>
-                    <span class="v-data" data-i18n="value.1.data">1 vídeo a tu elección</span>
-                </div>
-                <div class="value-row">
-                    <span class="v-label" data-i18n="value.2.label">Informe escrito</span>
-                    <span class="v-data" data-i18n="value.2.data">Con acciones priorizadas</span>
-                </div>
-                <div class="value-row">
-                    <span class="v-label" data-i18n="value.3.label">Vídeo personal</span>
-                    <span class="v-data" data-i18n="value.3.data">15 a 30 min</span>
-                </div>
-                <div class="value-row">
-                    <span class="v-label" data-i18n="value.4.label">Plazo de entrega</span>
-                    <span class="v-data" data-i18n="value.4.data">Máx. 21 días laborables</span>
-                </div>
-            </div>
-        </section>
-
         <!-- SOBRE MÍ / SOCIAL PROOF -->
         <div class="divider"></div>
         <section class="s reveal">
@@ -704,7 +700,52 @@
             </div>
             <p class="niches reveal" data-i18n="about.niches">He trabajado con todo tipo de canales en YouTube, tanto en inglés como en español. Entre ellos: viajes, finanzas, idiomas, fitness, storytelling, coaching y tecnología.</p>
             <p class="proof-close reveal" data-i18n="about.close"><strong>No vendo trucos de crecimiento.</strong> Encuentro lo que falla y te explico cómo solucionarlo.</p>
+            <div style="text-align: center; margin-top: 28px;" class="reveal">
+                <a href="#pricing" class="btn-primary" data-i18n="mid.cta">Reservar análisis · 500 €</a>
+            </div>
         </section>
+
+        <!-- QUÉ RECIBES -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="deliver.label">Qué recibes</p>
+            <div class="d-grid stagger">
+                <div class="d-card">
+                    <span class="icon">📄</span>
+                    <h3 data-i18n="deliver.1.title">Informe escrito</h3>
+                    <p data-i18n="deliver.1.desc">Qué corregir primero, qué puede esperar, y qué dejar de hacer — todo priorizado para que sepas exactamente por dónde empezar.</p>
+                    <div class="d-detail" data-i18n="deliver.1.detail">Documento con plan de acción</div>
+                </div>
+                <div class="d-card">
+                    <span class="icon">🎬</span>
+                    <h3 data-i18n="deliver.2.title">Vídeo walkthrough</h3>
+                    <p data-i18n="deliver.2.desc">Te grabo un vídeo donde recorro el informe punto por punto — como si me sentara contigo de 15 a 30 min a explicarte cada recomendación.</p>
+                    <div class="d-detail" data-i18n="deliver.2.detail">De 15 a 30 min de vídeo personal</div>
+                </div>
+            </div>
+
+            <div class="value-summary reveal">
+                <h3 data-i18n="value.title">Lo que incluye</h3>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.1.label">Análisis de vídeo</span>
+                    <span class="v-data" data-i18n="value.1.data">1 vídeo a tu elección</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.2.label">Informe escrito</span>
+                    <span class="v-data" data-i18n="value.2.data">Con acciones priorizadas</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.3.label">Vídeo personal</span>
+                    <span class="v-data" data-i18n="value.3.data">De 15 a 30 min</span>
+                </div>
+                <div class="value-row">
+                    <span class="v-label" data-i18n="value.4.label">Plazo de entrega</span>
+                    <span class="v-data" data-i18n="value.4.data">Máx. 21 días laborables</span>
+                </div>
+            </div>
+        </section>
+
+
 
         <!-- PRICING -->
         <div class="divider"></div>
@@ -720,7 +761,8 @@
                        id="mainCta"
                        data-i18n="price.cta">Reservar análisis</a>
                 </div>
-                <p class="price-inc" data-i18n="price.includes">Informe escrito + vídeo walkthrough personalizado<br>Entrega en máx. 21 días laborables</p>
+                <p class="price-inc" data-i18n="price.includes">Informe escrito con plan de acción + vídeo personal de 15 a 30 min</p>
+                <p class="price-scarcity" data-i18n="price.scarcity">De media acepto de 2 a 4 análisis al mes.</p>
             </div>
 
             <div class="conds">
@@ -729,6 +771,31 @@
                     <li data-i18n="conds.2">Recibes una entrega final: informe + vídeo. No incluye rondas de revisión.</li>
                 </ul>
                 <div class="guarantee" data-i18n="guarantee">Si al revisar tu material determino que no puedo aportarte valor real (mal encaje, datos insuficientes o fuera de mi experiencia), cancelo el pedido y te devuelvo el importe íntegro.</div>
+            </div>
+            <p class="price-roi" data-i18n="price.roi">Un solo vídeo de impacto puede ser el cambio definitivo de tu canal.</p>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <div class="divider"></div>
+        <section class="s reveal">
+            <p class="s-label" data-i18n="faq.label">Preguntas frecuentes</p>
+            <div class="faq-list stagger">
+                <div class="faq-item">
+                    <h3 data-i18n="faq.1.q">¿Funciona si mi canal es pequeño?</h3>
+                    <p data-i18n="faq.1.a">Sí. Da igual si tienes 100 o 100.000 suscriptores. Analizo el vídeo en sí, no el tamaño de tu canal.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="faq.2.q">¿En cuánto tiempo veré resultados?</h3>
+                    <p data-i18n="faq.2.a">Depende de lo rápido que apliques las recomendaciones. Algunos clientes ven mejoras desde el siguiente vídeo.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="faq.3.q">¿Puedo hacer preguntas después?</h3>
+                    <p data-i18n="faq.3.a">El servicio es una entrega cerrada — informe + vídeo. Si necesitas algo más, podemos hablarlo por el formulario de contacto.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 data-i18n="faq.4.q">¿Y si mi nicho es muy específico?</h3>
+                    <p data-i18n="faq.4.a">He trabajado con canales de todo tipo. Los principios de storytelling, retención y packaging son universales en YouTube.</p>
+                </div>
             </div>
         </section>
 
@@ -749,6 +816,7 @@
                     </ul>
                 </li>
             </ol>
+            <p class="req-note" data-i18n="req.note">No te preocupes si no tienes todo. Rellena lo que puedas y yo me encargo del resto.</p>
         </section>
 
         <!-- CONTACTO PARA OTRAS NECESIDADES -->
@@ -810,10 +878,10 @@
             "analyze.4.desc": "Whether the visual and audio rhythm supports the message or sabotages it.",
             "deliver.label": "What you get",
             "deliver.1.title": "Written report",
-            "deliver.1.desc": "What to fix first, what can wait, and what to stop doing. All prioritized.",
+            "deliver.1.desc": "What to fix first, what can wait, and what to stop doing — all prioritized so you know exactly where to start.",
             "deliver.1.detail": "Document with action plan",
             "deliver.2.title": "Video walkthrough",
-            "deliver.2.desc": "I record a video walking through the report point by point, explaining the reasoning behind each recommendation.",
+            "deliver.2.desc": "I record a video walking through the report point by point — as if I sat down with you for 15 to 30 min to explain each recommendation.",
             "deliver.2.detail": "15 to 30 min personal video",
             "value.title": "What's included",
             "value.1.label": "Video analysis",
@@ -834,17 +902,30 @@
             "about.case2": "Another client stuck at 100 views per video. After my recommendations, they hit 25,000 on their next one.",
             "about.niches": "I've worked with all kinds of YouTube channels, in both English and Spanish. Including: travel, finance, languages, fitness, storytelling, coaching, and tech.",
             "about.close": "<strong>I don't sell growth hacks.</strong> I find what's broken and show you how to fix it.",
+            "mid.cta": "Book analysis · $600",
             "price.amount": "$600",
             "price.split": "<strong>50% upfront</strong> · 50% before delivery",
             "price.cta": "Book analysis",
-            "price.includes": "Written report + personalized video walkthrough<br>Delivery in max. 21 business days",
+            "price.includes": "Written report with action plan + personal video of 15 to 30 min",
+            "price.scarcity": "On average, I take on 2 to 4 analyses per month.",
             "conds.1": "The entire process is in writing. No calls included.",
             "conds.2": "You receive one final delivery: report + video. No revision rounds included.",
             "guarantee": "If after reviewing your material I determine I can't deliver real value (bad fit, insufficient data, or outside my expertise), I cancel the order and refund you in full.",
+            "price.roi": "One high-impact video could be the turning point for your channel.",
             "req.label": "What I need from you",
             "req.intro": "After purchase, I'll ask you for:",
             "req.1": "Link to the video you want me to analyze",
             "req.2": 'A text (max. 1,500 words) with:<ul class="req-sub"><li>What you sell / how you monetize</li><li>Your target audience</li><li>Your main goal (views, leads, sales)</li><li>3 competitor channels (optional)</li><li>Retention & CTR data from YouTube Studio for the chosen video</li></ul>',
+            "req.note": "Don't worry if you don't have everything. Fill in what you can and I'll take care of the rest.",
+            "faq.label": "Frequently asked questions",
+            "faq.1.q": "Does it work if my channel is small?",
+            "faq.1.a": "Yes. Whether you have 100 or 100,000 subscribers, I analyze the video itself, not your channel size.",
+            "faq.2.q": "How soon will I see results?",
+            "faq.2.a": "It depends on how quickly you apply the recommendations. Some clients see improvements from their very next video.",
+            "faq.3.q": "Can I ask questions afterwards?",
+            "faq.3.a": "The service is one closed delivery — report + video. If you need anything else, we can discuss it via the contact form.",
+            "faq.4.q": "What if my niche is very specific?",
+            "faq.4.a": "I've worked with all kinds of channels. The principles of storytelling, retention, and packaging are universal on YouTube.",
             "contact.label": "Need something different?",
             "contact.text": "If you're looking for a broader consultation, channel strategy, or anything else, let me know here:",
             "contact.cta": "Fill out the contact form",
