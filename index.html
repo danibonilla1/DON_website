@@ -22,6 +22,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.min.css">
+    <style>
+        .yt-comments-container{display:flex;flex-direction:column;gap:12px;margin-top:15px;align-items:center}
+        .yt-comment{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);padding:12px 16px;border-radius:12px;width:100%;max-width:450px;text-align:left;border:1px solid rgba(255,255,255,.08);transition:transform .2s ease}
+        .yt-comment:hover{transform:translateY(-2px);background:rgba(255,255,255,.09)}
+        .yt-avatar{width:32px;height:32px;border-radius:50%;background-color:#333;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23999"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');background-size:20px;background-repeat:no-repeat;background-position:center;flex-shrink:0}
+        .yt-comment-content{display:flex;flex-direction:column;gap:4px}
+        .yt-username{font-size:.8rem;font-weight:600;color:#aaa}
+        .yt-comment-content p{margin:0;font-size:.95rem;line-height:1.4;color:#eee;font-style:italic}
+        .waitlist-form .tier-cta-solid{padding:16px 28px;border-radius:12px;box-shadow:0 6px 20px rgba(212,175,55,.35);animation:ctaPulse 3s ease-in-out infinite}
+        .waitlist-form .tier-cta-solid:hover{animation:none}
+        @keyframes ctaPulse{0%,100%{box-shadow:0 6px 20px rgba(212,175,55,.35)}50%{box-shadow:0 6px 28px rgba(212,175,55,.55)}}
+    </style>
 </head>
 
 <body>
@@ -69,10 +81,7 @@
                             </div>
 
                             <div class="tier-description">
-                                <p data-i18n="waitlist.description">En los vídeos cuento fragmentos. Aquí va la historia 
-                                entera, con las partes que me costó más contar 
-                                y las notas que escribí antes de grabar nada. 
-                                Estoy todavía en proceso de terminarla. Te aviso cuando esté terminado.</p>
+                                <p data-i18n="waitlist.description">Déjame tu email y <strong>te envío al instante el primer capítulo</strong> (y las notas originales de mi cuaderno). Además, te avisaré el primero cuando la historia completa esté lista.</p>
                             </div>
 
                             <form class="waitlist-form" onsubmit="submitWaitlist(event)">
@@ -85,7 +94,7 @@
                                 <button type="submit" 
                                         class="tier-cta tier-cta-solid" 
                                         id="waitlistBtn">
-                                    <span data-i18n="waitlist.cta">Avísame cuando esté listo</span>
+                                    <span data-i18n="waitlist.cta">Quiero leer el primer capítulo</span>
                                 </button>
                             </form>
                             
@@ -142,17 +151,28 @@
             <div class="social-proof-inline">
                 <p class="social-proof-label" data-i18n="waitlist.socialLabel">Comentarios en YouTube</p>
                 
-                <div class="inline-testimonial">
-                    <p data-i18n="waitlist.testimonial1">"Me dejó con ganas de saber más"</p>
-                    <span>— @danielnaharro6087</span>
-                </div>
-                <div class="inline-testimonial">
-                    <p data-i18n="waitlist.testimonial2">"Quiero ver el resto de la historia"</p>
-                    <span>— @Lilesihe</span>
-                </div>
-                <div class="inline-testimonial">
-                    <p data-i18n="waitlist.testimonial3">"Tu manera de contar es cautivadora"</p>
-                    <span>— @Katjana_Lamb</span>
+                <div class="yt-comments-container">
+                    <div class="yt-comment">
+                        <div class="yt-avatar"></div>
+                        <div class="yt-comment-content">
+                            <span class="yt-username">@danielnaharro6087</span>
+                            <p data-i18n="waitlist.testimonial1">"Me dejó con ganas de saber más"</p>
+                        </div>
+                    </div>
+                    <div class="yt-comment">
+                        <div class="yt-avatar"></div>
+                        <div class="yt-comment-content">
+                            <span class="yt-username">@Lilesihe</span>
+                            <p data-i18n="waitlist.testimonial2">"Quiero ver el resto de la historia"</p>
+                        </div>
+                    </div>
+                    <div class="yt-comment">
+                        <div class="yt-avatar"></div>
+                        <div class="yt-comment-content">
+                            <span class="yt-username">@Katjana_Lamb</span>
+                            <p data-i18n="waitlist.testimonial3">"Tu manera de contar es cautivadora"</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -162,7 +182,7 @@
 
     <!-- =====================================================
          SOBRE EL AUTOR
-         ===================================================== 
+         ===================================================== -->
     <section class="author-section fade-in">
         <h2 class="section-title">Sobre Dani</h2>
         <div class="author-container">
@@ -181,7 +201,7 @@
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>
 
 
     <!-- =====================================================
@@ -191,7 +211,10 @@
         <p data-i18n="waitlist.footer">&copy; Dani Bonilla</p>
     </footer>
 
-    <script src="js/bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/waitlist.js"></script>
 
 </body>
 
