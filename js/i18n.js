@@ -167,18 +167,18 @@ var englishTranslations = {
   "meta.title": "Diary of a Black Sheep",
   "footer.copyright": "© Dani Bonilla. All are products of the author's artistic expression.",
 
-  // Waitlist page translations
+  // Waitlist page translations (English = purchase framing)
   "waitlist.pretitle": "What you saw was just a fragment.",
-  "waitlist.title": "The complete story, only here.",
-  "waitlist.badge": "Coming soon",
+  "waitlist.title": "The full story starts here.",
+  "waitlist.badge": "Volume 1",
   "waitlist.tierName": "Diary of a<br>Black Sheep",
-  "waitlist.description": "Leave your email and <strong>I will instantly send you the first chapter</strong> (and the original notes from my notebook). Plus, I'll let you know first when the full story is ready.",
+  "waitlist.description": "<strong>Chapter 1 is ready.</strong> The story behind the videos, told from the very beginning. Get instant access now — and be the first to receive new chapters and updates as they come.",
   "waitlist.cta": "I want to read the first chapter",
   "waitlist.hint": "Already <strong>21+</strong> people waiting. I'll only reach out when it matters.",
-  "waitlist.feature1.main": "First to know",
-  "waitlist.feature1.sub": "You'll hear from me first",
-  "waitlist.feature2.main": "The story from start to finish",
-  "waitlist.feature2.sub": "No algorithm dependency",
+  "waitlist.feature1.main": "Volume 1 — Chapter 1",
+  "waitlist.feature1.sub": "Instant access after purchase",
+  "waitlist.feature2.main": "Future chapters & updates",
+  "waitlist.feature2.sub": "New content delivered as it's written",
   "waitlist.feature3.main": "What doesn't make it on camera",
   "waitlist.feature3.sub": "Notes, reflections, the untold parts",
   "waitlist.socialLabel": "YouTube comments",
@@ -186,6 +186,13 @@ var englishTranslations = {
   "waitlist.testimonial2": "\"I want to see the rest of the story\"",
   "waitlist.testimonial3": "\"Your storytelling is captivating\"",
   "waitlist.footer": "&copy; Dani Bonilla",
+
+  // Purchase block (English only)
+  "purchase.price": "$5",
+  "purchase.priceSub": "Recommended · Minimum $3",
+  "purchase.pwyw": "Pay what you want",
+  "purchase.cta": "Get Chapter 1 Now",
+  "purchase.hint": "Every dollar goes directly to the author.<br>Instant access after purchase.",
 
   "pricing.eyebrow": "Your way to experience the story",
   "pricing.title": "Diary of a Black Sheep",
@@ -403,6 +410,8 @@ document.addEventListener('DOMContentLoaded', function () {
     updateButton('EN');
     window.currentLanguage = 'es';
     document.documentElement.lang = 'es';
+    document.body.classList.add('lang-es');
+    document.body.classList.remove('lang-en');
     updateToggleVisibility('es');
   }
 });
@@ -420,6 +429,8 @@ function loadEnglish() {
   localStorage.setItem('userLanguage', 'en');
   updateButton('ES');
   document.documentElement.lang = 'en';
+  document.body.classList.add('lang-en');
+  document.body.classList.remove('lang-es');
   updateToggleVisibility('en');
 
   // Update email placeholder for English
@@ -447,6 +458,8 @@ function loadSpanish() {
   localStorage.setItem('userLanguage', 'es');
   updateButton('EN');
   document.documentElement.lang = 'es';
+  document.body.classList.add('lang-es');
+  document.body.classList.remove('lang-en');
   updateToggleVisibility('es');
 
   // Restore email placeholder for Spanish

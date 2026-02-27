@@ -33,6 +33,24 @@
         .waitlist-form .tier-cta-solid{padding:16px 28px;border-radius:12px;box-shadow:0 6px 20px rgba(212,175,55,.35);animation:ctaPulse 3s ease-in-out infinite}
         .waitlist-form .tier-cta-solid:hover{animation:none}
         @keyframes ctaPulse{0%,100%{box-shadow:0 6px 20px rgba(212,175,55,.35)}50%{box-shadow:0 6px 28px rgba(212,175,55,.55)}}
+
+        /* === ENGLISH PURCHASE BLOCK === */
+        .purchase-block{display:none}
+        body.lang-en .purchase-block{display:block}
+        body.lang-en .waitlist-form{display:none}
+        body.lang-en .waitlist-hint{display:none}
+
+        .purchase-price-display{text-align:center;margin-bottom:20px}
+        .purchase-price{font-family:'Cinzel',serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,#d4af37 0%,#f8f6f0 50%,#d4af37 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+        .purchase-price-sub{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:4px}
+        .purchase-pwyw{display:inline-block;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:#d4af37;border:1px solid rgba(212,175,55,.3);padding:4px 12px;border-radius:50px;margin-top:8px}
+
+        .purchase-cta-link{display:block;width:100%;padding:16px 28px;background:linear-gradient(135deg,#d4af37 0%,#8b7355 100%);color:#000;font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;text-align:center;border:none;border-radius:12px;cursor:pointer;transition:all .4s cubic-bezier(.4,0,.2,1);box-shadow:0 6px 20px rgba(212,175,55,.35);animation:ctaPulse 3s ease-in-out infinite;position:relative;overflow:hidden}
+        .purchase-cta-link:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 35px rgba(212,175,55,.5);background:linear-gradient(135deg,#f8f6f0 0%,#d4af37 100%);animation:none}
+        .purchase-cta-link::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:left .6s ease}
+        .purchase-cta-link:hover::before{left:100%}
+
+        .purchase-hint{font-size:.82rem;color:rgba(255,255,255,.45);margin-top:12px;text-align:center;line-height:1.5}
     </style>
 </head>
 
@@ -102,6 +120,24 @@
                                 Ya hay <strong>21+</strong> personas esperando. 
                                 Solo te avisaré cuando sea importante.
                             </p>
+
+                            <!-- ENGLISH PURCHASE BLOCK (hidden by default, shown when lang-en) -->
+                            <div class="purchase-block">
+                                <div class="purchase-price-display">
+                                    <div class="purchase-price" data-i18n="purchase.price">$5</div>
+                                    <div class="purchase-price-sub" data-i18n="purchase.priceSub">Recommended · Minimum $3</div>
+                                    <span class="purchase-pwyw" data-i18n="purchase.pwyw">Pay what you want</span>
+                                </div>
+                                <a class="purchase-cta-link" 
+                                   id="purchaseCtaLink"
+                                   href="https://gumroad.com/checkout?product=lsydwl&quantity=1&price=500"
+                                   data-i18n-text="purchase.cta">
+                                    <span data-i18n="purchase.cta">Get Chapter 1 Now</span>
+                                </a>
+                                <p class="purchase-hint" data-i18n="purchase.hint">
+                                    Every dollar goes directly to the author.<br>Instant access after purchase.
+                                </p>
+                            </div>
 
                             <div class="card-features">
                                 <div class="feature-item-visible">
