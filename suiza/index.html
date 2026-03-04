@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Guía Suiza para Profesionales — Dani Bonilla</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta name="description" content="La guía completa para profesionales cualificados que quieren dar el salto a Suiza. Con mi CV real, estrategia de entrevistas y los errores que me costaron miles de euros.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #FDFDFD;
+            --bg-alt: #F4F4F5;
+            --text-primary: #111111;
+            --text-secondary: #4A4A4A;
+            --text-muted: #8E8E93;
+            --accent-red: #da291c;
+            --accent-red-hover: #b92015;
+            --border-color: #E5E5EA;
+            --card-bg: #FFFFFF;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow-red: 0 10px 30px rgba(218, 41, 28, 0.2);
+            --spacing-gap: clamp(48px, 7vw, 90px);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection { background-color: var(--text-primary); color: #fff; }
+
+        .container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+        .container-wide { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+        section { padding: var(--spacing-gap) 0; }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        p { margin-bottom: 18px; }
+        .text-lead { font-size: 1.1rem; color: var(--text-secondary); font-weight: 300; }
+        .accent-text { color: var(--accent-red); }
+        .label {
+            display: inline-block; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--accent-red); margin-bottom: 14px;
+        }
+        .label.dark { color: var(--text-muted); }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block; background-color: var(--text-primary); color: #fff;
+            padding: 16px 32px; border-radius: 100px; text-decoration: none;
+            font-weight: 600; font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none; cursor: pointer; text-align: center;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background-color: #000; }
+        .btn.btn-red { background-color: var(--accent-red); color: #fff; box-shadow: var(--shadow-red); }
+        .btn.btn-red:hover { background-color: var(--accent-red-hover); }
+        .btn-large { padding: 18px 40px; font-size: 1.05rem; width: 100%; }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh; display: flex; align-items: center;
+            position: relative; padding: 100px 0 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero::before {
+            content: ''; position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: var(--accent-red);
+        }
+        .hero-layout {
+            display: grid; grid-template-columns: 1fr 260px;
+            gap: 40px; align-items: center;
+        }
+        .hero-content { text-align: left; }
+        .hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); margin-bottom: 20px; }
+        .hero .text-lead { font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 540px; margin-bottom: 32px; }
+        .hero-mockup { display: flex; justify-content: center; will-change: transform; }
+        .hero-mockup img {
+            max-width: 240px; width: 100%; height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+            transition: transform 0.1s linear;
+        }
+
+        /* LISTS & CARDS */
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); padding: 28px;
+            box-shadow: var(--shadow-sm); margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--text-primary); }
+
+        ul.check-list { list-style: none; }
+        ul.check-list li {
+            position: relative; padding-left: 28px; margin-bottom: 14px;
+            font-size: 1rem; color: var(--text-secondary);
+        }
+        ul.check-list li::before {
+            content: '✓'; position: absolute; left: 0; top: 0;
+            color: var(--accent-red); font-weight: 700;
+        }
+        ul.cross-list { list-style: none; }
+        ul.cross-list li {
+            position: relative; padding-left: 28px; margin-bottom: 14px;
+            font-size: 1rem; color: var(--text-secondary);
+        }
+        ul.cross-list li::before {
+            content: '✕'; position: absolute; left: 0; top: 0;
+            color: var(--text-muted); font-weight: 700;
+        }
+
+        /* MODULES */
+        .module {
+            border-left: 3px solid var(--border-color);
+            padding-left: 20px; margin-bottom: 40px;
+        }
+        .module:hover { border-left-color: var(--accent-red); }
+        .module h3 { font-size: 1.35rem; margin-bottom: 10px; }
+        .module .question {
+            font-style: italic; color: var(--text-muted);
+            font-size: 0.92rem; margin-bottom: 14px;
+            font-family: 'Playfair Display', serif;
+        }
+        .module .insight {
+            background: var(--bg-alt); padding: 18px;
+            border-radius: var(--radius-sm); font-size: 0.92rem;
+            color: var(--text-secondary); margin-top: 14px;
+        }
+        .module .insight strong { color: var(--text-primary); }
+
+        /* QUOTES */
+        blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-style: italic; line-height: 1.5;
+            color: var(--text-primary); border-left: 4px solid var(--accent-red);
+            padding-left: 20px; margin: 32px 0;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-grid {
+            display: grid; grid-template-columns: auto 1fr 1fr;
+            gap: 0; border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); overflow: hidden; margin-top: 28px;
+        }
+        .comparison-grid .cg-header {
+            background: var(--text-primary); color: #fff;
+            font-weight: 700; padding: 14px 16px;
+            font-size: 0.9rem; text-align: center;
+        }
+        .comparison-grid .cg-header.red { background: var(--accent-red); }
+        .comparison-grid .cg-label {
+            padding: 12px 16px; font-weight: 600; font-size: 0.85rem;
+            border-bottom: 1px solid var(--border-color); display: flex; align-items: center;
+        }
+        .comparison-grid .cg-cell {
+            padding: 12px 16px; text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .comparison-grid .cg-cell.highlight { color: var(--text-primary); font-weight: 700; }
+        .comparison-grid .cg-cell.green { color: #16a34a; font-weight: 700; }
+
+        /* EXPERIENCE CARDS (replacing old story cards) */
+        .exp-card {
+            background: var(--bg-alt); padding: 24px;
+            border-radius: var(--radius-md); margin-bottom: 16px;
+        }
+        .exp-card .exp-context {
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--accent-red); margin-bottom: 10px;
+        }
+        .exp-card blockquote {
+            font-size: 1.1rem; border-left: none; padding-left: 0; margin: 0 0 12px 0;
+        }
+        .exp-card .exp-hook {
+            font-size: 0.85rem; color: var(--text-muted); font-weight: 500;
+        }
+
+        /* SALARY TABLE */
+        .salary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+        .salary-card {
+            background: var(--bg-alt); border-radius: var(--radius-sm);
+            padding: 16px 12px; text-align: center;
+        }
+        .salary-card .salary-level {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px;
+        }
+        .salary-card .salary-range { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
+        .salary-card .salary-unit { font-size: 0.7rem; color: var(--text-muted); margin-top: 3px; }
+
+        /* TIMELINE */
+        .timeline {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 12px; margin-top: 28px; position: relative;
+        }
+        .timeline::before {
+            content: ''; position: absolute; top: 22px;
+            left: 12.5%; right: 12.5%; height: 2px;
+            background: var(--border-color); z-index: 0;
+        }
+        .timeline-step { text-align: center; position: relative; z-index: 1; }
+        .timeline-step .step-dot {
+            width: 10px; height: 10px; background: var(--accent-red);
+            border-radius: 50%; margin: 16px auto 12px;
+        }
+        .timeline-step .step-label {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.04em; color: var(--text-muted);
+        }
+        .timeline-step .step-title {
+            font-size: 0.8rem; font-weight: 600; margin-top: 3px; color: var(--text-primary);
+        }
+        .timeline-step .step-desc {
+            font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; line-height: 1.4;
+        }
+
+        /* PDF PREVIEW */
+        .preview-container { position: relative; margin-top: 28px; display: flex; justify-content: center; }
+        .preview-image-wrapper {
+            position: relative; display: inline-block;
+            border-radius: var(--radius-md); overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.1); max-width: 360px; width: 100%;
+        }
+        .preview-image-wrapper img { width: 100%; height: auto; display: block; }
+        .preview-image-wrapper::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9) 70%, #fff);
+            pointer-events: none;
+        }
+        .preview-cta { text-align: center; margin-top: -32px; position: relative; z-index: 2; }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 0; cursor: pointer; background: none; border: none;
+            width: 100%; text-align: left; font-family: inherit;
+            font-size: 1rem; font-weight: 600; color: var(--text-primary);
+        }
+        .faq-question:hover { color: var(--accent-red); }
+        .faq-question .faq-icon {
+            font-size: 1.4rem; transition: transform 0.3s ease;
+            flex-shrink: 0; margin-left: 12px; color: var(--text-muted);
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 18px; }
+        .faq-answer p { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 0; }
+
+        /* PRICING */
+        .pricing-box {
+            background: var(--text-primary); color: #fff;
+            border-radius: var(--radius-lg); padding: 44px 40px;
+            text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .pricing-box h2 { font-size: 2.2rem; margin-bottom: 6px; }
+        .pricing-box .price {
+            font-size: 3.5rem; font-weight: 800; line-height: 1;
+            margin: 20px 0; letter-spacing: -0.04em;
+        }
+        .pricing-box .value-prop {
+            color: rgba(255,255,255,0.65); margin-bottom: 32px; font-size: 1.05rem;
+        }
+        .pricing-bonus {
+            display: inline-block; background: rgba(218,41,28,0.15);
+            color: #fff; padding: 10px 20px; border-radius: 100px;
+            font-size: 0.85rem; font-weight: 600; margin-bottom: 28px;
+            border: 1px solid rgba(218,41,28,0.3);
+        }
+        .pricing-savings {
+            background: rgba(255,255,255,0.08); padding: 28px;
+            border-radius: var(--radius-sm); text-align: left; margin-bottom: 32px;
+        }
+
+        .divider { height: 1px; background: var(--border-color); margin: var(--spacing-gap) 0; width: 100%; }
+        .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container, .container-wide { padding: 0 16px; }
+            .hero { padding: 70px 0 40px; min-height: auto; }
+            .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+            .hero-mockup { order: -1; }
+            .hero-mockup img { max-width: 160px; }
+            .hero h1 { font-size: 2rem; }
+            .comparison-grid .cg-header,
+            .comparison-grid .cg-label,
+            .comparison-grid .cg-cell { padding: 10px 10px; font-size: 0.8rem; }
+            .salary-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .timeline::before { display: none; }
+            .audience-grid { grid-template-columns: 1fr; gap: 24px; }
+            .pricing-box { padding: 32px 20px; }
+            .pricing-box .price { font-size: 2.8rem; }
+            .pricing-box h2 { font-size: 1.8rem; }
+            blockquote { font-size: 1.1rem; }
+            .module h3 { font-size: 1.15rem; }
+            section { padding: clamp(36px, 6vw, 70px) 0; }
+        }
+        @media (max-width: 480px) {
+            body { font-size: 15px; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero-mockup img { max-width: 130px; }
+            .comparison-grid .cg-label { font-size: 0.75rem; }
+            .comparison-grid .cg-cell { font-size: 0.75rem; }
+            .salary-grid { gap: 8px; }
+            .salary-card { padding: 12px 8px; }
+            .salary-card .salary-range { font-size: 0.95rem; }
+            .btn { padding: 14px 24px; font-size: 0.95rem; }
+            .btn-large { padding: 16px 28px; }
+            .pricing-savings { padding: 20px 16px; }
+            .exp-card { padding: 18px; }
+            .faq-question { font-size: 0.92rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container-wide hero-layout">
+            <div class="hero-content">
+                <span class="label">Edición 2026</span>
+                <h1>La guía completa para profesionales que quieren dar el salto a Suiza.</h1>
+                <p class="text-lead">Con mi CV real, estrategia de entrevistas y los errores que me costaron miles de euros.</p>
+                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red" id="cta-hero">Conseguir la Guía — 197 €</a>
+            </div>
+            <div class="hero-mockup" id="parallax-mockup">
+                <img src="mockup_guide.png" alt="Guía Suiza 2026 para Profesionales Cualificados">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- INTRO -->
+        <section>
+            <span class="label dark">Sinceridad por delante</span>
+            <h2>Mira, te voy a ser sincero desde el principio.</h2>
+            <br>
+            <p>No soy consultor de inmigración ni experto en recursos humanos.</p>
+            <p>Soy una persona normal que:</p>
+            
+            <ul class="check-list" style="margin-top: 20px; margin-bottom: 28px;">
+                <li>Estaba en España luchando por superar los 1.200€ y sintiéndose infravalorado</li>
+                <li>Se fue a Suiza y consiguió prácticas de 45.000 CHF/año en multinacional, contrato fijo posterior y freelance facturando más que un senior en Madrid</li>
+                <li>Ha vivido 2 años allí y cometió <strong>todos los errores posibles</strong> (y los corrigió)</li>
+                <li>Tiene contacto con decenas de profesionales españoles en Suiza que también lo hicieron</li>
+            </ul>
+
+            <p>Ah, y aunque LinkedIn sigue siendo la vía más directa, <strong>muchas de mis mejores oportunidades vinieron de otro sitio</strong>. De una estrategia que llamo <span class="accent-text" style="font-weight:600;">"La Puerta Trasera"</span> y que explico entera en esta guía.</p>
+            <p class="text-lead" style="margin-top: 20px; font-weight: 500; color: var(--text-primary);">Esta guía es simplemente lo que yo hubiera querido saber antes de venir.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- COMPARATIVA -->
+        <section>
+            <span class="label">Los Números</span>
+            <h2>España vs Suiza: la diferencia real</h2>
+            <p class="text-lead">Datos verificados para 2026. No promesas. Números.</p>
+
+            <div class="comparison-grid">
+                <div class="cg-header">&nbsp;</div>
+                <div class="cg-header">🇪🇸 España</div>
+                <div class="cg-header red">🇨🇭 Suiza</div>
+                
+                <div class="cg-label">Salario bruto mensual</div>
+                <div class="cg-cell">~1.500 €</div>
+                <div class="cg-cell highlight">7.000+ CHF</div>
+                
+                <div class="cg-label">Carga fiscal media</div>
+                <div class="cg-cell">~35%</div>
+                <div class="cg-cell green">~18%</div>
+                
+                <div class="cg-label">Neto aprox.</div>
+                <div class="cg-cell">~975 €</div>
+                <div class="cg-cell highlight">~5.250 CHF</div>
+                
+                <div class="cg-label">Gastos de vida</div>
+                <div class="cg-cell">~800 €</div>
+                <div class="cg-cell">~2.500 CHF</div>
+                
+                <div class="cg-label" style="border-bottom: none;">Ahorro mensual</div>
+                <div class="cg-cell green" style="border-bottom: none; font-size: 1.1rem;">~175 €</div>
+                <div class="cg-cell green" style="border-bottom: none; font-size: 1.1rem;">~2.750 CHF</div>
+            </div>
+
+            <p style="margin-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.82rem;">Basado en profesional cualificado mid-level en Zúrich. La guía incluye rangos por nivel y ciudad.</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- MI EXPERIENCIA REAL -->
+        <section>
+            <span class="label dark">Por qué confiar en esto</span>
+            <h2>Esto no es teoría. Es lo que viví.</h2>
+            <p class="text-lead" style="margin-bottom: 28px;">Dos intentos. Un fracaso total. Y luego las estrategias que lo cambiaron todo.</p>
+
+            <div class="exp-card">
+                <div class="exp-context">Lo que aprendí al fracasar</div>
+                <blockquote>"Primer intento: 500€, una caravana en Lausanne, 97 días comiendo pasta. Rechazado en cada entrevista. Segundo intento: 6.000€, habitación en Zúrich, 300 CHF en ropa formal. Primer trabajo en 3 días."</blockquote>
+                <span class="exp-hook">→ En la guía explico qué cambié exactamente de una vez a otra.</span>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-context">Cómo descubrí contra quién competía</div>
+                <blockquote>"Publiqué una oferta falsa en LinkedIn para ver los CVs de mi competencia. Lo que vi me dejó helado: gente con 4-5 idiomas, universidades de élite, portfolios impecables. Pero la buena noticia es que el papel no lo es todo."</blockquote>
+                <span class="exp-hook">→ La guía explica por qué aún así puedes ganar, y cómo usé esa información a mi favor.</span>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-context">El "downgrade" que me cambió todo</div>
+                <blockquote>"Tenía 8 años de experiencia. Rechacé prácticas durante meses porque estaban por debajo de mi nivel. Mi ego me costó meses de inestabilidad. Cuando acepté unas prácticas de 3.000 CHF/mes en una multinacional, ahorraba mil francos al mes y estaba dentro del sistema."</blockquote>
+                <span class="exp-hook">→ En la guía explico el "truco de la universidad" que me permitió acceder a ellas.</span>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- LO QUE TE VAS A LLEVAR -->
+        <section>
+            <span class="label">El Valor</span>
+            <h2>Lo que te vas a llevar</h2>
+            <p class="text-lead">No es teoría. Es información práctica, directa, sin paja. Como si nos tomáramos un café y te contara lo que sé.</p>
+            
+            <div style="margin-top: 32px;">
+                <div class="card">
+                    <ul class="check-list">
+                        <li><strong>Una estrategia real de búsqueda de empleo</strong> (la que a mí me funcionó, no la de portales)</li>
+                        <li><strong>Mi CV real en formato suizo</strong> (la plantilla exacta que usé)</li>
+                        <li><strong>Rangos salariales</strong> por profesión basados en experiencia real</li>
+                        <li><strong>Los errores</strong> que vi cometer y que yo cometí</li>
+                        <li><strong>Estrategia de entrevistas</strong> y negociación salarial</li>
+                        <li><strong>Checklist para evaluar ofertas</strong> (señales verdes y señales rojas)</li>
+                        <li><strong>Datos verificados</strong> y actualizados para 2026</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ESQUEMA DE LA GUIA -->
+        <section>
+            <span class="label dark">Contenido</span>
+            <h2 style="margin-bottom: 40px;">El esquema de la guía</h2>
+
+            <div class="module">
+                <h3>🎯 Mentalidad y tu arma secreta</h3>
+                <p class="question">Tu pregunta: "¿Tengo lo que hace falta para competir ahí?"</p>
+                <p>Lo que tu jefe suizo nunca te dirá pero piensa sobre los españoles. "Calidez latina + Fiabilidad suiza" es la combinación que te hace imbatible. No necesitas ser el mejor CV del montón.</p>
+                <div class="insight">
+                    <strong>Historia real:</strong> "Mi jefe suizo me dijo: lo que más valoro de trabajar contigo es poder hablar de cualquier cosa. Viniendo de España, eso es natural. Allí, es oro."
+                </div>
+            </div>
+
+            <div class="module">
+                <h3>🇪🇺 La ventaja UE que estás desperdiciando</h3>
+                <p class="question">Tu pregunta: "¿Necesito permiso de trabajo? ¿Es complicado?"</p>
+                <p>Como europeo, tienes las mismas ventajas burocráticas que un suizo. Entras con DNI, 90 días para buscar, permiso automático con contrato. El permiso no es un impedimento, es un trámite.</p>
+            </div>
+
+            <div class="module">
+                <h3>🗺️ Entender el mercado: zonas, sectores, profesiones</h3>
+                <p class="question">Tu pregunta: "¿Zúrich o Ginebra? ¿Necesito alemán? ¿Hay trabajo en mi sector?"</p>
+                <p>Análisis completo por zona con sectores clave y profesiones con ventaja. Si eres farmacéutico, Basilea. Si eres financiero, Zúrich o Ginebra. Si eres ingeniero, zona alemana.</p>
+                <p>No te voy a mentir: hay sectores donde es más fácil y sectores donde es más jodido. Te cuento cuáles.</p>
+            </div>
+
+            <div class="module">
+                <h3>🚪 "La Puerta Trasera": mi estrategia real</h3>
+                <p class="question">Tu pregunta: "¿Cómo consigo trabajo sin contactos ni experiencia suiza?"</p>
+                <p>LinkedIn es la vía más directa. Pero muchas de mis mejores ofertas vinieron de saltarme la cola: buscar personas en vez de empresas, escribir directamente al que iba a ser mi jefe.</p>
+                <ul class="check-list" style="margin-top:18px;">
+                    <li><strong>Multinacionales vs PYMEs:</strong> De las PYMEs suizas conseguí ofertas que incluso superaban a la multinacional.</li>
+                    <li><strong>La Postura del Médico:</strong> Yo no mendigo trabajo. Yo diagnostico tu problema y te ofrezco la solución.</li>
+                    <li><strong>Disponibilidad Radical:</strong> La táctica que me consiguió una oferta en 3 días.</li>
+                    <li><strong>La oferta fantasma:</strong> Lo que descubrí al publicar una vacante falsa para ver los CVs de mi competencia.</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <h3>🎓 El Hack de las Prácticas Suizas</h3>
+                <p class="question">Tu pregunta: "¿Cómo entro en una multinacional si me piden experiencia local?"</p>
+                <p>En Suiza las prácticas pagan de media 3.000 CHF/mes. Te explico el "truco de la Universidad" para poder acceder a ellas sin ser estudiante a tiempo completo.</p>
+            </div>
+
+            <div class="module">
+                <h3>📄 CV formato suizo + Carta de presentación</h3>
+                <p class="question">Tu pregunta: "¿Mi CV español sirve o tengo que cambiarlo?"</p>
+                <p>Los errores típicos del CV español que te descalifican. Plantilla del formato suizo incluida. Qué quitar, qué poner, cómo estructurarlo.</p>
+            </div>
+
+            <div class="module">
+                <h3>💼 Entrevistas, ofertas e impuestos</h3>
+                <p class="question">Tu pregunta: "¿Cuánto pido? ¿Cómo sé si la oferta es buena?"</p>
+                <p>Checklist de evaluación con señales rojas. Comparativa fiscal España ~35% vs Suiza ~18%. Desglose de nómina suiza y el <strong>Hack de la franquicia máxima</strong> para bajar tu seguro médico legalmente.</p>
+            </div>
+
+            <!-- SALARY RANGES -->
+            <div style="margin-top: 40px;">
+                <h3 style="margin-bottom: 6px;">Rangos salariales anuales (CHF bruto)</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Para profesionales cualificados en zona alemana</p>
+                <div class="salary-grid">
+                    <div class="salary-card">
+                        <div class="salary-level">Junior</div>
+                        <div class="salary-range">65-75 mil</div>
+                        <div class="salary-unit">CHF/año</div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-level">Mid-Level</div>
+                        <div class="salary-range">75-95 mil</div>
+                        <div class="salary-unit">CHF/año</div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-level">Senior</div>
+                        <div class="salary-range">95-120 mil</div>
+                        <div class="salary-unit">CHF/año</div>
+                    </div>
+                    <div class="salary-card">
+                        <div class="salary-level">Expert</div>
+                        <div class="salary-range">120-150 mil+</div>
+                        <div class="salary-unit">CHF/año</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIMELINE -->
+            <div style="margin-top: 48px;">
+                <h3 style="margin-bottom: 6px;">Timeline realista: de España a Suiza</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">El proceso completo, paso a paso</p>
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="step-label">Mes -3 a 0</div>
+                        <div class="step-dot"></div>
+                        <div class="step-title">Preparación</div>
+                        <p class="step-desc">Ahorros (8-10 mil€), CV suizo, e-SIM, LinkedIn</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-label">Mes 1 a 3</div>
+                        <div class="step-dot"></div>
+                        <div class="step-title">Aplicación</div>
+                        <p class="step-desc">5-10 apps/día, entrevistas vídeo</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-label">Mes 3 a 5</div>
+                        <div class="step-dot"></div>
+                        <div class="step-title">Negociación</div>
+                        <p class="step-desc">Entrevistas presenciales, negocia +5-10%</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-label">Mes 6</div>
+                        <div class="step-dot"></div>
+                        <div class="step-title">Llegada 🇨🇭</div>
+                        <p class="step-desc">Registro, banco, seguro, ¡a trabajar!</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- SNEAK PEEK -->
+        <div class="divider"></div>
+        <section>
+            <span class="label">Contexto real</span>
+            <h2>Un vistazo dentro de la guía</h2>
+            
+            <blockquote>
+                "Muchas de mis mejores oportunidades vinieron de saltarme la cola. Mis ofertas más jugosas llegaron de encontrar el backdoor: mensajes directos, ir en persona a las 15:00, buscar personas en vez de empresas."
+            </blockquote>
+            
+            <blockquote>
+                "En Suiza no contratan supervivientes, contratan residentes. Con un plan, ahorros y una estrategia profesional, las probabilidades de encontrar empleo son altas."
+            </blockquote>
+        </section>
+
+        <!-- PDF PREVIEW -->
+        <div class="divider"></div>
+        <section>
+            <span class="label">Preview</span>
+            <h2>Así es la guía por dentro</h2>
+            <p class="text-lead">Maquetada profesionalmente. Verificada con datos 2026. Una herramienta de trabajo, no un documento de texto.</p>
+
+            <div class="preview-container">
+                <div class="preview-image-wrapper">
+                    <img src="preview_cover.png" alt="Preview de la Guía Suiza 2026" loading="lazy">
+                </div>
+            </div>
+            <div class="preview-cta">
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px;">Incluye apéndice de validación 2026 con datos actualizados</p>
+                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red" id="cta-preview">Ver el contenido completo</a>
+            </div>
+        </section>
+        
+    </div>
+
+    <div class="container-wide">
+        <!-- THE PACK -->
+        <section style="background: var(--bg-alt); padding: 48px; border-radius: var(--radius-lg); margin: 48px 0;">
+            <div style="max-width: 680px; margin: 0 auto;">
+                <span class="label">Entregables</span>
+                <h2>Todo lo que incluye tu pack:</h2>
+                <div style="margin-top: 28px; display: grid; gap: 14px;">
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Guía Profesional completa</strong> con apéndice y estrategias reales.
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Apéndice de Validación 2026</strong> con datos de alquileres, vida y salarios actualizados.
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Mi CV real en formato suizo</strong> (la plantilla que a mí me funcionó).
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Estrategia de entrevistas y negociación</strong> con checklist de evaluación.
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Plantilla Excel de gastos</strong> (mis gastos reales mes a mes durante 1 año).
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Kit Digital</strong> con apps, bancos, webs imprescindibles.
+                    </div>
+                    <div class="card" style="margin: 0; padding: 18px 22px;">
+                        <strong>✅ Guías adicionales por perfil</strong> (Familias, +40, No europeos).
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        
+        <!-- ABOUT -->
+        <section>
+            <span class="label dark">Autor</span>
+            <h2>¿Por qué escucharme?</h2>
+            <br>
+            <p>Porque he estado donde tú estás ahora.</p>
+            <p>En España, con buen CV, sintiéndome infravalorado, viendo sueldos mediocres, y preguntándome "¿cómo carajo se hace esto de Suiza?"</p>
+            <p>Luego vine. Me equivoqué en muchas cosas. Acerté en otras.</p>
+            
+            <ul class="cross-list" style="margin: 20px 0;">
+                <li><strong>Primera vez: Fracaso total.</strong> 97 días, caravana, 500€, vuelta a casa.</li>
+            </ul>
+            <ul class="check-list" style="margin: 20px 0;">
+                <li><strong>Segunda vez: Éxito.</strong> Prácticas de 45.000 CHF/año. Contrato de 50.000 CHF. Freelance facturando más que un senior en Madrid. 2.000+ CHF de ahorro mensual.</li>
+            </ul>
+
+            <p>La diferencia fue la estrategia. No soy ningún experto, pero sí soy alguien que lo hizo. Y que puede ahorrarte los errores que yo cometí.</p>
+        </section>
+
+        <!-- AUDIENCE -->
+        <div class="divider"></div>
+        <section>
+            <div class="audience-grid">
+                <div>
+                    <h3 style="margin-bottom: 20px; font-size: 1.15rem;">✅ Es para ti si:</h3>
+                    <ul class="check-list">
+                        <li>Eres <strong>profesional cualificado</strong> (experiencia, formación, skills).</li>
+                        <li>Ganas entre 20 y 40 mil en España y <strong>sabes que vales más</strong>.</li>
+                        <li>Hablas <strong>inglés</strong> (nivel medio) o un idioma oficial suizo.</li>
+                        <li>Estás dispuesto a <strong>prepararte en serio</strong>.</li>
+                        <li>Valoras tu <strong>tiempo</strong> y prefieres aprender de los errores de otros.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 20px; font-size: 1.15rem;">❌ No es para ti si:</h3>
+                    <ul class="cross-list">
+                        <li>Aún no tienes claro si quieres emigrar (y está bien — cuando lo tengas claro, aquí estará).</li>
+                        <li>Buscas garantías del 100% (nadie puede prometerte eso).</li>
+                        <li>No tienes cualificación profesional.</li>
+                        <li>Prefieres investigar por tu cuenta (parte de la info está gratis en mi canal de YouTube).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px; padding: 28px; border: 2px solid var(--border-color); border-radius: var(--radius-sm); text-align: center;">
+                <span style="font-size: 1.8rem; display: block; margin-bottom: 12px;">⚠️</span>
+                <h3>El disclaimer que tienes que leer</h3>
+                <p style="margin-top: 14px; color: var(--text-secondary); font-size: 0.92rem;">Esto no es magia. No todo el mundo puede venir a Suiza. Tienes que prepararte, tener cualificaciones y necesitas inversión de tiempo y dinero. Mis resultados no garantizan los tuyos.<br><br>No es fácil. Pero si tienes las cualificaciones y te preparas bien, es totalmente posible. Esta guía simplemente te ahorra meses de prueba y error.</p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <div class="divider"></div>
+        <section>
+            <span class="label dark">Preguntas frecuentes</span>
+            <h2 style="margin-bottom: 32px;">Dudas antes de comprar</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Necesito saber alemán o francés?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Depende del sector. En muchas multinacionales de Zúrich y Basilea, el inglés (B2-C1) es suficiente. Pero para integración real a largo plazo, el idioma local es vital. La guía analiza qué sectores exigen idioma local y cuáles no.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Sirve si no soy de IT o ingeniería?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí. La guía cubre enfermeros, farmacéuticos, financieros, diseñadores, e incluso perfiles creativos. Cada zona lingüística tiene sus sectores fuertes. Incluye guías adicionales por perfil: familias, mayores de 40 y no europeos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Cuánto tiempo lleva conseguir trabajo?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>De media, 3 a 6 meses preparándote bien. En sectores de alta demanda (IT, ingeniería), las primeras respuestas pueden llegar en 1-2 semanas. La guía incluye un timeline realista con cada fase.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Cuánto dinero necesito ahorrado?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Recomendación actualizada 2026: entre 8 y 10 mil euros. Los alquileres han subido (una habitación en Zúrich ronda los 1.100-1.300 CHF/mes). La guía explica cómo empezar el proceso desde España.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Puedo aplicar desde España sin estar en Suiza?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí. En la guía explico el hack de la dirección suiza y cómo conseguir un número suizo con una e-SIM por 8 CHF/mes sin estar allí. Si te llaman a entrevista presencial, prepárate para volar (100-200€ de vuelo que merecen la pena).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿197€ no es mucho?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Si solo negociases 5.000 CHF más de salario en tu primer trabajo, los 197€ se pagan en una semana. También puede ahorrarte meses aplicando con el CV equivocado, o aceptar una oferta mala sin saber evaluarla. No es un PDF. Es la estrategia que me costó 2 años aprender.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <div class="divider"></div>
+        <section id="pricing">
+            <div class="pricing-box">
+                <span class="label" style="color: #fff; opacity: 0.7;">Inversión</span>
+                <h2>El valor real</h2>
+                <div class="price">197 €</div>
+                <p class="value-prop">Menos de lo que cuesta una noche de hotel mediocre en Zúrich.</p>
+
+                <div class="pricing-bonus">✨ Incluye actualizaciones gratuitas durante 2026</div>
+                
+                <div class="pricing-savings">
+                    <p style="margin-bottom: 14px; font-size: 0.92rem; font-weight: 600;">Esto te puede ahorrar:</p>
+                    <ul class="cross-list" style="margin-bottom: 0;">
+                        <li style="color: rgba(255,255,255,0.85);">Meses aplicando con el CV equivocado</li>
+                        <li style="color: rgba(255,255,255,0.85);">Aceptar una oferta mala por no saber evaluarla</li>
+                        <li style="color: rgba(255,255,255,0.85);">Dejarte miles de francos en la mesa por negociar mal</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 0.92rem; font-style: italic; color: rgba(255,255,255,0.7);">Si la diferencia entre negociar 50 mil o 55 mil en tu primer trabajo es de 5.000 CHF/año... los 197€ se pagan solos.</p>
+                </div>
+
+                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red btn-large" id="cta-pricing">Consigue tu copia</a>
+                <p style="margin-top: 18px; font-size: 0.82rem; color: rgba(255,255,255,0.5);">PDF + CV + Excel + Kit Digital<br>Pago seguro con Gumroad · Descarga instantánea</p>
+            </div>
+        </section>
+
+        <!-- OUTRO -->
+        <section style="text-align: center; padding-bottom: 80px;">
+            <span class="label dark">Última cosa</span>
+            <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 20px auto;">
+                Hay info gratis por ahí. Pero aquí están las estrategias que no puedo contar en abierto. "La Puerta Trasera", "La Postura del Médico", el truco de la oferta fantasma, mi CV real.
+            </p>
+            <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 32px auto; font-style: italic;">
+                Si estás considerando el cambio en serio, estos 197€ son probablemente la inversión con mejor ROI que harás este año.
+            </p>
+            
+            <p style="font-weight: 700;">Nos vemos dentro,<br>Dani - La Oveja Gris</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 14px;">P.D. Suiza no es fácil, pero con buena preparación, es totalmente posible.</p>
+        </section>
+        
+    </div>
+
+    <!-- PARALLAX SCRIPT -->
+    <script>
+    (function() {
+        if (window.innerWidth <= 768) return;
+        const mockup = document.getElementById('parallax-mockup');
+        if (!mockup) return;
+        const img = mockup.querySelector('img');
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * 0.12;
+                    img.style.transform = 'translateY(' + rate + 'px)';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
+
+</body>
+</html>
