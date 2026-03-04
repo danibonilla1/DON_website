@@ -174,6 +174,7 @@
             padding: 12px 16px; text-align: center;
             border-bottom: 1px solid var(--border-color);
             font-size: 0.9rem; color: var(--text-secondary);
+            white-space: nowrap;
         }
         .comparison-grid .cg-cell.highlight { color: var(--text-primary); font-weight: 700; }
         .comparison-grid .cg-cell.green { color: #16a34a; font-weight: 700; }
@@ -340,8 +341,8 @@
         <div class="container-wide hero-layout">
             <div class="hero-content">
                 <span class="label">Edición 2026</span>
-                <h1>La guía completa para profesionales que quieren dar el salto a Suiza.</h1>
-                <p class="text-lead">Con mi CV real, estrategia de entrevistas y los errores que me costaron miles de euros.</p>
+                <h1>De 1.750€/mes en España a 5.740 CHF/mes en Suiza.</h1>
+                <p class="text-lead">La guía con mi CV real, estrategia de entrevistas y los errores que me costaron miles de euros. <span style="color: var(--text-muted); font-size: 0.88em;">(1 CHF ≈ 0,93€)</span></p>
                 <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red" id="cta-hero">Conseguir la Guía — 197 €</a>
             </div>
             <div class="hero-mockup" id="parallax-mockup">
@@ -520,7 +521,7 @@
             <!-- SALARY RANGES -->
             <div style="margin-top: 40px;">
                 <h3 style="margin-bottom: 6px;">Rangos salariales anuales (CHF bruto)</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Para profesionales cualificados en zona alemana</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Para profesionales cualificados en zona alemana <span style="font-size: 0.95em;">(1 CHF ≈ 0,93€)</span></p>
                 <div class="salary-grid">
                     <div class="salary-card">
                         <div class="salary-level">Junior</div>
@@ -596,7 +597,7 @@
             </div>
             <div class="preview-cta">
                 <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px;">Incluye datos de 2026 actualizados</p>
-                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red" id="cta-preview">Ver el contenido completo</a>
+                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red" id="cta-preview">Ver el contenido completo — 197 €</a>
             </div>
         </section>
         
@@ -642,18 +643,9 @@
             <span class="label dark">Autor</span>
             <h2>¿Por qué escucharme?</h2>
             <br>
-            <p>Porque he estado donde tú estás ahora.</p>
-            <p>En España, con buen CV, sintiéndome infravalorado, viendo sueldos mediocres, y preguntándome "¿cómo carajo se hace esto de Suiza?"</p>
-            <p>Luego vine. Me equivoqué en muchas cosas. Acerté en otras.</p>
-            
-            <ul class="cross-list" style="margin: 20px 0;">
-                <li><strong>Primera vez: Fracaso total.</strong> 97 días, caravana, 500€, vuelta a casa.</li>
-            </ul>
-            <ul class="check-list" style="margin: 20px 0;">
-                <li><strong>Segunda vez: Éxito.</strong> Prácticas de 45.000 CHF/año. Contrato de 50.000 CHF. Freelance facturando más que un senior en Madrid. 2.000+ CHF de ahorro mensual.</li>
-            </ul>
-
-            <p>La diferencia fue la estrategia. No soy ningún experto, pero sí soy alguien que lo hizo. Y que puede ahorrarte los errores que yo cometí.</p>
+            <p>Fracasé una vez. Volví y lo conseguí. Los detalles están arriba.</p>
+            <p>Lo que importa aquí: llevo <strong>+2 años creando contenido sobre emigrar a Suiza</strong>, tengo contacto con decenas de españoles que lo hicieron, y todo lo que sé está en estas páginas.</p>
+            <p style="margin-top: 12px;"><a href="https://www.youtube.com/@laovejagris" target="_blank" style="color: var(--accent-red); font-weight: 600; text-decoration: none;">→ Mi canal de YouTube (8.000+ seguidores)</a></p>
         </section>
 
         <!-- AUDIENCE -->
@@ -681,11 +673,7 @@
                 </div>
             </div>
 
-            <div style="margin-top: 48px; padding: 28px; border: 2px solid var(--border-color); border-radius: var(--radius-sm); text-align: center;">
-                <span style="font-size: 1.8rem; display: block; margin-bottom: 12px;">⚠️</span>
-                <h3>El disclaimer que tienes que leer</h3>
-                <p style="margin-top: 14px; color: var(--text-secondary); font-size: 0.92rem;">Esto no es magia. No todo el mundo puede venir a Suiza. Tienes que prepararte, tener cualificaciones y necesitas inversión de tiempo y dinero. Mis resultados no garantizan los tuyos.<br><br>No es fácil. Pero si tienes las cualificaciones y te preparas bien, es totalmente posible. Esta guía simplemente te ahorra meses de prueba y error.</p>
-            </div>
+
         </section>
 
         <!-- FAQ -->
@@ -753,6 +741,41 @@
                     <p>Si solo negociases 5.000 CHF más de salario en tu primer trabajo, los 197€ se pagan en una semana. También puede ahorrarte meses aplicando con el CV equivocado, o aceptar una oferta mala sin saber evaluarla. No es un PDF. Es la estrategia que me costó 2 años aprender.</p>
                 </div>
             </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    ¿Esto me garantiza conseguir trabajo en Suiza?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. Esto no es magia. Tienes que prepararte, tener cualificaciones y necesitas inversión de tiempo y dinero. Mis resultados no garantizan los tuyos. Pero si tienes las cualificaciones y te preparas bien, es totalmente posible. Esta guía te ahorra meses de prueba y error.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL PROOF -->
+        <div class="divider"></div>
+        <section style="text-align: center;">
+            <span class="label">Trayectoria</span>
+            <h2 style="margin-bottom: 28px;">No soy un desconocido</h2>
+            <div class="salary-grid">
+                <div class="salary-card">
+                    <div class="salary-range">8.000+</div>
+                    <div class="salary-unit">seguidores en YouTube</div>
+                </div>
+                <div class="salary-card">
+                    <div class="salary-range">+2 años</div>
+                    <div class="salary-unit">creando contenido sobre Suiza</div>
+                </div>
+                <div class="salary-card">
+                    <div class="salary-range">40+</div>
+                    <div class="salary-unit">guías vendidas a profesionales</div>
+                </div>
+                <div class="salary-card">
+                    <div class="salary-range">0</div>
+                    <div class="salary-unit">reseñas negativas</div>
+                </div>
+            </div>
         </section>
 
         <!-- PRICING -->
@@ -764,7 +787,8 @@
                 <div class="price">197 €</div>
                 <p class="value-prop">Menos de lo que cuesta una noche de hotel mediocre en Zúrich.</p>
 
-                <div class="pricing-bonus">✨ Incluye actualizaciones gratuitas durante 2026</div>
+                <div class="pricing-bonus">🎁 Hasta el 13 de marzo: incluye una revisión personal de tu CV por mí</div>
+                <p style="font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 28px; margin-top: 0;">+ Actualizaciones gratuitas durante 2026</p>
                 
                 <div class="pricing-savings">
                     <p style="margin-bottom: 14px; font-size: 0.92rem; font-weight: 600;">Esto te puede ahorrar:</p>
@@ -776,7 +800,7 @@
                     <p style="margin-top: 20px; font-size: 0.92rem; font-style: italic; color: rgba(255,255,255,0.7);">Si la diferencia entre negociar 50 mil o 55 mil en tu primer trabajo es de 5.000 CHF/año... los 197€ se pagan solos.</p>
                 </div>
 
-                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red btn-large" id="cta-pricing">Consigue tu copia</a>
+                <a href="https://gumroad.com/checkout?product=cvragv&option=4crluWSbiL6Sk3SiKMnBig%3D%3D&quantity=1" class="btn btn-red btn-large" id="cta-pricing">Conseguir la Guía — 197 €</a>
                 <p style="margin-top: 18px; font-size: 0.82rem; color: rgba(255,255,255,0.5);">PDF + CV + Excel + Kit Digital<br>Pago seguro con Gumroad · Descarga instantánea</p>
             </div>
         </section>
