@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Vídeo — Dani Bonilla</title>
+    <meta name="description" content="Análisis profesional de tu contenido en YouTube. Más de 10 años de experiencia en vídeo de larga duración, con resultados reales para creadores y empresas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #ffffff;
+            --bg-soft: #f9f9f8;
+            --bg-card: #ffffff;
+            --bg-input: #f4f4f3;
+            --border: #e5e5e3;
+            --border-subtle: #eeeeec;
+            --text: #0f0f0f;
+            --text-secondary: #606060;
+            --text-muted: #909090;
+            --yt-red: #e03030;
+            --yt-red-soft: #c42828;
+            --yt-red-bg: #fdf2f2;
+            --accent: #0f0f0f;
+            --success: #2ea043;
+            --error: #ff4e45;
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 0 28px; }
+        section { padding: 88px 0; }
+        @media (max-width: 640px) { section { padding: 60px 0; } }
+
+        /* Typography */
+        h1 { font-size: clamp(2.4rem, 5.5vw, 3.6rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 700; line-height: 1.18; letter-spacing: -0.03em; margin-bottom: 18px; }
+        h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+        p { color: var(--text-secondary); font-size: 1.02rem; margin-bottom: 14px; }
+
+        .section-label {
+            font-size: 0.72rem; font-weight: 600; color: var(--yt-red);
+            text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; display: block;
+        }
+
+        /* Hero */
+        .hero { padding: 140px 0 96px; text-align: center; }
+        .hero h1 { margin-bottom: 24px; animation: fadeIn 0.9s ease 0.1s both; }
+        .hero h1 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
+        .hero h1 .red { color: var(--yt-red); }
+
+        .hero-signature {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 6px;
+            margin-top: 8px;
+        }
+        .hero-signature::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--yt-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: drawLine 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards;
+        }
+        @keyframes drawLine {
+            to { transform: scaleX(1); }
+        }
+
+        .hero .subtitle {
+            font-size: 1.12rem; color: var(--text-secondary);
+            max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+            animation: fadeIn 0.9s ease 0.3s both;
+        }
+        .hero-cta { animation: fadeIn 0.9s ease 0.5s both; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 15px 36px; background: var(--yt-red); color: #fff;
+            font-family: var(--font); font-size: 0.93rem; font-weight: 600;
+            border: none; border-radius: 100px; cursor: pointer; text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: 0 2px 12px rgba(224,48,48,0.15);
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(224,48,48,0.2); background: var(--yt-red-soft); }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 12px 20px; background: transparent; color: var(--text-muted);
+            font-family: var(--font); font-size: 0.9rem; font-weight: 500;
+            border: 1px solid var(--border); border-radius: 100px; cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .btn-ghost:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
+
+        .section-divider { border-top: 1px solid var(--border-subtle); }
+
+        /* Problem */
+        .problem-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 24px 0 32px; }
+        .problem-list li {
+            padding: 16px 20px 16px 44px; background: var(--bg-soft);
+            border-radius: var(--radius-sm); color: var(--text-secondary); font-size: 0.97rem; position: relative;
+        }
+        .problem-list li::before { content: '–'; position: absolute; left: 20px; top: 16px; color: var(--text-muted); font-weight: 300; }
+        .insight-box {
+            padding: 24px 28px; border-left: 3px solid var(--yt-red);
+            background: var(--yt-red-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+        .insight-box p { color: var(--text); font-weight: 400; margin: 0; }
+
+        /* Method - 6 blocks with icons */
+        .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
+        @media (max-width: 640px) { .method-grid { grid-template-columns: 1fr; } }
+        .method-card {
+            padding: 24px 22px; background: var(--bg-soft);
+            border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+            transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+        }
+        .method-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border); }
+
+        .method-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 14px; font-size: 1.1rem;
+            background: var(--yt-red-bg); color: var(--yt-red);
+        }
+
+        .method-num { font-size: 0.62rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+        .method-card h3 { font-size: 0.98rem; margin-bottom: 6px; }
+        .method-card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+        .method-note { margin-top: 20px; padding: 16px 20px; font-size: 0.88rem; color: var(--text-muted); font-style: italic; text-align: center; }
+
+        .deliverable-preview {
+            margin: 32px 0 40px; text-align: center;
+        }
+        .deliverable-preview img {
+            max-width: 100%; border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-subtle);
+        }
+        .deliverable-caption {
+            margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); font-weight: 500;
+        }
+
+        /* Pricing */
+        .pricing-box {
+            margin-top: 28px; padding: 32px; background: var(--bg-soft);
+            border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+            text-align: center;
+        }
+        .pricing-amount { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: 6px; }
+        .pricing-desc { font-size: 0.9rem; color: var(--text-muted); margin: 0 0 16px; }
+        .pricing-express {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 16px; background: var(--yt-red-bg); border: 1px solid var(--yt-red-border, #f5d4d4);
+            border-radius: 100px; font-size: 0.78rem; font-weight: 600; color: var(--yt-red);
+        }
+        .pricing-express svg { flex-shrink: 0; }
+
+        /* Testimonial */
+        .testimonial-section { margin-top: 28px; }
+        .testimonial-quote {
+            padding: 28px 28px 24px; background: var(--bg-soft);
+            border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+            position: relative;
+        }
+        .testimonial-quote::before {
+            content: '"'; position: absolute; top: 16px; left: 22px;
+            font-family: var(--font-serif); font-size: 3rem; color: var(--yt-red); opacity: 0.2; line-height: 1;
+        }
+        .testimonial-text {
+            font-size: 1.02rem; color: var(--text); line-height: 1.7;
+            margin: 0 0 12px; padding-left: 8px; font-style: italic;
+        }
+        .testimonial-author {
+            font-size: 0.78rem; color: var(--text-muted); font-weight: 500;
+            padding-left: 8px; margin: 0;
+        }
+
+        /* Process */
+        .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
+        .process-step { display: flex; gap: 20px; position: relative; }
+        .process-step-line {
+            display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 32px;
+        }
+        .process-step-dot {
+            width: 32px; height: 32px; border-radius: 50%; background: var(--bg-soft);
+            border: 2px solid var(--border); display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; font-weight: 700; color: var(--text-muted); flex-shrink: 0;
+        }
+        .process-step-connector { width: 2px; flex: 1; background: var(--border-subtle); min-height: 20px; }
+        .process-step:last-child .process-step-connector { display: none; }
+        .process-step-content { padding: 4px 0 28px; }
+        .process-step-content h3 { font-size: 0.95rem; margin-bottom: 4px; }
+        .process-step-content p { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+        .process-note {
+            margin-top: 12px; padding: 16px 20px; background: var(--bg-soft);
+            border-radius: var(--radius-sm); font-size: 0.84rem; color: var(--text-muted); line-height: 1.6;
+        }
+
+        /* Results - case studies */
+        .case-card {
+            padding: 28px 28px 24px; background: var(--bg-soft); border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md); margin-top: 14px; position: relative; overflow: hidden;
+        }
+        .case-card:first-of-type { margin-top: 28px; }
+        .case-label {
+            font-size: 0.68rem; font-weight: 700; color: var(--yt-red);
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+        }
+        .case-card p { color: var(--text); font-size: 0.98rem; margin: 0 0 16px; line-height: 1.65; }
+        .case-card p:last-child { margin-bottom: 0; }
+
+        /* Growth visualization */
+        .growth-viz {
+            display: flex; align-items: center; gap: 16px;
+            padding: 16px 20px; background: var(--bg); border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+        }
+        .growth-before, .growth-after {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .growth-num { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+        .growth-before .growth-num { color: var(--text-muted); }
+        .growth-after .growth-num { color: var(--yt-red); }
+        .growth-sub { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+        .growth-arrow-line {
+            flex: 1; display: flex; align-items: center; position: relative; min-width: 48px;
+        }
+        .growth-arrow-line::before {
+            content: ''; position: absolute; top: 50%; left: 0; right: 16px;
+            height: 2px; background: linear-gradient(90deg, var(--border) 0%, var(--yt-red) 100%);
+        }
+        .growth-arrow-line::after {
+            content: '→'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+            color: var(--yt-red); font-size: 1.1rem; font-weight: 600;
+        }
+
+        .confidentiality-note { margin-top: 20px; font-size: 0.82rem; color: var(--text-muted); font-style: italic; }
+        .results-disclaimer {
+            margin-top: 8px; font-size: 0.78rem; color: var(--text-muted);
+        }
+
+        /* Stats */
+        .stats-row { display: flex; justify-content: center; gap: 48px; margin: 36px 0; flex-wrap: wrap; }
+        @media (max-width: 480px) { .stats-row { gap: 32px; } }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; color: var(--text); }
+        .stat-desc { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+        .bio-section { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border-subtle); }
+        .bio-section p { font-size: 1rem; }
+        .bio-layout { display: flex; gap: 28px; align-items: flex-start; }
+        @media (max-width: 640px) { .bio-layout { flex-direction: column; align-items: center; text-align: center; } }
+        .bio-photo {
+            width: 120px; height: 120px; border-radius: 16px; flex-shrink: 0;
+            background: var(--bg-soft); border: 1px solid var(--border); overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .bio-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .bio-photo-placeholder {
+            font-size: 0.68rem; color: var(--text-muted); text-align: center;
+            padding: 8px; line-height: 1.3;
+        }
+        .bio-text { flex: 1; }
+        .bio-link {
+            display: inline-flex; align-items: center; gap: 6px; margin-top: 8px;
+            font-size: 0.88rem; font-weight: 500; color: var(--yt-red); text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        .bio-link:hover { opacity: 0.8; }
+
+        /* For whom */
+        .for-whom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+        @media (max-width: 640px) { .for-whom-grid { grid-template-columns: 1fr; } }
+        .for-col h3 { font-size: 0.88rem; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+        .for-col ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .for-col li {
+            padding: 12px 16px; background: var(--bg-soft); border-radius: var(--radius-sm);
+            font-size: 0.92rem; color: var(--text-secondary);
+            display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+        }
+        .for-col li .ic { flex-shrink: 0; margin-top: 1px; font-size: 0.82rem; }
+        .col-yes li .ic { color: var(--success); }
+        .col-no li .ic { color: var(--error); opacity: 0.6; }
+
+        /* Form */
+        .form-wrapper {
+            margin-top: 28px; padding: 40px; background: var(--bg);
+            border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+        }
+        @media (max-width: 640px) { .form-wrapper { padding: 24px 18px; } }
+
+        .form-progress { display: flex; align-items: center; margin-bottom: 36px; padding: 0 4px; }
+        .progress-step { display: flex; align-items: center; flex: 1; }
+        .progress-step:last-child { flex: 0; }
+        .progress-dot {
+            width: 30px; height: 30px; border-radius: 50%; background: var(--bg);
+            border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
+            font-size: 0.72rem; font-weight: 700; color: var(--text-muted);
+            transition: all 0.4s ease; flex-shrink: 0; z-index: 1;
+        }
+        .progress-dot.active { border-color: var(--yt-red); color: var(--yt-red); }
+        .progress-dot.done { border-color: var(--yt-red); background: var(--yt-red); color: #fff; }
+        .progress-line { flex: 1; height: 1.5px; background: var(--border); transition: background 0.4s ease; }
+        .progress-line.done { background: var(--yt-red); }
+
+        .form-step { display: none; animation: stepIn 0.4s ease; }
+        .form-step.active { display: block; }
+        @keyframes stepIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+        .step-title { font-size: 1.12rem; font-weight: 700; margin-bottom: 4px; }
+        .step-sub { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 24px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group:last-child { margin-bottom: 0; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 7px; }
+        .form-group label .opt { color: var(--text-muted); font-weight: 400; font-size: 0.78rem; }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px 14px; background: var(--bg-input);
+            border: 1px solid var(--border); border-radius: var(--radius-sm);
+            color: var(--text); font-family: var(--font); font-size: 0.93rem;
+            transition: all 0.25s ease; outline: none;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--yt-red); background: var(--bg);
+            box-shadow: 0 0 0 3px rgba(224,48,48,0.06);
+        }
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%23909090' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer;
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+        .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
+        .form-nav .btn-primary { margin-left: auto; }
+        .form-note { text-align: center; margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); }
+        .turnstile-wrapper { display: flex; justify-content: center; margin-bottom: 18px; }
+
+        .form-success { display: none; text-align: center; padding: 56px 20px; }
+        .form-success.active { display: block; }
+        .form-success .check-icon {
+            width: 52px; height: 52px; border-radius: 50%; background: #f0faf0;
+            border: 1.5px solid var(--success); display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px; color: var(--success); font-size: 1.2rem;
+        }
+        .form-success h3 { font-size: 1.15rem; margin-bottom: 8px; }
+
+        /* FAQ */
+        .faq-list { margin-top: 24px; display: flex; flex-direction: column; gap: 6px; }
+        .faq-item { background: var(--bg-soft); border-radius: var(--radius-sm); overflow: hidden; transition: background 0.3s ease; }
+        .faq-item:hover { background: #f2f2f0; }
+        .faq-q {
+            width: 100%; padding: 16px 20px; background: none; border: none;
+            color: var(--text); font-family: var(--font); font-size: 0.94rem; font-weight: 600;
+            text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+        }
+        .faq-q .chev { flex-shrink: 0; width: 16px; height: 16px; color: var(--text-muted); transition: transform 0.3s ease; }
+        .faq-item.open .faq-q .chev { transform: rotate(180deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .faq-a-inner { padding: 0 20px 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.65; }
+
+        footer { border-top: 1px solid var(--border-subtle); padding: 44px 0; text-align: center; }
+        footer p { font-size: 0.78rem; color: var(--text-muted); }
+
+        .reveal { opacity: 0; transform: translateY(18px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Un buen vídeo<br>siempre gana.</h1>
+            <h1 style="margin-top: 8px; animation: fadeIn 0.9s ease 0.3s both;">
+                <em><span class="hero-signature">Yo te digo <span class="red">qué le falta</span> al tuyo.</span></em>
+            </h1>
+            <p class="subtitle">Análisis profesional de tu contenido en YouTube. Más de una década especializado en vídeo de larga duración.</p>
+            <div class="hero-cta">
+                <a href="#solicitar" class="btn-primary">Solicitar análisis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">El problema</span>
+            <h2>Haces buenos vídeos.<br>Pero algo no termina de funcionar.</h2>
+            <p>Quizá llevas meses estancado. Quizá inviertes horas en producción sin ver retorno. O quizá te va bien, pero sabes que podrías ir mucho mejor.</p>
+            <ul class="problem-list">
+                <li>Cambias la miniatura, la edición, el horario... y los números no suben</li>
+                <li>Sigues consejos genéricos de SEO y etiquetas... y nada cambia</li>
+                <li>Copias lo que hacen los grandes, pero en tu canal no funciona igual</li>
+            </ul>
+            <div class="insight-box">
+                <p>El problema casi nunca es técnico. Es lo que pasa <strong>dentro</strong> del vídeo: cómo empieza, cómo engancha, cómo cuenta la historia. Desde dentro de tu propio canal, eso es casi imposible de ver.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">Qué recibes</span>
+            <h2>Una revisión completa de tu vídeo.</h2>
+            <p>Recibirás un vídeo privado con tu análisis personal, siguiendo un método de 6 bloques que cubre todo lo que importa en un vídeo de larga duración.</p>
+            <div class="deliverable-preview">
+                <img src="mockup-analisis.png" alt="Concepto del análisis de vídeo">
+                <p class="deliverable-caption">Metodología de análisis aplicada a tu contenido</p>
+            </div>
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 16 21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 01</div>
+                    <h3>Título + Miniatura</h3>
+                    <p>¿Tu título y miniatura trabajan juntos? ¿Generan click y cumplen la promesa?</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 02</div>
+                    <h3>Gancho</h3>
+                    <p>¿Tus primeros 30 segundos enganchan o pierdes a la gente antes de empezar?</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 03</div>
+                    <h3>Narrativa</h3>
+                    <p>¿Tu vídeo cuenta una historia o solo informa? ¿Se siente algo al verlo?</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 04</div>
+                    <h3>Retención</h3>
+                    <p>¿Dónde se va la gente y por qué? Los puntos exactos donde pierdes audiencia.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 05</div>
+                    <h3>Calidad técnica</h3>
+                    <p>Edición, cortes, ritmo, detalles de producción. Lo que se puede mejorar a nivel técnico.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <div class="method-num">Bloque 06</div>
+                    <h3>3 Cambios Concretos</h3>
+                    <p>Lo que yo cambiaría hoy si fuera mi vídeo. Accionable y directo.</p>
+                </div>
+            </div>
+            <p class="method-note">La duración del análisis suele ser de 15-20 minutos, aunque puede variar según la complejidad del vídeo.</p>
+        </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">Cómo funciona</span>
+            <h2>El proceso, paso a paso.</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-line"><div class="process-step-dot">1</div><div class="process-step-connector"></div></div>
+                    <div class="process-step-content">
+                        <h3>Rellenas el formulario</h3>
+                        <p>Me cuentas sobre tu canal, tu situación y qué quieres mejorar.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-line"><div class="process-step-dot">2</div><div class="process-step-connector"></div></div>
+                    <div class="process-step-content">
+                        <h3>Reviso tu solicitud</h3>
+                        <p>Evalúo si encajamos y si puedo aportarte valor real con mi método.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-line"><div class="process-step-dot">3</div><div class="process-step-connector"></div></div>
+                    <div class="process-step-content">
+                        <h3>Confirmamos y empiezo</h3>
+                        <p>Si encajamos, te responderé con los siguientes pasos. Confirmamos y analizo tu vídeo a fondo con mi método de 6 bloques.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-line"><div class="process-step-dot">4</div><div class="process-step-connector"></div></div>
+                    <div class="process-step-content">
+                        <h3>Recibes tu análisis</h3>
+                        <p>Un vídeo privado con el diagnóstico completo, habitualmente en 7-10 días laborables. Si necesitas urgencia, pregúntame por el Análisis Express (24-48h).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="process-note">
+                No acepto todos los proyectos. Mi tiempo está dedicado a mis propios canales y proyectos, así que solo trabajo con perfiles donde sé que puedo aportar algo real.
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">Resultados</span>
+            <h2>La diferencia que marca un buen diagnóstico.</h2>
+
+            <div class="case-card">
+                <div class="case-label">Caso real · Revisiones continuadas (1 año)</div>
+                <p>Un creador profesional que llevaba meses atascado entre 500 y 1.500 visitas por vídeo. Trabajamos juntos durante un año con más de 30 revisiones. Lanzó un nuevo canal, aplicó todo, y su siguiente vídeo superó el <strong>millón de visitas</strong>.</p>
+                <div class="growth-viz">
+                    <div class="growth-before">
+                        <div class="growth-num">~1.000</div>
+                        <div class="growth-sub">visitas/vídeo</div>
+                    </div>
+                    <div class="growth-arrow-line"></div>
+                    <div class="growth-after">
+                        <div class="growth-num">+1.000.000</div>
+                        <div class="growth-sub">en un solo vídeo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-label">Caso real · 2-3 revisiones</div>
+                <p>Creador profesional estancado en 100-200 visitas por vídeo. Tras 2-3 sesiones de revisión y aplicar los cambios, en menos de un mes su siguiente vídeo alcanzó más de <strong>40.000 visitas</strong>.</p>
+                <div class="growth-viz">
+                    <div class="growth-before">
+                        <div class="growth-num">~200</div>
+                        <div class="growth-sub">visitas/vídeo</div>
+                    </div>
+                    <div class="growth-arrow-line"></div>
+                    <div class="growth-after">
+                        <div class="growth-num">+40.000</div>
+                        <div class="growth-sub">siguiente vídeo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-label">Caso real · Una sola consultoría</div>
+                <p>Creador profesional con 1.000-2.000 visitas por vídeo. Tras una única sesión, sus vídeos empezaron a alcanzar una media de <strong>200.000 visitas</strong> por vídeo.</p>
+                <div class="growth-viz">
+                    <div class="growth-before">
+                        <div class="growth-num">~1.500</div>
+                        <div class="growth-sub">visitas/vídeo</div>
+                    </div>
+                    <div class="growth-arrow-line"></div>
+                    <div class="growth-after">
+                        <div class="growth-num">200.000</div>
+                        <div class="growth-sub">visitas de media</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="confidentiality-note">Por confidencialidad, no hago públicos los datos ni los canales de mis clientes.</p>
+            <p class="results-disclaimer">Estos son resultados de creadores profesionales dedicados a tiempo completo. Los resultados varían según el canal, el nicho y el nivel de compromiso. No son garantizables.</p>
+
+            <div class="testimonial-section">
+                <div class="testimonial-quote">
+                    <p class="testimonial-text">Dani en 10 minutos vio fallos que llevaba más de un año cometiendo. La calidad de mis vídeos y visitas aumentó de manera inmediata.</p>
+                    <p class="testimonial-author">— Cliente</p>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-value">10+</div>
+                    <div class="stat-desc">Años en YouTube</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">922.000</div>
+                    <div class="stat-desc">Mi vídeo con más visitas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">9.300.000</div>
+                    <div class="stat-desc">Vídeo editado para cliente</div>
+                </div>
+            </div>
+
+            <div class="bio-section">
+                <div class="bio-layout">
+                    <div class="bio-photo">
+                        <img src="dani08.webp" alt="Dani Bonilla">
+                    </div>
+                    <div class="bio-text">
+                        <p>Soy Dani Bonilla. Llevo más de 10 años especializado en <strong>vídeo de larga duración para YouTube</strong>. En mi canal personal, mi vídeo más visto supera las 920.000 visitas. He editado y producido contenido largo para otros canales con vídeos que han superado los 9 millones de visitas. Contenido en 3 idiomas, mercados en Hispanoamérica, Suiza, Reino Unido y EEUU.</p>
+                        <p>Llevo años asesorando a creadores y empresas a puerta cerrada. Básicamente, me siento delante de tu vídeo y te digo exactamente lo que no funciona.</p>
+                        <a href="https://youtube.com/@danibonilla1" target="_blank" rel="noopener" class="bio-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8z"/><polygon fill="#fff" points="9.75 15.02 15.5 12 9.75 8.98"/></svg>
+                            @danibonilla1
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">¿Es para ti?</span>
+            <h2>Para quién es esto.</h2>
+            <div class="for-whom-grid">
+                <div class="for-col col-yes">
+                    <h3>Esto es para ti si...</h3>
+                    <ul>
+                        <li><span class="ic">✓</span> Tu canal está estancado y no sabes por qué</li>
+                        <li><span class="ic">✓</span> Te va bien pero quieres dar el salto al siguiente nivel</li>
+                        <li><span class="ic">✓</span> Tu empresa invierte en vídeo pero no ve el retorno</li>
+                        <li><span class="ic">✓</span> Eres profesional con canal propio y quieres mejorar</li>
+                        <li><span class="ic">✓</span> Tu agencia necesita un ojo externo para un cliente</li>
+                    </ul>
+                </div>
+                <div class="for-col col-no">
+                    <h3>No es para ti si...</h3>
+                    <ul>
+                        <li><span class="ic">✕</span> Quieres que edite o produzca tus vídeos</li>
+                        <li><span class="ic">✕</span> Aún no tienes contenido publicado</li>
+                        <li><span class="ic">✕</span> Buscas hacks de algoritmo o trucos de SEO</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="section-divider reveal" id="solicitar">
+        <div class="container">
+            <span class="section-label">Solicitar análisis</span>
+            <h2>Cuéntame sobre tu canal.</h2>
+            <p>Rellena el formulario y te respondo personalmente con los siguientes pasos.</p>
+
+            <div class="form-wrapper">
+                <div class="form-progress">
+                    <div class="progress-step"><div class="progress-dot active" id="dot1">1</div><div class="progress-line" id="line1"></div></div>
+                    <div class="progress-step"><div class="progress-dot" id="dot2">2</div><div class="progress-line" id="line2"></div></div>
+                    <div class="progress-step"><div class="progress-dot" id="dot3">3</div></div>
+                </div>
+
+                <form id="contactForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <!-- STEP 1 -->
+                    <div class="form-step active" id="step1">
+                        <div class="step-title">Tus datos</div>
+                        <p class="step-sub">Para poder responderte.</p>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-nav">
+                            <span></span>
+                            <button type="button" class="btn-primary" onclick="nextStep(1)">Siguiente →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step2">
+                        <div class="step-title">Sobre tu canal</div>
+                        <p class="step-sub">Para entender tu situación.</p>
+                        <div class="form-group">
+                            <label for="canal">Link a tu canal de YouTube</label>
+                            <input type="url" id="canal" name="canal" placeholder="https://youtube.com/@tucanal" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="visitas">Visitas mensuales</label>
+                                <select id="visitas" name="visitas_mensuales" required>
+                                    <option value="" disabled selected>Selecciona...</option>
+                                    <option value="<5K">Menos de 5.000</option>
+                                    <option value="5K-20K">5.000 – 20.000</option>
+                                    <option value="20K-100K">20.000 – 100.000</option>
+                                    <option value="100K-500K">100.000 – 500.000</option>
+                                    <option value=">500K">Más de 500.000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inversion">Inversión en producción <span class="opt">/mes</span></label>
+                                <select id="inversion" name="inversion_produccion_mensual">
+                                    <option value="" disabled selected>Selecciona...</option>
+                                    <option value="0-500">0 – 500€</option>
+                                    <option value="500-2000">500 – 2.000€</option>
+                                    <option value="2000-5000">2.000 – 5.000€</option>
+                                    <option value=">5000">Más de 5.000€</option>
+                                    <option value="no-decir">Prefiero no decir</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label for="inversion-ok" style="line-height: 1.5; display: block; margin-bottom: 10px; word-wrap: break-word;">
+                                El presupuesto mínimo es de 500€.<br>¿Estás acorde con esta inversión?
+                            </label>
+                            <select id="inversion-ok" name="inversion_minima_ok" required>
+                                <option value="" disabled selected>Selecciona...</option>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="form-nav">
+                            <button type="button" class="btn-ghost" onclick="prevStep(2)">← Atrás</button>
+                            <button type="button" class="btn-primary" onclick="nextStep(2)">Siguiente →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="form-step" id="step3">
+                        <div class="step-title">¿Qué quieres mejorar?</div>
+                        <p class="step-sub">Cuéntame brevemente y te respondo con los siguientes pasos.</p>
+                        <div class="form-group">
+                            <label for="problema">¿Cuál es el principal reto que ves en tus vídeos?</label>
+                            <textarea id="problema" name="problema_principal" placeholder="Qué no está funcionando, qué has probado, o qué te gustaría mejorar..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="video">Vídeo que quieres que revise <span class="opt">(opcional)</span></label>
+                            <input type="url" id="video" name="video_a_revisar" placeholder="https://youtube.com/watch?v=...">
+                        </div>
+                        <div class="form-group">
+                            <label for="plazo">¿Para cuándo necesitas la revisión? <span class="opt">(opcional)</span></label>
+                            <select id="plazo" name="plazo_deseado">
+                                <option value="" disabled selected>Selecciona...</option>
+                                <option value="urgente">Lo antes posible</option>
+                                <option value="2-semanas">En las próximas 2 semanas</option>
+                                <option value="1-mes">En el próximo mes</option>
+                                <option value="sin-prisa">Sin prisa</option>
+                            </select>
+                        </div>
+                        <div class="turnstile-wrapper">
+                            <div class="cf-turnstile" data-sitekey="TU_SITE_KEY_AQUI" data-theme="light"></div>
+                        </div>
+                        <div class="form-nav">
+                            <button type="button" class="btn-ghost" onclick="prevStep(3)">← Atrás</button>
+                            <button type="submit" class="btn-primary" id="submitBtn">Enviar solicitud</button>
+                        </div>
+                        <p class="form-note">Me reservo el derecho de aceptar o declinar proyectos. Si no encajamos, te lo diré.</p>
+                    </div>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <div class="check-icon">✓</div>
+                    <h3>Solicitud recibida</h3>
+                    <p>Te responderé personalmente si tu perfil encaja.<br>Revisa tu bandeja de entrada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-divider reveal">
+        <div class="container">
+            <span class="section-label">Preguntas frecuentes</span>
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿En qué formato recibo el análisis?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Un vídeo privado donde grabo mi pantalla con tu vídeo mientras lo analizo bloque por bloque. Recibes el diagnóstico completo en vídeo junto con un resumen por escrito.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Habitualmente entre 7 y 10 días laborables desde la confirmación. Si tienes prisa, existe el Análisis Express con entrega en 48-72 horas (consultar disponibilidad y precio).</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Puedo elegir qué vídeo analizar?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Sí. Tú eliges cuál quieres que revise. Si tienes dudas, puedo sugerirte uno tras echar un vistazo a tu canal.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Puedo pedir más de un análisis?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Sí. Si hay buen encaje y te interesa seguir trabajando juntos, estoy abierto. Depende del proyecto y la disponibilidad.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Garantizas resultados?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">No garantizo visitas, nadie puede. Lo que sí garantizo es que vas a entender exactamente qué falla y cómo solucionarlo.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Y si tengo dudas después del análisis?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">El análisis está diseñado para ser claro y accionable sin necesidad de aclaraciones. Si aún así necesitas profundizar o quieres que revise un segundo vídeo, podemos hablar de una sesión de consulta adicional.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">¿Existe un análisis urgente?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-a"><div class="faq-a-inner">Sí. El Análisis Express tiene entrega en 48-72 horas. Menciónalo en tu solicitud o en el campo de plazo y te informo de la disponibilidad y el precio.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer><div class="container"><p>© 2026 Dani Bonilla</p></div></footer>
+
+    <script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        let cur = 1;
+        function updateDots() {
+            for (let i = 1; i <= 3; i++) {
+                const d = document.getElementById('dot' + i), l = document.getElementById('line' + i);
+                d.classList.remove('active', 'done');
+                if (i < cur) d.classList.add('done');
+                else if (i === cur) d.classList.add('active');
+                if (l) l.classList.toggle('done', i < cur);
+            }
+        }
+        function valid(step) {
+            let ok = true;
+            document.getElementById('step' + step).querySelectorAll('[required]').forEach(inp => {
+                if (!inp.value.trim()) { inp.style.borderColor = 'var(--error)'; ok = false; inp.addEventListener('input', () => inp.style.borderColor = '', { once: true }); }
+            });
+            return ok;
+        }
+        function nextStep(from) {
+            if (!valid(from)) return;
+            document.getElementById('step' + from).classList.remove('active');
+            cur = from + 1;
+            document.getElementById('step' + cur).classList.add('active');
+            updateDots();
+            document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function prevStep(from) {
+            document.getElementById('step' + from).classList.remove('active');
+            cur = from - 1;
+            document.getElementById('step' + cur).classList.add('active');
+            updateDots();
+        }
+        function toggleFaq(btn) {
+            const item = btn.parentElement, ans = item.querySelector('.faq-a'), open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
+            if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+        }
+        const form = document.getElementById('contactForm'), btn = document.getElementById('submitBtn');
+        form.addEventListener('submit', async e => {
+            e.preventDefault(); btn.textContent = 'Enviando...'; btn.disabled = true;
+            try {
+                const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                if (r.ok) { form.style.display = 'none'; document.querySelector('.form-progress').style.display = 'none'; document.getElementById('formSuccess').classList.add('active'); }
+                else throw 0;
+            } catch { btn.textContent = 'Error, inténtalo de nuevo'; btn.disabled = false; setTimeout(() => btn.textContent = 'Enviar solicitud', 3000); }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }); }); });
+    </script>
+</body>
+</html>
