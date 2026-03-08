@@ -390,6 +390,7 @@
         .form-nav .btn-primary { margin-left: auto; }
         .form-note { text-align: center; margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); }
         .turnstile-wrapper { display: flex; justify-content: center; margin-bottom: 18px; }
+        .field-error { font-size: 0.78rem; color: var(--error); margin-top: 5px; display: block; }
 
         .form-success { display: none; text-align: center; padding: 56px 20px; }
         .form-success.active { display: block; }
@@ -866,7 +867,19 @@
         function valid(step) {
             let ok = true;
             document.getElementById('step' + step).querySelectorAll('[required]').forEach(inp => {
-                if (!inp.value.trim() || !inp.checkValidity()) { inp.style.borderColor = 'var(--error)'; ok = false; inp.addEventListener('input', () => inp.style.borderColor = '', { once: true }); }
+                const prev = inp.parentElement.querySelector('.field-error');
+                if (prev) prev.remove();
+                if (!inp.value.trim()) {
+                    inp.style.borderColor = 'var(--error)';
+                    inp.insertAdjacentHTML('afterend', '<span class="field-error">Este campo es obligatorio</span>');
+                    ok = false;
+                } else if (!inp.checkValidity()) {
+                    inp.style.borderColor = 'var(--error)';
+                    const msg = inp.type === 'email' ? 'Introduce un email válido' : inp.type === 'url' ? 'Introduce una URL válida' : 'Valor no válido';
+                    inp.insertAdjacentHTML('afterend', '<span class="field-error">' + msg + '</span>');
+                    ok = false;
+                }
+                inp.addEventListener('input', () => { inp.style.borderColor = ''; const e = inp.parentElement.querySelector('.field-error'); if(e) e.remove(); }, { once: true });
             });
             return ok;
         }
