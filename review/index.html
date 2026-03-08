@@ -207,6 +207,27 @@
             font-size: 0.78rem; color: var(--text-muted); font-weight: 500;
             padding-left: 8px; margin: 0;
         }
+        .testimonial-author a {
+            color: var(--yt-red); text-decoration: none; font-weight: 600;
+            transition: opacity 0.2s ease;
+        }
+        .testimonial-author a:hover { opacity: 0.75; }
+        .testimonials-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px;
+        }
+        @media (max-width: 640px) { .testimonials-grid { grid-template-columns: 1fr; } }
+        .testimonials-grid .testimonial-quote {
+            height: 100%; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .case-label .case-source {
+            font-weight: 400; text-transform: none; letter-spacing: 0;
+            color: var(--text-muted); font-size: 0.72rem;
+        }
+        .case-label .case-source a {
+            color: var(--text-muted); text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .case-label .case-source a:hover { color: var(--yt-red); }
 
         /* Process */
         .process-steps { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
@@ -583,7 +604,7 @@
             </div>
 
             <div class="case-card">
-                <div class="case-label">Caso real · 2-3 revisiones</div>
+                <div class="case-label">Caso real · 2-3 revisiones <span class="case-source">— <a href="https://www.youtube.com/@DissolutionSolution" target="_blank" rel="noopener">Luis Solarat</a></span></div>
                 <p>Creador profesional estancado en 100-200 visitas por vídeo. Tras 2-3 sesiones de revisión y aplicar los cambios, en menos de un mes su siguiente vídeo alcanzó más de <strong>40.000 visitas</strong>.</p>
                 <div class="growth-viz">
                     <div class="growth-before">
@@ -596,11 +617,12 @@
                         <div class="growth-sub">siguiente vídeo</div>
                     </div>
                 </div>
+
             </div>
 
             <div class="case-card">
                 <div class="case-label">Caso real · Una sola consultoría</div>
-                <p>Creador profesional con 1.000-2.000 visitas por vídeo. Tras una única sesión, sus vídeos empezaron a alcanzar una media de <strong>200.000 visitas</strong> por vídeo.</p>
+                <p>Creador profesional con 1.000-2.000 visitas por vídeo. Tras una única sesión, sus vídeos empezaron a alcanzar una media de <strong>+200.000 visitas</strong> por vídeo.</p>
                 <div class="growth-viz">
                     <div class="growth-before">
                         <div class="growth-num">~1.500</div>
@@ -617,10 +639,14 @@
             <p class="confidentiality-note">Por confidencialidad, no hago públicos los datos ni los canales de mis clientes.</p>
             <p class="results-disclaimer">Estos son resultados de creadores profesionales dedicados a tiempo completo. Los resultados varían según el canal, el nicho y el nivel de compromiso. No son garantizables.</p>
 
-            <div class="testimonial-section">
+            <div class="testimonials-grid">
                 <div class="testimonial-quote">
-                    <p class="testimonial-text">Dani en 10 minutos vio fallos que llevaba más de un año cometiendo. La calidad de mis vídeos y visitas aumentó de manera inmediata.</p>
-                    <p class="testimonial-author">— Cliente</p>
+                    <p class="testimonial-text">Dani cambió por completo mi perspectiva respecto a YouTube. Después de años trabajando en mi propio canal sin lograr conectar con una audiencia, me ayudó a hacer el cambio necesario en mi contenido para poder encontrar a las personas adecuadas.</p>
+                    <p class="testimonial-author">— <a href="https://www.youtube.com/@DissolutionSolution" target="_blank" rel="noopener">Luís Solarat · Dissolution</a></p>
+                </div>
+                <div class="testimonial-quote">
+                    <p class="testimonial-text">Dani es un crack en la creación de historias y audiovisual. Tener de cerca alguien con esta experiencia en el sector definitivamente ha sido una verdadera ayuda a tener una mejor perspectiva sobre todo en el uso del storytelling.</p>
+                    <p class="testimonial-author">— Cliente anónimo.</p>
                 </div>
             </div>
 
