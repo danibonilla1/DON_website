@@ -905,7 +905,7 @@
         const form = document.getElementById('contactForm'), btn = document.getElementById('submitBtn');
         form.addEventListener('submit', async e => {
             e.preventDefault();
-            if (!valid(1) || !valid(2) || !valid(3)) { btn.textContent = 'Revisa los campos'; btn.disabled = false; setTimeout(() => btn.textContent = 'Enviar solicitud', 3000); return; }
+            if (!valid(cur)) { btn.textContent = 'Revisa los campos'; btn.disabled = false; setTimeout(() => btn.textContent = 'Enviar solicitud', 3000); return; }
             btn.textContent = 'Enviando...'; btn.disabled = true;
             try {
                 const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
